@@ -1,0 +1,65 @@
+App\\Entity\Comment:
+    type: entity
+    table: comment
+    indexes:
+        fk_comment_user1_idx:
+            columns:
+                - user
+        fk_comment_post1_idx:
+            columns:
+                - post
+        fk_comment_comment1_idx:
+            columns:
+                - parrent_comment
+    id:
+        id:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        content:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        deleted:
+            type: boolean
+            nullable: false
+    manyToOne:
+        parrentComment:
+            targetEntity: Comment
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                parrent_comment:
+                    referencedColumnName: id
+            orphanRemoval: false
+        post:
+            targetEntity: Post
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                post:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

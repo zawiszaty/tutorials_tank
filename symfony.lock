@@ -1,4 +1,31 @@
 {
+    "beberlei/assert": {
+        "version": "v3.0.0"
+    },
+    "broadway/broadway": {
+        "version": "2.0.1"
+    },
+    "broadway/broadway-bundle": {
+        "version": "0.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.4",
+            "ref": "a4ded8381c60e594474584599659eef9d931c872"
+        }
+    },
+    "broadway/event-store-dbal": {
+        "version": "0.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.2",
+            "ref": "a8e44b60058a2798f65be93037aa1562f4de60eb"
+        }
+    },
+    "broadway/uuid-generator": {
+        "version": "0.4.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -83,6 +110,24 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "league/tactician": {
+        "version": "v1.0.3"
+    },
+    "league/tactician-bundle": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "222c3d39d38378bc6a9790a0b5baf841ba6679b9"
+        }
+    },
+    "league/tactician-container": {
+        "version": "2.0.0"
+    },
+    "league/tactician-logger": {
+        "version": "v0.10.0"
+    },
     "monolog/monolog": {
         "version": "1.23.0"
     },
@@ -91,6 +136,9 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.1.1"
+    },
+    "paragonie/random_compat": {
+        "version": "v2.0.17"
     },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
@@ -115,6 +163,9 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "ramsey/uuid": {
+        "version": "3.7.3"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",

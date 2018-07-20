@@ -1,11 +1,339 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2803043964c81646689cf763b1a8462",
+    "content-hash": "17f881adfa019b726499603247b74311",
     "packages": [
+        {
+            "name": "beberlei/assert",
+            "version": "v2.9.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beberlei/assert.git",
+                "reference": "ec9e4cf0b63890edce844ee3922e2b95a526e936"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/ec9e4cf0b63890edce844ee3922e2b95a526e936",
+                "reference": "ec9e4cf0b63890edce844ee3922e2b95a526e936",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.1.1",
+                "phpunit/phpunit": "^4.8.35|^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Assert\\": "lib/Assert"
+                },
+                "files": [
+                    "lib/Assert/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Richard Quadling",
+                    "email": "rquadling@gmail.com",
+                    "role": "Collaborator"
+                }
+            ],
+            "description": "Thin assertion library for input validation in business models.",
+            "keywords": [
+                "assert",
+                "assertion",
+                "validation"
+            ],
+            "time": "2018-06-11T17:15:25+00:00"
+        },
+        {
+            "name": "broadway/broadway",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/broadway/broadway.git",
+                "reference": "fda54df3e470b9d33b38faeaffaebd38687b0497"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/broadway/broadway/zipball/fda54df3e470b9d33b38faeaffaebd38687b0497",
+                "reference": "fda54df3e470b9d33b38faeaffaebd38687b0497",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "~2.0",
+                "broadway/uuid-generator": "~0.4.0",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "instaclick/base-test-bundle": "~0.5",
+                "monolog/monolog": "~1.8",
+                "phpunit/phpunit": "^6.0",
+                "ramsey/uuid": "^3.0"
+            },
+            "suggest": {
+                "broadway/broadway-bundle": "Symfony bundle for broadway/broadway",
+                "broadway/broadway-saga": "Saga component for Broadway",
+                "broadway/event-store-dbal": "Event store implementation using doctrine/dbal",
+                "broadway/read-model-elasticsearch": "Elasticsearch read model implementation",
+                "psr/log-implementation": "Implementation for PSR3, LoggerInterface"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Broadway\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "othillo",
+                    "email": "othillo@othillo.nl"
+                },
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                },
+                {
+                    "name": "Qandidate.com",
+                    "homepage": "http://labs.qandidate.com/"
+                },
+                {
+                    "name": "Willem-Jan",
+                    "email": "wjzijderveld@gmail.com"
+                },
+                {
+                    "name": "Emil",
+                    "email": "emil@broekmeulen.com"
+                },
+                {
+                    "name": "Fritsjan",
+                    "email": "fritsjan@qandidate.com"
+                }
+            ],
+            "description": "Infrastructure and testing helpers for creating CQRS and event sourced applications.",
+            "keywords": [
+                "cqrs",
+                "ddd",
+                "domain-driven design",
+                "event sourcing"
+            ],
+            "time": "2017-12-16T10:26:26+00:00"
+        },
+        {
+            "name": "broadway/broadway-bundle",
+            "version": "0.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/broadway/broadway-bundle.git",
+                "reference": "0687d1ff258df0b55ce4add0a9c5a0253572455a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/broadway/broadway-bundle/zipball/0687d1ff258df0b55ce4add0a9c5a0253572455a",
+                "reference": "0687d1ff258df0b55ce4add0a9c5a0253572455a",
+                "shasum": ""
+            },
+            "require": {
+                "broadway/broadway": "^2.0",
+                "php": ">=7.0",
+                "symfony/console": "^2.3||^3.0||^4.0",
+                "symfony/http-kernel": "^2.3||^3.0||^4.0"
+            },
+            "require-dev": {
+                "broadway/broadway-saga": "^0.3",
+                "matthiasnoback/symfony-config-test": "^2.0",
+                "matthiasnoback/symfony-dependency-injection-test": "^1.1",
+                "monolog/monolog": "~1.8",
+                "phpunit/phpunit": "^4.8||^5.0",
+                "symfony/framework-bundle": "^2.3||^3.0||^4.0",
+                "symfony/proxy-manager-bridge": "^2.3||^3.0||^4.0"
+            },
+            "suggest": {
+                "broadway/event-store-dbal": "Event store implementation using doctrine/dbal",
+                "broadway/read-model-elasticsearch": "Elasticsearch read model implementation using elastic/elasticsearch-php",
+                "psr/log-implementation": "Implementation for PSR3, LoggerInterface"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Broadway\\Bundle\\BroadwayBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "othillo",
+                    "email": "othillo@othillo.nl"
+                },
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                },
+                {
+                    "name": "Qandidate.com",
+                    "homepage": "http://labs.qandidate.com/"
+                },
+                {
+                    "name": "Willem-Jan",
+                    "email": "wjzijderveld@gmail.com"
+                },
+                {
+                    "name": "Emil",
+                    "email": "emil@broekmeulen.com"
+                },
+                {
+                    "name": "Fritsjan",
+                    "email": "fritsjan@qandidate.com"
+                }
+            ],
+            "description": "Symfony bundle for broadway/broadway.",
+            "keywords": [
+                "cqrs",
+                "ddd",
+                "domain-driven design",
+                "event sourcing"
+            ],
+            "time": "2017-12-11T16:52:13+00:00"
+        },
+        {
+            "name": "broadway/event-store-dbal",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/broadway/event-store-dbal.git",
+                "reference": "dfc53be9a9c131b12b599fb7c872d111baca3141"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/broadway/event-store-dbal/zipball/dfc53be9a9c131b12b599fb7c872d111baca3141",
+                "reference": "dfc53be9a9c131b12b599fb7c872d111baca3141",
+                "shasum": ""
+            },
+            "require": {
+                "broadway/broadway": "^2.0",
+                "broadway/uuid-generator": "~0.4.0",
+                "doctrine/dbal": "~2.4",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "ext-pdo_sqlite": "*",
+                "phpunit/phpunit": "^6.0",
+                "ramsey/uuid": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Broadway\\EventStore\\Dbal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "othillo",
+                    "email": "othillo@othillo.nl"
+                },
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                },
+                {
+                    "name": "Qandidate.com",
+                    "homepage": "http://labs.qandidate.com/"
+                },
+                {
+                    "name": "Willem-Jan",
+                    "email": "wjzijderveld@gmail.com"
+                },
+                {
+                    "name": "Emil",
+                    "email": "emil@broekmeulen.com"
+                },
+                {
+                    "name": "Fritsjan",
+                    "email": "fritsjan@qandidate.com"
+                }
+            ],
+            "description": "Event store implementation using doctrine/dbal",
+            "time": "2018-01-16T12:09:25+00:00"
+        },
+        {
+            "name": "broadway/uuid-generator",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/broadway/broadway-uuid-generator.git",
+                "reference": "3c5307e62975113d370d18d36c9fcd792b21032a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/broadway/broadway-uuid-generator/zipball/3c5307e62975113d370d18d36c9fcd792b21032a",
+                "reference": "3c5307e62975113d370d18d36c9fcd792b21032a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8",
+                "ramsey/uuid": "^3.0"
+            },
+            "suggest": {
+                "ramsey/uuid": "Allows creating UUIDs"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Broadway\\UuidGenerator\\": "src/Broadway/UuidGenerator"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "UUID generator for broadway/broadway.",
+            "time": "2016-12-14T10:47:27+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.6.0",
@@ -1331,6 +1659,239 @@
             "time": "2014-01-12T16:20:24+00:00"
         },
         {
+            "name": "league/tactician",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/tactician.git",
+                "reference": "d0339e22fd9252fb0fa53102b488d2c514483b8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/tactician/zipball/d0339e22fd9252fb0fa53102b488d2c514483b8a",
+                "reference": "d0339e22fd9252fb0fa53102b488d2c514483b8a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "^4.8.35",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Tactician\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ross Tuck",
+                    "homepage": "http://tactician.thephpleague.com"
+                }
+            ],
+            "description": "A small, flexible command bus. Handy for building service layers.",
+            "keywords": [
+                "command",
+                "command bus",
+                "service layer"
+            ],
+            "time": "2017-11-30T09:17:20+00:00"
+        },
+        {
+            "name": "league/tactician-bundle",
+            "version": "v1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/tactician-bundle.git",
+                "reference": "bf10a37e27e4306bb9de5d909dba36226aa8e3c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/tactician-bundle/zipball/bf10a37e27e4306bb9de5d909dba36226aa8e3c4",
+                "reference": "bf10a37e27e4306bb9de5d909dba36226aa8e3c4",
+                "shasum": ""
+            },
+            "require": {
+                "league/tactician": "^1.0",
+                "league/tactician-container": "^2.0",
+                "league/tactician-logger": "^0.10.0",
+                "php": ">=7.0",
+                "symfony/config": "^2.8|^3.3|^4.0",
+                "symfony/dependency-injection": "^2.8|^3.3|^4.0",
+                "symfony/http-kernel": "^2.8|^3.3|^4.0",
+                "symfony/yaml": "^2.8|^3.3|^4.0"
+            },
+            "require-dev": {
+                "league/tactician-doctrine": "^1.1.1",
+                "matthiasnoback/symfony-config-test": "^3.0",
+                "matthiasnoback/symfony-dependency-injection-test": "^2.1",
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~6.1",
+                "symfony/console": "^2.8|^3.3|^4.0",
+                "symfony/framework-bundle": "^2.8.15|^3.3|^4.0",
+                "symfony/security": "^2.8|^3.3|^4.0",
+                "symfony/security-bundle": "^2.8|^3.3|^4.0",
+                "symfony/validator": "^2.8|^3.3|^4.0"
+            },
+            "suggest": {
+                "league/tactician-doctrine": "For doctrine transaction middleware",
+                "symfony/console": "For debugging command-to-handler routing using the tactician:debug console command",
+                "symfony/security": "For command security middleware",
+                "symfony/validator": "For command validator middleware"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Tactician\\Bundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rafael Dohms",
+                    "homepage": "http://doh.ms"
+                },
+                {
+                    "name": "Xander Smalbil",
+                    "email": "xander@videofunk.nl"
+                },
+                {
+                    "name": "Richard Tuin",
+                    "homepage": "http://www.rtuin.nl/"
+                },
+                {
+                    "name": "Ross Tuck",
+                    "email": "me@rosstuck.com"
+                }
+            ],
+            "description": "Bundle to integrate Tactician with Symfony projects",
+            "keywords": [
+                "bundle",
+                "symfony",
+                "tactician"
+            ],
+            "time": "2018-04-25T07:12:11+00:00"
+        },
+        {
+            "name": "league/tactician-container",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/tactician-container.git",
+                "reference": "d1a5d884e072b8cafbff802d07766076eb2ffcb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/tactician-container/zipball/d1a5d884e072b8cafbff802d07766076eb2ffcb0",
+                "reference": "d1a5d884e072b8cafbff802d07766076eb2ffcb0",
+                "shasum": ""
+            },
+            "require": {
+                "league/tactician": "^1.0",
+                "php": ">=5.5",
+                "psr/container": "^1.0"
+            },
+            "require-dev": {
+                "league/container": "~2.3",
+                "phpunit/phpunit": "~4.3",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\Tactician\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nigel Greenway",
+                    "homepage": "http://futurepixels.co.uk"
+                }
+            ],
+            "description": "Tactician integration for any container implementing PSR-11",
+            "keywords": [
+                "container",
+                "container-interop",
+                "di",
+                "interoperable",
+                "league",
+                "tactician"
+            ],
+            "time": "2017-04-13T06:27:12+00:00"
+        },
+        {
+            "name": "league/tactician-logger",
+            "version": "v0.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/tactician-logger.git",
+                "reference": "3ff9ee04e4cbec100af827f829ed4c7ff7c08442"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/tactician-logger/zipball/3ff9ee04e4cbec100af827f829ed4c7ff7c08442",
+                "reference": "3ff9ee04e4cbec100af827f829ed4c7ff7c08442",
+                "shasum": ""
+            },
+            "require": {
+                "league/tactician": "^1.0",
+                "php": ">=5.5.0",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9",
+                "phpunit/phpunit": "4.*",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\Tactician\\Logger\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ross Tuck"
+                }
+            ],
+            "description": "Adds PSR-3 logging support to the Tactician command bus",
+            "homepage": "https://github.com/thephpleague/tactician-logger",
+            "keywords": [
+                "log",
+                "logging",
+                "tactician"
+            ],
+            "time": "2016-08-23T05:50:38+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.23.0",
             "source": {
@@ -1459,33 +2020,34 @@
         },
         {
             "name": "ocramius/proxy-manager",
-            "version": "2.1.1",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/ProxyManager.git",
-                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7"
+                "reference": "81d53b2878f1d1c40ad27270e64b51798485dfc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
-                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
+                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/81d53b2878f1d1c40ad27270e64b51798485dfc5",
+                "reference": "81d53b2878f1d1c40ad27270e64b51798485dfc5",
                 "shasum": ""
             },
             "require": {
-                "ocramius/package-versions": "^1.1.1",
-                "php": "^7.1.0",
-                "zendframework/zend-code": "^3.1.0"
+                "ocramius/package-versions": "^1.1.3",
+                "php": "^7.2.0",
+                "zendframework/zend-code": "^3.3.0"
             },
             "require-dev": {
-                "couscous/couscous": "^1.5.2",
+                "couscous/couscous": "^1.6.1",
                 "ext-phar": "*",
-                "humbug/humbug": "dev-master@DEV",
-                "nikic/php-parser": "^3.0.4",
+                "humbug/humbug": "1.0.0-RC.0@RC",
+                "nikic/php-parser": "^3.1.1",
+                "padraic/phpunit-accelerator": "dev-master@DEV",
                 "phpbench/phpbench": "^0.12.2",
-                "phpstan/phpstan": "^0.6.4",
-                "phpunit/phpunit": "^5.6.4",
-                "phpunit/phpunit-mock-objects": "^3.4.1",
-                "squizlabs/php_codesniffer": "^2.7.0"
+                "phpstan/phpstan": "dev-master#856eb10a81c1d27c701a83f167dc870fd8f4236a as 0.9.999",
+                "phpstan/phpstan-phpunit": "dev-master#5629c0a1f4a9c417cb1077cf6693ad9753895761",
+                "phpunit/phpunit": "^6.4.3",
+                "squizlabs/php_codesniffer": "^2.9.1"
             },
             "suggest": {
                 "ocramius/generated-hydrator": "To have very fast object to array to object conversion for ghost objects",
@@ -1524,7 +2086,56 @@
                 "proxy pattern",
                 "service proxies"
             ],
-            "time": "2017-05-04T11:12:50+00:00"
+            "time": "2017-11-16T23:22:31+00:00"
+        },
+        {
+            "name": "paragonie/random_compat",
+            "version": "v2.0.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "29af24f25bab834fcbb38ad2a69fa93b867e070d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/29af24f25bab834fcbb38ad2a69fa93b867e070d",
+                "reference": "29af24f25bab834fcbb38ad2a69fa93b867e070d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/random.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "keywords": [
+                "csprng",
+                "polyfill",
+                "pseudorandom",
+                "random"
+            ],
+            "time": "2018-07-04T16:31:37+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -1916,6 +2527,86 @@
                 "simple-cache"
             ],
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "ramsey/uuid",
+            "version": "3.7.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid.git",
+                "reference": "44abcdad877d9a46685a3a4d221e3b2c4b87cb76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/44abcdad877d9a46685a3a4d221e3b2c4b87cb76",
+                "reference": "44abcdad877d9a46685a3a4d221e3b2c4b87cb76",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": "^1.0|^2.0",
+                "php": "^5.4 || ^7.0"
+            },
+            "replace": {
+                "rhumsaa/uuid": "self.version"
+            },
+            "require-dev": {
+                "codeception/aspect-mock": "^1.0 | ~2.0.0",
+                "doctrine/annotations": "~1.2.0",
+                "goaop/framework": "1.0.0-alpha.2 | ^1.0 | ^2.1",
+                "ircmaxell/random-lib": "^1.1",
+                "jakub-onderka/php-parallel-lint": "^0.9.0",
+                "mockery/mockery": "^0.9.9",
+                "moontoast/math": "^1.1",
+                "php-mock/php-mock-phpunit": "^0.3|^1.1",
+                "phpunit/phpunit": "^4.7|^5.0",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides the PECL libsodium extension for use with the SodiumRandomGenerator",
+                "ext-uuid": "Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator",
+                "ircmaxell/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
+                "moontoast/math": "Provides support for converting UUID to 128-bit integer (in string form).",
+                "ramsey/uuid-console": "A console application for generating UUIDs with ramsey/uuid",
+                "ramsey/uuid-doctrine": "Allows the use of Ramsey\\Uuid\\Uuid as Doctrine field type."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ramsey\\Uuid\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Huizendveld",
+                    "email": "marijn.huizendveld@gmail.com"
+                },
+                {
+                    "name": "Thibaud Fabre",
+                    "email": "thibaud@aztech.io"
+                },
+                {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "https://benramsey.com"
+                }
+            ],
+            "description": "Formerly rhumsaa/uuid. A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
+            "homepage": "https://github.com/ramsey/uuid",
+            "keywords": [
+                "guid",
+                "identifier",
+                "uuid"
+            ],
+            "time": "2018-01-20T00:28:24+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",

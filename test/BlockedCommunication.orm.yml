@@ -1,0 +1,42 @@
+App\\Entity\BlockedCommunication:
+    type: entity
+    table: blocked_communication
+    indexes:
+        fk_blocked_communication_user1_idx:
+            columns:
+                - locking
+        fk_blocked_communication_user2_idx:
+            columns:
+                - blocked
+    id:
+        id:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        locking:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                locking:
+                    referencedColumnName: id
+            orphanRemoval: false
+        blocked:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                blocked:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

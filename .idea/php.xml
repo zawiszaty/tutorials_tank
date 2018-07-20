@@ -97,6 +97,17 @@
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/beberlei/assert" />
+      <path value="$PROJECT_DIR$/vendor/broadway/broadway-bundle" />
+      <path value="$PROJECT_DIR$/vendor/broadway/uuid-generator" />
+      <path value="$PROJECT_DIR$/vendor/broadway/broadway" />
+      <path value="$PROJECT_DIR$/vendor/broadway/event-store-dbal" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician-container" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician-bundle" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician-logger" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

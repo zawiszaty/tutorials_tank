@@ -1,0 +1,39 @@
+App\\Entity\Notification:
+    type: entity
+    table: notification
+    indexes:
+        fk_notification_user1_idx:
+            columns:
+                - user
+    id:
+        id:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        content:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        displayed:
+            type: boolean
+            nullable: false
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

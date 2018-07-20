@@ -1,0 +1,64 @@
+App\\Entity\Post:
+    type: entity
+    table: post
+    indexes:
+        fk_post_user_idx:
+            columns:
+                - user
+        fk_post_post_type1_idx:
+            columns:
+                - type
+    id:
+        id:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        content:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        thumbnail:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        deleted:
+            type: boolean
+            nullable: false
+    manyToOne:
+        type:
+            targetEntity: PostType
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                type:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

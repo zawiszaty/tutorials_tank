@@ -14,7 +14,8 @@ services:
       - php
 
   php:
-    image: jorge07/alpine-php:7.1-dev-sf
+    build: ./docker/php
+    container_name: tutorials_tank_php
     working_dir: /var/www/project
     volumes:
       - ./:/var/www/project

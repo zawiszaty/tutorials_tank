@@ -36,8 +36,4 @@ class AggregatRootId
     {
         return $this->aggregatRootId;
     }
-
-    private function __construct()
-    {
-    }
 }

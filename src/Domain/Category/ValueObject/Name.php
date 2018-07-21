@@ -45,11 +45,4 @@ class Name
     {
         return $this->name;
     }
-
-    /**
-     * Name constructor.
-     */
-    private function __construct()
-    {
-    }
 }

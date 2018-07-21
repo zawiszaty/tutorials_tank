@@ -42,7 +42,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/test")
+     * @Route("/category", name="add_category", methods="POST")
      * @param Request $request
      * @return Response
      * @throws \Assert\AssertionFailedException
@@ -56,11 +56,11 @@ class CategoryController extends Controller
         $command = new CreateCategoryCommand($name);
         $this->commandBus->handle($command);
 
-        return new JsonResponse('działa', 200);
+        return new JsonResponse('success', 200);
     }
 
     /**
-     * @Route("/test2")
+     * @Route("/category", name="edit_category", methods="PUT")
      *
      * @param Request $request
      * @return Response
@@ -74,9 +74,9 @@ class CategoryController extends Controller
         Assertion::notNull($id);
         Assertion::notNull($name);
 
-        $command = new ChangeNameCommand($id,$name);
+        $command = new ChangeNameCommand($id, $name);
         $this->commandBus->handle($command);
 
-        return new JsonResponse('działą', 200);
+        return new JsonResponse('success', 200);
     }
 }

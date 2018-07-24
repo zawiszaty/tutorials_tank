@@ -19,6 +19,7 @@ before_install:
   - cp .env.dist .env
 before_script:
   - composer install
+  - docker-compose up -d
   - docker-compose exec php sh -lc 'php bin/console d:d:c'
   - docker-compose exec php sh -lc 'php bin/console d:m:m -n'
 script:

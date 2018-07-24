@@ -4,6 +4,7 @@ namespace App\UI\Rest\Controller;
 
 use App\Application\Command\Category\ChangeName\ChangeNameCommand;
 use App\Application\Command\Category\Create\CreateCategoryCommand;
+use App\Application\Command\Category\Delete\DeleteCategoryCommand;
 use Assert\Assertion;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
@@ -75,6 +76,22 @@ class CategoryController extends Controller
         Assertion::notNull($name);
 
         $command = new ChangeNameCommand($id, $name);
+        $this->commandBus->handle($command);
+
+        return new JsonResponse('success', 200);
+    }
+
+    /**
+     * @Route("/category/{id}", name="delete_category", methods="DELETE")
+     *
+     * @param Request $request
+     * @param string $id
+     * @return Response
+     * @throws \Assert\AssertionFailedException
+     */
+    public function deleteCategoryAction(Request $request, string $id): Response
+    {
+        $command = new DeleteCategoryCommand($id);
         $this->commandBus->handle($command);
 
         return new JsonResponse('success', 200);

@@ -14,6 +14,7 @@
         <settings>
           <configurations>
             <configuration_by_sdk interpreter_id="a973b87a-d5f2-47cd-8192-fbdde1a02249" executable_path="/opt/project/vendor/phpspec/phpspec/bin/phpspec" use_configuration_file="true" />
+            <local_configuration executable_path="$PROJECT_DIR$/vendor/phpspec/phpspec/bin/phpspec" />
           </configurations>
         </settings>
       </tool>

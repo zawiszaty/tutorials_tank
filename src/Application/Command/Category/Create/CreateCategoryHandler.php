@@ -5,6 +5,7 @@ namespace App\Application\Command\Category\Create;
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Category\Factory\CategoryFactory;
 use App\Domain\Category\Repository\CategoryReposiotryInterface;
+use App\Domain\Category\ValueObject\Name;
 
 /**
  * Class CreateCategoryHandler
@@ -32,7 +33,7 @@ class CreateCategoryHandler implements CommandHandlerInterface
      */
     public function __invoke(CreateCategoryCommand $categoryCommand)
     {
-        $aggregateRoot = CategoryFactory::create($categoryCommand->getName());
+        $aggregateRoot = CategoryFactory::create(Name::fromString($categoryCommand->getName()));
         $this->categoryReposiotry->store($aggregateRoot);
     }
 }

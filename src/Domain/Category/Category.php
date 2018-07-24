@@ -3,11 +3,14 @@
 namespace App\Domain\Category;
 
 use App\Domain\Category\Event\CategoryWasCreated;
+use App\Domain\Category\Event\CategoryWasDeleted;
 use App\Domain\Category\Event\NameWasChanged;
 use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\Deleted;
 use Assert\Assertion;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use function Symfony\Component\DependencyInjection\Tests\Fixtures\factoryFunction;
 
 /**
  * Class Category
@@ -26,6 +29,11 @@ class Category extends EventSourcedAggregateRoot
     private $name;
 
     /**
+     * @var Deleted
+     */
+    private $deleted;
+
+    /**
      * @return string
      */
     public function getAggregateRootId(): string
@@ -37,11 +45,12 @@ class Category extends EventSourcedAggregateRoot
      * @param AggregatRootId $id
      * @param Name $name
      * @return Category
+     * @throws \Assert\AssertionFailedException
      */
     public static function create(AggregatRootId $id, Name $name): self
     {
         $category = new self();
-        $category->apply(new CategoryWasCreated($id, $name));
+        $category->apply(new CategoryWasCreated($id, $name, Deleted::fromString(false)));
 
         return $category;
     }
@@ -53,6 +62,7 @@ class Category extends EventSourcedAggregateRoot
     {
         $this->id = $event->getAggregatRootId();
         $this->name = $event->getName();
+        $this->deleted = $event->getDeleted();
     }
 
     /**
@@ -74,6 +84,21 @@ class Category extends EventSourcedAggregateRoot
     }
 
     /**
+     * @throws \Assert\AssertionFailedException
+     */
+    public function delete()
+    {
+//        Assertion::notEq($this->deleted, 1,'This Category is delete');
+
+        $this->apply(new CategoryWasDeleted($this->id));
+    }
+
+    public function applyCategoryWasDeleted()
+    {
+        $this->deleted = 1;
+    }
+
+    /**
      * @return string
      */
     public function getId(): string
@@ -89,4 +114,11 @@ class Category extends EventSourcedAggregateRoot
         return $this->name->toString();
     }
 
+    /**
+     * @return string
+     */
+    public function getDeleted(): string
+    {
+        return $this->deleted->toString();
+    }
 }

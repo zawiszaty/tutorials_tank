@@ -7,6 +7,7 @@ use App\Domain\Common\ValueObject\AggregatRootId;
 
 class CreateCategoryCommand
 {
+
     /**
      * @var Name
      */
@@ -15,13 +16,13 @@ class CreateCategoryCommand
     /**
      * CreateCategoryCommand constructor.
      * @param string $name
+     * @param string $id
      * @throws \Assert\AssertionFailedException
      */
     public function __construct(string $name)
     {
         $this->name = Name::fromString($name);
     }
-
 
     /**
      * @return Name

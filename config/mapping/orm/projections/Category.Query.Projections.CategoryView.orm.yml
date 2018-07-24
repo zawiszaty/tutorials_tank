@@ -16,4 +16,11 @@ App\Infrastructure\Category\Query\Projections\CategoryView:
             length: 45
             options:
                 fixed: false
+        deleted:
+            type: boolean
+            nullable: false
+            length: 1
+            options:
+                fixed: false
+                default: 0
     lifecycleCallbacks: {  }

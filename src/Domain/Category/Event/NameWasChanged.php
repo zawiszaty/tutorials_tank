@@ -4,6 +4,7 @@ namespace App\Domain\Category\Event;
 
 use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\Deleted;
 use Assert\Assertion;
 use Broadway\Serializer\Serializable;
 
@@ -36,10 +37,10 @@ class NameWasChanged implements Serializable
 
     /**
      * @param array $data
-     * @return NameWasChanged|mixed
+     * @return NameWasChanged
      * @throws \Assert\AssertionFailedException
      */
-    public static function deserialize(array $data)
+    public static function deserialize(array $data): self
     {
         Assertion::keyExists($data, 'id');
         Assertion::keyExists($data, 'name');

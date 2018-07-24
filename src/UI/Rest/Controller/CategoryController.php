@@ -54,10 +54,13 @@ class CategoryController extends Controller
 
         Assertion::notNull($name);
 
-        $command = new CreateCategoryCommand($name);
-        $this->commandBus->handle($command);
-
-        return new JsonResponse('success', 200);
+        try {
+            $command = new CreateCategoryCommand($name);
+            $this->commandBus->handle($command);
+        } catch (\Exception $exception)
+        {
+            return new JsonResponse(['id' => $exception->getMessage()], 200);
+        }
     }
 
     /**

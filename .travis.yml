@@ -21,5 +21,5 @@ before_script:
   - composer install
   - docker-compose up -d
 script:
-  - ./vendor/bin/phpspec
+  - ./vendor/bin/phpspec run
 

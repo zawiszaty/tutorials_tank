@@ -30,10 +30,13 @@ class CreateCategoryHandler implements CommandHandlerInterface
     /**
      * @param CreateCategoryCommand $categoryCommand
      * @throws \Assert\AssertionFailedException
+     * @throws \Exception
      */
     public function __invoke(CreateCategoryCommand $categoryCommand)
     {
         $aggregateRoot = CategoryFactory::create(Name::fromString($categoryCommand->getName()));
         $this->categoryReposiotry->store($aggregateRoot);
+
+        throw  new \Exception($aggregateRoot->getId());
     }
 }

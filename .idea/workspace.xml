@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7276749d-51c5-48c8-b3d8-336c4275c1ab" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Application/Command/Category/Delete/DeleteCategoryCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Command/Category/Delete/DeleteCategoryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Common/ValueObject/Deleted.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/Rest/EventSubscriber/ExceptionSubscriber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.dist" beforeDir="false" afterPath="$PROJECT_DIR$/.env.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mapping/orm/projections/Category.Query.Projections.CategoryView.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/mapping/orm/projections/Category.Query.Projections.CategoryView.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bootstrap/FeatureContext.php" beforeDir="false" afterPath="$PROJECT_DIR$/features/bootstrap/FeatureContext.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/category.feature" beforeDir="false" afterPath="$PROJECT_DIR$/features/category.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Category/Factory/CategoryFactorySpec.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Factory/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Factory/CategoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,7 +39,44 @@
     </ExecCommand>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="category.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/features/category.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="13" column="35" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env.dist" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env.dist">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -84,8 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/packages/broadway_event_store_dbal.yaml" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Share/Migrations/Version20180719095311.php" />
         <option value="$PROJECT_DIR$/config/doctrine/Category.orm.yml" />
         <option value="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Share/Migrations/Version20180719122713.php" />
@@ -127,7 +144,6 @@
         <option value="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" />
         <option value="$PROJECT_DIR$/features/bootstrap/FeatureContext.php" />
-        <option value="$PROJECT_DIR$/features/category.feature" />
         <option value="$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php" />
         <option value="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" />
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Factory/CategoryFactorySpec.php" />
@@ -135,6 +151,9 @@
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasCreatedSpec.php" />
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasDeletedSpec.php" />
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Event/NameWasChangedSpec.php" />
+        <option value="$PROJECT_DIR$/features/category.feature" />
+        <option value="$PROJECT_DIR$/.env.dist" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -302,6 +321,11 @@
               <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -403,7 +427,7 @@
       <workItem from="1532324950859" duration="3369000" />
       <workItem from="1532336163760" duration="2705000" />
       <workItem from="1532350776691" duration="2172000" />
-      <workItem from="1532411772834" duration="264000" />
+      <workItem from="1532411772834" duration="1314000" />
     </task>
     <servers />
   </component>
@@ -440,7 +464,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39827000" />
+    <option name="totallyTimeSpent" value="40877000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -453,6 +477,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29317698" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4989339" weight="0.3297062" />
@@ -463,7 +488,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32861805" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.33623505" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968017" weight="0.2937976" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968017" visible="true" weight="0.2934322" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -503,23 +528,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/UI/Rest/EventSubscriber/JsonBodyParserSubscriber.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/behat.yml.dist">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-46">
@@ -833,17 +841,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/features/category.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasCreatedSpec.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/category.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="35" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
         </state>
       </provider>
     </entry>

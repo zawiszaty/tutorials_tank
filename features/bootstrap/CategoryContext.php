@@ -1,11 +1,26 @@
 <?php
 
 use Behat\Behat\Context\Context;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class CategoryContext implements Context
 {
     protected $request;
     protected $id;
+    protected $kernel;
+    protected static $container;
+
+    /**
+     * FeatureContext constructor.
+     * @param KernelInterface $kernel
+     */
+    public function __construct(KernelInterface $kernel)
+    {
+        $this->kernel = $kernel;
+        self::$container = $this->kernel->getContainer();
+    }
 
     /**
      * @When I add Category to databse
@@ -39,7 +54,19 @@ class CategoryContext implements Context
      */
     public function theCategoryWasBeUpdated()
     {
-
+        $entityManager = self::$container->get('doctrine')->getManager();
+        $query = $entityManager->createQuery(
+            'SELECT p
+             FROM App\Infrastructure\Category\Query\Projections\CategoryView p
+             WHERE p.id = :price
+             '
+        )->setParameter('price', $this->id);
+        $category = $query->execute();
+        $serializer = JMS\Serializer\SerializerBuilder::create()->build();
+        $jsonContent = json_decode($serializer->serialize($category, 'json'), true);
+        if ($jsonContent[0]['name'] != 'King2') {
+            throw new Exception();
+        }
     }
 
     /**
@@ -60,6 +87,18 @@ class CategoryContext implements Context
      */
     public function theCategoryWasBeDeleted()
     {
-        throw new \Behat\Behat\Tester\Exception\PendingException();
+        $entityManager = self::$container->get('doctrine')->getManager();
+        $query = $entityManager->createQuery(
+            'SELECT p
+             FROM App\Infrastructure\Category\Query\Projections\CategoryView p
+             WHERE p.id = :price
+             '
+        )->setParameter('price', $this->id);
+        $category = $query->execute();
+        $serializer = JMS\Serializer\SerializerBuilder::create()->build();
+        $jsonContent = json_decode($serializer->serialize($category, 'json'), true);
+        if ($jsonContent[0]['deleted'] != 1) {
+            throw new Exception();
+        }
     }
 }

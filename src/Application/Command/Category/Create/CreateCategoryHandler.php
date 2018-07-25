@@ -3,6 +3,7 @@
 namespace App\Application\Command\Category\Create;
 
 use App\Application\Command\CommandHandlerInterface;
+use App\Domain\Category\Exception\CategoryCreateException;
 use App\Domain\Category\Factory\CategoryFactory;
 use App\Domain\Category\Repository\CategoryReposiotryInterface;
 use App\Domain\Category\ValueObject\Name;
@@ -37,6 +38,6 @@ class CreateCategoryHandler implements CommandHandlerInterface
         $aggregateRoot = CategoryFactory::create(Name::fromString($categoryCommand->getName()));
         $this->categoryReposiotry->store($aggregateRoot);
 
-        throw  new \Exception($aggregateRoot->getId());
+        throw new CategoryCreateException($aggregateRoot->getId());
     }
 }

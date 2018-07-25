@@ -8,14 +8,24 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 
+/**
+ * Class MysqlRepository
+ * @package App\Infrastructure\Share\Query\Repository
+ */
 abstract class MysqlRepository
 {
+    /**
+     * @param $model
+     */
     public function register($model): void
     {
         $this->entityManager->persist($model);
         $this->apply();
     }
 
+    /**
+     *
+     */
     public function apply(): void
     {
         $this->entityManager->flush();
@@ -43,6 +53,9 @@ abstract class MysqlRepository
         return $model;
     }
 
+    /**
+     * @param string $model
+     */
     private function setRepository(string $model): void
     {
         /** @var EntityRepository $objectRepository */
@@ -50,6 +63,10 @@ abstract class MysqlRepository
         $this->repository = $objectRepository;
     }
 
+    /**
+     * MysqlRepository constructor.
+     * @param EntityManagerInterface $entityManager
+     */
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;

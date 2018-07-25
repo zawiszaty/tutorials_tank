@@ -60,9 +60,9 @@ class CategoryView implements CategoryViewInterface
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
-            'name' => $this->name->toString(),
-            'deleted' => $this->deleted->toBool()
+            'id' => $this->id,
+            'name' => $this->name,
+            'deleted' => $this->deleted
         ];
     }
 
@@ -71,7 +71,7 @@ class CategoryView implements CategoryViewInterface
      */
     public function getId(): string
     {
-        return $this->id->toString();
+        return $this->id;
     }
 
     /**
@@ -79,7 +79,7 @@ class CategoryView implements CategoryViewInterface
      */
     public function getName(): string
     {
-        return $this->name->toString();
+        return $this->name;
     }
 
     /**
@@ -87,7 +87,7 @@ class CategoryView implements CategoryViewInterface
      */
     public function getDeleted(): bool
     {
-        return $this->deleted->toBool();
+        return $this->deleted;
     }
 
     /**

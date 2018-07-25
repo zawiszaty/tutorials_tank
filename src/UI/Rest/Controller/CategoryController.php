@@ -5,6 +5,10 @@ namespace App\UI\Rest\Controller;
 use App\Application\Command\Category\ChangeName\ChangeNameCommand;
 use App\Application\Command\Category\Create\CreateCategoryCommand;
 use App\Application\Command\Category\Delete\DeleteCategoryCommand;
+use App\Application\Query\Category\GetAll\GetAllCommand;
+use App\Application\Query\Category\GetSingle\GetSingleCommand;
+use App\Domain\Category\Exception\CategoryCreateException;
+use App\Domain\Common\ValueObject\AggregatRootId;
 use Assert\Assertion;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
@@ -57,7 +61,7 @@ class CategoryController extends Controller
         try {
             $command = new CreateCategoryCommand($name);
             $this->commandBus->handle($command);
-        } catch (\Exception $exception)
+        } catch (CategoryCreateException $exception)
         {
             return new JsonResponse(['id' => $exception->getMessage()], 200);
         }
@@ -98,5 +102,36 @@ class CategoryController extends Controller
         $this->commandBus->handle($command);
 
         return new JsonResponse('success', 200);
+    }
+
+    /**
+     * @Route("/category", name="get_all_category")
+     *
+     * @return Response
+     */
+    public function getAllCategoryAction(): Response
+    {
+        $command = new GetAllCommand();
+        $model = $this->queryBus->handle($command);
+
+        return new JsonResponse($model, 200);
+    }
+
+    /**
+     * @Route("/category/{id}", name="get_single_category")
+     *
+     * @param Request $request
+     * @param string $id
+     * @return Response
+     * @throws \Assert\AssertionFailedException
+     */
+    public function getSingleAction(Request $request, string $id): Response
+    {
+        $aggregatRootId = AggregatRootId::fromString($id);
+
+        $command = new GetSingleCommand($aggregatRootId);
+        $model = $this->queryBus->handle($command);
+
+        return new JsonResponse($model, 200);
     }
 }

@@ -61,8 +61,7 @@ class CategoryController extends Controller
         try {
             $command = new CreateCategoryCommand($name);
             $this->commandBus->handle($command);
-        } catch (CategoryCreateException $exception)
-        {
+        } catch (CategoryCreateException $exception) {
             return new JsonResponse(['id' => $exception->getMessage()], 200);
         }
     }

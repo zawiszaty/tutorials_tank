@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Category\Query\Mysql;
 
+use App\Application\Query\Collection;
 use App\Application\Query\Item;
 use App\Domain\Common\ValueObject\AggregatRootId;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
@@ -32,9 +33,17 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
             ->createQueryBuilder('category')
             ->where('category.deleted = :deleted')
             ->setParameter('deleted', false);
-        $model = $qb->getQuery();
+        $model = $qb->getQuery()->execute();
 
-        return $model;
+        $qbCount =  $this->repository
+            ->createQueryBuilder('category')
+            ->select('count(category.id)')
+            ->where('category.deleted = :deleted')
+            ->setParameter('deleted', false);
+        $count = $qbCount->getQuery()->execute();
+        $collection = new Collection($model, $count[0]['1']);
+
+        return $collection;
     }
 
     /**

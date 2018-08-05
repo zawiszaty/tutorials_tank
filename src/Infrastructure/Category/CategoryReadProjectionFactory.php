@@ -7,10 +7,16 @@ use App\Domain\Category\Event\CategoryWasDeleted;
 use App\Domain\Category\Event\NameWasChanged;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
+use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use Broadway\ReadModel\Projector;
 
 class CategoryReadProjectionFactory extends Projector
 {
+    /**
+     * @var CategoryRepositoryElastic
+     */
+    private $categoryRepositoryElastic;
+
     /**
      * @param CategoryWasCreated $categoryWasCreated
      * @throws \Assert\AssertionFailedException
@@ -19,6 +25,7 @@ class CategoryReadProjectionFactory extends Projector
     {
         $readModel = CategoryView::fromSerializable($categoryWasCreated);
         $this->repository->add($readModel);
+        $this->categoryRepositoryElastic->store($categoryWasCreated);
     }
 
     public function applyNameWasChanged(NameWasChanged $nameWasChanged)
@@ -38,9 +45,10 @@ class CategoryReadProjectionFactory extends Projector
         $this->repository->apply();
     }
 
-    public function __construct(MysqlCategoryReadModelRepository $repository)
+    public function __construct(MysqlCategoryReadModelRepository $repository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {
         $this->repository = $repository;
+        $this->categoryRepositoryElastic = $categoryRepositoryElastic;
     }
 
     private $repository;

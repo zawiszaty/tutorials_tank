@@ -5,6 +5,11 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    elastic:
+        hosts:
+          - '%env(ELASTIC_HOST)%'
+
+    env(ELASTIC_HOST): 'elasticsearch:9200'
 
 services:
 
@@ -13,6 +18,7 @@ services:
         autoconfigure: true
         public: false
         bind:
+          $elasticConfig: '%elastic%'
 
           $queryBus: '@tactician.commandbus.query'
           $commandBus: '@tactician.commandbus.command'

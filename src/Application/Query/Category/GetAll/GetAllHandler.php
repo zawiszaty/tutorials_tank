@@ -26,6 +26,7 @@ class GetAllHandler implements QueryHandlerInterface
     /**
      * GetAllHandler constructor.
      * @param MysqlCategoryReadModelRepository $modelRepository
+     * @param CategoryRepositoryElastic $elasticRepository
      */
     public function __construct(MysqlCategoryReadModelRepository $modelRepository, CategoryRepositoryElastic $elasticRepository)
     {
@@ -39,9 +40,7 @@ class GetAllHandler implements QueryHandlerInterface
      */
     public function __invoke(GetAllCommand $command)
     {
-//        $collection = $this->modelRepository->getAll();
         $data = $this->elasticRepository->page();
-//        $collection = new Collection($data);
 
         return $data;
     }

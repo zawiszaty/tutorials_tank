@@ -2,14 +2,15 @@
 
 namespace App\Infrastructure\Category\Repository;
 
-use App\Domain\Category\Event\CategoryWasCreated;
+use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Share\Query\Repository\ElasticRepository;
+use Broadway\Serializer\Serializable;
 
 class CategoryRepositoryElastic extends ElasticRepository
 {
     private const INDEX = 'category';
 
-    public function store(CategoryWasCreated $message): void
+    public function store(CategoryView $message): void
     {
         $this->add($message->serialize());
     }

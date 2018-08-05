@@ -63,11 +63,18 @@ abstract class ElasticRepository
         $response = $this->client->search($query);
 
         return [
-            'data'  => array_map(function (array $item) {
+            'data' => array_map(function (array $item) {
                 return $item['_source'];
             }, $response['hits']['hits']),
             'total' => $response['hits']['total'],
         ];
+    }
+
+    public function deleteRow(string $id): void
+    {
+        $query['index'] = $query['type'] = $this->index;
+        $query['id'] = $id;
+        $this->client->delete($query);
     }
 
     public function __construct(array $config, string $index)

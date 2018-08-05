@@ -60,8 +60,8 @@ class CategoryView implements CategoryViewInterface
     public function serialize(): array
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
+            'id' => $this->id->toString(),
+            'name' => $this->name->toString(),
             'deleted' => $this->deleted
         ];
     }

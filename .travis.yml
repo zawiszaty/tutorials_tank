@@ -8,7 +8,7 @@ services:
 
 language: php
 php:
-  - '7.2'
+  - 7.2.7
 
 before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
@@ -18,6 +18,7 @@ before_install:
   - docker -v
   - cp .env.dist .env
 before_script:
+  - composer self-update --rollback
   - composer install
   - docker-compose up -d
 script:

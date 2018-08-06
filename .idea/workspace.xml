@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7276749d-51c5-48c8-b3d8-336c4275c1ab" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/kibana/config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Query/Collection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tutorials-tank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tutorials-tank.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/broadway.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/broadway.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/category.feature" beforeDir="false" afterPath="$PROJECT_DIR$/features/category.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Mysql/MysqlCategoryReadModelRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Mysql/MysqlCategoryReadModelRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,59 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GetAllHandler.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php">
+      <file leaf-file-name="category.feature" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/features/category.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ElasticRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1058">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoryRepositoryElastic.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Collection.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Query/Collection.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MysqlCategoryReadModelRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Query/Mysql/MysqlCategoryReadModelRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-              <folding>
-                <element signature="e#59#96#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="379">
+              <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -167,12 +110,10 @@
         <option value="$PROJECT_DIR$/features/bootstrap/RestContext.php" />
         <option value="$PROJECT_DIR$/features/bootstrap/FeatureContext.php" />
         <option value="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" />
-        <option value="$PROJECT_DIR$/features/category.feature" />
         <option value="$PROJECT_DIR$/src/Application/Query/GetAllCategory.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/MysqlRepository.php" />
         <option value="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAll.php" />
         <option value="$PROJECT_DIR$/src/Application/Query/Category/GetSingle/GetSingleCommand.php" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" />
         <option value="$PROJECT_DIR$/src/Application/Query/Category/GetSingle/GetSingleHandler.php" />
         <option value="$PROJECT_DIR$/src/Domain/Category/Exception/CategoryCreateException.php" />
         <option value="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryHandler.php" />
@@ -181,16 +122,18 @@
         <option value="$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Category/Query/Mysql/MysqlCategoryReadModelRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Category/Query/ElasticSearch/ElasticRepository.php" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php" />
         <option value="$PROJECT_DIR$/config/packages/broadway_read_model_elasticsearch.yaml" />
         <option value="$PROJECT_DIR$/config/packages/broadway.yaml" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" />
         <option value="$PROJECT_DIR$/src/Application/Query/Collection.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php" />
         <option value="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php" />
+        <option value="$PROJECT_DIR$/features/category.feature" />
       </list>
     </option>
   </component>
@@ -370,119 +313,7 @@
             <path>
               <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="docker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="docker" type="462c0819:PsiDirectoryNode" />
-              <item name="kibana" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-              <item name="GetAll" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-              <item name="Mysql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-              <item name="Projections" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Share" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Share" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Share" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -492,7 +323,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="behatch&#9;FILE&#9;file://C:/projects/tutorials-tank/vendor/behatch" />
+    <property name="SearchEverywhereHistoryKey" value="Cate&#9;FILE&#9;file://C:/projects/tutorials-tank/src/Infrastructure/Category/Query/Projections/CategoryView.php&#10;CategoryC&#9;FILE&#9;file://C:/projects/tutorials-tank/src/UI/Rest/Controller/CategoryController.php&#10;Elastic&#9;FILE&#9;file://C:/projects/tutorials-tank/src/Infrastructure/Share/Query/Repository/ElasticRepository.php&#10;behatch&#9;FILE&#9;file://C:/projects/tutorials-tank/vendor/behatch" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -596,6 +427,8 @@
       <workItem from="1532669558184" duration="2362000" />
       <workItem from="1532859387524" duration="1885000" />
       <workItem from="1532887728214" duration="964000" />
+      <workItem from="1533464253677" duration="2073000" />
+      <workItem from="1533484307975" duration="601000" />
     </task>
     <servers />
   </component>
@@ -632,7 +465,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58990000" />
+    <option name="totallyTimeSpent" value="61664000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -645,8 +478,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31876332" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32622603" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4989339" weight="0.3297062" />
       <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.5026652" side_tool="true" weight="0.3119469" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" weight="0.32861805" />
@@ -655,7 +489,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32861805" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.33623505" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968017" visible="true" weight="0.28707626" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968017" visible="true" weight="0.28495762" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -695,70 +529,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasCreatedSpec.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/behatch/contexts/src/Context/BaseContext.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/behatch/contexts/src/Context/RestContext.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="20" selection-end-line="263" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/behatch/contexts/src/Context/JsonContext.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/log/test.log">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-124" />
-      </provider>
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="1071">
-          <caret line="1301" column="47" selection-start-line="1301" selection-start-column="47" selection-end-line="1301" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/features/bootstrap/RestContext.php" />
     <entry file="file://$PROJECT_DIR$/config/packages/nelmio_cors.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/category.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -840,24 +615,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Query/Category/GetSingle/GetSingleHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Query/Item.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
           <caret line="29" column="59" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2277">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
         </state>
       </provider>
     </entry>
@@ -872,16 +633,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/broadway/read-model-elasticsearch/src/ElasticSearchRepository.php" />
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="87" column="38" selection-start-line="87" selection-start-column="38" selection-end-line="87" selection-end-column="38" />
-          <folding>
-            <element signature="e#65#129#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/broadway/read-model-elasticsearch/src/ElasticSearchRepositoryFactory.php" />
     <entry file="file://$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Client.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -910,13 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/MysqlRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1188">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ClientBuilder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2">
@@ -928,13 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1169">
           <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -952,28 +689,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="27" column="69" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
-          <folding>
-            <element signature="e#47#96#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Query/QueryHandlerInterface.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Query/Mysql/MysqlCategoryReadModelRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-          <folding>
-            <element signature="e#59#96#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
@@ -984,29 +701,146 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Query/Collection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="322">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+        <state relative-caret-position="1725">
+          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-703" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1380">
+          <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+          <folding>
+            <element signature="e#65#129#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/AbstractQuery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="751" column="20" selection-start-line="751" selection-start-column="20" selection-end-line="751" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding>
+            <element signature="e#58#121#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/MysqlRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding>
+            <element signature="e#45#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2017">
+          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <element signature="e#39#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Repository/CategoryReposiotryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Command/Category/ChangeName/ChangeNameHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Query/Mysql/MysqlCategoryReadModelRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding>
+            <element signature="e#59#96#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1288">
+          <caret line="56" column="7" lean-forward="true" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+          <folding>
+            <element signature="e#47#96#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+        <state relative-caret-position="379">
+          <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Query/Category/GetSingle/GetSingleHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="36" column="22" lean-forward="true" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/category.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
         </state>
       </provider>
     </entry>

@@ -10,6 +10,10 @@ use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use Broadway\ReadModel\Projector;
 
+/**
+ * Class CategoryReadProjectionFactory
+ * @package App\Infrastructure\Category
+ */
 class CategoryReadProjectionFactory extends Projector
 {
     /**
@@ -25,13 +29,17 @@ class CategoryReadProjectionFactory extends Projector
     {
         $readModel = CategoryView::fromSerializable($categoryWasCreated);
         $this->repository->add($readModel);
-        $this->categoryRepositoryElastic->store($categoryWasCreated);
+        $this->categoryRepositoryElastic->store($readModel);
     }
 
+    /**
+     * @param NameWasChanged $nameWasChanged
+     */
     public function applyNameWasChanged(NameWasChanged $nameWasChanged)
     {
         $readModel = $this->repository->oneByUuid($nameWasChanged->getId());
         $readModel->changeName($nameWasChanged->getName());
+        $this->categoryRepositoryElastic->store($nameWasChanged);
         $this->repository->apply();
     }
 
@@ -42,14 +50,23 @@ class CategoryReadProjectionFactory extends Projector
     {
         $readModel = $this->repository->oneByUuid($categoryWasDeleted->getId());
         $readModel->delete();
+        $this->categoryRepositoryElastic->deleteRow($categoryWasDeleted->getId());
         $this->repository->apply();
     }
 
+    /**
+     * CategoryReadProjectionFactory constructor.
+     * @param MysqlCategoryReadModelRepository $repository
+     * @param CategoryRepositoryElastic $categoryRepositoryElastic
+     */
     public function __construct(MysqlCategoryReadModelRepository $repository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {
         $this->repository = $repository;
         $this->categoryRepositoryElastic = $categoryRepositoryElastic;
     }
 
+    /**
+     * @var MysqlCategoryReadModelRepository
+     */
     private $repository;
 }

@@ -6,36 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7276749d-51c5-48c8-b3d8-336c4275c1ab" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasCreatedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasCreatedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasDeletedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasDeletedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Category/Event/NameWasChangedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/spec/App/Domain/Category/Event/NameWasChangedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Common/ValueObject/AggregatRootIdSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/spec/App/Domain/Common/ValueObject/AggregatRootIdSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/ChangeName/ChangeNameCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Command/Category/ChangeName/ChangeNameCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/ChangeName/ChangeNameHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Command/Category/ChangeName/ChangeNameHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/Delete/DeleteCategoryCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Command/Category/Delete/DeleteCategoryCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/Delete/DeleteCategoryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Command/Category/Delete/DeleteCategoryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Category/GetSingle/GetSingleCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Query/Category/GetSingle/GetSingleCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Exception/CategoryCreateException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Exception/CategoryCreateException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Factory/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Factory/CategoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Query/Projections/CategoryViewInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Query/Projections/CategoryViewInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Repository/CategoryReposiotryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Repository/CategoryRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Common/ValueObject/AggregatRootId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Common/ValueObject/AggregateRootId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Common/ValueObject/Deleted.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Common/ValueObject/Deleted.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Mysql/MysqlCategoryReadModelRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Mysql/MysqlCategoryReadModelRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Common/ValueObject/AggregatRootIdSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/spec/App/Domain/Common/ValueObject/AggregateRootIdSpec.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,25 +52,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="php" value="42" />
+          <entry key="php" value="43" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="42" />
+          <entry key="PHP" value="43" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="90" />
+          <entry key="dummy" value="1" />
+          <entry key="php" value="91" />
           <entry key="yml" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="90" />
+          <entry key="PHP" value="91" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="YAML" value="16" />
         </counts>
       </usages-collector>
@@ -108,10 +81,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php">
+        <entry file="file://$PROJECT_DIR$/spec/App/Domain/Common/ValueObject/AggregateRootIdSpec.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+            <state relative-caret-position="437">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -145,7 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasCreatedSpec.php" />
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasDeletedSpec.php" />
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Event/NameWasChangedSpec.php" />
         <option value="$PROJECT_DIR$/.env.dist" />
@@ -196,6 +168,7 @@
         <option value="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" />
         <option value="$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php" />
+        <option value="$PROJECT_DIR$/spec/App/Domain/Common/ValueObject/AggregatRootIdSpec.php" />
       </list>
     </option>
   </component>
@@ -376,6 +349,58 @@
             <path>
               <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="spec" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="spec" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="spec" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="spec" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Category" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="spec" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Category" type="462c0819:PsiDirectoryNode" />
+              <item name="ValueObject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="spec" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="spec" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Common" type="462c0819:PsiDirectoryNode" />
+              <item name="ValueObject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -416,18 +441,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\tutorials-tank\src\Application\Query" />
+      <recent name="C:\projects\tutorials-tank\src\Infrastructure" />
+      <recent name="C:\projects\tutorials-tank\test" />
+      <recent name="C:\projects\tutorials-tank\src\Infrastructure\Share" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\projects\tutorials-tank\src\Infrastructure\Share\Query\Repository" />
       <recent name="C:\projects\tutorials-tank\docker" />
       <recent name="C:\projects\tutorials-tank\src\Infrastructure\Category\Query" />
       <recent name="C:\projects\tutorials-tank\src\UI\Rest\EventSubscriber" />
       <recent name="C:\projects\tutorials-tank\config\packages\test" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\projects\tutorials-tank\src\Application\Query" />
-      <recent name="C:\projects\tutorials-tank\src\Infrastructure" />
-      <recent name="C:\projects\tutorials-tank\test" />
-      <recent name="C:\projects\tutorials-tank\src\Infrastructure\Share" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -525,7 +550,7 @@
       <workItem from="1534070863969" duration="983000" />
       <workItem from="1534078731251" duration="21000" />
       <workItem from="1534078848925" duration="1891000" />
-      <workItem from="1534088951935" duration="742000" />
+      <workItem from="1534088951935" duration="1120000" />
     </task>
     <servers />
   </component>
@@ -562,7 +587,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67973000" />
+    <option name="totallyTimeSpent" value="68351000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -589,7 +614,7 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4989339" weight="0.3297062" />
       <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.50319827" side_tool="true" weight="0.28170478" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4968017" weight="0.28170478" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4968017" visible="true" weight="0.28170478" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32861805" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.3232534" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -626,7 +651,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/broadway/read-model-elasticsearch/src/ElasticSearchRepository.php" />
     <entry file="file://$PROJECT_DIR$/vendor/broadway/read-model-elasticsearch/src/ElasticSearchRepositoryFactory.php" />
     <entry file="file://$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Client.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -962,8 +986,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/Rest/Controller/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="-1749">
           <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/App/Domain/Common/ValueObject/AggregateRootIdSpec.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>

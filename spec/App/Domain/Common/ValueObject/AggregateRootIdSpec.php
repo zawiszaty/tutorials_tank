@@ -6,7 +6,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class AggregatRootIdSpec extends ObjectBehavior
+class AggregateRootIdSpec extends ObjectBehavior
 {
     function it_create_from_string()
     {

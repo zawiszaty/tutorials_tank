@@ -4,12 +4,29 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Share\Query\Repository;
 
+use App\Domain\Common\Event\AbstractEvent;
 use Assert\Assertion;
 use Elasticsearch\Client;
 use Elasticsearch\ClientBuilder;
 
+/**
+ * Class ElasticRepository
+ * @package App\Infrastructure\Share\Query\Repository
+ */
 abstract class ElasticRepository
 {
+    /**
+     * @param AbstractEvent $message
+     */
+    public function store(AbstractEvent $message): void
+    {
+        $this->add($message->serialize());
+    }
+
+    /**
+     * @param array $query
+     * @return array
+     */
     public function search(array $query): array
     {
         $finalQuery = [];
@@ -20,6 +37,9 @@ abstract class ElasticRepository
         return $this->client->search($finalQuery);
     }
 
+    /**
+     *
+     */
     public function refresh(): void
     {
         if ($this->client->indices()->exists(['index' => $this->index])) {
@@ -27,6 +47,9 @@ abstract class ElasticRepository
         }
     }
 
+    /**
+     *
+     */
     public function delete(): void
     {
         if ($this->client->indices()->exists(['index' => $this->index])) {
@@ -34,6 +57,9 @@ abstract class ElasticRepository
         }
     }
 
+    /**
+     *
+     */
     public function boot(): void
     {
         if (!$this->client->indices()->exists(['index' => $this->index])) {
@@ -41,6 +67,10 @@ abstract class ElasticRepository
         }
     }
 
+    /**
+     * @param array $document
+     * @return array
+     */
     protected function add(array $document): array
     {
         $query['index'] = $query['type'] = $this->index;
@@ -50,6 +80,11 @@ abstract class ElasticRepository
         return $this->client->index($query);
     }
 
+    /**
+     * @param int $page
+     * @param int $limit
+     * @return array
+     */
     public function page(int $page = 1, int $limit = 50): array
     {
         Assertion::greaterThan($page, 0, 'Pagination need to be > 0');
@@ -70,6 +105,9 @@ abstract class ElasticRepository
         ];
     }
 
+    /**
+     * @param string $id
+     */
     public function deleteRow(string $id): void
     {
         $query['index'] = $query['type'] = $this->index;
@@ -77,10 +115,30 @@ abstract class ElasticRepository
         $this->client->delete($query);
     }
 
+    /**
+     * ElasticRepository constructor.
+     * @param array $config
+     * @param string $index
+     */
     public function __construct(array $config, string $index)
     {
         $this->client = ClientBuilder::fromConfig($config, true);
         $this->index = $index;
+    }
+
+    /**
+     * @param string $id
+     * @return array
+     */
+    public function get(string $id)
+    {
+        $params = [
+            'index' => $this->index,
+            'type' => $this->index,
+            'id' => $id
+        ];
+
+       return $this->client->get($params);
     }
 
     /** @var string */

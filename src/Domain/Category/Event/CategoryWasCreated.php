@@ -3,16 +3,16 @@
 namespace App\Domain\Category\Event;
 
 use App\Domain\Category\ValueObject\Name;
+use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregatRootId;
 use App\Domain\Common\ValueObject\Deleted;
 use Assert\Assertion;
-use Broadway\Serializer\Serializable;
 
 /**
  * Class CategoryWasCreated
  * @package App\Domain\Category\Event
  */
-class CategoryWasCreated implements Serializable
+class CategoryWasCreated extends AbstractEvent
 {
     /**
      * @param array $data
@@ -38,7 +38,7 @@ class CategoryWasCreated implements Serializable
     public function serialize(): array
     {
         return [
-            'id' => $this->aggregatRootId->toString(),
+            'id' => $this->id->toString(),
             'name' => $this->name->toString(),
             'deleted' => $this->deleted->toBool(),
         ];
@@ -46,21 +46,16 @@ class CategoryWasCreated implements Serializable
 
     /**
      * CategoryWasCreated constructor.
-     * @param AggregatRootId $aggregatRootId
+     * @param AggregatRootId $id
      * @param Name $name
      * @param Deleted $deleted
      */
-    public function __construct(AggregatRootId $aggregatRootId, Name $name, Deleted $deleted)
+    public function __construct(AggregatRootId $id, Name $name, Deleted $deleted)
     {
-        $this->aggregatRootId = $aggregatRootId;
+        $this->id = $id;
         $this->name = $name;
         $this->deleted = $deleted;
     }
-
-    /**
-     * @var AggregatRootId
-     */
-    private $aggregatRootId;
 
     /**
      * @var Name
@@ -71,14 +66,6 @@ class CategoryWasCreated implements Serializable
      * @var Deleted
      */
     private $deleted;
-
-    /**
-     * @return AggregatRootId
-     */
-    public function getAggregatRootId(): AggregatRootId
-    {
-        return $this->aggregatRootId;
-    }
 
     /**
      * @return Name

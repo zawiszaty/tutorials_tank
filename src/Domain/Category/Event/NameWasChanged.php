@@ -3,22 +3,16 @@
 namespace App\Domain\Category\Event;
 
 use App\Domain\Category\ValueObject\Name;
+use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregatRootId;
-use App\Domain\Common\ValueObject\Deleted;
 use Assert\Assertion;
-use Broadway\Serializer\Serializable;
 
 /**
  * Class NameWasChanged
  * @package App\Domain\Category\Event
  */
-class NameWasChanged implements Serializable
+class NameWasChanged extends AbstractEvent
 {
-    /**
-     * @var AggregatRootId
-     */
-    private $id;
-
     /**
      * @var Name
      */
@@ -58,16 +52,9 @@ class NameWasChanged implements Serializable
     {
         return [
             'id' => $this->id->toString(),
-            'name' => $this->name->toString()
+            'name' => $this->name->toString(),
+            'deleted' => 0
         ];
-    }
-
-    /**
-     * @return AggregatRootId
-     */
-    public function getId(): AggregatRootId
-    {
-        return $this->id;
     }
 
     /**

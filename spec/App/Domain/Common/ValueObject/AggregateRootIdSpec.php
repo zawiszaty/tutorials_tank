@@ -2,15 +2,15 @@
 
 namespace spec\App\Domain\Common\ValueObject;
 
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\AggregateRootId;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class AggregatRootIdSpec extends ObjectBehavior
+class AggregateRootIdSpec extends ObjectBehavior
 {
     function it_create_from_string()
     {
-        self::fromString('d156b590-8cca-11e8-9eb6-529269fb1459')->shouldBeAnInstanceOf(AggregatRootId::class);
+        self::fromString('d156b590-8cca-11e8-9eb6-529269fb1459')->shouldBeAnInstanceOf(AggregateRootId::class);
     }
 
     function it_to_string()

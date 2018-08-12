@@ -3,7 +3,7 @@
 namespace App\Application\Command\Category\Delete;
 
 use App\Application\Command\CommandHandlerInterface;
-use App\Domain\Category\Repository\CategoryReposiotryInterface;
+use App\Domain\Category\Repository\CategoryRepositoryInterface;
 
 /**
  * Class DeleteCategoryHandler
@@ -12,17 +12,17 @@ use App\Domain\Category\Repository\CategoryReposiotryInterface;
 class DeleteCategoryHandler implements CommandHandlerInterface
 {
     /**
-     * @var CategoryReposiotryInterface
+     * @var CategoryRepositoryInterface
      */
-    private $categoryReposiotry;
+    private $categoryRepository;
 
     /**
      * DeleteCategoryHandler constructor.
-     * @param CategoryReposiotryInterface $categoryReposiotry
+     * @param CategoryRepositoryInterface $categoryRepository
      */
-    public function __construct(CategoryReposiotryInterface $categoryReposiotry)
+    public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
-        $this->categoryReposiotry = $categoryReposiotry;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -31,8 +31,8 @@ class DeleteCategoryHandler implements CommandHandlerInterface
      */
     public function __invoke(DeleteCategoryCommand $categoryCommand): void
     {
-        $category = $this->categoryReposiotry->get($categoryCommand->getId());
+        $category = $this->categoryRepository->get($categoryCommand->getId());
         $category->delete();
-        $this->categoryReposiotry->store($category);
+        $this->categoryRepository->store($category);
     }
 }

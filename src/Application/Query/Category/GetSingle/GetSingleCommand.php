@@ -2,25 +2,32 @@
 
 namespace App\Application\Query\Category\GetSingle;
 
+use App\Domain\Common\ValueObject\AggregateRootId;
 
-use App\Domain\Common\ValueObject\AggregatRootId;
-
+/**
+ * Class GetSingleCommand
+ * @package App\Application\Query\Category\GetSingle
+ */
 class GetSingleCommand
 {
     /**
-     * @var AggregatRootId
+     * @var AggregateRootId
      */
     private $id;
 
-    public function __construct(AggregatRootId $id)
+    /**
+     * GetSingleCommand constructor.
+     * @param AggregateRootId $id
+     */
+    public function __construct(AggregateRootId $id)
     {
         $this->id = $id;
     }
 
     /**
-     * @return AggregatRootId
+     * @return AggregateRootId
      */
-    public function getId(): AggregatRootId
+    public function getId(): AggregateRootId
     {
         return $this->id;
     }

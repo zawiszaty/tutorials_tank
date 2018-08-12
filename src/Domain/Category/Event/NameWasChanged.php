@@ -4,7 +4,7 @@ namespace App\Domain\Category\Event;
 
 use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\Event\AbstractEvent;
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\AggregateRootId;
 use Assert\Assertion;
 
 /**
@@ -20,10 +20,10 @@ class NameWasChanged extends AbstractEvent
 
     /**
      * NameWasChanged constructor.
-     * @param AggregatRootId $id
+     * @param AggregateRootId $id
      * @param Name $name
      */
-    public function __construct(AggregatRootId $id, Name $name)
+    public function __construct(AggregateRootId $id, Name $name)
     {
         $this->id = $id;
         $this->name = $name;
@@ -40,7 +40,7 @@ class NameWasChanged extends AbstractEvent
         Assertion::keyExists($data, 'name');
 
         return new self(
-            AggregatRootId::fromString($data['id']),
+            AggregateRootId::fromString($data['id']),
             Name::fromString($data['name'])
         );
     }

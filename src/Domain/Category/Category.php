@@ -6,11 +6,9 @@ use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Category\Event\CategoryWasDeleted;
 use App\Domain\Category\Event\NameWasChanged;
 use App\Domain\Category\ValueObject\Name;
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Common\ValueObject\Deleted;
-use Assert\Assertion;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
-use function Symfony\Component\DependencyInjection\Tests\Fixtures\factoryFunction;
 
 /**
  * Class Category
@@ -19,7 +17,7 @@ use function Symfony\Component\DependencyInjection\Tests\Fixtures\factoryFunctio
 class Category extends EventSourcedAggregateRoot
 {
     /**
-     * @var AggregatRootId
+     * @var AggregateRootId
      */
     private $id;
 
@@ -41,7 +39,7 @@ class Category extends EventSourcedAggregateRoot
     public static function fromString(array $params): self
     {
         $self = new self();
-        $self->id = AggregatRootId::fromString($params['id']);
+        $self->id = AggregateRootId::fromString($params['id']);
         $self->name = Name::fromString($params['name']);
         $self->deleted = Deleted::fromString($params['deleted']);
 
@@ -57,12 +55,12 @@ class Category extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param AggregatRootId $id
+     * @param AggregateRootId $id
      * @param Name $name
      * @return Category
      * @throws \Assert\AssertionFailedException
      */
-    public static function create(AggregatRootId $id, Name $name): self
+    public static function create(AggregateRootId $id, Name $name): self
     {
         $category = new self();
         $category->apply(new CategoryWasCreated($id, $name, Deleted::fromString(false)));
@@ -83,7 +81,7 @@ class Category extends EventSourcedAggregateRoot
     /**
      * @param Name $name
      */
-    public function changeName(Name $name)
+    public function changeName(Name $name): void
     {
         $this->apply(new NameWasChanged($this->id, $name));
     }
@@ -99,16 +97,19 @@ class Category extends EventSourcedAggregateRoot
     }
 
     /**
-     * @throws \Assert\AssertionFailedException
+     *
      */
-    public function delete()
+    public function delete(): void
     {
 //        Assertion::notEq($this->deleted, 1,'This Category is delete');
 
         $this->apply(new CategoryWasDeleted($this->id));
     }
 
-    public function applyCategoryWasDeleted()
+    /**
+     *
+     */
+    public function applyCategoryWasDeleted(): void
     {
         $this->deleted = 1;
     }

@@ -2,7 +2,7 @@
 
 namespace App\Domain\Common\Event;
 
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\AggregateRootId;
 use Broadway\Serializer\Serializable;
 
 /**
@@ -12,14 +12,14 @@ use Broadway\Serializer\Serializable;
 abstract class AbstractEvent implements Serializable
 {
     /**
-     * @var AggregatRootId
+     * @var AggregateRootId
      */
     protected $id;
 
     /**
-     * @return AggregatRootId
+     * @return AggregateRootId
      */
-    public function getId(): AggregatRootId
+    public function getId(): AggregateRootId
     {
         return $this->id;
     }

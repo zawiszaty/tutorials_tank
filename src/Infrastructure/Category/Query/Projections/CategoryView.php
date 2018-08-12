@@ -4,7 +4,7 @@ namespace App\Infrastructure\Category\Query\Projections;
 
 use App\Domain\Category\Query\Projections\CategoryViewInterface;
 use App\Domain\Category\ValueObject\Name;
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Common\ValueObject\Deleted;
 use Broadway\Serializer\Serializable;
 
@@ -15,7 +15,7 @@ use Broadway\Serializer\Serializable;
 class CategoryView implements CategoryViewInterface
 {
     /**
-     * @var AggregatRootId
+     * @var AggregateRootId
      */
     private $id;
 
@@ -47,7 +47,7 @@ class CategoryView implements CategoryViewInterface
     public static function deserialize(array $data): self
     {
         $instance = new self();
-        $instance->id = AggregatRootId::fromString($data['id']);
+        $instance->id = AggregateRootId::fromString($data['id']);
         $instance->name = Name::fromString($data['name']);
         $instance->deleted = Deleted::fromString($data['deleted'])->toBool();
 

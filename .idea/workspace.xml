@@ -6,19 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7276749d-51c5-48c8-b3d8-336c4275c1ab" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,13 +40,45 @@
       <option name="imageId" value="tutorials-tank_php" />
     </ExecCommand>
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-964565416">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="yml" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="YAML" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="yml" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="YAML" value="5" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CategoryReadProjectionFactory.php" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="31" column="69" lean-forward="true" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
+            <state relative-caret-position="483">
+              <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
               <folding>
                 <element signature="e#47#80#0#PHP" expanded="true" />
               </folding>
@@ -63,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryWasDeleted.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
+            <state relative-caret-position="460">
               <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#45#87#0#PHP" expanded="true" />
@@ -75,7 +98,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryRepositoryElastic.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
@@ -84,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryWasCreated.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-782">
-              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+            <state relative-caret-position="644">
+              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
               <folding>
                 <element signature="e#45#86#0#PHP" expanded="true" />
               </folding>
@@ -96,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NameWasChanged.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+            <state relative-caret-position="1357">
+              <caret line="59" column="7" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
               <folding>
                 <element signature="e#45#86#0#PHP" expanded="true" />
               </folding>
@@ -108,10 +131,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractEvent.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1104">
+              <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="14" selection-start-column="14" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="414">
               <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
               <folding>
                 <element signature="e#43#92#0#PHP" expanded="true" />
@@ -120,10 +161,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ElasticRepository.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="276">
               <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
               <folding>
                 <element signature="e#87#129#0#PHP" expanded="true" />
@@ -132,10 +173,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Category.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domain/Category/Category.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="805">
               <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
               <folding>
                 <element signature="e#39#88#0#PHP" expanded="true" />
@@ -190,7 +231,6 @@
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Event/NameWasChangedSpec.php" />
         <option value="$PROJECT_DIR$/.env.dist" />
         <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/features/bootstrap/RestContext.php" />
         <option value="$PROJECT_DIR$/features/bootstrap/FeatureContext.php" />
         <option value="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" />
@@ -224,6 +264,7 @@
         <option value="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" />
         <option value="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -393,7 +434,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -401,72 +441,11 @@
               <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-              <item name="Event" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Common" type="462c0819:PsiDirectoryNode" />
-              <item name="Event" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -507,19 +486,27 @@
     </option>
   </component>
   <component name="RunManager" selected="Behat.category.feature">
-    <configuration name="NameSpec.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/tutorials-tank/spec/App/Domain/Category/ValueObject/NameSpec.php" />
+    <configuration name="NameSpec.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/tutorials-tank/spec/App/Domain/Category/ValueObject/NameSpec.php">
+      <method v="2" />
+    </configuration>
     <configuration name="category.feature" type="PhpBehatConfigurationType" factoryName="Behat" temporary="true">
       <BehatRunner file="$PROJECT_DIR$/features/category.feature" scope="File" />
+      <method v="2" />
     </configuration>
     <configuration name="category.feature::" type="PhpBehatConfigurationType" factoryName="Behat" temporary="true">
       <BehatRunner file="$PROJECT_DIR$/features/category.feature" scenario="" />
+      <method v="2" />
     </configuration>
     <configuration name="demo.feature" type="PhpBehatConfigurationType" factoryName="Behat" temporary="true">
       <BehatRunner file="$PROJECT_DIR$/features/demo.feature" scope="File" />
+      <method v="2" />
     </configuration>
-    <configuration name="CategoryFactorySpec.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/spec/App/Domain/Category/Factory/CategoryFactorySpec.php" />
+    <configuration name="CategoryFactorySpec.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/spec/App/Domain/Category/Factory/CategoryFactorySpec.php">
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="PhpSpecConfigurationType" factoryName="PHPSpec">
       <PhpTestRunnerSettings method="" />
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="PHPSpec.Unnamed" />
@@ -578,7 +565,9 @@
       <workItem from="1533464253677" duration="2073000" />
       <workItem from="1533484307975" duration="1524000" />
       <workItem from="1534069032034" duration="1749000" />
-      <workItem from="1534070863969" duration="572000" />
+      <workItem from="1534070863969" duration="983000" />
+      <workItem from="1534078731251" duration="21000" />
+      <workItem from="1534078848925" duration="639000" />
     </task>
     <servers />
   </component>
@@ -615,7 +604,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64908000" />
+    <option name="totallyTimeSpent" value="65979000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -630,46 +619,46 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4989339" weight="0.3297062" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" weight="0.3232534" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32861805" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.33623505" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968017" weight="0.28283897" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3336887" />
-      <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.5026652" side_tool="true" weight="0.3119469" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49947917" weight="0.32638165" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3411514" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49947917" weight="0.32638165" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.33623505" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4989339" weight="0.3297062" />
+      <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.50319827" side_tool="true" weight="0.28170478" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4968017" visible="true" weight="0.28170478" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32861805" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.3232534" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.5026652" side_tool="true" weight="0.3119469" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2867804" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4989339" weight="0.3297062" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.33623505" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49947917" weight="0.32838982" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4968017" weight="0.2937976" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.33623505" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4989339" weight="0.3297062" />
+      <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.5026652" side_tool="true" weight="0.3119469" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4968017" weight="0.2937976" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32861805" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.32861805" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,13 +668,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/packages/nelmio_cors.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Query/GetAllCategory.php" />
     <entry file="file://$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryCommand.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -834,13 +816,6 @@
     <entry file="file://$PROJECT_DIR$/src/Application/Query/QueryHandlerInterface.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Query/Collection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -852,9 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1380">
           <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
-          <folding>
-            <element signature="e#65#129#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -890,9 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding>
-            <element signature="e#59#96#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -938,29 +907,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Category.php">
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+        <state relative-caret-position="483">
+          <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
           <folding>
-            <element signature="e#39#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding>
-            <element signature="e#87#129#0#PHP" expanded="true" />
+            <element signature="e#47#80#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
+        <state relative-caret-position="460">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#45#87#0#PHP" expanded="true" />
@@ -975,9 +934,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding>
+            <element signature="e#45#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="414">
           <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
           <folding>
             <element signature="e#43#92#0#PHP" expanded="true" />
@@ -985,33 +954,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding>
+            <element signature="e#87#129#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+          <folding>
+            <element signature="e#39#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+        <state relative-caret-position="1357">
+          <caret line="59" column="7" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
           <folding>
             <element signature="e#45#86#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php">
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-782">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding>
-            <element signature="e#45#86#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="1104">
+          <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php">
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="31" column="69" lean-forward="true" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
-          <folding>
-            <element signature="e#47#80#0#PHP" expanded="true" />
-          </folding>
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>

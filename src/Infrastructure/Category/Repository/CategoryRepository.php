@@ -3,8 +3,8 @@
 namespace App\Infrastructure\Category\Repository;
 
 use App\Domain\Category\Category;
-use App\Domain\Category\Repository\CategoryReposiotryInterface;
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Category\Repository\CategoryRepositoryInterface;
+use App\Domain\Common\ValueObject\AggregateRootId;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
 use Broadway\EventSourcing\EventSourcingRepository;
@@ -14,13 +14,13 @@ use Broadway\EventStore\EventStore;
  * Class CategoryRepository
  * @package App\Infrastructure\Category\Repository
  */
-class CategoryRepository extends EventSourcingRepository implements CategoryReposiotryInterface
+class CategoryRepository extends EventSourcingRepository implements CategoryRepositoryInterface
 {
     /**
-     * @param AggregatRootId $id
+     * @param AggregateRootId $id
      * @return Category
      */
-    public function get(AggregatRootId $id): Category
+    public function get(AggregateRootId $id): Category
     {
         /**
          * @var Category $category

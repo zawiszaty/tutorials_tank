@@ -4,19 +4,31 @@ namespace App\Infrastructure\Category\Query\Mysql;
 
 use App\Application\Query\Collection;
 use App\Application\Query\Item;
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Share\Query\Repository\MysqlRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
+/**
+ * Class MysqlCategoryReadModelRepository
+ * @package App\Infrastructure\Category\Query\Mysql
+ */
 class MysqlCategoryReadModelRepository extends MysqlRepository
 {
+    /**
+     * @param CategoryView $categoryView
+     */
     public function add(CategoryView $categoryView): void
     {
         $this->register($categoryView);
     }
 
-    public function oneByUuid(AggregatRootId $id)
+    /**
+     * @param AggregateRootId $id
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function oneByUuid(AggregateRootId $id)
     {
         $qb = $this->repository
             ->createQueryBuilder('category')
@@ -27,6 +39,9 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
         return $this->oneOrException($qb);
     }
 
+    /**
+     * @return Collection
+     */
     public function getAll()
     {
         $qb =  $this->repository
@@ -47,10 +62,11 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
     }
 
     /**
-     * @param AggregatRootId $id
+     * @param AggregateRootId $id
+     * @return Item
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function getSingle(AggregatRootId $id)
+    public function getSingle(AggregateRootId $id)
     {
         $qb = $this->repository
             ->createQueryBuilder('category')
@@ -62,6 +78,10 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
         return new Item($model);
     }
 
+    /**
+     * MysqlCategoryReadModelRepository constructor.
+     * @param EntityManagerInterface $entityManager
+     */
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->class = CategoryView::class;

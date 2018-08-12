@@ -23,6 +23,11 @@ class CategoryReadProjectionFactory extends Projector
     private $categoryRepositoryElastic;
 
     /**
+     * @var MysqlCategoryReadModelRepository
+     */
+    private $repository;
+
+    /**
      * @param CategoryWasCreated $categoryWasCreated
      * @throws \Assert\AssertionFailedException
      */
@@ -67,9 +72,4 @@ class CategoryReadProjectionFactory extends Projector
         $this->repository = $repository;
         $this->categoryRepositoryElastic = $categoryRepositoryElastic;
     }
-
-    /**
-     * @var MysqlCategoryReadModelRepository
-     */
-    private $repository;
 }

@@ -3,12 +3,16 @@
 namespace App\Application\Command\Category\ChangeName;
 
 use App\Domain\Category\ValueObject\Name;
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\AggregateRootId;
 
+/**
+ * Class ChangeNameCommand
+ * @package App\Application\Command\Category\ChangeName
+ */
 class ChangeNameCommand
 {
     /**
-     * @var AggregatRootId
+     * @var AggregateRootId
      */
     private $id;
 
@@ -25,14 +29,14 @@ class ChangeNameCommand
      */
     public function __construct(string $id, string $name)
     {
-        $this->id = AggregatRootId::fromString($id);
+        $this->id = AggregateRootId::fromString($id);
         $this->name = Name::fromString($name);
     }
 
     /**
-     * @return AggregatRootId
+     * @return AggregateRootId
      */
-    public function getId(): AggregatRootId
+    public function getId(): AggregateRootId
     {
         return $this->id;
     }

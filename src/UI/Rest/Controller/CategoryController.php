@@ -8,7 +8,7 @@ use App\Application\Command\Category\Delete\DeleteCategoryCommand;
 use App\Application\Query\Category\GetAll\GetAllCommand;
 use App\Application\Query\Category\GetSingle\GetSingleCommand;
 use App\Domain\Category\Exception\CategoryCreateException;
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\AggregateRootId;
 use Assert\Assertion;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
@@ -19,6 +19,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class CategoryController
+ * @package App\UI\Rest\Controller
+ */
 class CategoryController extends Controller
 {
     /**
@@ -126,9 +130,9 @@ class CategoryController extends Controller
      */
     public function getSingleAction(Request $request, string $id): Response
     {
-        $aggregatRootId = AggregatRootId::fromString($id);
+        $aggregateRootId = AggregateRootId::fromString($id);
 
-        $command = new GetSingleCommand($aggregatRootId);
+        $command = new GetSingleCommand($aggregateRootId);
         $model = $this->queryBus->handle($command);
 
         return new JsonResponse($model, 200);

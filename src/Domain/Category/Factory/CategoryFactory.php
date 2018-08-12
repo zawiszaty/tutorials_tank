@@ -4,7 +4,7 @@ namespace App\Domain\Category\Factory;
 
 use App\Domain\Category\Category;
 use App\Domain\Category\ValueObject\Name;
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\AggregateRootId;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -21,7 +21,7 @@ class CategoryFactory
      */
     public static function create(Name $name): Category
     {
-        $category = Category::create(AggregatRootId::fromString(Uuid::uuid4()),$name);
+        $category = Category::create(AggregateRootId::fromString(Uuid::uuid4()),$name);
 
         return $category;
     }

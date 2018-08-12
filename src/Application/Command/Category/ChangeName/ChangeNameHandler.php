@@ -3,24 +3,35 @@
 namespace App\Application\Command\Category\ChangeName;
 
 use App\Application\Command\CommandHandlerInterface;
-use App\Domain\Category\Repository\CategoryReposiotryInterface;
+use App\Domain\Category\Repository\CategoryRepositoryInterface;
 
+/**
+ * Class ChangeNameHandler
+ * @package App\Application\Command\Category\ChangeName
+ */
 class ChangeNameHandler implements CommandHandlerInterface
 {
     /**
-     * @var CategoryReposiotryInterface
+     * @var CategoryRepositoryInterface
      */
-    private $categoryReposiotry;
+    private $categoryRepository;
 
-    public function __construct(CategoryReposiotryInterface $categoryReposiotry)
+    /**
+     * ChangeNameHandler constructor.
+     * @param CategoryRepositoryInterface $categoryRepository
+     */
+    public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
-        $this->categoryReposiotry = $categoryReposiotry;
+        $this->categoryRepository = $categoryRepository;
     }
 
+    /**
+     * @param ChangeNameCommand $command
+     */
     public function __invoke(ChangeNameCommand $command): void
     {
-        $category = $this->categoryReposiotry->get($command->getId());
+        $category = $this->categoryRepository->get($command->getId());
         $category->changeName($command->getName());
-        $this->categoryReposiotry->store($category);
+        $this->categoryRepository->store($category);
     }
 }

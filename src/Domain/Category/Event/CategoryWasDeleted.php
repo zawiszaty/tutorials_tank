@@ -3,9 +3,8 @@
 namespace App\Domain\Category\Event;
 
 use App\Domain\Common\Event\AbstractEvent;
-use App\Domain\Common\ValueObject\AggregatRootId;
+use App\Domain\Common\ValueObject\AggregateRootId;
 use Assert\Assertion;
-use Broadway\Serializer\Serializable;
 
 /**
  * Class CategoryWasDeleted
@@ -15,9 +14,9 @@ class CategoryWasDeleted extends AbstractEvent
 {
     /**
      * CategoryWasDeleted constructor.
-     * @param AggregatRootId $id
+     * @param AggregateRootId $id
      */
-    public function __construct(AggregatRootId $id)
+    public function __construct(AggregateRootId $id)
     {
         $this->id = $id;
     }
@@ -32,7 +31,7 @@ class CategoryWasDeleted extends AbstractEvent
         Assertion::keyExists($data, 'id');
 
         return new self(
-            AggregatRootId::fromString($data['id'])
+            AggregateRootId::fromString($data['id'])
         );
     }
 

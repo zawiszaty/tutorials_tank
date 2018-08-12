@@ -2,13 +2,16 @@
 
 namespace App\Application\Command\Category\Delete;
 
+use App\Domain\Common\ValueObject\AggregateRootId;
 
-use App\Domain\Common\ValueObject\AggregatRootId;
-
+/**
+ * Class DeleteCategoryCommand
+ * @package App\Application\Command\Category\Delete
+ */
 class DeleteCategoryCommand
 {
     /**
-     * @var AggregatRootId
+     * @var AggregateRootId
      */
     private $id;
 
@@ -19,13 +22,13 @@ class DeleteCategoryCommand
      */
     public function __construct(string $id)
     {
-        $this->id = AggregatRootId::fromString($id);
+        $this->id = AggregateRootId::fromString($id);
     }
 
     /**
-     * @return AggregatRootId
+     * @return AggregateRootId
      */
-    public function getId(): AggregatRootId
+    public function getId(): AggregateRootId
     {
         return $this->id;
     }

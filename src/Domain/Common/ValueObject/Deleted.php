@@ -4,6 +4,10 @@ namespace App\Domain\Common\ValueObject;
 
 use Assert\Assertion;
 
+/**
+ * Class Deleted
+ * @package App\Domain\Common\ValueObject
+ */
 class Deleted
 {
     /**

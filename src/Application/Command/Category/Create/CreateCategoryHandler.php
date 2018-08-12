@@ -5,7 +5,7 @@ namespace App\Application\Command\Category\Create;
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Category\Exception\CategoryCreateException;
 use App\Domain\Category\Factory\CategoryFactory;
-use App\Domain\Category\Repository\CategoryReposiotryInterface;
+use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use App\Domain\Category\ValueObject\Name;
 
 /**
@@ -15,17 +15,17 @@ use App\Domain\Category\ValueObject\Name;
 class CreateCategoryHandler implements CommandHandlerInterface
 {
     /**
-     * @var CategoryReposiotryInterface
+     * @var CategoryRepositoryInterface
      */
-    private $categoryReposiotry;
+    private $categoryRepository;
 
     /**
      * CreateCategoryHandler constructor.
-     * @param CategoryReposiotryInterface $categoryReposiotry
+     * @param CategoryRepositoryInterface $categoryRepository
      */
-    public function __construct(CategoryReposiotryInterface $categoryReposiotry)
+    public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
-        $this->categoryReposiotry = $categoryReposiotry;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -36,7 +36,7 @@ class CreateCategoryHandler implements CommandHandlerInterface
     public function __invoke(CreateCategoryCommand $categoryCommand)
     {
         $aggregateRoot = CategoryFactory::create(Name::fromString($categoryCommand->getName()));
-        $this->categoryReposiotry->store($aggregateRoot);
+        $this->categoryRepository->store($aggregateRoot);
 
         throw new CategoryCreateException($aggregateRoot->getId());
     }

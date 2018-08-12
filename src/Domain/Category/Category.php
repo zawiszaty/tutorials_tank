@@ -34,6 +34,21 @@ class Category extends EventSourcedAggregateRoot
     private $deleted;
 
     /**
+     * @param array $params
+     * @return Category
+     * @throws \Assert\AssertionFailedException
+     */
+    public static function fromString(array $params): self
+    {
+        $self = new self();
+        $self->id = AggregatRootId::fromString($params['id']);
+        $self->name = Name::fromString($params['name']);
+        $self->deleted = Deleted::fromString($params['deleted']);
+
+        return $self;
+    }
+
+    /**
      * @return string
      */
     public function getAggregateRootId(): string
@@ -60,7 +75,7 @@ class Category extends EventSourcedAggregateRoot
      */
     protected function applyCategoryWasCreated(CategoryWasCreated $event): void
     {
-        $this->id = $event->getAggregatRootId();
+        $this->id = $event->getId();
         $this->name = $event->getName();
         $this->deleted = $event->getDeleted();
     }

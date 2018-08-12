@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/Domain/Category/Category.php" line="40" />
+    <bookmark url="file://$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php" line="16" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7276749d-51c5-48c8-b3d8-336c4275c1ab" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/category.feature" beforeDir="false" afterPath="$PROJECT_DIR$/features/category.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" afterDir="false" />
     </list>
@@ -45,11 +51,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="category.feature" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/features/category.feature">
+      <file leaf-file-name="CategoryReadProjectionFactory.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+            <state relative-caret-position="387">
+              <caret line="31" column="69" lean-forward="true" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
+              <folding>
+                <element signature="e#47#80#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryWasDeleted.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="e#45#87#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryRepositoryElastic.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryWasCreated.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-782">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding>
+                <element signature="e#45#86#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NameWasChanged.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+              <folding>
+                <element signature="e#45#86#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractEvent.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+              <folding>
+                <element signature="e#43#92#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ElasticRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+              <folding>
+                <element signature="e#87#129#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Category.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Category/Category.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+              <folding>
+                <element signature="e#39#88#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,24 +173,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/spec/App/Domain/Category/ValueObject/NameSpec.php" />
-        <option value="$PROJECT_DIR$/spec/App/Domain/Common/ValueObject/AggregatRootIdSpec.php" />
         <option value="$PROJECT_DIR$/src/Domain/Common/ValueObject/AggregatRootId.php" />
         <option value="$PROJECT_DIR$/var/log/test.log" />
         <option value="$PROJECT_DIR$/src/UI/Rest/EventSubscriber/ExceptionSubscriber.php" />
         <option value="$PROJECT_DIR$/src/Application/Command/Category/Delete/DeleteCategoryCommand.php" />
         <option value="$PROJECT_DIR$/src/Domain/Category/Event/DeleteCategory.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Share/Migrations/Version20180723055727.php" />
         <option value="$PROJECT_DIR$/src/Application/Command/Category/Delete/DeleteCategoryHandler.php" />
         <option value="$PROJECT_DIR$/src/Domain/Category/Factory/CategoryFactory.php" />
         <option value="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryCommand.php" />
         <option value="$PROJECT_DIR$/src/Domain/Common/ValueObject/Deleted.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Category/Category.php" />
         <option value="$PROJECT_DIR$/config/mapping/orm/projections/Category.Query.Projections.CategoryView.orm.yml" />
-        <option value="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" />
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Factory/CategoryFactorySpec.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" />
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasCreatedSpec.php" />
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasDeletedSpec.php" />
         <option value="$PROJECT_DIR$/spec/App/Domain/Category/Event/NameWasChangedSpec.php" />
@@ -127,13 +211,19 @@
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Application/Query/Collection.php" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php" />
         <option value="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php" />
         <option value="$PROJECT_DIR$/features/category.feature" />
+        <option value="$PROJECT_DIR$/src/Domain/Category/Category.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Common/Event/EventInterface.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" />
       </list>
     </option>
   </component>
@@ -303,6 +393,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -313,23 +404,80 @@
             <path>
               <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Category" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Category" type="462c0819:PsiDirectoryNode" />
+              <item name="Event" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Common" type="462c0819:PsiDirectoryNode" />
+              <item name="Event" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="Category" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials-tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials-tank" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="Category" type="462c0819:PsiDirectoryNode" />
+              <item name="Query" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="Cate&#9;FILE&#9;file://C:/projects/tutorials-tank/src/Infrastructure/Category/Query/Projections/CategoryView.php&#10;CategoryC&#9;FILE&#9;file://C:/projects/tutorials-tank/src/UI/Rest/Controller/CategoryController.php&#10;Elastic&#9;FILE&#9;file://C:/projects/tutorials-tank/src/Infrastructure/Share/Query/Repository/ElasticRepository.php&#10;behatch&#9;FILE&#9;file://C:/projects/tutorials-tank/vendor/behatch" />
+    <property name="SearchEverywhereHistoryKey" value="Category&#9;null&#9;null&#10;Cate&#9;FILE&#9;file://C:/projects/tutorials-tank/src/Infrastructure/Category/Query/Projections/CategoryView.php&#10;CategoryC&#9;FILE&#9;file://C:/projects/tutorials-tank/src/UI/Rest/Controller/CategoryController.php&#10;Elastic&#9;FILE&#9;file://C:/projects/tutorials-tank/src/Infrastructure/Share/Query/Repository/ElasticRepository.php&#10;behatch&#9;FILE&#9;file://C:/projects/tutorials-tank/vendor/behatch" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="php.test.frameworks.configurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -428,7 +576,9 @@
       <workItem from="1532859387524" duration="1885000" />
       <workItem from="1532887728214" duration="964000" />
       <workItem from="1533464253677" duration="2073000" />
-      <workItem from="1533484307975" duration="601000" />
+      <workItem from="1533484307975" duration="1524000" />
+      <workItem from="1534069032034" duration="1749000" />
+      <workItem from="1534070863969" duration="572000" />
     </task>
     <servers />
   </component>
@@ -465,7 +615,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61664000" />
+    <option name="totallyTimeSpent" value="64908000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -480,16 +630,17 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32622603" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4989339" weight="0.3297062" />
-      <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.5026652" side_tool="true" weight="0.3119469" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" weight="0.32861805" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" weight="0.3232534" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32861805" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.33623505" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968017" weight="0.28283897" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3336887" />
+      <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.5026652" side_tool="true" weight="0.3119469" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49947917" weight="0.32638165" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968017" visible="true" weight="0.28495762" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -498,7 +649,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49947917" weight="0.3273305" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -529,7 +679,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/features/bootstrap/RestContext.php" />
     <entry file="file://$PROJECT_DIR$/config/packages/nelmio_cors.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -598,13 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1288">
           <caret line="59" column="52" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/bootstrap/CategoryContext.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -706,21 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1725">
-          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-703" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1380">
@@ -738,40 +865,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding>
-            <element signature="e#58#121#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/MysqlRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding>
-            <element signature="e#45#86#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2017">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="e#39#88#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -813,16 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="56" column="7" lean-forward="true" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
-          <folding>
-            <element signature="e#47#96#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
@@ -837,10 +924,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/features/bootstrap/CategoryContext.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/features/category.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+        <state relative-caret-position="380">
+          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+          <folding>
+            <element signature="e#39#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding>
+            <element signature="e#87#129#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#45#87#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding>
+            <element signature="e#43#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+          <folding>
+            <element signature="e#45#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="e#45#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="31" column="69" lean-forward="true" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
+          <folding>
+            <element signature="e#47#80#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

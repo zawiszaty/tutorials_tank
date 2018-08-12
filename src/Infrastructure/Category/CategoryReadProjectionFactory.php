@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Category;
 
+use App\Domain\Category\Category;
 use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Category\Event\CategoryWasDeleted;
 use App\Domain\Category\Event\NameWasChanged;
@@ -28,30 +29,32 @@ class CategoryReadProjectionFactory extends Projector
     public function applyCategoryWasCreated(CategoryWasCreated $categoryWasCreated)
     {
         $readModel = CategoryView::fromSerializable($categoryWasCreated);
-        $this->repository->add($readModel);
-        $this->categoryRepositoryElastic->store($readModel);
+        $this->categoryRepositoryElastic->store($categoryWasCreated);
     }
 
     /**
      * @param NameWasChanged $nameWasChanged
+     * @throws \Assert\AssertionFailedException
      */
-    public function applyNameWasChanged(NameWasChanged $nameWasChanged)
+    public function applyNameWasChanged(NameWasChanged $nameWasChanged): void
     {
-        $readModel = $this->repository->oneByUuid($nameWasChanged->getId());
-        $readModel->changeName($nameWasChanged->getName());
+        $aggregateParams = $this->categoryRepositoryElastic->get($nameWasChanged->getId()->toString());
+        $category = Category::fromString($aggregateParams['_source']);
+        $category->changeName($nameWasChanged->getName());
         $this->categoryRepositoryElastic->store($nameWasChanged);
         $this->repository->apply();
     }
 
     /**
      * @param CategoryWasDeleted $categoryWasDeleted
+     * @throws \Assert\AssertionFailedException
      */
-    public function applyCategoryWasDeleted(CategoryWasDeleted $categoryWasDeleted)
+    public function applyCategoryWasDeleted(CategoryWasDeleted $categoryWasDeleted): void
     {
-        $readModel = $this->repository->oneByUuid($categoryWasDeleted->getId());
-        $readModel->delete();
-        $this->categoryRepositoryElastic->deleteRow($categoryWasDeleted->getId());
-        $this->repository->apply();
+        $aggregateParams = $this->categoryRepositoryElastic->get($categoryWasDeleted->getId()->toString());
+        $category = Category::fromString($aggregateParams['_source']);
+        $category->delete();
+        $this->categoryRepositoryElastic->deleteRow($categoryWasDeleted->getId()->toString());
     }
 
     /**

@@ -15,6 +15,7 @@ before_install:
   - docker -v
   - cp .env.dist .env
 before_script:
+  - composer self-update --rollback
   - composer install
   - docker-compose up -d
 script:

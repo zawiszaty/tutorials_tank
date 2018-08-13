@@ -9,15 +9,16 @@ use App\Domain\Common\ValueObject\Deleted;
 use Assert\Assertion;
 
 /**
- * Class CategoryWasCreated
- * @package App\Domain\Category\Event
+ * Class CategoryWasCreated.
  */
 class CategoryWasCreated extends AbstractEvent
 {
     /**
      * @param array $data
-     * @return CategoryWasCreated
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return CategoryWasCreated
      */
     public static function deserialize(array $data): self
     {
@@ -38,17 +39,18 @@ class CategoryWasCreated extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
-            'name' => $this->name->toString(),
+            'id'      => $this->id->toString(),
+            'name'    => $this->name->toString(),
             'deleted' => $this->deleted->toBool(),
         ];
     }
 
     /**
      * CategoryWasCreated constructor.
+     *
      * @param AggregateRootId $id
-     * @param Name $name
-     * @param Deleted $deleted
+     * @param Name            $name
+     * @param Deleted         $deleted
      */
     public function __construct(AggregateRootId $id, Name $name, Deleted $deleted)
     {

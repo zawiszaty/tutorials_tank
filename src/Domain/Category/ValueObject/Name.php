@@ -5,8 +5,7 @@ namespace App\Domain\Category\ValueObject;
 use Assert\Assertion;
 
 /**
- * Class Name
- * @package App\Domain\Category\ValueObject
+ * Class Name.
  */
 class Name
 {
@@ -17,8 +16,10 @@ class Name
 
     /**
      * @param string $name
-     * @return Name
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return Name
      */
     public static function fromString(string $name): self
     {

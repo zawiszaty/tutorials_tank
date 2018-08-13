@@ -9,8 +9,7 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 
 /**
- * Class MysqlRepository
- * @package App\Infrastructure\Share\Query\Repository
+ * Class MysqlRepository.
  */
 abstract class MysqlRepository
 {
@@ -23,9 +22,6 @@ abstract class MysqlRepository
         $this->apply();
     }
 
-    /**
-     *
-     */
     public function apply(): void
     {
         $this->entityManager->flush();
@@ -34,17 +30,16 @@ abstract class MysqlRepository
     /**
      * @param QueryBuilder $queryBuilder
      *
-     * @return mixed
-     *
      * @throws NotFoundException
      * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     * @return mixed
      */
     protected function oneOrException(QueryBuilder $queryBuilder)
     {
         $model = $queryBuilder
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getOneOrNullResult();
 
         if (null === $model) {
             throw new \Exception('nie działa');
@@ -65,6 +60,7 @@ abstract class MysqlRepository
 
     /**
      * MysqlRepository constructor.
+     *
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)

@@ -5,8 +5,7 @@ namespace App\Domain\Common\ValueObject;
 use Assert\Assertion;
 
 /**
- * Class AggregateRootId
- * @package App\Domain\Common\ValueObject
+ * Class AggregateRootId.
  */
 class AggregateRootId
 {
@@ -17,8 +16,10 @@ class AggregateRootId
 
     /**
      * @param string $id
-     * @return AggregateRootId
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return AggregateRootId
      */
     public static function fromString(string $id): self
     {

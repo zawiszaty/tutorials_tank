@@ -2,7 +2,6 @@
 
 use Behat\Behat\Context\Context;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class CategoryContext implements Context
@@ -14,6 +13,7 @@ class CategoryContext implements Context
 
     /**
      * FeatureContext constructor.
+     *
      * @param KernelInterface $kernel
      */
     public function __construct(KernelInterface $kernel)
@@ -29,7 +29,7 @@ class CategoryContext implements Context
     {
         $client = new \GuzzleHttp\Client();
         $response = $client->post('http://192.168.1.100:8080/category', [
-            GuzzleHttp\RequestOptions::JSON => ['name' => 'King']
+            GuzzleHttp\RequestOptions::JSON => ['name' => 'King'],
         ]);
         $this->id = json_decode($response->getBody(), true)['id'];
     }
@@ -41,10 +41,9 @@ class CategoryContext implements Context
     {
         $client = new \GuzzleHttp\Client();
         $response = $client->put('http://192.168.1.100:8080/category', [
-            GuzzleHttp\RequestOptions::JSON => ['name' => 'King2', 'id' => $this->id]
+            GuzzleHttp\RequestOptions::JSON => ['name' => 'King2', 'id' => $this->id],
         ]);
-        if ($response->getStatusCode() != 200)
-        {
+        if ($response->getStatusCode() != 200) {
             throw new \Behat\Behat\Tester\Exception\PendingException();
         }
     }
@@ -76,8 +75,7 @@ class CategoryContext implements Context
     {
         $client = new \GuzzleHttp\Client();
         $response = $client->delete('http://192.168.1.100:8080/category/'.$this->id);
-        if ($response->getStatusCode() != 200)
-        {
+        if ($response->getStatusCode() != 200) {
             throw new \Behat\Behat\Tester\Exception\PendingException();
         }
     }

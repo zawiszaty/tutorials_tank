@@ -6,8 +6,7 @@ use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Category\Repository\CategoryRepositoryInterface;
 
 /**
- * Class DeleteCategoryHandler
- * @package App\Application\Command\Category\Delete
+ * Class DeleteCategoryHandler.
  */
 class DeleteCategoryHandler implements CommandHandlerInterface
 {
@@ -18,6 +17,7 @@ class DeleteCategoryHandler implements CommandHandlerInterface
 
     /**
      * DeleteCategoryHandler constructor.
+     *
      * @param CategoryRepositoryInterface $categoryRepository
      */
     public function __construct(CategoryRepositoryInterface $categoryRepository)
@@ -27,6 +27,7 @@ class DeleteCategoryHandler implements CommandHandlerInterface
 
     /**
      * @param DeleteCategoryCommand $categoryCommand
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function __invoke(DeleteCategoryCommand $categoryCommand): void

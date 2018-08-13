@@ -10,8 +10,7 @@ use App\Infrastructure\Share\Query\Repository\MysqlRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * Class MysqlCategoryReadModelRepository
- * @package App\Infrastructure\Category\Query\Mysql
+ * Class MysqlCategoryReadModelRepository.
  */
 class MysqlCategoryReadModelRepository extends MysqlRepository
 {
@@ -25,16 +24,17 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
 
     /**
      * @param AggregateRootId $id
-     * @return mixed
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     * @return mixed
      */
     public function oneByUuid(AggregateRootId $id)
     {
         $qb = $this->repository
             ->createQueryBuilder('category')
             ->where('category.id = :id')
-            ->setParameter('id', $id->toString())
-        ;
+            ->setParameter('id', $id->toString());
 
         return $this->oneOrException($qb);
     }
@@ -44,13 +44,13 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
      */
     public function getAll()
     {
-        $qb =  $this->repository
+        $qb = $this->repository
             ->createQueryBuilder('category')
             ->where('category.deleted = :deleted')
             ->setParameter('deleted', false);
         $model = $qb->getQuery()->execute();
 
-        $qbCount =  $this->repository
+        $qbCount = $this->repository
             ->createQueryBuilder('category')
             ->select('count(category.id)')
             ->where('category.deleted = :deleted')
@@ -63,16 +63,17 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
 
     /**
      * @param AggregateRootId $id
-     * @return Item
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     * @return Item
      */
     public function getSingle(AggregateRootId $id)
     {
         $qb = $this->repository
             ->createQueryBuilder('category')
             ->where('category.id = :id')
-            ->setParameter('id', $id->toString())
-        ;
+            ->setParameter('id', $id->toString());
         $model = $qb->getQuery()->getOneOrNullResult();
 
         return new Item($model);
@@ -80,6 +81,7 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
 
     /**
      * MysqlCategoryReadModelRepository constructor.
+     *
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)

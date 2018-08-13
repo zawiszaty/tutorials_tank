@@ -6,8 +6,7 @@ use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
 
 /**
- * Class GetSingleHandler
- * @package App\Application\Query\Category\GetSingle
+ * Class GetSingleHandler.
  */
 class GetSingleHandler implements QueryHandlerInterface
 {
@@ -18,6 +17,7 @@ class GetSingleHandler implements QueryHandlerInterface
 
     /**
      * GetAllHandler constructor.
+     *
      * @param MysqlCategoryReadModelRepository $modelRepository
      */
     public function __construct(MysqlCategoryReadModelRepository $modelRepository)
@@ -27,8 +27,10 @@ class GetSingleHandler implements QueryHandlerInterface
 
     /**
      * @param GetSingleCommand $command
-     * @return mixed
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     * @return mixed
      */
     public function __invoke(GetSingleCommand $command)
     {

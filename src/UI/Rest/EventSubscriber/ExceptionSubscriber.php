@@ -35,9 +35,9 @@ class ExceptionSubscriber implements EventSubscriberInterface
     {
         $error = [
             'errors' => [
-                'title' => strtr(get_class($exception), '\\', '.'),
+                'title'  => strtr(get_class($exception), '\\', '.'),
                 'detail' => $this->getExceptionMessage($exception),
-                'code' => $exception->getCode(),
+                'code'   => $exception->getCode(),
                 'status' => $response->getStatusCode(),
             ],
         ];
@@ -47,10 +47,10 @@ class ExceptionSubscriber implements EventSubscriberInterface
                 $error,
                 [
                     'meta' => [
-                        'file' => $exception->getFile(),
-                        'line' => $exception->getLine(),
-                        'message' => $exception->getMessage(),
-                        'trace' => $exception->getTrace(),
+                        'file'        => $exception->getFile(),
+                        'line'        => $exception->getLine(),
+                        'message'     => $exception->getMessage(),
+                        'trace'       => $exception->getTrace(),
                         'traceString' => $exception->getTraceAsString(),
                     ],
                 ]

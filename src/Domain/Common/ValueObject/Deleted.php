@@ -5,8 +5,7 @@ namespace App\Domain\Common\ValueObject;
 use Assert\Assertion;
 
 /**
- * Class Deleted
- * @package App\Domain\Common\ValueObject
+ * Class Deleted.
  */
 class Deleted
 {
@@ -17,8 +16,10 @@ class Deleted
 
     /**
      * @param bool $deleted
-     * @return Deleted
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return Deleted
      */
     public static function fromString(bool $deleted): self
     {

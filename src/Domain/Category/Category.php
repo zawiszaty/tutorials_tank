@@ -11,8 +11,7 @@ use App\Domain\Common\ValueObject\Deleted;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
 
 /**
- * Class Category
- * @package App\Domain\Category
+ * Class Category.
  */
 class Category extends EventSourcedAggregateRoot
 {
@@ -33,8 +32,10 @@ class Category extends EventSourcedAggregateRoot
 
     /**
      * @param array $params
-     * @return Category
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return Category
      */
     public static function fromString(array $params): self
     {
@@ -56,9 +57,11 @@ class Category extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $id
-     * @param Name $name
-     * @return Category
+     * @param Name            $name
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return Category
      */
     public static function create(AggregateRootId $id, Name $name): self
     {
@@ -96,9 +99,6 @@ class Category extends EventSourcedAggregateRoot
         $this->name = $event->getName();
     }
 
-    /**
-     *
-     */
     public function delete(): void
     {
 //        Assertion::notEq($this->deleted, 1,'This Category is delete');
@@ -106,9 +106,6 @@ class Category extends EventSourcedAggregateRoot
         $this->apply(new CategoryWasDeleted($this->id));
     }
 
-    /**
-     *
-     */
     public function applyCategoryWasDeleted(): void
     {
         $this->deleted = 1;

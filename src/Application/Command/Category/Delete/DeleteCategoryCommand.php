@@ -5,8 +5,7 @@ namespace App\Application\Command\Category\Delete;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Class DeleteCategoryCommand
- * @package App\Application\Command\Category\Delete
+ * Class DeleteCategoryCommand.
  */
 class DeleteCategoryCommand
 {
@@ -17,7 +16,9 @@ class DeleteCategoryCommand
 
     /**
      * DeleteCategoryCommand constructor.
+     *
      * @param string $id
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function __construct(string $id)

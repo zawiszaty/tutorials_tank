@@ -20,8 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class CategoryController
- * @package App\UI\Rest\Controller
+ * Class CategoryController.
  */
 class CategoryController extends Controller
 {
@@ -52,9 +51,12 @@ class CategoryController extends Controller
 
     /**
      * @Route("/category", name="add_category", methods="POST")
+     *
      * @param Request $request
-     * @return Response
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return Response
      */
     public function createCategoryAction(Request $request): Response
     {
@@ -74,8 +76,10 @@ class CategoryController extends Controller
      * @Route("/category", name="edit_category", methods="PUT")
      *
      * @param Request $request
-     * @return Response
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return Response
      */
     public function changeNameAction(Request $request): Response
     {
@@ -95,9 +99,11 @@ class CategoryController extends Controller
      * @Route("/category/{id}", name="delete_category", methods="DELETE")
      *
      * @param Request $request
-     * @param string $id
-     * @return Response
+     * @param string  $id
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return Response
      */
     public function deleteCategoryAction(Request $request, string $id): Response
     {
@@ -124,9 +130,11 @@ class CategoryController extends Controller
      * @Route("/category/{id}", name="get_single_category")
      *
      * @param Request $request
-     * @param string $id
-     * @return Response
+     * @param string  $id
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return Response
      */
     public function getSingleAction(Request $request, string $id): Response
     {

@@ -6,8 +6,7 @@ use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Category\Repository\CategoryRepositoryInterface;
 
 /**
- * Class ChangeNameHandler
- * @package App\Application\Command\Category\ChangeName
+ * Class ChangeNameHandler.
  */
 class ChangeNameHandler implements CommandHandlerInterface
 {
@@ -18,6 +17,7 @@ class ChangeNameHandler implements CommandHandlerInterface
 
     /**
      * ChangeNameHandler constructor.
+     *
      * @param CategoryRepositoryInterface $categoryRepository
      */
     public function __construct(CategoryRepositoryInterface $categoryRepository)

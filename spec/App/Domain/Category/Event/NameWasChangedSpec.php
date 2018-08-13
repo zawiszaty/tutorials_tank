@@ -6,23 +6,22 @@ use App\Domain\Category\Event\NameWasChanged;
 use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class NameWasChangedSpec extends ObjectBehavior
 {
-    function it_deserialize()
+    public function it_deserialize()
     {
         $this->beConstructedWith(
             AggregateRootId::fromString('becc2ada-8e79-11e8-9eb6-529269fb1459'),
             Name::fromString('test')
         );
         self::deserialize([
-            'id' => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
-            'name' => 'test'
+            'id'   => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
+            'name' => 'test',
         ])->shouldBeAnInstanceOf(NameWasChanged::class);
     }
 
-    function it_serialize()
+    public function it_serialize()
     {
         $this->beConstructedWith(
             AggregateRootId::fromString('becc2ada-8e79-11e8-9eb6-529269fb1459'),

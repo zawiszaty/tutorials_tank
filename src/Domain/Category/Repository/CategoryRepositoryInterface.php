@@ -6,8 +6,7 @@ use App\Domain\Category\Category;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Interface CategoryRepositoryInterface
- * @package App\Domain\Category\Repository
+ * Interface CategoryRepositoryInterface.
  */
 interface CategoryRepositoryInterface
 {

@@ -6,8 +6,7 @@ use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Class ChangeNameCommand
- * @package App\Application\Command\Category\ChangeName
+ * Class ChangeNameCommand.
  */
 class ChangeNameCommand
 {
@@ -23,8 +22,10 @@ class ChangeNameCommand
 
     /**
      * ChangeNameHandler constructor.
+     *
      * @param string $id
      * @param string $name
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function __construct(string $id, string $name)

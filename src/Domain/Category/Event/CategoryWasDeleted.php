@@ -7,13 +7,13 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use Assert\Assertion;
 
 /**
- * Class CategoryWasDeleted
- * @package App\Domain\Category\Event
+ * Class CategoryWasDeleted.
  */
 class CategoryWasDeleted extends AbstractEvent
 {
     /**
      * CategoryWasDeleted constructor.
+     *
      * @param AggregateRootId $id
      */
     public function __construct(AggregateRootId $id)
@@ -23,8 +23,10 @@ class CategoryWasDeleted extends AbstractEvent
 
     /**
      * @param array $data
-     * @return CategoryWasDeleted
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return CategoryWasDeleted
      */
     public static function deserialize(array $data): self
     {
@@ -41,7 +43,7 @@ class CategoryWasDeleted extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString()
+            'id' => $this->id->toString(),
         ];
     }
 }

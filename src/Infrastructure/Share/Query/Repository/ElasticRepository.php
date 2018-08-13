@@ -10,8 +10,7 @@ use Elasticsearch\Client;
 use Elasticsearch\ClientBuilder;
 
 /**
- * Class ElasticRepository
- * @package App\Infrastructure\Share\Query\Repository
+ * Class ElasticRepository.
  */
 abstract class ElasticRepository
 {
@@ -25,6 +24,7 @@ abstract class ElasticRepository
 
     /**
      * @param array $query
+     *
      * @return array
      */
     public function search(array $query): array
@@ -37,9 +37,6 @@ abstract class ElasticRepository
         return $this->client->search($finalQuery);
     }
 
-    /**
-     *
-     */
     public function refresh(): void
     {
         if ($this->client->indices()->exists(['index' => $this->index])) {
@@ -47,9 +44,6 @@ abstract class ElasticRepository
         }
     }
 
-    /**
-     *
-     */
     public function delete(): void
     {
         if ($this->client->indices()->exists(['index' => $this->index])) {
@@ -57,9 +51,6 @@ abstract class ElasticRepository
         }
     }
 
-    /**
-     *
-     */
     public function boot(): void
     {
         if (!$this->client->indices()->exists(['index' => $this->index])) {
@@ -69,6 +60,7 @@ abstract class ElasticRepository
 
     /**
      * @param array $document
+     *
      * @return array
      */
     protected function add(array $document): array
@@ -83,6 +75,7 @@ abstract class ElasticRepository
     /**
      * @param int $page
      * @param int $limit
+     *
      * @return array
      */
     public function page(int $page = 1, int $limit = 50): array
@@ -117,7 +110,8 @@ abstract class ElasticRepository
 
     /**
      * ElasticRepository constructor.
-     * @param array $config
+     *
+     * @param array  $config
      * @param string $index
      */
     public function __construct(array $config, string $index)
@@ -128,17 +122,18 @@ abstract class ElasticRepository
 
     /**
      * @param string $id
+     *
      * @return array
      */
     public function get(string $id)
     {
         $params = [
             'index' => $this->index,
-            'type' => $this->index,
-            'id' => $id
+            'type'  => $this->index,
+            'id'    => $id,
         ];
 
-       return $this->client->get($params);
+        return $this->client->get($params);
     }
 
     /** @var string */

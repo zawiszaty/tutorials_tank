@@ -8,8 +8,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use Assert\Assertion;
 
 /**
- * Class NameWasChanged
- * @package App\Domain\Category\Event
+ * Class NameWasChanged.
  */
 class NameWasChanged extends AbstractEvent
 {
@@ -20,8 +19,9 @@ class NameWasChanged extends AbstractEvent
 
     /**
      * NameWasChanged constructor.
+     *
      * @param AggregateRootId $id
-     * @param Name $name
+     * @param Name            $name
      */
     public function __construct(AggregateRootId $id, Name $name)
     {
@@ -31,8 +31,10 @@ class NameWasChanged extends AbstractEvent
 
     /**
      * @param array $data
-     * @return NameWasChanged
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return NameWasChanged
      */
     public static function deserialize(array $data): self
     {
@@ -51,9 +53,9 @@ class NameWasChanged extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
-            'name' => $this->name->toString(),
-            'deleted' => 0
+            'id'      => $this->id->toString(),
+            'name'    => $this->name->toString(),
+            'deleted' => 0,
         ];
     }
 

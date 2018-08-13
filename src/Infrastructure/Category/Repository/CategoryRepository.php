@@ -11,19 +11,19 @@ use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventStore\EventStore;
 
 /**
- * Class CategoryRepository
- * @package App\Infrastructure\Category\Repository
+ * Class CategoryRepository.
  */
 class CategoryRepository extends EventSourcingRepository implements CategoryRepositoryInterface
 {
     /**
      * @param AggregateRootId $id
+     *
      * @return Category
      */
     public function get(AggregateRootId $id): Category
     {
         /**
-         * @var Category $category
+         * @var Category
          */
         $category = $this->load($id->toString());
 
@@ -35,19 +35,20 @@ class CategoryRepository extends EventSourcingRepository implements CategoryRepo
      */
     public function store(Category $category): void
     {
-       $this->save($category);
+        $this->save($category);
     }
 
     /**
      * CategoryRepository constructor.
+     *
      * @param EventStore $eventStore
-     * @param EventBus $eventBus
-     * @param array $eventStreamDecorators
+     * @param EventBus   $eventBus
+     * @param array      $eventStreamDecorators
      */
     public function __construct(
         EventStore $eventStore,
         EventBus $eventBus,
-        array $eventStreamDecorators = array()
+        array $eventStreamDecorators = []
     ) {
         parent::__construct(
             $eventStore,

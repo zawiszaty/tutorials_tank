@@ -9,8 +9,7 @@ use App\Domain\Common\ValueObject\Deleted;
 use Broadway\Serializer\Serializable;
 
 /**
- * Class CategoryView
- * @package App\Infrastructure\Category\Query\Projections
+ * Class CategoryView.
  */
 class CategoryView implements CategoryViewInterface
 {
@@ -31,8 +30,10 @@ class CategoryView implements CategoryViewInterface
 
     /**
      * @param Serializable $event
-     * @return CategoryView
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return CategoryView
      */
     public static function fromSerializable(Serializable $event): self
     {
@@ -41,8 +42,10 @@ class CategoryView implements CategoryViewInterface
 
     /**
      * @param array $data
-     * @return CategoryView
+     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return CategoryView
      */
     public static function deserialize(array $data): self
     {
@@ -60,9 +63,9 @@ class CategoryView implements CategoryViewInterface
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
-            'name' => $this->name->toString(),
-            'deleted' => $this->deleted
+            'id'      => $this->id->toString(),
+            'name'    => $this->name->toString(),
+            'deleted' => $this->deleted,
         ];
     }
 
@@ -83,7 +86,7 @@ class CategoryView implements CategoryViewInterface
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getDeleted(): bool
     {

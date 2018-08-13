@@ -8,20 +8,21 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use Ramsey\Uuid\Uuid;
 
 /**
- * Class CategoryFactory
- * @package App\Domain\Category\Factory
+ * Class CategoryFactory.
  */
 class CategoryFactory
 {
     /**
      * @param Name $name
-     * @return Category
+     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
+     *
+     * @return Category
      */
     public static function create(Name $name): Category
     {
-        $category = Category::create(AggregateRootId::fromString(Uuid::uuid4()),$name);
+        $category = Category::create(AggregateRootId::fromString(Uuid::uuid4()), $name);
 
         return $category;
     }

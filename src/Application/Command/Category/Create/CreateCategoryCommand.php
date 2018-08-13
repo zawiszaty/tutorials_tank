@@ -5,12 +5,10 @@ namespace App\Application\Command\Category\Create;
 use App\Domain\Category\ValueObject\Name;
 
 /**
- * Class CreateCategoryCommand
- * @package App\Application\Command\Category\Create
+ * Class CreateCategoryCommand.
  */
 class CreateCategoryCommand
 {
-
     /**
      * @var Name
      */
@@ -18,7 +16,9 @@ class CreateCategoryCommand
 
     /**
      * CreateCategoryCommand constructor.
+     *
      * @param string $name
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function __construct(string $name)

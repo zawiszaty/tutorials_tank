@@ -6,8 +6,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use Broadway\Serializer\Serializable;
 
 /**
- * Class AbstractEvent
- * @package App\Domain\Common\Event
+ * Class AbstractEvent.
  */
 abstract class AbstractEvent implements Serializable
 {

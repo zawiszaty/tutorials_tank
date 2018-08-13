@@ -12,8 +12,7 @@ use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use Broadway\ReadModel\Projector;
 
 /**
- * Class CategoryReadProjectionFactory
- * @package App\Infrastructure\Category
+ * Class CategoryReadProjectionFactory.
  */
 class CategoryReadProjectionFactory extends Projector
 {
@@ -29,6 +28,7 @@ class CategoryReadProjectionFactory extends Projector
 
     /**
      * @param CategoryWasCreated $categoryWasCreated
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function applyCategoryWasCreated(CategoryWasCreated $categoryWasCreated)
@@ -39,6 +39,7 @@ class CategoryReadProjectionFactory extends Projector
 
     /**
      * @param NameWasChanged $nameWasChanged
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function applyNameWasChanged(NameWasChanged $nameWasChanged): void
@@ -52,6 +53,7 @@ class CategoryReadProjectionFactory extends Projector
 
     /**
      * @param CategoryWasDeleted $categoryWasDeleted
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function applyCategoryWasDeleted(CategoryWasDeleted $categoryWasDeleted): void
@@ -64,8 +66,9 @@ class CategoryReadProjectionFactory extends Projector
 
     /**
      * CategoryReadProjectionFactory constructor.
+     *
      * @param MysqlCategoryReadModelRepository $repository
-     * @param CategoryRepositoryElastic $categoryRepositoryElastic
+     * @param CategoryRepositoryElastic        $categoryRepositoryElastic
      */
     public function __construct(MysqlCategoryReadModelRepository $repository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {

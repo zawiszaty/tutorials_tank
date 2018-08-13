@@ -3,8 +3,7 @@
 namespace App\Application\Query;
 
 /**
- * Class Collection
- * @package App\Application\Query
+ * Class Collection.
  */
 class Collection
 {
@@ -15,8 +14,9 @@ class Collection
 
     /**
      * Collection constructor.
+     *
      * @param array $data
-     * @param int $count
+     * @param int   $count
      */
     public function __construct(array $data)
     {

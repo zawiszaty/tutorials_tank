@@ -9,8 +9,7 @@ use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use App\Domain\Category\ValueObject\Name;
 
 /**
- * Class CreateCategoryHandler
- * @package App\Application\Command\Category\Create
+ * Class CreateCategoryHandler.
  */
 class CreateCategoryHandler implements CommandHandlerInterface
 {
@@ -21,6 +20,7 @@ class CreateCategoryHandler implements CommandHandlerInterface
 
     /**
      * CreateCategoryHandler constructor.
+     *
      * @param CategoryRepositoryInterface $categoryRepository
      */
     public function __construct(CategoryRepositoryInterface $categoryRepository)
@@ -30,6 +30,7 @@ class CreateCategoryHandler implements CommandHandlerInterface
 
     /**
      * @param CreateCategoryCommand $categoryCommand
+     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
      */

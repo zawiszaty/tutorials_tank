@@ -16,6 +16,7 @@ class GetAllHandler implements QueryHandlerInterface
      * @var MysqlCategoryReadModelRepository
      */
     private $modelRepository;
+
     /**
      * @var ElasticRepository
      */

@@ -36,6 +36,7 @@ class Version20180719122713 extends AbstractMigration implements ContainerAwareI
 
     /** @var EntityManager */
     private $em;
+
     /** @var DBALEventStore */
     private $eventStore;
 }

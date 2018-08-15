@@ -28,14 +28,17 @@ class CategoryController extends Controller
      * @var CommandBus
      */
     private $queryBus;
+
     /**
      * @var CommandBus
      */
     private $commandBus;
+
     /**
      * @var EventBus
      */
     private $eventBus;
+
     /**
      * @var DBALEventStore
      */

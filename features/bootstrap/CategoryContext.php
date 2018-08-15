@@ -7,8 +7,11 @@ use Symfony\Component\HttpKernel\KernelInterface;
 class CategoryContext implements Context
 {
     protected $request;
+
     protected $id;
+
     protected $kernel;
+
     protected static $container;
 
     /**
@@ -43,7 +46,7 @@ class CategoryContext implements Context
         $response = $client->put('http://192.168.1.100:8080/category', [
             GuzzleHttp\RequestOptions::JSON => ['name' => 'King2', 'id' => $this->id],
         ]);
-        if ($response->getStatusCode() != 200) {
+        if (200 != $response->getStatusCode()) {
             throw new \Behat\Behat\Tester\Exception\PendingException();
         }
     }
@@ -74,8 +77,8 @@ class CategoryContext implements Context
     public function iSendDeleteRequest()
     {
         $client = new \GuzzleHttp\Client();
-        $response = $client->delete('http://192.168.1.100:8080/category/'.$this->id);
-        if ($response->getStatusCode() != 200) {
+        $response = $client->delete('http://192.168.1.100:8080/category/' . $this->id);
+        if (200 != $response->getStatusCode()) {
             throw new \Behat\Behat\Tester\Exception\PendingException();
         }
     }

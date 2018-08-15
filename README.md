@@ -1,7 +1,8 @@
 # Tutorials Tank
 [![Build Status](https://travis-ci.com/zawiszaty/tutorials_tank.svg?branch=master)](https://travis-ci.com/zawiszaty/tutorials_tank)
 [![StyleCI](https://github.styleci.io/repos/141673154/shield?branch=master)](https://github.styleci.io/repos/141673154)
-###How to run:
+
+### How to run:
 * You must have install docker, docker-compose and composer locally
 ```bash
 $ composer install

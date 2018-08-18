@@ -2,51 +2,50 @@
 
 namespace App\Application\Command\Category\ChangeName;
 
-use App\Domain\Category\ValueObject\Name;
-use App\Domain\Common\ValueObject\AggregateRootId;
-
 /**
  * Class ChangeNameCommand.
  */
 class ChangeNameCommand
 {
     /**
-     * @var AggregateRootId
+     * @var string
      */
     private $id;
 
     /**
-     * @var Name
+     * @var string
      */
     private $name;
 
     /**
-     * ChangeNameHandler constructor.
-     *
-     * @param string $id
-     * @param string $name
-     *
-     * @throws \Assert\AssertionFailedException
+     * @return string
      */
-    public function __construct(string $id, string $name)
-    {
-        $this->id = AggregateRootId::fromString($id);
-        $this->name = Name::fromString($name);
-    }
-
-    /**
-     * @return AggregateRootId
-     */
-    public function getId(): AggregateRootId
+    public function getId()
     {
         return $this->id;
     }
 
     /**
-     * @return Name
+     * @param string $id
      */
-    public function getName(): Name
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
     }
 }

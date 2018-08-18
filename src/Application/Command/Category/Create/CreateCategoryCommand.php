@@ -15,21 +15,17 @@ class CreateCategoryCommand
     private $name;
 
     /**
-     * CreateCategoryCommand constructor.
-     *
      * @param string $name
-     *
-     * @throws \Assert\AssertionFailedException
      */
-    public function __construct(string $name)
+    public function setName($name): void
     {
-        $this->name = Name::fromString($name);
+        $this->name = $name;
     }
 
     /**
-     * @return Name
+     * @return string
      */
-    public function getName(): Name
+    public function getName()
     {
         return $this->name;
     }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Rest\EventSubscriber;
+namespace App\UI\HTTP\Rest\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;

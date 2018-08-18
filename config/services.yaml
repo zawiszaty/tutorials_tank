@@ -51,15 +51,15 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\UI\Rest\Controller\:
-        resource: '../src/UI/Rest/Controller'
+    App\UI\HTTP\Rest\Controller\:
+        resource: '../src/UI/HTTP/Rest/Controller'
         tags: ['controller.service_arguments']
 
-    App\UI\Rest\EventSubscriber\JsonBodyParserSubscriber:
+    App\UI\HTTP\Rest\EventSubscriber\JsonBodyParserSubscriber:
         tags:
             - { name: 'kernel.event_listener', event: 'kernel.request', method: 'onKernelRequest', priority: 100 }
 
-    App\UI\Rest\EventSubscriber\ExceptionSubscriber:
+    App\UI\HTTP\Rest\EventSubscriber\ExceptionSubscriber:
         tags:
             - { name: 'kernel.event_listener', event: 'kernel.exception' }
     # add more service definitions when explicit configuration is needed

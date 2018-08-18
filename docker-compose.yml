@@ -12,6 +12,8 @@ services:
     links:
       - db
       - php
+    networks:
+      - code-network
 
   php:
     build: ./docker/php
@@ -21,12 +23,15 @@ services:
       - ./:/var/www/project
     links:
       - db
+    networks:
+      - code-network
 
   db:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: admin
-
+    networks:
+      - code-network
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
@@ -37,6 +42,8 @@ services:
      - 8000:80
     volumes:
      - /sessions
+    networks:
+      - code-network
 
   kibana:
     image: docker.elastic.co/kibana/kibana:6.3.0
@@ -44,8 +51,16 @@ services:
       - 5601:5601
     volumes:
       - ./docker/kibana/config:/usr/share/kibana/config/kibana.yml
+    networks:
+      - code-network
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.3.0
     ports:
       - "9200:9200"
+    networks:
+      - code-network
+
+networks:
+  code-network:
+    driver: bridge

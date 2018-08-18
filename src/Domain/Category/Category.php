@@ -8,6 +8,7 @@ use App\Domain\Category\Event\NameWasChanged;
 use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Common\ValueObject\Deleted;
+use Assert\Assertion;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
 
 /**
@@ -48,6 +49,18 @@ class Category extends EventSourcedAggregateRoot
     }
 
     /**
+     * @return array
+     */
+    public function serialize()
+    {
+        return [
+          'id'      => $this->id->toString(),
+          'name'    => $this->name->toString(),
+          'deleted' => $this->deleted->toBool(),
+        ];
+    }
+
+    /**
      * @return string
      */
     public function getAggregateRootId(): string
@@ -83,9 +96,12 @@ class Category extends EventSourcedAggregateRoot
 
     /**
      * @param Name $name
+     *
+     * @throws \Assert\AssertionFailedException
      */
     public function changeName(Name $name): void
     {
+        Assertion::notSame($this->name->toString(), $name->toString(), 'New Name should be different');
         $this->apply(new NameWasChanged($this->id, $name));
     }
 
@@ -94,15 +110,11 @@ class Category extends EventSourcedAggregateRoot
      */
     public function applyNameWasChanged(NameWasChanged $event): void
     {
-//        Assertion::notEq('test', '2', 'New Name should be different');
-
         $this->name = $event->getName();
     }
 
     public function delete(): void
     {
-//        Assertion::notEq($this->deleted, 1,'This Category is delete');
-
         $this->apply(new CategoryWasDeleted($this->id));
     }
 

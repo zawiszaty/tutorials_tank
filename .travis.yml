@@ -19,5 +19,6 @@ before_script:
   - composer install
   - docker-compose up -d
 script:
-  - ./vendor/bin/phpspec run
+  - docker-compose exec php ./vendor/bin/phpspec run
+  - docker-compose exec php ./vendor/bin/behat
 

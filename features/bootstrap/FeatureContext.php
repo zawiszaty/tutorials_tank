@@ -4,7 +4,7 @@ use Behat\Behat\Context\Context;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
-
+use Elasticsearch\ClientBuilder;
 /**
  * This context class contains the definitions of the steps used by the demo
  * feature file. Learn how to get started with Behat and BDD on Behat's website.
@@ -28,10 +28,17 @@ class FeatureContext implements Context
      */
     private $response;
 
+    /**
+     * @var \Elasticsearch\Client
+     */
+    private $client;
+
     public function __construct(KernelInterface $kernel)
     {
         $this->kernel = $kernel;
         self::$container = $this->kernel->getContainer();
+
+        $this->client = ClientBuilder::fromConfig(['hosts' => ['elasticsearch:9200']], true);
     }
 
     /**
@@ -64,5 +71,7 @@ class FeatureContext implements Context
         $connection->query('DELETE FROM category');
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
         $connection->commit();
+        $params = ['index' => '*'];
+        $response = $this->client->indices()->delete($params);
     }
 }

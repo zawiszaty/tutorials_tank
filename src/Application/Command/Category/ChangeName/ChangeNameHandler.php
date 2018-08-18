@@ -3,7 +3,11 @@
 namespace App\Application\Command\Category\ChangeName;
 
 use App\Application\Command\CommandHandlerInterface;
+use App\Domain\Category\Exception\CategoryNameWasChangedException;
 use App\Domain\Category\Repository\CategoryRepositoryInterface;
+use App\Domain\Category\ValueObject\Name;
+use App\Domain\Common\ValueObject\AggregateRootId;
+use Assert\Assertion;
 
 /**
  * Class ChangeNameHandler.
@@ -27,11 +31,14 @@ class ChangeNameHandler implements CommandHandlerInterface
 
     /**
      * @param ChangeNameCommand $command
+     * @throws \Assert\AssertionFailedException
      */
     public function __invoke(ChangeNameCommand $command): void
     {
-        $category = $this->categoryRepository->get($command->getId());
-        $category->changeName($command->getName());
+        $category = $this->categoryRepository->get(AggregateRootId::fromString($command->getId()));
+        $category->changeName(Name::fromString($command->getName()));
         $this->categoryRepository->store($category);
+
+        throw new CategoryNameWasChangedException($command->getId());
     }
 }

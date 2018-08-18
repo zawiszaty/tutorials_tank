@@ -48,7 +48,6 @@ class CategoryReadProjectionFactory extends Projector
         $category = Category::fromString($aggregateParams['_source']);
         $category->changeName($nameWasChanged->getName());
         $this->categoryRepositoryElastic->store($nameWasChanged);
-        $this->repository->apply();
     }
 
     /**

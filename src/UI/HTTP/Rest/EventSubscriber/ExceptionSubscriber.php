@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Rest\EventSubscriber;
+namespace App\UI\HTTP\Rest\EventSubscriber;
 
 use Broadway\Repository\AggregateNotFoundException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -19,7 +19,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
         $exception = $event->getException();
 
         $response = new JsonResponse();
-        $response->headers->set('Content-Type', 'application/vnd.api+json');
+        $response->headers->set('Content-Type', 'application/json');
         $response->setStatusCode($this->getStatusCode($exception));
         $response->setData($this->getErrorMessage($exception, $response));
 

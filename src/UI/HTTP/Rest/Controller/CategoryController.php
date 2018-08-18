@@ -1,14 +1,19 @@
 <?php
 
-namespace App\UI\Rest\Controller;
+namespace App\UI\HTTP\Rest\Controller;
 
 use App\Application\Command\Category\ChangeName\ChangeNameCommand;
 use App\Application\Command\Category\Create\CreateCategoryCommand;
 use App\Application\Command\Category\Delete\DeleteCategoryCommand;
 use App\Application\Query\Category\GetAll\GetAllCommand;
 use App\Application\Query\Category\GetSingle\GetSingleCommand;
+use App\Domain\Category\Category;
 use App\Domain\Category\Exception\CategoryCreateException;
+use App\Domain\Category\Exception\CategoryNameWasChangedException;
 use App\Domain\Common\ValueObject\AggregateRootId;
+use App\Infrastructure\Category\Query\Projections\CategoryView;
+use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
+use App\UI\HTTP\Common\Form\CategoryType;
 use Assert\Assertion;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
@@ -43,13 +48,18 @@ class CategoryController extends Controller
      * @var DBALEventStore
      */
     private $eventStore;
+    /**
+     * @var CategoryRepositoryElastic
+     */
+    private $categoryRepositoryElastic;
 
-    public function __construct(CommandBus $queryBus, CommandBus $commandBus, EventBus $eventBus, DBALEventStore $eventStore)
+    public function __construct(CommandBus $queryBus, CommandBus $commandBus, EventBus $eventBus, DBALEventStore $eventStore, CategoryRepositoryElastic $categoryRepositoryElastic)
     {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
         $this->eventStore = $eventStore;
+        $this->categoryRepositoryElastic = $categoryRepositoryElastic;
     }
 
     /**
@@ -63,46 +73,54 @@ class CategoryController extends Controller
      */
     public function createCategoryAction(Request $request): Response
     {
-        $name = $request->request->get('name');
+        $command = new CreateCategoryCommand();
+        $form = $this->createForm(CategoryType::class, $command);
+        $form->submit($request->request->all());
 
-        Assertion::notNull($name);
-
-        try {
-            $command = new CreateCategoryCommand($name);
-            $this->commandBus->handle($command);
-        } catch (CategoryCreateException $exception) {
-            return new JsonResponse(['id' => $exception->getMessage()], 200);
+        if ($form->isSubmitted() && $form->isValid()) {
+            try {
+                $this->commandBus->handle($command);
+            } catch (CategoryCreateException $exception) {
+                $category = $this->categoryRepositoryElastic->get($exception->getMessage());
+                return new JsonResponse(CategoryView::deserialize($category['_source'])->serialize(), Response::HTTP_OK);
+            }
         }
+
+        return new JsonResponse($form->getErrors(), Response::HTTP_BAD_REQUEST);
     }
 
     /**
-     * @Route("/category", name="edit_category", methods="PUT")
+     * @Route("/category/{id}", name="edit_category", methods="PATCH")
      *
      * @param Request $request
      *
-     * @throws \Assert\AssertionFailedException
-     *
+     * @param string $id
      * @return Response
+     * @throws \Assert\AssertionFailedException
      */
-    public function changeNameAction(Request $request): Response
+    public function changeNameAction(Request $request, string $id): Response
     {
-        $id = $request->request->get('id');
-        $name = $request->request->get('name');
+        $command = new ChangeNameCommand();
+        $command->setId($id);
+        $form = $this->createForm(CategoryType::class, $command);
+        $form->submit($request->request->all());
 
-        Assertion::notNull($id);
-        Assertion::notNull($name);
-
-        $command = new ChangeNameCommand($id, $name);
-        $this->commandBus->handle($command);
-
-        return new JsonResponse('success', 200);
+        if ($form->isSubmitted() && $form->isValid()) {
+            try {
+                $this->commandBus->handle($command);
+            } catch (CategoryNameWasChangedException $exception) {
+                $category = $this->categoryRepositoryElastic->get($exception->getMessage());
+                return new JsonResponse(CategoryView::deserialize($category['_source'])->serialize(), Response::HTTP_OK);
+            }
+        }
+        return new JsonResponse($form->getErrors(), Response::HTTP_BAD_REQUEST);
     }
 
     /**
      * @Route("/category/{id}", name="delete_category", methods="DELETE")
      *
      * @param Request $request
-     * @param string  $id
+     * @param string $id
      *
      * @throws \Assert\AssertionFailedException
      *
@@ -113,7 +131,7 @@ class CategoryController extends Controller
         $command = new DeleteCategoryCommand($id);
         $this->commandBus->handle($command);
 
-        return new JsonResponse('success', 200);
+        return new JsonResponse('', Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -133,7 +151,7 @@ class CategoryController extends Controller
      * @Route("/category/{id}", name="get_single_category")
      *
      * @param Request $request
-     * @param string  $id
+     * @param string $id
      *
      * @throws \Assert\AssertionFailedException
      *

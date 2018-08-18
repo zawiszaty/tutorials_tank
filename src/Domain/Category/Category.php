@@ -54,9 +54,9 @@ class Category extends EventSourcedAggregateRoot
     public function serialize()
     {
         return [
-          "id" => $this->id->toString(),
-          "name" => $this->name->toString(),
-          "deleted" => $this->deleted->toBool()
+          'id'      => $this->id->toString(),
+          'name'    => $this->name->toString(),
+          'deleted' => $this->deleted->toBool(),
         ];
     }
 
@@ -96,6 +96,7 @@ class Category extends EventSourcedAggregateRoot
 
     /**
      * @param Name $name
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function changeName(Name $name): void
@@ -112,17 +113,11 @@ class Category extends EventSourcedAggregateRoot
         $this->name = $event->getName();
     }
 
-    /**
-     *
-     */
     public function delete(): void
     {
         $this->apply(new CategoryWasDeleted($this->id));
     }
 
-    /**
-     *
-     */
     public function applyCategoryWasDeleted(): void
     {
         $this->deleted = 1;

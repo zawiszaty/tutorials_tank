@@ -7,7 +7,6 @@ use App\Domain\Category\Exception\CategoryNameWasChangedException;
 use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use Assert\Assertion;
 
 /**
  * Class ChangeNameHandler.
@@ -31,6 +30,7 @@ class ChangeNameHandler implements CommandHandlerInterface
 
     /**
      * @param ChangeNameCommand $command
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function __invoke(ChangeNameCommand $command): void

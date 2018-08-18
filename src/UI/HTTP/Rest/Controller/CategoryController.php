@@ -14,7 +14,6 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use App\UI\HTTP\Common\Form\CategoryType;
-use Assert\Assertion;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
 use League\Tactician\CommandBus;
@@ -48,6 +47,7 @@ class CategoryController extends Controller
      * @var DBALEventStore
      */
     private $eventStore;
+
     /**
      * @var CategoryRepositoryElastic
      */
@@ -82,6 +82,7 @@ class CategoryController extends Controller
                 $this->commandBus->handle($command);
             } catch (CategoryCreateException $exception) {
                 $category = $this->categoryRepositoryElastic->get($exception->getMessage());
+
                 return new JsonResponse(CategoryView::deserialize($category['_source'])->serialize(), Response::HTTP_OK);
             }
         }
@@ -93,9 +94,10 @@ class CategoryController extends Controller
      * @Route("/category/{id}", name="edit_category", methods="PATCH")
      *
      * @param Request $request
+     * @param string  $id
      *
-     * @param string $id
      * @return Response
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function changeNameAction(Request $request, string $id): Response
@@ -110,9 +112,11 @@ class CategoryController extends Controller
                 $this->commandBus->handle($command);
             } catch (CategoryNameWasChangedException $exception) {
                 $category = $this->categoryRepositoryElastic->get($exception->getMessage());
+
                 return new JsonResponse(CategoryView::deserialize($category['_source'])->serialize(), Response::HTTP_OK);
             }
         }
+
         return new JsonResponse($form->getErrors(), Response::HTTP_BAD_REQUEST);
     }
 
@@ -120,7 +124,7 @@ class CategoryController extends Controller
      * @Route("/category/{id}", name="delete_category", methods="DELETE")
      *
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @throws \Assert\AssertionFailedException
      *
@@ -151,7 +155,7 @@ class CategoryController extends Controller
      * @Route("/category/{id}", name="get_single_category")
      *
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @throws \Assert\AssertionFailedException
      *

@@ -20,7 +20,7 @@ class CategoryContext implements Context
      * FeatureContext constructor.
      *
      * @param KernelInterface $kernel
-     * @param Request $request
+     * @param Request         $request
      */
     public function __construct(KernelInterface $kernel)
     {
@@ -36,7 +36,7 @@ class CategoryContext implements Context
     {
         $client = new \GuzzleHttp\Client();
         $response = $client->post('nginx/category', [
-            GuzzleHttp\RequestOptions::JSON => ['name' => 'King']
+            GuzzleHttp\RequestOptions::JSON => ['name' => 'King'],
         ]);
         $this->id = json_decode($response->getBody(), true)['id'];
     }
@@ -47,7 +47,7 @@ class CategoryContext implements Context
     public function iSendEditRequest()
     {
         $client = new \GuzzleHttp\Client();
-        $response = $client->patch('nginx/category/'.$this->id, [
+        $response = $client->patch('nginx/category/' . $this->id, [
             GuzzleHttp\RequestOptions::JSON => ['name' => 'King2'],
         ]);
         if (\Symfony\Component\HttpFoundation\Response::HTTP_OK != $response->getStatusCode()) {
@@ -62,8 +62,8 @@ class CategoryContext implements Context
     {
         $params = [
             'index' => 'category',
-            'type' => 'category',
-            'id' => $this->id
+            'type'  => 'category',
+            'id'    => $this->id,
         ];
         $data = $this->client->get($params);
         if ('King2' != $data['_source']['name']) {
@@ -90,8 +90,8 @@ class CategoryContext implements Context
     {
         $params = [
             'index' => 'category',
-            'type' => 'category',
-            'id' => $this->id
+            'type'  => 'category',
+            'id'    => $this->id,
         ];
 
         try {
@@ -99,6 +99,7 @@ class CategoryContext implements Context
         } catch (Exception $exception) {
             return;
         }
+
         throw new \Behat\Behat\Tester\Exception\PendingException();
     }
 }

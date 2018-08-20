@@ -16,8 +16,9 @@ services:
       - code-network
 
   php:
-    build: ./docker/php
-    container_name: tutorials_tank_php
+    image: jorge07/alpine-php:7.2-dev-sf
+    ports:
+      - "2323:22"
     working_dir: /var/www/project
     volumes:
       - ./:/var/www/project

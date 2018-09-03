@@ -42,7 +42,7 @@ class CategoryContext implements Context
     public function iSendEditRequest()
     {
         $client = new \GuzzleHttp\Client();
-        $response = $client->patch('nginx/category/'. $this->id, [
+        $response = $client->patch('nginx/category/' . $this->id, [
             GuzzleHttp\RequestOptions::JSON => ['name' => 'King2'],
         ]);
         if (\Symfony\Component\HttpFoundation\Response::HTTP_OK != $response->getStatusCode()) {

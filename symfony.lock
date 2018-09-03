@@ -152,6 +152,12 @@
             "ref": "3f73f240ee0c3719e89f1c994ce66904e2ef84f6"
         }
     },
+    "friendsofsymfony/oauth-server-bundle": {
+        "version": "2.0-dev"
+    },
+    "friendsofsymfony/oauth2-php": {
+        "version": "1.2.3"
+    },
     "guzzlehttp/guzzle": {
         "version": "6.3.3"
     },
@@ -508,6 +514,9 @@
             "version": "2.5",
             "ref": "3db029c03e452b4a23f7fc45cec7c922c2247eb8"
         }
+    },
+    "symfony/templating": {
+        "version": "v4.1.4"
     },
     "symfony/test-pack": {
         "version": "v1.0.2"

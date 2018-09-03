@@ -1,0 +1,70 @@
+App\Infrastructure\User\Query\Projections\UserView:
+    type: entity
+    table: user
+    repositoryClass: App\Infrastructure\User\Query\Repository\UserRepository
+    id:
+        id:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        username:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        avatar:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        salt:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        roles:
+            type: array
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        steemit:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        token:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        confirmed:
+            type: boolean
+            nullable: false
+        banned:
+            type: boolean
+            nullable: false
+    lifecycleCallbacks: {  }

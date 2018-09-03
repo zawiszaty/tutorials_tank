@@ -145,15 +145,11 @@ class CategoryController extends Controller
      *
      * @param Request $request
      * @return Response
-     * @throws \Assert\AssertionFailedException
      */
     public function getAllCategoryAction(Request $request): Response
     {
-        $page = $request->get('page');
-        $limit = $request->get('limit');
-
-        Assertion::notNull($page);
-        Assertion::notNull($limit);
+        $page = $request->get('page') ?? 1;
+        $limit = $request->get('limit') ?? 10;
 
         $command = new GetAllCommand($page, $limit);
         $model = $this->queryBus->handle($command);

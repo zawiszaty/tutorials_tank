@@ -2,7 +2,6 @@
 
 use Behat\Behat\Context\Context;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Behatch\HttpCall\Request;
 
 class CategoryContext implements Context
 {
@@ -14,18 +13,14 @@ class CategoryContext implements Context
 
     protected static $container;
 
-    protected $client;
-
     /**
      * FeatureContext constructor.
      *
      * @param KernelInterface $kernel
-     * @param Request         $request
      */
     public function __construct(KernelInterface $kernel)
     {
         $this->kernel = $kernel;
-        $this->client = \Elasticsearch\ClientBuilder::fromConfig(['hosts' => ['elasticsearch:9200']], true);
         self::$container = $this->kernel->getContainer();
     }
 
@@ -47,7 +42,7 @@ class CategoryContext implements Context
     public function iSendEditRequest()
     {
         $client = new \GuzzleHttp\Client();
-        $response = $client->patch('nginx/category/' . $this->id, [
+        $response = $client->patch('nginx/category/'. $this->id, [
             GuzzleHttp\RequestOptions::JSON => ['name' => 'King2'],
         ]);
         if (\Symfony\Component\HttpFoundation\Response::HTTP_OK != $response->getStatusCode()) {
@@ -60,14 +55,18 @@ class CategoryContext implements Context
      */
     public function theCategoryWasBeUpdated()
     {
-        $params = [
-            'index' => 'category',
-            'type'  => 'category',
-            'id'    => $this->id,
-        ];
-        $data = $this->client->get($params);
-        if ('King2' != $data['_source']['name']) {
-            throw new \Behat\Behat\Tester\Exception\PendingException();
+        $entityManager = self::$container->get('doctrine')->getManager();
+        $query = $entityManager->createQuery(
+            'SELECT p
+             FROM App\Infrastructure\Category\Query\Projections\CategoryView p
+             WHERE p.id = :price
+             '
+        )->setParameter('price', $this->id);
+        $category = $query->execute();
+        $serializer = JMS\Serializer\SerializerBuilder::create()->build();
+        $jsonContent = json_decode($serializer->serialize($category, 'json'), true);
+        if ($jsonContent[0]['name'] != 'King2') {
+            throw new Exception();
         }
     }
 
@@ -88,18 +87,18 @@ class CategoryContext implements Context
      */
     public function theCategoryWasBeDeleted()
     {
-        $params = [
-            'index' => 'category',
-            'type'  => 'category',
-            'id'    => $this->id,
-        ];
-
-        try {
-            $this->client->get($params);
-        } catch (Exception $exception) {
-            return;
+        $entityManager = self::$container->get('doctrine')->getManager();
+        $query = $entityManager->createQuery(
+            'SELECT p
+             FROM App\Infrastructure\Category\Query\Projections\CategoryView p
+             WHERE p.id = :price
+             '
+        )->setParameter('price', $this->id);
+        $category = $query->execute();
+        $serializer = JMS\Serializer\SerializerBuilder::create()->build();
+        $jsonContent = json_decode($serializer->serialize($category, 'json'), true);
+        if ($jsonContent) {
+            throw new Exception();
         }
-
-        throw new \Behat\Behat\Tester\Exception\PendingException();
     }
 }

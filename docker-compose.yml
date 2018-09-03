@@ -16,9 +16,7 @@ services:
       - code-network
 
   php:
-    image: jorge07/alpine-php:7.2-dev-sf
-    ports:
-      - "2323:22"
+    build: ./docker/php
     working_dir: /var/www/project
     volumes:
       - ./:/var/www/project

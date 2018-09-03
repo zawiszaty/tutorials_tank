@@ -78,5 +78,5 @@ abstract class MysqlRepository
     /**
      * @var EntityManagerInterface
      */
-    private $entityManager;
+    protected $entityManager;
 }

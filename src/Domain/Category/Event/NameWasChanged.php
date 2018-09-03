@@ -55,7 +55,6 @@ class NameWasChanged extends AbstractEvent
         return [
             'id'      => $this->id->toString(),
             'name'    => $this->name->toString(),
-            'deleted' => false,
         ];
     }
 

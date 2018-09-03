@@ -28,7 +28,6 @@ class DeleteCategoryHandler implements CommandHandlerInterface
     /**
      * @param DeleteCategoryCommand $categoryCommand
      *
-     * @throws \Assert\AssertionFailedException
      */
     public function __invoke(DeleteCategoryCommand $categoryCommand): void
     {

@@ -10,9 +10,12 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Common\ValueObject\Deleted;
 use Assert\Assertion;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use Doctrine\ORM\Mapping as ORM;
+use FOS\ElasticaBundle\Configuration\Search;
 
 /**
  * Class Category.
+ * @ORM\Table()
  */
 class Category extends EventSourcedAggregateRoot
 {
@@ -27,11 +30,6 @@ class Category extends EventSourcedAggregateRoot
     private $name;
 
     /**
-     * @var Deleted
-     */
-    private $deleted;
-
-    /**
      * @param array $params
      *
      * @throws \Assert\AssertionFailedException
@@ -43,7 +41,6 @@ class Category extends EventSourcedAggregateRoot
         $self = new self();
         $self->id = AggregateRootId::fromString($params['id']);
         $self->name = Name::fromString($params['name']);
-        $self->deleted = Deleted::fromString($params['deleted']);
 
         return $self;
     }
@@ -56,7 +53,6 @@ class Category extends EventSourcedAggregateRoot
         return [
           'id'      => $this->id->toString(),
           'name'    => $this->name->toString(),
-          'deleted' => $this->deleted->toBool(),
         ];
     }
 
@@ -79,7 +75,7 @@ class Category extends EventSourcedAggregateRoot
     public static function create(AggregateRootId $id, Name $name): self
     {
         $category = new self();
-        $category->apply(new CategoryWasCreated($id, $name, Deleted::fromString(false)));
+        $category->apply(new CategoryWasCreated($id, $name));
 
         return $category;
     }
@@ -91,7 +87,6 @@ class Category extends EventSourcedAggregateRoot
     {
         $this->id = $event->getId();
         $this->name = $event->getName();
-        $this->deleted = $event->getDeleted();
     }
 
     /**
@@ -120,7 +115,6 @@ class Category extends EventSourcedAggregateRoot
 
     public function applyCategoryWasDeleted(): void
     {
-        $this->deleted = 1;
     }
 
     /**
@@ -137,13 +131,5 @@ class Category extends EventSourcedAggregateRoot
     public function getName(): string
     {
         return $this->name->toString();
-    }
-
-    /**
-     * @return string
-     */
-    public function getDeleted(): string
-    {
-        return $this->deleted->toString();
     }
 }

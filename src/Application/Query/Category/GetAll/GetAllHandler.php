@@ -4,6 +4,7 @@ namespace App\Application\Query\Category\GetAll;
 
 use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
+use App\Infrastructure\Category\Repository\CategoryRepository;
 use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 
@@ -18,30 +19,23 @@ class GetAllHandler implements QueryHandlerInterface
     private $modelRepository;
 
     /**
-     * @var ElasticRepository
-     */
-    private $elasticRepository;
-
-    /**
      * GetAllHandler constructor.
      *
      * @param MysqlCategoryReadModelRepository $modelRepository
-     * @param CategoryRepositoryElastic        $elasticRepository
      */
-    public function __construct(MysqlCategoryReadModelRepository $modelRepository, CategoryRepositoryElastic $elasticRepository)
+    public function __construct(MysqlCategoryReadModelRepository $modelRepository)
     {
         $this->modelRepository = $modelRepository;
-        $this->elasticRepository = $elasticRepository;
     }
 
     /**
      * @param GetAllCommand $command
      *
-     * @return array
+     * @return \App\Application\Query\Collection
      */
     public function __invoke(GetAllCommand $command)
     {
-        $data = $this->elasticRepository->page();
+        $data = $this->modelRepository->getAll($command->getPage(), $command->getLimit());
 
         return $data;
     }

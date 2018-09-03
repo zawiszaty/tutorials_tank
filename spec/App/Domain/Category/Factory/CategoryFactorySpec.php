@@ -8,8 +8,8 @@ use PhpSpec\ObjectBehavior;
 
 class CategoryFactorySpec extends ObjectBehavior
 {
-    public function it_create_category()
+    public function it_create_category(Name $name)
     {
-        self::create(Name::fromString('test'))->shouldBeAnInstanceOf(Category::class);
+        self::create($name)->shouldBeAnInstanceOf(Category::class);
     }
 }

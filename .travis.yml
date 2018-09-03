@@ -2,11 +2,10 @@ sudo: required
 
 services:
   - docker
-
-language: php
-php:
-  - 7.2.7
-
+addons:
+  apt:
+    packages:
+    - docker-ce
 before_install:
   - curl -L https://github.com/docker/compose/releases/download/1.21.1/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
@@ -15,14 +14,10 @@ before_install:
   - docker -v
   - cp .env.dist .env
   - cat .env
-  - docker-compose exec php sh -lc "./bin/console d:d:c"
-  - docker-compose exec php sh -lc "./bin/console d:s:c"
 before_script:
   - composer self-update --rollback
   - composer install
-  - docker-compose up -d
 
 script:
-  - docker-compose exec php ./vendor/bin/phpspec run
-  - docker-compose exec php sh -lc "./vendor/bin/behat"
+  - make
 

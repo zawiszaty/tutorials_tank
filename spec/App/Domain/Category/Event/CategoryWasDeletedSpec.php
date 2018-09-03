@@ -8,20 +8,21 @@ use PhpSpec\ObjectBehavior;
 
 class CategoryWasDeletedSpec extends ObjectBehavior
 {
-    public function it_deserialize()
+    public function it_deserialize(AggregateRootId $aggregateRootId)
     {
         $this->beConstructedWith(
-            AggregateRootId::fromString('becc2ada-8e79-11e8-9eb6-529269fb1459')
+            $aggregateRootId
         );
         self::deserialize([
             'id' => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
         ])->shouldBeAnInstanceOf(CategoryWasDeleted::class);
     }
 
-    public function it_serialize()
+    public function it_serialize(AggregateRootId $aggregateRootId)
     {
+        $aggregateRootId->toString()->willReturn('test');
         $this->beConstructedWith(
-            AggregateRootId::fromString('becc2ada-8e79-11e8-9eb6-529269fb1459')
+            $aggregateRootId
         );
         $this->serialize()->shouldBeArray();
     }

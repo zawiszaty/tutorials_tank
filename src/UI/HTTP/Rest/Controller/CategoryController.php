@@ -11,9 +11,7 @@ use App\Domain\Category\Category;
 use App\Domain\Category\Exception\CategoryCreateException;
 use App\Domain\Category\Exception\CategoryNameWasChangedException;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Category\Repository\CategoryRepository;
-use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use App\UI\HTTP\Common\Form\CategoryType;
 use Assert\Assertion;
 use Broadway\EventHandling\EventBus;
@@ -144,7 +142,9 @@ class CategoryController extends Controller
      * @Route("/category", name="get_all_category")
      *
      * @param Request $request
+     *
      * @return Response
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function getAllCategoryAction(Request $request): Response

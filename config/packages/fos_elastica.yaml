@@ -1,0 +1,22 @@
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/Resources/doc/setup.md
+fos_elastica:
+    clients:
+        default: { host: elasticsearch, port: 9200 }
+    indexes:
+        category:
+            finder: ~
+            client: default
+            types:
+              category:
+                properties:
+                  id: ~
+                  name: ~
+                persistence:
+                  driver: orm
+                  model: App\Infrastructure\Category\Query\Projections\CategoryView
+                  provider: ~
+                  finder: ~
+                  repository: App\Infrastructure\Category\Repository\CategoryFosElasticaRepository
+
+
+

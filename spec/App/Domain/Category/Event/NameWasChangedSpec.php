@@ -9,11 +9,11 @@ use PhpSpec\ObjectBehavior;
 
 class NameWasChangedSpec extends ObjectBehavior
 {
-    public function it_deserialize()
+    public function it_deserialize(AggregateRootId $aggregateRootId, Name $name)
     {
         $this->beConstructedWith(
-            AggregateRootId::fromString('becc2ada-8e79-11e8-9eb6-529269fb1459'),
-            Name::fromString('test')
+            $aggregateRootId,
+            $name
         );
         self::deserialize([
             'id'   => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
@@ -21,11 +21,13 @@ class NameWasChangedSpec extends ObjectBehavior
         ])->shouldBeAnInstanceOf(NameWasChanged::class);
     }
 
-    public function it_serialize()
+    public function it_serialize(AggregateRootId $aggregateRootId, Name $name)
     {
+        $aggregateRootId->toString()->willReturn('test');
+        $name->toString()->willReturn('test');
         $this->beConstructedWith(
-            AggregateRootId::fromString('becc2ada-8e79-11e8-9eb6-529269fb1459'),
-            Name::fromString('test')
+            $aggregateRootId,
+            $name
         );
         $this->serialize()->shouldBeArray();
     }

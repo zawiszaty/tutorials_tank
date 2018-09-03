@@ -143,6 +143,15 @@
     "fig/link-util": {
         "version": "1.0.0"
     },
+    "friendsofsymfony/elastica-bundle": {
+        "version": "5.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "5.0",
+            "ref": "3f73f240ee0c3719e89f1c994ce66904e2ef84f6"
+        }
+    },
     "guzzlehttp/guzzle": {
         "version": "6.3.3"
     },
@@ -218,6 +227,9 @@
     "ocramius/proxy-manager": {
         "version": "2.1.1"
     },
+    "pagerfanta/pagerfanta": {
+        "version": "v1.1.0"
+    },
     "paragonie/random_compat": {
         "version": "v2.0.17"
     },
@@ -268,6 +280,9 @@
     },
     "react/promise": {
         "version": "v2.7.0"
+    },
+    "ruflin/elastica": {
+        "version": "6.0.2"
     },
     "sebastian/comparator": {
         "version": "3.0.2"

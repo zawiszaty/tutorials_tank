@@ -11,9 +11,9 @@ use App\Domain\Category\Category;
 use App\Domain\Category\Exception\CategoryCreateException;
 use App\Domain\Category\Exception\CategoryNameWasChangedException;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Infrastructure\Category\Query\Projections\CategoryView;
-use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
+use App\Infrastructure\Category\Repository\CategoryRepository;
 use App\UI\HTTP\Common\Form\CategoryType;
+use Assert\Assertion;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
 use League\Tactician\CommandBus;
@@ -49,17 +49,17 @@ class CategoryController extends Controller
     private $eventStore;
 
     /**
-     * @var CategoryRepositoryElastic
+     * @var CategoryRepository
      */
-    private $categoryRepositoryElastic;
+    private $categoryRepository;
 
-    public function __construct(CommandBus $queryBus, CommandBus $commandBus, EventBus $eventBus, DBALEventStore $eventStore, CategoryRepositoryElastic $categoryRepositoryElastic)
+    public function __construct(CommandBus $queryBus, CommandBus $commandBus, EventBus $eventBus, DBALEventStore $eventStore, CategoryRepository $categoryRepository)
     {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
         $this->eventStore = $eventStore;
-        $this->categoryRepositoryElastic = $categoryRepositoryElastic;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -81,9 +81,9 @@ class CategoryController extends Controller
             try {
                 $this->commandBus->handle($command);
             } catch (CategoryCreateException $exception) {
-                $category = $this->categoryRepositoryElastic->get($exception->getMessage());
+                $category = $this->categoryRepository->get(AggregateRootId::fromString($exception->getMessage()));
 
-                return new JsonResponse(CategoryView::deserialize($category['_source'])->serialize(), Response::HTTP_OK);
+                return new JsonResponse($category->serialize(), Response::HTTP_OK);
             }
         }
 
@@ -111,9 +111,9 @@ class CategoryController extends Controller
             try {
                 $this->commandBus->handle($command);
             } catch (CategoryNameWasChangedException $exception) {
-                $category = $this->categoryRepositoryElastic->get($exception->getMessage());
+                $category = $this->categoryRepository->get(AggregateRootId::fromString($exception->getMessage()));
 
-                return new JsonResponse(CategoryView::deserialize($category['_source'])->serialize(), Response::HTTP_OK);
+                return new JsonResponse($category->serialize(), Response::HTTP_OK);
             }
         }
 
@@ -141,11 +141,21 @@ class CategoryController extends Controller
     /**
      * @Route("/category", name="get_all_category")
      *
+     * @param Request $request
+     *
      * @return Response
+     *
+     * @throws \Assert\AssertionFailedException
      */
-    public function getAllCategoryAction(): Response
+    public function getAllCategoryAction(Request $request): Response
     {
-        $command = new GetAllCommand();
+        $page = $request->get('page');
+        $limit = $request->get('limit');
+
+        Assertion::notNull($page);
+        Assertion::notNull($limit);
+
+        $command = new GetAllCommand($page, $limit);
         $model = $this->queryBus->handle($command);
 
         return new JsonResponse($model, 200);

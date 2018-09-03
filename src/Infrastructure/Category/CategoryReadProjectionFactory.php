@@ -2,13 +2,11 @@
 
 namespace App\Infrastructure\Category;
 
-use App\Domain\Category\Category;
 use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Category\Event\CategoryWasDeleted;
 use App\Domain\Category\Event\NameWasChanged;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
-use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use Broadway\ReadModel\Projector;
 
 /**
@@ -17,61 +15,52 @@ use Broadway\ReadModel\Projector;
 class CategoryReadProjectionFactory extends Projector
 {
     /**
-     * @var CategoryRepositoryElastic
-     */
-    private $categoryRepositoryElastic;
-
-    /**
      * @var MysqlCategoryReadModelRepository
      */
     private $repository;
 
     /**
      * @param CategoryWasCreated $categoryWasCreated
-     *
-     * @throws \Assert\AssertionFailedException
      */
     public function applyCategoryWasCreated(CategoryWasCreated $categoryWasCreated)
     {
-        $readModel = CategoryView::fromSerializable($categoryWasCreated);
-        $this->categoryRepositoryElastic->store($categoryWasCreated);
+        $categoryView = CategoryView::fromSerializable($categoryWasCreated);
+        $this->repository->add($categoryView);
     }
 
     /**
      * @param NameWasChanged $nameWasChanged
      *
-     * @throws \Assert\AssertionFailedException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyNameWasChanged(NameWasChanged $nameWasChanged): void
     {
-        $aggregateParams = $this->categoryRepositoryElastic->get($nameWasChanged->getId()->toString());
-        $category = Category::fromString($aggregateParams['_source']);
-        $category->changeName($nameWasChanged->getName());
-        $this->categoryRepositoryElastic->store($nameWasChanged);
+        /** @var CategoryView $aggregateParams */
+        $aggregateParams = $this->repository->oneByUuid($nameWasChanged->getId());
+        $aggregateParams->changeName($nameWasChanged->getName()->toString());
+        $this->repository->apply();
     }
 
     /**
      * @param CategoryWasDeleted $categoryWasDeleted
      *
-     * @throws \Assert\AssertionFailedException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyCategoryWasDeleted(CategoryWasDeleted $categoryWasDeleted): void
     {
-        $aggregateParams = $this->categoryRepositoryElastic->get($categoryWasDeleted->getId()->toString());
-        $category = Category::fromString($aggregateParams['_source']);
-        $category->delete();
-        $this->categoryRepositoryElastic->deleteRow($categoryWasDeleted->getId()->toString());
+        /** @var CategoryView $aggregateParams */
+        $aggregateParams = $this->repository->oneByUuid($categoryWasDeleted->getId());
+        $aggregateParams->delete();
+        $this->repository->delete($categoryWasDeleted->getId());
     }
 
     /**
      * CategoryReadProjectionFactory constructor.
      *
      * @param MysqlCategoryReadModelRepository $repository
-     * @param CategoryRepositoryElastic        $categoryRepositoryElastic
      */
-    public function __construct(MysqlCategoryReadModelRepository $repository, CategoryRepositoryElastic $categoryRepositoryElastic)
+    public function __construct(MysqlCategoryReadModelRepository $repository)
     {
         $this->repository = $repository;
-        $this->categoryRepositoryElastic = $categoryRepositoryElastic;
     }
 }

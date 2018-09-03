@@ -9,6 +9,7 @@
         "broadway/broadway-bundle": "^0.4.1",
         "broadway/event-store-dbal": "^0.2.1",
         "elasticsearch/elasticsearch": "^6.0",
+        "friendsofsymfony/elastica-bundle": "dev-master",
         "guzzlehttp/guzzle": "^6.3",
         "jms/serializer-bundle": "^2.4",
         "league/tactician-bundle": "^1.1",

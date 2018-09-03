@@ -18,4 +18,5 @@ return [
     League\Tactician\Bundle\TacticianBundle::class                       => ['all' => true],
     JMS\SerializerBundle\JMSSerializerBundle::class                      => ['all' => true],
     Nelmio\CorsBundle\NelmioCorsBundle::class                            => ['all' => true],
+    FOS\ElasticaBundle\FOSElasticaBundle::class                          => ['all' => true],
 ];

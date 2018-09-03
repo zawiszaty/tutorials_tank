@@ -4,8 +4,6 @@ namespace App\Infrastructure\Category\Query\Projections;
 
 use App\Domain\Category\Query\Projections\CategoryViewInterface;
 use App\Domain\Category\ValueObject\Name;
-use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Domain\Common\ValueObject\Deleted;
 use Broadway\Serializer\Serializable;
 
 /**
@@ -14,24 +12,17 @@ use Broadway\Serializer\Serializable;
 class CategoryView implements CategoryViewInterface
 {
     /**
-     * @var AggregateRootId
+     * @var string
      */
     private $id;
 
     /**
-     * @var Name
+     * @var string
      */
     private $name;
 
     /**
-     * @var Deleted
-     */
-    private $deleted;
-
-    /**
      * @param Serializable $event
-     *
-     * @throws \Assert\AssertionFailedException
      *
      * @return CategoryView
      */
@@ -43,16 +34,13 @@ class CategoryView implements CategoryViewInterface
     /**
      * @param array $data
      *
-     * @throws \Assert\AssertionFailedException
-     *
      * @return CategoryView
      */
     public static function deserialize(array $data): self
     {
         $instance = new self();
-        $instance->id = AggregateRootId::fromString($data['id']);
-        $instance->name = Name::fromString($data['name']);
-        $instance->deleted = Deleted::fromString($data['deleted'])->toBool();
+        $instance->id = $data['id'];
+        $instance->name = $data['name'];
 
         return $instance;
     }
@@ -63,9 +51,8 @@ class CategoryView implements CategoryViewInterface
     public function serialize(): array
     {
         return [
-            'id'      => $this->id->toString(),
-            'name'    => $this->name->toString(),
-            'deleted' => $this->deleted,
+            'id'      => $this->id,
+            'name'    => $this->name,
         ];
     }
 
@@ -85,24 +72,12 @@ class CategoryView implements CategoryViewInterface
         return $this->name;
     }
 
-    /**
-     * @return bool
-     */
-    public function getDeleted(): bool
-    {
-        return $this->deleted;
-    }
-
-    /**
-     * @param Name $name
-     */
-    public function changeName(Name $name): void
-    {
-        $this->name = $name;
-    }
-
     public function delete(): void
     {
-        $this->deleted = 1;
+    }
+
+    public function changeName(string $name)
+    {
+        $this->name = $name;
     }
 }

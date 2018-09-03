@@ -24,12 +24,10 @@ class CategoryWasCreated extends AbstractEvent
     {
         Assertion::keyExists($data, 'id');
         Assertion::keyExists($data, 'name');
-        Assertion::keyExists($data, 'deleted');
 
         return new self(
             AggregateRootId::fromString($data['id']),
-            Name::fromString($data['name']),
-            Deleted::fromString($data['deleted'])
+            Name::fromString($data['name'])
         );
     }
 
@@ -41,7 +39,6 @@ class CategoryWasCreated extends AbstractEvent
         return [
             'id'      => $this->id->toString(),
             'name'    => $this->name->toString(),
-            'deleted' => $this->deleted->toBool(),
         ];
     }
 
@@ -52,11 +49,10 @@ class CategoryWasCreated extends AbstractEvent
      * @param Name            $name
      * @param Deleted         $deleted
      */
-    public function __construct(AggregateRootId $id, Name $name, Deleted $deleted)
+    public function __construct(AggregateRootId $id, Name $name)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->deleted = $deleted;
     }
 
     /**
@@ -65,23 +61,10 @@ class CategoryWasCreated extends AbstractEvent
     private $name;
 
     /**
-     * @var Deleted
-     */
-    private $deleted;
-
-    /**
      * @return Name
      */
     public function getName(): Name
     {
         return $this->name;
-    }
-
-    /**
-     * @return Deleted
-     */
-    public function getDeleted(): Deleted
-    {
-        return $this->deleted;
     }
 }

@@ -17,7 +17,6 @@ services:
 
   php:
     build: ./docker/php
-    container_name: tutorials_tank_php
     working_dir: /var/www/project
     volumes:
       - ./:/var/www/project

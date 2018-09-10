@@ -1,0 +1,10 @@
+fos_oauth_server:
+  db_driver: orm
+  client_class: App\Infrastructure\OAuth\Entity\Client
+  access_token_class: App\Infrastructure\OAuth\Entity\AccessToken
+  refresh_token_class: App\Infrastructure\OAuth\Entity\RefreshToken
+  auth_code_class: App\Infrastructure\OAuth\Entity\AuthCode
+  service:
+    user_provider: fos_user.user_provider.username
+  template:
+    engine: twig

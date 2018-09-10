@@ -1,0 +1,8 @@
+# app/config/config.yml
+fos_user:
+  db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+  firewall_name: main
+  user_class: App\Infrastructure\User\Query\Projections\UserView
+  from_email:
+    address: "none"
+    sender_name: "none"

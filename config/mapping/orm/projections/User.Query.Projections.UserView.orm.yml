@@ -1,0 +1,32 @@
+App\Infrastructure\User\Query\Projections\UserView:
+    type: entity
+    table: fos_user
+    repositoryClass: App\Infrastructure\User\Query\Repository\UserRepository
+    id:
+        id:
+            type: uuid
+            generator:
+                strategy: CUSTOM
+            customIdGenerator:
+                class: Ramsey\Uuid\Doctrine\UuidGenerator
+
+    fields:
+
+        avatar:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        steemit:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        banned:
+            type: boolean
+            nullable: false
+            options:
+                default: 0
+    lifecycleCallbacks: {  }

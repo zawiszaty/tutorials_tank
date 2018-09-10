@@ -15,14 +15,23 @@ doctrine:
         password: "%env(DATABASE_PASS)%"
         charset:  UTF8
         server_version: '5.7'
+        types:
+            uuid:  Ramsey\Uuid\Doctrine\UuidType
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
+            OAuth:
+                type: annotation
+                dir: '%kernel.project_dir%/src/Infrastructure/OAuth/Entity'
+                is_bundle: false
+                prefix: App\Infrastructure\OAuth\Entity
+                alias: App
             Projections:
                 is_bundle: false
                 type: yml
                 dir: '%kernel.project_dir%/config/mapping/orm/projections'
                 prefix: 'App\Infrastructure'
                 alias: Projections
+

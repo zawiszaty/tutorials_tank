@@ -2,8 +2,6 @@
 
 namespace App\Domain\User\ValueObject;
 
-use Assert\Assertion;
-
 class Password
 {
     /**
@@ -13,6 +11,7 @@ class Password
 
     /**
      * @param string $password
+     *
      * @return password
      */
     public static function fromString(string $password): self

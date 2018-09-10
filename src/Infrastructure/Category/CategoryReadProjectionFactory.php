@@ -43,6 +43,7 @@ class CategoryReadProjectionFactory extends Projector
 
     /**
      * @param CategoryWasDeleted $categoryWasDeleted
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyCategoryWasDeleted(CategoryWasDeleted $categoryWasDeleted): void

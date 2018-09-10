@@ -4,13 +4,11 @@ namespace App\UI\HTTP\Rest\Controller;
 
 use App\Application\Command\User\Create\CreateUserCommand;
 use App\Domain\User\User;
-use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use App\UI\HTTP\Common\Form\RegistrationFormType;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
-use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
 use League\Tactician\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -20,8 +18,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class UserController
- * @package App\UI\HTTP\Rest\Controller
+ * Class UserController.
+ *
  * @Route("/api")
  */
 class UserController extends Controller
@@ -45,6 +43,7 @@ class UserController extends Controller
      * @var DBALEventStore
      */
     private $eventStore;
+
     /**
      * @var MysqlUserReadModelRepository
      */
@@ -62,8 +61,7 @@ class UserController extends Controller
         DBALEventStore $eventStore,
         MysqlUserReadModelRepository $userReadModelRepository,
         EventDispatcherInterface $eventDispatcher
-    )
-    {
+    ) {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -93,6 +91,7 @@ class UserController extends Controller
                 dump($exception->getMessage());
                 die();
                 $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($exception->getMessage(), $request, $response));
+
                 return $response;
             }
         }

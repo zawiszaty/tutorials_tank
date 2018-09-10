@@ -2,7 +2,6 @@
 
 namespace App\Domain\User\ValueObject;
 
-
 use Assert\Assertion;
 
 class UserName
@@ -14,7 +13,9 @@ class UserName
 
     /**
      * @param string $userName
+     *
      * @return UserName
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function fromString(string $userName): self

@@ -2,8 +2,6 @@
 
 namespace App\Domain\User\ValueObject;
 
-use Assert\Assertion;
-
 class Steemit
 {
     /**
@@ -13,6 +11,7 @@ class Steemit
 
     /**
      * @param string $steemit
+     *
      * @return steemit
      */
     public static function fromString(?string $steemit): self

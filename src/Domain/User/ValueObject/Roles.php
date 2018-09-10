@@ -13,7 +13,9 @@ class Roles
 
     /**
      * @param array $roles
+     *
      * @return Roles
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function fromString(array $roles): self

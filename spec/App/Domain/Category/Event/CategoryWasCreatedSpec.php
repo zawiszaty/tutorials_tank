@@ -5,7 +5,6 @@ namespace spec\App\Domain\Category\Event;
 use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Domain\Common\ValueObject\Deleted;
 use PhpSpec\ObjectBehavior;
 
 class CategoryWasCreatedSpec extends ObjectBehavior

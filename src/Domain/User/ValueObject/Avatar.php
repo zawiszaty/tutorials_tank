@@ -2,8 +2,6 @@
 
 namespace App\Domain\User\ValueObject;
 
-use Assert\Assertion;
-
 class Avatar
 {
     /**
@@ -13,6 +11,7 @@ class Avatar
 
     /**
      * @param string $avatar
+     *
      * @return avatar
      */
     public static function fromString(?string $avatar): self

@@ -4,8 +4,6 @@ namespace App\Infrastructure\Category\Query\Projections;
 
 use App\Domain\Category\Query\Projections\CategoryViewInterface;
 use App\Domain\Category\ValueObject\Name;
-use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Domain\Common\ValueObject\Deleted;
 use Broadway\Serializer\Serializable;
 
 /**

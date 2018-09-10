@@ -18,7 +18,7 @@ class UserRepository extends EventSourcingRepository
      */
     public function get(AggregateRootId $id): User
     {
-       /** @var User $user */
+        /** @var User $user */
         $user = $this->load($id->toString());
 
         return $user;

@@ -7,14 +7,13 @@ use App\Domain\Category\Event\CategoryWasDeleted;
 use App\Domain\Category\Event\NameWasChanged;
 use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Domain\Common\ValueObject\Deleted;
 use Assert\Assertion;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
 use Doctrine\ORM\Mapping as ORM;
-use FOS\ElasticaBundle\Configuration\Search;
 
 /**
  * Class Category.
+ *
  * @ORM\Table()
  */
 class Category extends EventSourcedAggregateRoot

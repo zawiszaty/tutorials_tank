@@ -2,9 +2,7 @@
 
 namespace App\Infrastructure\User;
 
-
 use App\Domain\User\Event\UserWasCreated;
-use App\Domain\User\User;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;
@@ -18,6 +16,7 @@ class UserReadProjectionFactory extends Projector
 
     /**
      * UserReadProjectionFactory constructor.
+     *
      * @param MysqlUserReadModelRepository $repository
      */
     public function __construct(MysqlUserReadModelRepository $repository)

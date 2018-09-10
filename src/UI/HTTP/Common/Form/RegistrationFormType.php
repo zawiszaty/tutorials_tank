@@ -23,15 +23,15 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class, array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
             ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
             ->add('plainPassword', RepeatedType::class, array(
-                'type' => PasswordType::class,
+                'type'    => PasswordType::class,
                 'options' => array(
                     'translation_domain' => 'FOSUserBundle',
-                    'attr' => array(
+                    'attr'               => array(
                         'autocomplete' => 'new-password',
                     ),
                 ),
-                'first_options' => array('label' => 'form.password'),
-                'second_options' => array('label' => 'form.password_confirmation'),
+                'first_options'   => array('label' => 'form.password'),
+                'second_options'  => array('label' => 'form.password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
             ));
 

@@ -4,21 +4,21 @@ namespace App\Domain\User\ValueObject;
 
 use Assert\Assertion;
 
-class Avatar
+class Password
 {
     /**
      * @var null|string
      */
-    private $avatar;
+    private $password;
 
     /**
-     * @param string $avatar
-     * @return avatar
+     * @param string $password
+     * @return password
      */
-    public static function fromString(?string $avatar): self
+    public static function fromString(string $password): self
     {
         $instance = new self();
-        $instance->avatar = $avatar;
+        $instance->password = password_hash($password, PASSWORD_DEFAULT);
 
         return $instance;
     }
@@ -26,16 +26,16 @@ class Avatar
     /**
      * @return string
      */
-    public function toString(): ?string
+    public function toString(): string
     {
-        return $this->avatar;
+        return $this->password;
     }
 
     /**
      * @return string
      */
-    public function __toString(): ?string
+    public function __toString(): string
     {
-        return $this->avatar;
+        return $this->password;
     }
 }

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Domain\Category\Query\Projections;
+namespace App\Domain\User\Query\Projections;
 
 use Broadway\ReadModel\SerializableReadModel;
 
 /**
- * Interface CategoryViewInterface.
+ * Interface UserViewInterface
+ * @package App\Domain\Category\Query\Projections
  */
-interface CategoryViewInterface extends SerializableReadModel
+interface UserViewInterface extends SerializableReadModel
 {
 }

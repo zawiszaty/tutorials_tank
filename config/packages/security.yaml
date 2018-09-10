@@ -1,19 +1,13 @@
 security:
     encoders:
-        App\Infrastructure\User\Query\Projections\UserView:
-            algorithm: bcrypt
+        FOS\UserBundle\Model\UserInterface: bcrypt
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        our_db_provider:
-            entity:
-                class: App\Infrastructure\User\Query\Projections\UserView
-                property: username
-    firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
+        fos_userbundle:
+            id: fos_user.user_provider.username
 
+    firewalls:
         oauth_token:
             pattern:    ^/oauth/v2/token
             security:   false
@@ -21,16 +15,16 @@ security:
         oauth_authorize:
             pattern:    ^/oauth/v2/auth
             form_login:
-                provider: our_db_provider
+                provider: fos_userbundle
                 check_path: /oauth/v2/auth_login_check
                 login_path: /oauth/v2/auth_login
                 use_referer: true
 
         api:
-            pattern:    ^/
+            pattern:    ^/api
             fos_oauth:  true
             stateless:  true
-            anonymous:  false # note that anonymous access is now enabled
+            anonymous:  true # note that anonymous access is now enabled
 
             # activate different ways to authenticate
 
@@ -43,5 +37,5 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/api/v1/category, roles: [ IS_AUTHENTICATED_FULLY ] }
         # - { path: ^/profile, roles: ROLE_USER }

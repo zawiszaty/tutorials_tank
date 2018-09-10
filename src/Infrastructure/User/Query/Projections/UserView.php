@@ -2,130 +2,39 @@
 
 namespace App\Infrastructure\User\Query\Projections;
 
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\EquatableInterface;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Class UserView
  * @package App\Infrastructure\User\Query\Projections
  */
-class UserView implements UserInterface, EquatableInterface, \Serializable
+class UserView extends BaseUser
 {
     /**
      * @var string
      */
-    private $id;
+    protected $id;
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
 
     /**
      * @var string
      */
-    private $username;
+    protected $avatar;
 
     /**
      * @var string
      */
-    private $email;
-
-    /**
-     * @var string
-     */
-    private $password;
-
-    /**
-     * @var string
-     */
-    private $avatar;
-
-    /**
-     * @var string
-     */
-    private $steemit;
-
-    /**
-     * @var array
-     */
-    private $roles = ['ROLE_USER'];
-
-    /**
-     * @var string
-     */
-    private $salt;
-
-    /**
-     * @var string
-     */
-    private $token;
+    protected $steemit;
 
     /**
      * @var bool
      */
-    private $confirmed;
-
-    /**
-     * @var bool
-     */
-    private $banned;
-
-    /**
-     * UserView constructor.
-     * @param string $id
-     * @param string $username
-     * @param string $email
-     * @param string $password
-     * @param string $avatar
-     * @param string $steemit
-     * @param string $salt
-     * @param array $roles
-     * @param string $token
-     * @param bool $confirmed
-     * @param bool $banned
-     */
-    public function __construct(string $id, string $username, string $email, string $password, string $avatar, string $steemit, string $salt, ?array $roles, string $token, bool $confirmed, bool $banned)
-    {
-        $this->id = $id;
-        $this->username = $username;
-        $this->email = $email;
-        $this->password = $password;
-        $this->avatar = $avatar;
-        $this->steemit = $steemit;
-        $this->token = $token;
-        $this->confirmed = $confirmed;
-        $this->banned = $banned;
-        $this->salt = $salt;
-        $this->roles[] = $roles;
-    }
-
-    /**
-     * @return string
-     */
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUsername(): string
-    {
-        return $this->username;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
+    protected $banned;
 
     /**
      * @return string
@@ -133,6 +42,14 @@ class UserView implements UserInterface, EquatableInterface, \Serializable
     public function getAvatar(): string
     {
         return $this->avatar;
+    }
+
+    /**
+     * @param string $avatar
+     */
+    public function setAvatar(string $avatar): void
+    {
+        $this->avatar = $avatar;
     }
 
     /**
@@ -144,19 +61,11 @@ class UserView implements UserInterface, EquatableInterface, \Serializable
     }
 
     /**
-     * @return string
+     * @param string $steemit
      */
-    public function getToken(): string
+    public function setSteemit(string $steemit): void
     {
-        return $this->token;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isConfirmed(): bool
-    {
-        return $this->confirmed;
+        $this->steemit = $steemit;
     }
 
     /**
@@ -168,80 +77,44 @@ class UserView implements UserInterface, EquatableInterface, \Serializable
     }
 
     /**
-     * @param UserInterface $user
-     * @return bool
+     * @param bool $banned
      */
-    public function isEqualTo(UserInterface $user)
+    public function setBanned(bool $banned): void
     {
-        if (!$user instanceof UserView) {
-            return false;
-        }
-
-        if ($this->password !== $user->getPassword()) {
-            return false;
-        }
-
-        if ($this->salt !== $user->getSalt()) {
-            return false;
-        }
-
-        if ($this->username !== $user->getUsername()) {
-            return false;
-        }
-
-        return true;
+        $this->banned = $banned;
     }
 
     /**
-     * @return array
+     * @param array $data
+     * @return UserView
      */
-    public function getRoles()
+    public static function deserializeProjections(array $data)
     {
-        return $this->roles;
+        $userView = new self();
+        $userView->id = $data['id'];
+        $userView->username = $data['username'];
+        $userView->avatar = $data['avatar'];
+        $userView->steemit = $data['steemit'];
+        $userView->banned = $data['banned'];
+        $userView->email = $data['email'];
+        $userView->emailCanonical = strtolower($data['email']);
+        $userView->password = $data['password'];
+        $userView->roles = $data['roles'];
+
+        return $userView;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getSalt()
-    {
-        return $this->salt;
-    }
-
-    /**
-     *
-     */
-    public function eraseCredentials()
-    {
-    }
-
-    public function serialize()
-    {
-        return serialize(array(
-            $this->id,
-            $this->username,
-            $this->email,
-            $this->avatar,
-            $this->steemit,
-            $this->token,
-            $this->confirmed,
-            $this->banned,
-            $this->salt,
-            $this->roles,
-        ));
-    }
-
-    public function unserialize($serialized)
-    {
-        list(
-            $this->id,
-            $this->username,
-            $this->email,
-            $this->avatar,
-            $this->steemit,
-            $this->token,
-            $this->confirmed,
-            $this->banned,
-            ) = unserialize($serialized, array('allowed_classes' => false));
-    }
+//    /**
+//     * @return array
+//     */
+//    public static function serializeProjections(): array
+//    {
+//        return [
+//            'id' => $this->id,
+//            'username' => $this->username,
+//            'avatar' => $this->avatar,
+//            'steemit' => $this->steemit,
+//            'banned' => $this->banned,
+//        ];
+//    }
 }

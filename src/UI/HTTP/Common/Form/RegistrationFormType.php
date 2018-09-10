@@ -1,38 +1,19 @@
 <?php
 
-/*
- * This file is part of the FOSUserBundle package.
- *
- * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+namespace App\UI\HTTP\Common\Form;
 
-namespace FOS\UserBundle\Form\Type;
-
+use App\Application\Command\User\Create\CreateUserCommand;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RegistrationFormType extends AbstractType
 {
-    /**
-     * @var string
-     */
-    private $class;
-
-    /**
-     * @param string $class The User class name
-     */
-    public function __construct($class)
-    {
-        $this->class = $class;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -52,8 +33,18 @@ class RegistrationFormType extends AbstractType
                 'first_options' => array('label' => 'form.password'),
                 'second_options' => array('label' => 'form.password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
-            ))
-        ;
+            ));
+
+        $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
+            /** @var CreateUserCommand $data */
+            $data = $event->getForm()->getData();
+            $roles = $data->getRoles();
+            $roles[] = 'ROLE_USER';
+            $data->setRoles($roles);
+            $data->setBanned(false);
+            $data->setAvatar(null);
+            $data->setSteemit(null);
+        });
     }
 
     /**
@@ -62,26 +53,7 @@ class RegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => $this->class,
-            'csrf_token_id' => 'registration',
+            'csrf_protection' => false,
         ));
-    }
-
-    // BC for SF < 3.0
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return $this->getBlockPrefix();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'fos_user_registration';
     }
 }

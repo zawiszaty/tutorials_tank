@@ -27,6 +27,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class CategoryController.
+ * @Route("/api")
  */
 class CategoryController extends Controller
 {
@@ -65,7 +66,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/category", name="add_category", methods="POST")
+     * @Route("/v1/category", name="add_category", methods="POST")
      *
      * @param Request $request
      *
@@ -89,11 +90,11 @@ class CategoryController extends Controller
             }
         }
 
-        return new JsonResponse($form->getErrors(), Response::HTTP_BAD_REQUEST);
+        return new Response($form->getErrors(), Response::HTTP_BAD_REQUEST);
     }
 
     /**
-     * @Route("/category/{id}", name="edit_category", methods="PATCH")
+     * @Route("/v1/category/{id}", name="edit_category", methods="PATCH")
      *
      * @param Request $request
      * @param string  $id
@@ -119,11 +120,11 @@ class CategoryController extends Controller
             }
         }
 
-        return new JsonResponse($form->getErrors(), Response::HTTP_BAD_REQUEST);
+        return new Response($form->getErrors(), Response::HTTP_BAD_REQUEST);
     }
 
     /**
-     * @Route("/category/{id}", name="delete_category", methods="DELETE")
+     * @Route("/v1/category/{id}", name="delete_category", methods="DELETE")
      *
      * @param Request $request
      * @param string  $id
@@ -141,7 +142,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/category", name="get_all_category")
+     * @Route("/category", name="get_all_category", methods="GET")
      *
      * @param Request $request
      * @return Response
@@ -174,6 +175,6 @@ class CategoryController extends Controller
         $command = new GetSingleCommand($aggregateRootId);
         $model = $this->queryBus->handle($command);
 
-        return new JsonResponse($model, 200);
+        return new Response($model, 200);
     }
 }

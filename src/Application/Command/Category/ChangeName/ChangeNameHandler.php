@@ -2,7 +2,6 @@
 
 namespace App\Application\Command\Category\ChangeName;
 
-use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Category\Exception\CategoryNameWasChangedException;
 use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use App\Domain\Category\ValueObject\Name;

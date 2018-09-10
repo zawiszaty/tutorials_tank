@@ -4,9 +4,6 @@ namespace App\Application\Query\Category\GetAll;
 
 use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
-use App\Infrastructure\Category\Repository\CategoryRepository;
-use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
-use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 
 /**
  * Class GetAllHandler.

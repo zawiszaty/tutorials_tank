@@ -5,7 +5,6 @@ namespace App\Application\Command\User\Create;
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Factory\UserFactory;
-use App\Domain\User\User;
 use App\Domain\User\ValueObject\Avatar;
 use App\Domain\User\ValueObject\Email;
 use App\Domain\User\ValueObject\Password;
@@ -29,6 +28,7 @@ class CreateUserHandler implements CommandHandlerInterface
 
     /**
      * @param CreateUserCommand $command
+     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
      */

@@ -53,6 +53,7 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
     /**
      * @param int $page
      * @param int $limit
+     *
      * @return Collection
      */
     public function getAll(int $page, int $limit)

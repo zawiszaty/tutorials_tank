@@ -6,5 +6,4 @@ use FOS\ElasticaBundle\Repository;
 
 class CategoryFosElasticaRepository extends Repository
 {
-
 }

@@ -12,8 +12,7 @@ use App\Domain\User\ValueObject\Steemit;
 use App\Domain\User\ValueObject\UserName;
 
 /**
- * Class UserWasCreated
- * @package App\Domain\User\Event
+ * Class UserWasCreated.
  */
 class UserWasCreated extends AbstractEvent
 {
@@ -26,6 +25,7 @@ class UserWasCreated extends AbstractEvent
      * @var UserName
      */
     private $username;
+
     /**
      * @var Email
      */
@@ -50,6 +50,7 @@ class UserWasCreated extends AbstractEvent
      * @var bool
      */
     private $banned;
+
     /**
      * @var Password
      */
@@ -57,14 +58,15 @@ class UserWasCreated extends AbstractEvent
 
     /**
      * User constructor.
+     *
      * @param AggregateRootId $id
-     * @param UserName $username
-     * @param Email $email
-     * @param Roles $roles
-     * @param Avatar $avatar
-     * @param Steemit $steemit
-     * @param bool $banned
-     * @param Password $password
+     * @param UserName        $username
+     * @param Email           $email
+     * @param Roles           $roles
+     * @param Avatar          $avatar
+     * @param Steemit         $steemit
+     * @param bool            $banned
+     * @param Password        $password
      */
     public function __construct(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, Password $password)
     {
@@ -80,7 +82,9 @@ class UserWasCreated extends AbstractEvent
 
     /**
      * @param array $data
+     *
      * @return UserWasCreated|mixed
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function deserialize(array $data)
@@ -102,14 +106,14 @@ class UserWasCreated extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
+            'id'       => $this->id->toString(),
             'username' => $this->username->toString(),
-            'email' => $this->email->toString(),
-            'roles' => $this->roles->toArray(),
-            'avatar' => $this->avatar->toString(),
-            'steemit' => $this->steemit->toString(),
-            'banned' => $this->banned,
-            'password' => $this->password->toString()
+            'email'    => $this->email->toString(),
+            'roles'    => $this->roles->toArray(),
+            'avatar'   => $this->avatar->toString(),
+            'steemit'  => $this->steemit->toString(),
+            'banned'   => $this->banned,
+            'password' => $this->password->toString(),
         ];
     }
 

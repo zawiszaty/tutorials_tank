@@ -11,6 +11,7 @@ class GetAllCommand
      * @var int
      */
     private $page;
+
     /**
      * @var int
      */
@@ -18,6 +19,7 @@ class GetAllCommand
 
     /**
      * GetAllCommand constructor.
+     *
      * @param int $page
      * @param int $limit
      */

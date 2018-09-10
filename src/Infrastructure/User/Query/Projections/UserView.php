@@ -5,8 +5,7 @@ namespace App\Infrastructure\User\Query\Projections;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
- * Class UserView
- * @package App\Infrastructure\User\Query\Projections
+ * Class UserView.
  */
 class UserView extends BaseUser
 {
@@ -86,6 +85,7 @@ class UserView extends BaseUser
 
     /**
      * @param array $data
+     *
      * @return UserView
      */
     public static function deserializeProjections(array $data)

@@ -13,8 +13,7 @@ use App\Domain\User\ValueObject\UserName;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
 
 /**
- * Class User
- * @package App\Domain\User
+ * Class User.
  */
 class User extends EventSourcedAggregateRoot
 {
@@ -27,6 +26,7 @@ class User extends EventSourcedAggregateRoot
      * @var UserName
      */
     private $username;
+
     /**
      * @var Email
      */
@@ -59,13 +59,14 @@ class User extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $id
-     * @param UserName $username
-     * @param Email $email
-     * @param Roles $roles
-     * @param Avatar $avatar
-     * @param Steemit $steemit
-     * @param bool $banned
-     * @param Password $password
+     * @param UserName        $username
+     * @param Email           $email
+     * @param Roles           $roles
+     * @param Avatar          $avatar
+     * @param Steemit         $steemit
+     * @param bool            $banned
+     * @param Password        $password
+     *
      * @return mixed
      */
     public static function create(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, Password $password)

@@ -2,7 +2,6 @@
 
 namespace App\Application\Command\User\Create;
 
-
 use App\Application\Command\CommandHandlerInterface;
 
 class CreateUserCommand implements CommandHandlerInterface
@@ -16,6 +15,7 @@ class CreateUserCommand implements CommandHandlerInterface
      * @var mixed
      */
     private $username;
+
     /**
      * @var mixed
      */

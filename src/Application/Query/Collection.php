@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Application\Query;
@@ -11,14 +12,17 @@ class Collection
      * @var int
      */
     public $page;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var int
      */
     public $total;
+
     /**
      * @var Item[]
      */
@@ -26,9 +30,10 @@ class Collection
 
     /**
      * Collection constructor.
-     * @param int $page
-     * @param int $limit
-     * @param int $total
+     *
+     * @param int   $page
+     * @param int   $limit
+     * @param int   $total
      * @param array $data
      */
     public function __construct(int $page, int $limit, int $total, array $data)

@@ -5,8 +5,7 @@ namespace App\Domain\User\Query\Projections;
 use Broadway\ReadModel\SerializableReadModel;
 
 /**
- * Interface UserViewInterface
- * @package App\Domain\Category\Query\Projections
+ * Interface UserViewInterface.
  */
 interface UserViewInterface extends SerializableReadModel
 {

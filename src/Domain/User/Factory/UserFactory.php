@@ -12,20 +12,20 @@ use App\Domain\User\ValueObject\Steemit;
 use App\Domain\User\ValueObject\UserName;
 
 /**
- * Class UserFactory
- * @package App\Domain\User\Factory
+ * Class UserFactory.
  */
 class UserFactory
 {
     /**
      * @param AggregateRootId $id
-     * @param UserName $username
-     * @param Email $email
-     * @param Roles $roles
-     * @param Avatar $avatar
-     * @param Steemit $steemit
-     * @param bool $banned
-     * @param Password $password
+     * @param UserName        $username
+     * @param Email           $email
+     * @param Roles           $roles
+     * @param Avatar          $avatar
+     * @param Steemit         $steemit
+     * @param bool            $banned
+     * @param Password        $password
+     *
      * @return mixed
      */
     public static function create(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, Password $password)

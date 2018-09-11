@@ -11,11 +11,8 @@ use App\Domain\Category\Category;
 use App\Domain\Category\Exception\CategoryCreateException;
 use App\Domain\Category\Exception\CategoryNameWasChangedException;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Category\Repository\CategoryRepository;
-use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use App\UI\HTTP\Common\Form\CategoryType;
-use Assert\Assertion;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
 use League\Tactician\CommandBus;
@@ -27,6 +24,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class CategoryController.
+ *
  * @Route("/api")
  */
 class CategoryController extends Controller
@@ -145,6 +143,7 @@ class CategoryController extends Controller
      * @Route("/category", name="get_all_category", methods="GET")
      *
      * @param Request $request
+     *
      * @return Response
      */
     public function getAllCategoryAction(Request $request): Response

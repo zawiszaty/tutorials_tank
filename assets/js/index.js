@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, NavLink, Route, Switch} from 'react-router-dom';
-import Dashboard from './Components/Dashboard';
-import AnotherPage from './Components/AnotherPage';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
+import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Button from '@material-ui/core/Button';
+import Login from './Components/Login/Login';
+import Registration from './Components/Registration/Registration';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import AppBar from '@material-ui/core/AppBar';
+import {TransitionGroup, CSSTransition} from "react-transition-group";
+import './index.css';
 
 class Index extends React.Component {
     render() {
@@ -27,30 +27,44 @@ class Index extends React.Component {
         };
 
         return (
-            <BrowserRouter>
-                <div>
-                    <AppBar position="static">
-                        <Toolbar>
-                            <IconButton color="inherit" aria-label="Menu">
-                                <MenuIcon />
-                            </IconButton>
-                            <Typography variant="title" color="inherit">
-                                News
-                            </Typography>
-                            <Button color="inherit">Login</Button>
-                        </Toolbar>
-                    </AppBar>
-                    <ul>
-                        <NavLink to="/another-page">Another Page</NavLink>
-                        <NavLink to="/another-page/2">Another Page2</NavLink>
-                    </ul>
-                    <Switch>
-                        <Route path="/another-page" component={AnotherPage}>
-                            <Route path="/2" component={Dashboard}/>
-                        </Route>
-                    </Switch>
-                </div>
-            </BrowserRouter>
+            <Router>
+                <Route
+                    render={({location}) => (
+                        <div>
+                            <div className={styles.root}>
+                                <AppBar position="static" color="default">
+                                    <Toolbar>
+                                        <Typography variant="title" color="inherit">
+                                            Tutorials Tank
+                                        </Typography>
+                                        <NavLink to="/login" ><Button color="inherit" className={styles.menuButton}>Zaloguj
+                                            się</Button></NavLink>
+                                        <NavLink to="/Registration"><Button className={styles.menuButton}
+                                            color="inherit">Zarejestruj się</Button></NavLink>
+                                    </Toolbar>
+                                </AppBar>
+                            </div>
+                            <TransitionGroup>
+                                {/* no different than other usage of
+                CSSTransition, just make sure to pass
+                `location` to `Switch` so it can match
+                the old location as it animates out
+            */}
+                                <CSSTransition key={location.key} classNames="fade" timeout={300}>
+                                    <Switch location={location}>
+                                        <Route path="/login" component={Login}>/
+                                        </Route>
+                                        <Route path="/registration" component={Registration}/>
+
+                                        <Route render={() => <div>Not Found</div>}/>
+                                    </Switch>
+                                </CSSTransition>
+                            </TransitionGroup>
+                        </div>
+                    )}>
+                </Route>
+            </Router>
+
         );
     }
 }

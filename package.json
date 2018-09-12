@@ -19,6 +19,11 @@
         "build": "encore production"
     },
     "dependencies": {
-        "@material-ui/icons": "^3.0.1"
+        "@babel/preset-es2015": "^7.0.0-beta.53",
+        "@babel/preset-stage-2": "^7.0.0",
+        "@babel/preset-stage-3": "^7.0.0",
+        "@material-ui/icons": "^3.0.1",
+        "react-redux": "^5.0.7",
+        "redux": "^4.0.0"
     }
 }

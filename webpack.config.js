@@ -8,7 +8,7 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .configureBabel(function(babelConfig) {
-        babelConfig.presets.push('env');
+        babelConfig.presets.push(['env', 'es2015']);
     })
     .enableReactPreset();
 ;

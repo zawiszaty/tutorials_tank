@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends Controller
 {
     /**
-     * @Route("/{react_link}", requirements={"react_link"=".+"}, name="dashboard", defaults={"react_link": null})
+     * @return Response
      */
     public function dashboard(): Response
     {

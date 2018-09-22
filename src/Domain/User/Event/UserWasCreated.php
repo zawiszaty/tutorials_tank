@@ -96,7 +96,8 @@ class UserWasCreated extends AbstractEvent
             Roles::fromString($data['roles']),
             Avatar::fromString($data['avatar']),
             Steemit::fromString($data['steemit']),
-            $data['bool']
+            $data['banned'],
+            Password::fromString($data['password'])
         );
     }
 

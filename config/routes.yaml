@@ -10,3 +10,42 @@ fos_oauth_server_authorize:
 
 fos_user:
   resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+add_category:
+  path: /api/v1/category
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\CategoryController:createCategoryAction
+
+edit_category:
+  path: /api/v1/category/{id}
+  methods: PATCH
+  controller: App\UI\HTTP\Rest\Controller\CategoryController:changeNameAction
+
+delete_category:
+  path: /api/v1/category/{id}
+  methods: DELETE
+  controller: App\UI\HTTP\Rest\Controller\CategoryController:deleteCategoryAction
+
+get_all_category:
+  path: /api/category
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\CategoryController:getAllCategoryAction
+
+get_single_category:
+  path: /api/category/{id}
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\CategoryController:getSingleAction
+
+add_user:
+  path: /api/v1/user/register
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\UserController:createCategoryAction
+
+dashboard:
+  path: /{react_link}
+  methods: GET
+  requirements:
+    react_link: .+
+  defaults:
+    react_link: null
+  controller: App\UI\HTTP\Rest\Controller\DashboardController:dashboard

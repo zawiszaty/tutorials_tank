@@ -2,8 +2,6 @@
 
 namespace spec\App\Domain\User\Event;
 
-use App\Domain\Category\Event\CategoryWasCreated;
-use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Event\UserWasCreated;
 use App\Domain\User\ValueObject\Avatar;
@@ -29,13 +27,13 @@ class UserWasCreatedSpec extends ObjectBehavior
             $password
         );
         self::deserialize([
-            'id'      => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
+            'id'          => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
             'userName'    => 'test',
-            'email'    => 'test@wp.pl',
-            'roles'    => ['test@wp.pl'],
-            'avatar'    => 'test@wp.pl',
-            'steemit'    => 'test@wp.pl',
-            'banned'    => false,
+            'email'       => 'test@wp.pl',
+            'roles'       => ['test@wp.pl'],
+            'avatar'      => 'test@wp.pl',
+            'steemit'     => 'test@wp.pl',
+            'banned'      => false,
             'password'    => 'test',
         ])->shouldBeAnInstanceOf(UserWasCreated::class);
     }

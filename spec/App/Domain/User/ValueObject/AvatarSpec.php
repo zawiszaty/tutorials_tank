@@ -2,7 +2,6 @@
 
 namespace spec\App\Domain\User\ValueObject;
 
-use App\Domain\Category\ValueObject\Name;
 use App\Domain\User\ValueObject\Avatar;
 use PhpSpec\ObjectBehavior;
 

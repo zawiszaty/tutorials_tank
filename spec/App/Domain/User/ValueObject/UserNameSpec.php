@@ -2,7 +2,6 @@
 
 namespace spec\App\Domain\User\ValueObject;
 
-use App\Domain\User\ValueObject\Steemit;
 use App\Domain\User\ValueObject\UserName;
 use PhpSpec\ObjectBehavior;
 

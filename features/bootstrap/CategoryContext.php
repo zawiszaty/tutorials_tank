@@ -12,9 +12,10 @@ class CategoryContext implements Context
     protected $kernel;
 
     protected static $container;
+
     protected static $headers = [
         'Authorization' => 'Bearer ' . 'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
-        'Accept' => 'application/json',
+        'Accept'        => 'application/json',
     ];
 
     /**
@@ -36,7 +37,7 @@ class CategoryContext implements Context
         $client = new \GuzzleHttp\Client();
         $response = $client->post('nginx/api/v1/category', [
             GuzzleHttp\RequestOptions::JSON => ['name' => 'King'],
-           'headers' =>  self::$headers
+           'headers'                        => self::$headers,
         ]);
         $this->id = json_decode($response->getBody(), true)['id'];
     }
@@ -49,7 +50,7 @@ class CategoryContext implements Context
         $client = new \GuzzleHttp\Client();
         $response = $client->patch('nginx/api/v1/category/' . $this->id, [
             GuzzleHttp\RequestOptions::JSON => ['name' => 'King2'],
-            'headers' =>  self::$headers
+            'headers'                       => self::$headers,
         ]);
         if (\Symfony\Component\HttpFoundation\Response::HTTP_OK != $response->getStatusCode()) {
             throw new \Behat\Behat\Tester\Exception\PendingException();
@@ -82,8 +83,8 @@ class CategoryContext implements Context
     public function iSendDeleteRequest()
     {
         $client = new \GuzzleHttp\Client();
-        $response = $client->delete('nginx/api/v1/category/' . $this->id,[
-            'headers' =>  self::$headers
+        $response = $client->delete('nginx/api/v1/category/' . $this->id, [
+            'headers' => self::$headers,
         ]);
         if (\Symfony\Component\HttpFoundation\Response::HTTP_ACCEPTED != $response->getStatusCode()) {
             throw new \Behat\Behat\Tester\Exception\PendingException();

@@ -3,7 +3,6 @@
 namespace spec\App\Domain\User\ValueObject;
 
 use App\Domain\User\ValueObject\Email;
-use App\Domain\User\ValueObject\Roles;
 use PhpSpec\ObjectBehavior;
 
 class EmailSpec extends ObjectBehavior

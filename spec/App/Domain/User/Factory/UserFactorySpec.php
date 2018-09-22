@@ -2,8 +2,6 @@
 
 namespace spec\App\Domain\User\Factory;
 
-use App\Domain\Category\Category;
-use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\User;
 use App\Domain\User\ValueObject\Avatar;

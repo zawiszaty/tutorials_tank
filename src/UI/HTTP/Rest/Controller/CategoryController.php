@@ -7,7 +7,6 @@ use App\Application\Command\Category\Create\CreateCategoryCommand;
 use App\Application\Command\Category\Delete\DeleteCategoryCommand;
 use App\Application\Query\Category\GetAll\GetAllCommand;
 use App\Application\Query\Category\GetSingle\GetSingleCommand;
-use App\Domain\Category\Category;
 use App\Domain\Category\Exception\CategoryCreateException;
 use App\Domain\Category\Exception\CategoryNameWasChangedException;
 use App\Domain\Common\ValueObject\AggregateRootId;
@@ -20,7 +19,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class CategoryController.
@@ -62,7 +60,6 @@ class CategoryController extends Controller
     }
 
     /**
-     *
      * @param Request $request
      *
      * @throws \Assert\AssertionFailedException
@@ -89,7 +86,6 @@ class CategoryController extends Controller
     }
 
     /**
-     *
      * @param Request $request
      * @param string  $id
      *
@@ -118,7 +114,6 @@ class CategoryController extends Controller
     }
 
     /**
-     *
      * @param Request $request
      * @param string  $id
      *
@@ -135,7 +130,6 @@ class CategoryController extends Controller
     }
 
     /**
-     *
      * @param Request $request
      *
      * @return Response
@@ -152,7 +146,6 @@ class CategoryController extends Controller
     }
 
     /**
-     *
      * @param Request $request
      * @param string  $id
      *

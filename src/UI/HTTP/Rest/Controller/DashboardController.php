@@ -4,7 +4,6 @@ namespace App\UI\HTTP\Rest\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends Controller
 {

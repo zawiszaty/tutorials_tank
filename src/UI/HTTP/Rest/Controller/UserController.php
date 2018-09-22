@@ -3,13 +3,10 @@
 namespace App\UI\HTTP\Rest\Controller;
 
 use App\Application\Command\User\Create\CreateUserCommand;
-use App\Domain\User\User;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use App\UI\HTTP\Common\Form\RegistrationFormType;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
-use FOS\UserBundle\Event\FilterUserResponseEvent;
-use FOS\UserBundle\FOSUserEvents;
 use League\Tactician\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -62,8 +59,7 @@ class UserController extends Controller
         DBALEventStore $eventStore,
         MysqlUserReadModelRepository $userReadModelRepository,
         EventDispatcherInterface $eventDispatcher
-    )
-    {
+    ) {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -73,7 +69,6 @@ class UserController extends Controller
     }
 
     /**
-     *
      * @param Request $request
      *
      * @return Response

@@ -8,7 +8,8 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .configureBabel(function(babelConfig) {
-        babelConfig.presets.push(['env', 'es2015']);
+        babelConfig.presets.push(['env', 'stage-3']);
+        babelConfig.plugins.push('transform-object-rest-spread')
     })
     .enableReactPreset();
 ;

@@ -9,8 +9,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
 import withStyles from '@material-ui/core/styles/withStyles';
-
+import axios from './../../axios';
+import { withSnackbar } from 'notistack';
+import LoginForm from './LoginForm';
 
 const styles = theme => ({
     layout: {
@@ -48,19 +51,28 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
 
+        const { onPresentSnackbar } = this.props;
         this.state = {
             name: '',
             password: '',
-            showPassword: false
+            showPassword: false,
+            onPresentSnackbar: onPresentSnackbar
         };
-
         this.handleNameChange = this.handleNameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleClickShowPassword = this.handleClickShowPassword.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleNameChange(state) {
         this.setState({
-            name: state.target.value
+            name: state.target.value,
+        })
+    }
+
+    handlePasswordChange(state) {
+        this.setState({
+            password: state.target.value
         })
     }
 
@@ -71,6 +83,24 @@ class Login extends React.Component {
     handleClickShowPassword() {
         this.setState(state => ({showPassword: !state.showPassword}));
     };
+
+    handleSubmit(e, a) {
+d
+        // e.preventDefault();
+        // axios.post('oauth/v2/token', {
+        //     "grant_type": "password",
+        //     "client_id": "1_17b58gtuwp40gg8s4g800kg8gsc4gg04w8cwooko8go484sws4",
+        //     "client_secret": "bw3gxccdi5w8w8owwggs8gsg8kw0088gk0wc48cwossokk0s0",
+        //     "username": this.state.name,
+        //     "password": this.state.password
+        // }).then((response) => {
+        //     localStorage.setItem('access_token', response.data.access_token);
+        //     localStorage.setItem('refresh_token', response.data.refresh_token);
+        //     // this.state.onPresentSnackbar('success', 'Successfully Login');
+        // }).catch((e) => {
+        //     this.state.onPresentSnackbar('error', 'Złe hasło albo nazwa użytkownika');
+        // });
+    }
 
     render() {
         const classes = this.props.classes;
@@ -83,37 +113,33 @@ class Login extends React.Component {
                             <LockIcon/>
                         </Avatar>
                         <Typography variant="headline">Zaloguj się</Typography>
-                        <form className={classes.form}>
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="username">Nazwa Użytkownika</InputLabel>
-                                <Input id="username" name="text" autoComplete="text" autoFocus/>
-                            </FormControl>
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="password">Hasło</InputLabel>
-                                <Input
-                                    name="password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="current-password"
-                                />
-                            </FormControl>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="raised"
-                                color="primary"
-                                className={classes.submit}
-                            >
-                                Zaloguj
-                            </Button>
-                            <Button
-                                type="submit"
-                                size="small" className={classes.button}
-                                fullWidth
-                            >
-                                Zapomniałem hasła
-                            </Button>
-                        </form>
+                        <LoginForm />
+                        {/*<form className={classes.form} onSubmit={this.handleSubmit}>*/}
+                            {/*<FormControl margin="normal" required fullWidth>*/}
+                                {/*<InputLabel  htmlFor="username">Nazwa Użytkownika</InputLabel>*/}
+                                {/*<Input  id="username" name="text" autoComplete="text" value={this.state.name}*/}
+                                       {/*onChange={this.handleNameChange} autoFocus/>*/}
+                                {/*<TextField helperText="test" />*/}
+                            {/*</FormControl>*/}
+                            {/*<FormControl margin="normal" required fullWidth>*/}
+                                {/*<InputLabel htmlFor="password">Hasło</InputLabel>*/}
+                                {/*<Input*/}
+                                    {/*name="password"*/}
+                                    {/*type="password"*/}
+                                    {/*id="password"*/}
+                                    {/*autoComplete="current-password"*/}
+                                    {/*value={this.state.password}*/}
+                                    {/*onChange={this.handlePasswordChange}*/}
+                                {/*/>*/}
+                            {/*</FormControl>*/}
+
+                            {/*<Button*/}
+                                {/*size="small" className={classes.button}*/}
+                                {/*fullWidth*/}
+                            {/*>*/}
+                                {/*Zapomniałem hasła*/}
+                            {/*</Button>*/}
+                        {/*</form>*/}
                     </Paper>
                 </main>
             </React.Fragment>
@@ -121,4 +147,4 @@ class Login extends React.Component {
     }
 }
 
-export default withStyles(styles)(Login);
+export default withSnackbar(withStyles(styles)(Login));

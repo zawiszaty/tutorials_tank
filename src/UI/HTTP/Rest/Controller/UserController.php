@@ -87,15 +87,12 @@ class UserController extends Controller
             try {
                 $this->commandBus->handle($command);
             } catch (\Exception $exception) {
-                $response = new Response('dziala', 200);
-                dump($exception->getMessage());
-                die();
-                $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($exception->getMessage(), $request, $response));
+                $response = new Response('success', 200);
 
                 return $response;
             }
         }
 
-        return new Response('nie dziala', Response::HTTP_BAD_REQUEST);
+        return new Response('error', Response::HTTP_BAD_REQUEST);
     }
 }

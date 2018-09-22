@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Button from '@material-ui/core/Button';
 import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
-import {TransitionGroup, CSSTransition} from "react-transition-group";
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 import './index.css';
+import {SnackbarProvider} from 'notistack';
+import {Provider} from 'react-redux';
+import {store} from './store';
 
 class Index extends React.Component {
     render() {
@@ -30,37 +29,17 @@ class Index extends React.Component {
             <Router>
                 <Route
                     render={({location}) => (
-                        <div>
-                            <div className={styles.root}>
-                                <AppBar position="static" color="default">
-                                    <Toolbar>
-                                        <Typography variant="title" color="inherit">
-                                            Tutorials Tank
-                                        </Typography>
-                                        <NavLink to="/login" ><Button color="inherit" className={styles.menuButton}>Zaloguj
-                                            się</Button></NavLink>
-                                        <NavLink to="/Registration"><Button className={styles.menuButton}
-                                            color="inherit">Zarejestruj się</Button></NavLink>
-                                    </Toolbar>
-                                </AppBar>
+                        <SnackbarProvider maxSnack={3}>
+                            <div>
+                                <Header/>
+                                <Switch location={location}>
+                                    <Route path="/login" component={Login}/>
+                                    <Route path="/registration" component={Registration}/>
+                                    <Route render={() => <div>Not Found</div>}/>
+                                </Switch>
+                                <Footer/>
                             </div>
-                            <TransitionGroup>
-                                {/* no different than other usage of
-                CSSTransition, just make sure to pass
-                `location` to `Switch` so it can match
-                the old location as it animates out
-            */}
-                                <CSSTransition key={location.key} classNames="fade" timeout={300}>
-                                    <Switch location={location}>
-                                        <Route path="/login" component={Login}>/
-                                        </Route>
-                                        <Route path="/registration" component={Registration}/>
-
-                                        <Route render={() => <div>Not Found</div>}/>
-                                    </Switch>
-                                </CSSTransition>
-                            </TransitionGroup>
-                        </div>
+                        </SnackbarProvider>
                     )}>
                 </Route>
             </Router>
@@ -69,4 +48,4 @@ class Index extends React.Component {
     }
 }
 
-ReactDOM.render(<Index/>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><Index/></Provider>, document.getElementById('root'));

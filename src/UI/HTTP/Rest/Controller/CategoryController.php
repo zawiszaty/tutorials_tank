@@ -24,8 +24,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class CategoryController.
- *
- * @Route("/api")
  */
 class CategoryController extends Controller
 {
@@ -64,7 +62,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/v1/category", name="add_category", methods="POST")
      *
      * @param Request $request
      *
@@ -92,7 +89,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/v1/category/{id}", name="edit_category", methods="PATCH")
      *
      * @param Request $request
      * @param string  $id
@@ -122,7 +118,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/v1/category/{id}", name="delete_category", methods="DELETE")
      *
      * @param Request $request
      * @param string  $id
@@ -140,7 +135,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/category", name="get_all_category", methods="GET")
      *
      * @param Request $request
      *
@@ -158,7 +152,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/category/{id}", name="get_single_category")
      *
      * @param Request $request
      * @param string  $id

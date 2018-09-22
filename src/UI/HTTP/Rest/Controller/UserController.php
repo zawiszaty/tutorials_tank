@@ -13,6 +13,7 @@ use FOS\UserBundle\FOSUserEvents;
 use League\Tactician\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -61,7 +62,8 @@ class UserController extends Controller
         DBALEventStore $eventStore,
         MysqlUserReadModelRepository $userReadModelRepository,
         EventDispatcherInterface $eventDispatcher
-    ) {
+    )
+    {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -71,7 +73,6 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/v1/user/register", name="add_user", methods="POST")
      *
      * @param Request $request
      *
@@ -87,15 +88,12 @@ class UserController extends Controller
             try {
                 $this->commandBus->handle($command);
             } catch (\Exception $exception) {
-                $response = new Response('dziala', 200);
-                dump($exception->getMessage());
-                die();
-                $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($exception->getMessage(), $request, $response));
+                $response = new JsonResponse('success', 200);
 
                 return $response;
             }
         }
 
-        return new Response('nie dziala', Response::HTTP_BAD_REQUEST);
+        return new JsonResponse('error', Response::HTTP_BAD_REQUEST);
     }
 }

@@ -10,7 +10,9 @@ import SupervisedUserCircle from '@material-ui/icons/SupervisedUserCircle';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
-
+import axios from './../../axios';
+import { withSnackbar } from 'notistack';
+import RegistrationForm from './RegistrationForm';
 
 const styles = theme => ({
     layout: {
@@ -47,15 +49,21 @@ const styles = theme => ({
 class Registration extends React.Component {
     constructor(props) {
         super(props);
-
+        const { onPresentSnackbar } = this.props;
         this.state = {
             name: '',
-            password: '',
-            showPassword: false
+            email: '',
+            passwordFirst: '',
+            passwordSecond: '',
+            showPassword: false,
+            onPresentSnackbar: onPresentSnackbar
         };
 
         this.handleNameChange = this.handleNameChange.bind(this);
-        this.handleClickShowPassword = this.handleClickShowPassword.bind(this);
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handlePasswordFirstChange = this.handlePasswordFirstChange.bind(this);
+        this.handlePasswordSecondChange = this.handlePasswordSecondChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleNameChange(state) {
@@ -64,13 +72,28 @@ class Registration extends React.Component {
         })
     }
 
-    handleMouseDownPassword(event) {
-        event.preventDefault();
-    };
+    handleEmailChange(state) {
+        this.setState({
+            email: state.target.value
+        })
+    }
 
-    handleClickShowPassword() {
-        this.setState(state => ({showPassword: !state.showPassword}));
-    };
+    handlePasswordFirstChange(state) {
+        this.setState({
+                passwordFirst: state.target.value
+        })
+    }
+
+    handlePasswordSecondChange(state) {
+        this.setState({
+                passwordSecond: state.target.value
+        })
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+
+    }
 
     render() {
         const classes = this.props.classes;
@@ -83,43 +106,50 @@ class Registration extends React.Component {
                             <SupervisedUserCircle/>
                         </Avatar>
                         <Typography variant="headline">Zarejestruj się</Typography>
-                        <form className={classes.form}>
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="email">Email</InputLabel>
-                                <Input id="email" name="email" autoComplete="email" autoFocus/>
-                            </FormControl>
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="username">Nazwa Użytkownika</InputLabel>
-                                <Input id="username" name="username" />
-                            </FormControl>
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="password">Hasło</InputLabel>
-                                <Input
-                                    name="password"
-                                    type="password"
-                                    id="passwordSecond"
-                                    autoComplete="current-password"
-                                />
-                            </FormControl>
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="password">Powtórz Hasło</InputLabel>
-                                <Input
-                                    name="password"
-                                    type="password"
-                                    id="passwordSecond"
-                                    autoComplete="current-password"
-                                />
-                            </FormControl>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="raised"
-                                color="primary"
-                                className={classes.submit}
-                            >
-                                Zarejestruj
-                            </Button>
-                        </form>
+                        {/*<form className={classes.form} onSubmit={this.handleSubmit}>*/}
+                            {/*<FormControl margin="normal" required fullWidth>*/}
+                                {/*<InputLabel htmlFor="email">Email</InputLabel>*/}
+                                {/*<Input id="email" name="email" autoComplete="email" value={this.state.email}*/}
+                                       {/*onChange={this.handleEmailChange} autoFocus/>*/}
+                            {/*</FormControl>*/}
+                            {/*<FormControl margin="normal" required fullWidth>*/}
+                                {/*<InputLabel htmlFor="username">Nazwa Użytkownika</InputLabel>*/}
+                                {/*<Input id="username" name="username" value={this.state.name}*/}
+                                       {/*onChange={this.handleNameChange}/>*/}
+                            {/*</FormControl>*/}
+                            {/*<FormControl margin="normal" required fullWidth>*/}
+                                {/*<InputLabel htmlFor="passwordFirst">Hasło</InputLabel>*/}
+                                {/*<Input*/}
+                                    {/*name="passwordFirst"*/}
+                                    {/*type="password"*/}
+                                    {/*id="passwordFirst"*/}
+                                    {/*value={this.state.passwordFirst}*/}
+                                    {/*onChange={this.handlePasswordFirstChange}*/}
+                                    {/*autoComplete="current-password"*/}
+                                {/*/>*/}
+                            {/*</FormControl>*/}
+                            {/*<FormControl margin="normal" required fullWidth>*/}
+                                {/*<InputLabel htmlFor="passwordSecond">Powtórz Hasło</InputLabel>*/}
+                                {/*<Input*/}
+                                    {/*name="passwordSecond"*/}
+                                    {/*type="password"*/}
+                                    {/*id="passwordSecond"*/}
+                                    {/*autoComplete="current-password"*/}
+                                    {/*value={this.state.passwordSecond}*/}
+                                    {/*onChange={this.handlePasswordSecondChange}*/}
+                                {/*/>*/}
+                            {/*</FormControl>*/}
+                            {/*<Button*/}
+                                {/*type="submit"*/}
+                                {/*fullWidth*/}
+                                {/*variant="raised"*/}
+                                {/*color="primary"*/}
+                                {/*className={classes.submit}*/}
+                            {/*>*/}
+                                {/*Zarejestruj*/}
+                            {/*</Button>*/}
+                        {/*</form>*/}
+                        <RegistrationForm/>
                     </Paper>
                 </main>
             </React.Fragment>
@@ -127,4 +157,4 @@ class Registration extends React.Component {
     }
 }
 
-export default withStyles(styles)(Registration);
+export default withStyles(styles)(withSnackbar(Registration));

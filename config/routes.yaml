@@ -8,9 +8,6 @@ fos_oauth_server_token:
 fos_oauth_server_authorize:
   resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
 
-fos_user:
-  resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
 add_category:
   path: /api/v1/category
   methods: POST

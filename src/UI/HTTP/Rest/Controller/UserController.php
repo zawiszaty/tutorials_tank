@@ -3,16 +3,14 @@
 namespace App\UI\HTTP\Rest\Controller;
 
 use App\Application\Command\User\Create\CreateUserCommand;
-use App\Domain\User\User;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use App\UI\HTTP\Common\Form\RegistrationFormType;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
-use FOS\UserBundle\Event\FilterUserResponseEvent;
-use FOS\UserBundle\FOSUserEvents;
 use League\Tactician\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -71,8 +69,6 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/v1/user/register", name="add_user", methods="POST")
-     *
      * @param Request $request
      *
      * @return Response
@@ -87,12 +83,12 @@ class UserController extends Controller
             try {
                 $this->commandBus->handle($command);
             } catch (\Exception $exception) {
-                $response = new Response('success', 200);
+                $response = new JsonResponse('success', 200);
 
                 return $response;
             }
         }
 
-        return new Response('error', Response::HTTP_BAD_REQUEST);
+        return new JsonResponse('error', Response::HTTP_BAD_REQUEST);
     }
 }

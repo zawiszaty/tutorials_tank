@@ -10,7 +10,8 @@ import {store} from './../../store';
 import {connect} from 'react-redux';
 import {registerUser} from './../../actions/user-action'
 import {registerUserSuccess} from './../../actions/user-action'
-import { withSnackbar } from 'notistack';
+import {withSnackbar} from 'notistack';
+import axios from "../../axios";
 
 const styles = theme => ({
     layout: {
@@ -96,8 +97,19 @@ const SyncValidationForm = (props) => {
     const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar} = props
     return (
         <form className={classes.form} onSubmit={handleSubmit(val => {
-            let response =  props.onRegisterUser(val);
-            console.log(props.onRegisterUserSuccess());
+            axios.post('api/v1/user/register', {
+                username: val.username,
+                email: val.email,
+                plainPassword: {
+                    first: val.password_first,
+                    second: val.password_second
+                }
+            }).then(response => {
+                    onPresentSnackbar('success', 'Zarejestrowano.')
+                }
+            ).catch(error => {
+                onPresentSnackbar('error', 'Coś poszło nie tak.')
+            })
         })}>
             <div>
                 {props.isLoaded}

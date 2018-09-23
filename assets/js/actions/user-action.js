@@ -31,17 +31,3 @@ export function registerUserSuccess(user) {
         }
     }
 }
-
-export function registerUser(user) {
-    return {
-        type: 'REGISTER_USER',
-        promise: axios.post('api/v1/user/register', {
-            username: user.username,
-            email: user.email,
-            plainPassword: {
-                first: user.password_first,
-                second: user.password_second
-            }
-        })
-    }
-}

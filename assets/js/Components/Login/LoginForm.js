@@ -9,6 +9,8 @@ import FormControl from '@material-ui/core/FormControl';
 import {store} from './../../store';
 import {connect} from 'react-redux';
 import {loginUser} from './../../actions/user-action'
+import axios from "../../axios";
+import { withSnackbar } from 'notistack';
 
 const styles = theme => ({
     layout: {
@@ -82,9 +84,21 @@ const renderTextField = (
 // floatingLabelText={label}
 // errorText={touched && error}
 const SyncValidationForm = (props) => {
-    const {handleSubmit, pristine, reset, submitting, classes} = props
+    const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar} = props
     return (
-        <form className={classes.form} onSubmit={handleSubmit(val => props.onLoginUser(val))}>
+        <form className={classes.form} onSubmit={handleSubmit(val => {
+            axios.post('oauth/v2/token', {
+                "grant_type": "password",
+                "client_id": "1_60vi9taawc0sg00osskkogs4ksow448k0sgwc8c0cog8c8gkwc",
+                "client_secret": "5siyc2fgankswcg4gsskkc00swgks0sws8w4w8o0c0wsgogwcc",
+                "username": val.username,
+                "password": val.password
+            }).then((response) => {
+              onPresentSnackbar('success', 'Successfully Login');
+            }).catch((e) => {
+                onPresentSnackbar('error', 'Złe hasło albo nazwa użytkownika');
+            });
+        })}>
             <div>
                 <Field
                     id="username"
@@ -126,4 +140,4 @@ export default connect(mapStateToProps, mapActionToProps)(withStyles(styles)(red
     form: 'syncValidation',  // a unique identifier for this form
     validate,                // <--- validation function given to redux-form
     warn                     // <--- warning function given to redux-form
-})(SyncValidationForm)))
+})(withSnackbar(SyncValidationForm))))

@@ -147,4 +147,4 @@ d
     }
 }
 
-export default withSnackbar(withStyles(styles)(Login));
+export default withStyles(styles)(withSnackbar(Login));

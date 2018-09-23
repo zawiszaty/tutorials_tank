@@ -70,6 +70,14 @@ class FeatureContext implements Context
         $connection->query('SET FOREIGN_KEY_CHECKS=0');
         $connection->query('DELETE FROM events');
         $connection->query('DELETE FROM category');
+        $connection->query('DELETE FROM fos_user');
+        $connection->query('DELETE FROM access_token');
+        $connection->query('DELETE FROM auth_code');
+        $connection->query('DELETE FROM refresh_token');
+        $connection->query('DELETE FROM client');
+        $connection->query('INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `confirmation_token`, `password_requested_at`, `roles`, `avatar`, `steemit`, `banned`) VALUES (\'127c6fd0-be8d-11e8-a355-529269fb1459\', \'test\', \'test\', \'test@wp.pl\', \'test@wp.pl\', \'1\', NULL, \'$2y$10$IVuFoqfARqrPH9Gz.OY7Teu1CBoRuLXpFw8X4mPjy2alIgppSE9i2\', NULL, NULL, NULL, \'a:1:{i:0;s:9:\"ROLE_USER\";}\', NULL, NULL, \'0\');');
+        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \'127c6fd0-be8d-11e8-a355-529269fb1459\', \'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
+        $connection->query('INSERT INTO `refresh_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \'127c6fd0-be8d-11e8-a355-529269fb1459\', \'SampleRefreshTokenNTElODY4ZTQyOThlNWIyMjA1ZDhmZjE1ZDYyMGMwOTUxOWM2NGFmNGRjNjQ2NDBhMDVlNGZjMmQ0YzgyNDM2Ng\', NULL, NULL);');
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
         $connection->commit();
         $params = ['index' => '*'];

@@ -14,7 +14,7 @@ class CategoryContext implements Context
     protected static $container;
 
     protected static $headers = [
-        'Authorization' => 'Bearer ' . 'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
+        'Authorization' => 'Bearer ' . 'AdminTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
         'Accept'        => 'application/json',
     ];
 

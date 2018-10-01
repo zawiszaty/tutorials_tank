@@ -38,6 +38,16 @@ add_user:
   methods: POST
   controller: App\UI\HTTP\Rest\Controller\UserController:createCategoryAction
 
+confirm_user:
+  path: /api/v1/user/confirm/{token}
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\UserController:confirmUserAction
+
+banned_user:
+  path: /api/v1/user/banned/{id}
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\UserController:bannedUserAction
+
 dashboard:
   path: /{react_link}
   methods: GET

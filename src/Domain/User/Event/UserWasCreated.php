@@ -55,20 +55,26 @@ class UserWasCreated extends AbstractEvent
      * @var Password
      */
     private $password;
+    /**
+     * @var bool
+     */
+    private $enabled;
+
 
     /**
      * User constructor.
      *
      * @param AggregateRootId $id
-     * @param UserName        $username
-     * @param Email           $email
-     * @param Roles           $roles
-     * @param Avatar          $avatar
-     * @param Steemit         $steemit
-     * @param bool            $banned
-     * @param Password        $password
+     * @param UserName $username
+     * @param Email $email
+     * @param Roles $roles
+     * @param Avatar $avatar
+     * @param Steemit $steemit
+     * @param bool $banned
+     * @param Password $password
+     * @param bool $enabled
      */
-    public function __construct(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, Password $password)
+    public function __construct(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, Password $password, bool $enabled)
     {
         $this->id = $id;
         $this->username = $username;
@@ -78,6 +84,7 @@ class UserWasCreated extends AbstractEvent
         $this->steemit = $steemit;
         $this->banned = $banned;
         $this->password = $password;
+        $this->enabled = $enabled;
     }
 
     /**
@@ -91,13 +98,14 @@ class UserWasCreated extends AbstractEvent
     {
         return new self(
             AggregateRootId::fromString($data['id']),
-            UserName::fromString($data['userName']),
+            UserName::fromString($data['username']),
             Email::fromString($data['email']),
             Roles::fromString($data['roles']),
             Avatar::fromString($data['avatar']),
             Steemit::fromString($data['steemit']),
             $data['banned'],
-            Password::fromString($data['password'])
+            Password::fromString($data['password']),
+            $data['enabled']
         );
     }
 
@@ -115,6 +123,7 @@ class UserWasCreated extends AbstractEvent
             'steemit'  => $this->steemit->toString(),
             'banned'   => $this->banned,
             'password' => $this->password->toString(),
+            'enabled' => $this->enabled
         ];
     }
 
@@ -172,5 +181,13 @@ class UserWasCreated extends AbstractEvent
     public function isBanned(): bool
     {
         return $this->banned;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled(): bool
+    {
+        return $this->enabled;
     }
 }

@@ -3,13 +3,14 @@
 namespace App\Infrastructure\User\Repository;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
+use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Domain\User\User;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
 use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventStore\EventStore;
 
-class UserRepository extends EventSourcingRepository
+class UserRepository extends EventSourcingRepository implements UserRepositoryInterface
 {
     /**
      * @param AggregateRootId $id

@@ -12,6 +12,7 @@ import {registerUser} from './../../actions/user-action'
 import {registerUserSuccess} from './../../actions/user-action'
 import {withSnackbar} from 'notistack';
 import axios from "../../axios";
+import {Route, Redirect} from 'react-router'
 
 const styles = theme => ({
     layout: {
@@ -105,7 +106,8 @@ const SyncValidationForm = (props) => {
                     second: val.password_second
                 }
             }).then(response => {
-                    onPresentSnackbar('success', 'Zarejestrowano.')
+                    onPresentSnackbar('success', 'Zarejestrowano.');
+                    return (<Redirect to="/user/potwierdz-konto" />)
                 }
             ).catch(error => {
                 onPresentSnackbar('error', 'Coś poszło nie tak.')

@@ -22,9 +22,7 @@ class CategoryRepository extends EventSourcingRepository implements CategoryRepo
      */
     public function get(AggregateRootId $id): Category
     {
-        /**
-         * @var Category
-         */
+        /** @var Category $category */
         $category = $this->load($id->toString());
 
         return $category;

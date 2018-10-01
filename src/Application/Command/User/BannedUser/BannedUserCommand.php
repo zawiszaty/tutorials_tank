@@ -3,8 +3,7 @@
 namespace App\Application\Command\User\BannedUser;
 
 /**
- * Class BannedUserCommand
- * @package App\Application\Command\User\BannedUser
+ * Class BannedUserCommand.
  */
 class BannedUserCommand
 {
@@ -15,6 +14,7 @@ class BannedUserCommand
 
     /**
      * BannedUserCommand constructor.
+     *
      * @param string $id
      */
     public function __construct(string $id)

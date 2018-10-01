@@ -70,20 +70,22 @@ class User extends EventSourcedAggregateRoot
     public function serialize()
     {
         return [
-            'id' => $this->id->toString(),
+            'id'       => $this->id->toString(),
             'username' => $this->username->toString(),
-            'email' => $this->email->toString(),
-            'roles' => $this->roles->toArray(),
-            'steemit' => $this->steemit->toString(),
-            'banned' => $this->banned,
+            'email'    => $this->email->toString(),
+            'roles'    => $this->roles->toArray(),
+            'steemit'  => $this->steemit->toString(),
+            'banned'   => $this->banned,
             'password' => $this->password,
-            'enabled' => $this->enabled,
+            'enabled'  => $this->enabled,
         ];
     }
 
     /**
      * @param array $params
+     *
      * @return User
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function fromString(array $params): self
@@ -103,14 +105,14 @@ class User extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $id
-     * @param UserName $username
-     * @param Email $email
-     * @param Roles $roles
-     * @param Avatar $avatar
-     * @param Steemit $steemit
-     * @param bool $banned
-     * @param Password $password
-     * @param bool $enabled
+     * @param UserName        $username
+     * @param Email           $email
+     * @param Roles           $roles
+     * @param Avatar          $avatar
+     * @param Steemit         $steemit
+     * @param bool            $banned
+     * @param Password        $password
+     * @param bool            $enabled
      *
      * @return mixed
      */

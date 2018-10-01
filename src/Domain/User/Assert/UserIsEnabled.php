@@ -2,13 +2,11 @@
 
 namespace App\Domain\User\Assert;
 
-use App\Domain\User\Exception\UserIsBannedException;
 use App\Domain\User\Exception\UserIsEnabledException;
 use App\Domain\User\User;
 
 /**
- * Class UserIsEnabled
- * @package App\Domain\User\Assert
+ * Class UserIsEnabled.
  */
 class UserIsEnabled
 {

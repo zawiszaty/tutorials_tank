@@ -6,8 +6,7 @@ use App\Domain\User\Exception\UserIsBannedException;
 use App\Domain\User\User;
 
 /**
- * Class UserIsBanned
- * @package App\Domain\User\Assert
+ * Class UserIsBanned.
  */
 class UserIsBanned
 {

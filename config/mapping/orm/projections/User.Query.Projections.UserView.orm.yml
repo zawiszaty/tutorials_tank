@@ -1,14 +1,14 @@
 App\Infrastructure\User\Query\Projections\UserView:
     type: entity
     table: fos_user
-    repositoryClass: App\Infrastructure\User\Query\Repository\UserRepository
     id:
         id:
-            type: uuid
-            generator:
-                strategy: CUSTOM
-            customIdGenerator:
-                class: Ramsey\Uuid\Doctrine\UuidGenerator
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
 
     fields:
 

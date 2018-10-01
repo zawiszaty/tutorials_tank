@@ -5,9 +5,11 @@ namespace App\Infrastructure\User\Query\Repository;
 use App\Application\Query\Collection;
 use App\Application\Query\Item;
 use App\Domain\Common\ValueObject\AggregateRootId;
+use App\Domain\User\ValueObject\Email;
 use App\Infrastructure\Share\Query\Repository\MysqlRepository;
 use App\Infrastructure\User\Query\Projections\UserView;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Types\Mixed_;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -50,6 +52,20 @@ class MysqlUserReadModelRepository extends MysqlRepository
         return $this->oneOrException($qb);
     }
 
+    /**
+     * @param Email $email
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function oneByEmail(Email $email)
+    {
+        $qb = $this->repository
+            ->createQueryBuilder('user')
+            ->where('user.email = :email')
+            ->setParameter('email', $email->toString());
+
+        return $this->oneOrException($qb);
+    }
     /**
      * @param int $page
      * @param int $limit
@@ -98,6 +114,26 @@ class MysqlUserReadModelRepository extends MysqlRepository
         }
 
         return new Item($model);
+    }
+
+    /**
+     * @param string $token
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getByToken(string $token): UserView
+    {
+        $qb = $this->repository
+            ->createQueryBuilder('user')
+            ->where('user.confirmationToken = :confirmationToken')
+            ->setParameter('confirmationToken', $token);
+        $model = $qb->getQuery()->getOneOrNullResult();
+
+        if (!$model) {
+            throw new NotFoundHttpException();
+        }
+
+        return $model;
     }
 
     /**

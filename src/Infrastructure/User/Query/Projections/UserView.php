@@ -3,6 +3,7 @@
 namespace App\Infrastructure\User\Query\Projections;
 
 use FOS\UserBundle\Model\User as BaseUser;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class UserView.
@@ -87,6 +88,7 @@ class UserView extends BaseUser
      * @param array $data
      *
      * @return UserView
+     * @throws \Exception
      */
     public static function deserializeProjections(array $data)
     {
@@ -100,8 +102,19 @@ class UserView extends BaseUser
         $userView->emailCanonical = strtolower($data['email']);
         $userView->password = $data['password'];
         $userView->roles = $data['roles'];
+        $userView->enabled = $data['enabled'];
+        $userView->confirmationToken = Uuid::uuid4() . '-' . Uuid::uuid4();
 
         return $userView;
+    }
+
+    public function confirmed(): void
+    {
+        $this->enabled = 1;
+    }
+    public function banned(): void
+    {
+        $this->banned = 1;
     }
 
 //    /**

@@ -2,6 +2,10 @@ security:
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_ADMIN
+        ROLE_USER:        ROLE_USER
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         fos_userbundle:
@@ -37,5 +41,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-         - { path: ^/api/v1/category, roles: [ IS_AUTHENTICATED_FULLY ] }
-        # - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/api/v1/category, roles: ROLE_ADMIN }
+         - { path: ^/api/v1/user/confirm/^, roles: [ IS_AUTHENTICATED_FULLY ] }
+         - { path: ^/api/v1/user/banned, roles: ROLE_ADMIN }
+    # - { path: ^/profile, roles: ROLE_USER }

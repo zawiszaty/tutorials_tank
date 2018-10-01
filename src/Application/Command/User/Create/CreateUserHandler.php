@@ -5,6 +5,7 @@ namespace App\Application\Command\User\Create;
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Factory\UserFactory;
+use App\Domain\User\User;
 use App\Domain\User\ValueObject\Avatar;
 use App\Domain\User\ValueObject\Email;
 use App\Domain\User\ValueObject\Password;
@@ -34,6 +35,7 @@ class CreateUserHandler implements CommandHandlerInterface
      */
     public function __invoke(CreateUserCommand $command)
     {
+        /** @var User $user */
         $user = UserFactory::create(
             AggregateRootId::fromString(Uuid::uuid4()),
             UserName::fromString($command->getUsername()),
@@ -46,6 +48,6 @@ class CreateUserHandler implements CommandHandlerInterface
             );
         $this->repository->store($user);
 
-        throw new \Exception(json_encode($user));
+        throw new \Exception();
     }
 }

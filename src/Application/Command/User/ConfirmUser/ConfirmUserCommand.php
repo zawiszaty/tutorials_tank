@@ -3,8 +3,7 @@
 namespace App\Application\Command\User\ConfirmUser;
 
 /**
- * Class ConfirmUserCommand
- * @package App\Application\Command\User\ConfirmUser
+ * Class ConfirmUserCommand.
  */
 class ConfirmUserCommand
 {
@@ -15,6 +14,7 @@ class ConfirmUserCommand
 
     /**
      * ConfirmUserCommand constructor.
+     *
      * @param string $token
      */
     public function __construct(string $token)

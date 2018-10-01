@@ -9,7 +9,6 @@ use App\Domain\User\ValueObject\Email;
 use App\Infrastructure\Share\Query\Repository\MysqlRepository;
 use App\Infrastructure\User\Query\Projections\UserView;
 use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\Types\Mixed_;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -54,7 +53,9 @@ class MysqlUserReadModelRepository extends MysqlRepository
 
     /**
      * @param Email $email
+     *
      * @return mixed
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function oneByEmail(Email $email)
@@ -66,6 +67,7 @@ class MysqlUserReadModelRepository extends MysqlRepository
 
         return $this->oneOrException($qb);
     }
+
     /**
      * @param int $page
      * @param int $limit
@@ -118,7 +120,9 @@ class MysqlUserReadModelRepository extends MysqlRepository
 
     /**
      * @param string $token
+     *
      * @return mixed
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function getByToken(string $token): UserView

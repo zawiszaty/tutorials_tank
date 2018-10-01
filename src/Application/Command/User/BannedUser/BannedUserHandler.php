@@ -7,8 +7,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Assert\UserIsBanned;
 
 /**
- * Class BannedUserHandler
- * @package App\Application\Command\User\BannedUser
+ * Class BannedUserHandler.
  */
 class BannedUserHandler implements CommandHandlerInterface
 {
@@ -19,6 +18,7 @@ class BannedUserHandler implements CommandHandlerInterface
 
     /**
      * ConfirmUserHandler constructor.
+     *
      * @param \App\Infrastructure\User\Repository\UserRepository $aggregatRepository
      */
     public function __construct(\App\Infrastructure\User\Repository\UserRepository $aggregatRepository)
@@ -28,6 +28,7 @@ class BannedUserHandler implements CommandHandlerInterface
 
     /**
      * @param BannedUserCommand $command
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function __invoke(BannedUserCommand $command): void

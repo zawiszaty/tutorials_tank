@@ -10,8 +10,7 @@ use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;
 
 /**
- * Class UserReadProjectionFactory
- * @package App\Infrastructure\User
+ * Class UserReadProjectionFactory.
  */
 class UserReadProjectionFactory extends Projector
 {
@@ -32,6 +31,7 @@ class UserReadProjectionFactory extends Projector
 
     /**
      * @param UserWasCreated $userWasCreated
+     *
      * @throws \Exception
      */
     public function applyUserWasCreated(UserWasCreated $userWasCreated)
@@ -42,6 +42,7 @@ class UserReadProjectionFactory extends Projector
 
     /**
      * @param UserWasConfirmed $userWasConfirmed
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserWasConfirmed(UserWasConfirmed $userWasConfirmed)
@@ -54,6 +55,7 @@ class UserReadProjectionFactory extends Projector
 
     /**
      * @param UserWasBanned $userWasBanned
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserWasBanned(UserWasBanned $userWasBanned)

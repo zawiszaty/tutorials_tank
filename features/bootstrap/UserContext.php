@@ -25,17 +25,16 @@ class UserContext implements \Behat\Behat\Context\Context
         $client = new \GuzzleHttp\Client();
         $response = $client->post('nginx/api/v1/user/register', [
             GuzzleHttp\RequestOptions::JSON => [
-                'email' => 'testUser@123.pl',
-                'username' => 'testUser',
+                'email'         => 'testUser@123.pl',
+                'username'      => 'testUser',
                 'plainPassword' => [
-                    'first' => 'test',
-                    'second' => 'test'
-                ]
+                    'first'  => 'test',
+                    'second' => 'test',
+                ],
             ],
         ]);
         if (\Symfony\Component\HttpFoundation\Response::HTTP_OK != $response->getStatusCode()) {
             throw new \Behat\Behat\Tester\Exception\PendingException();
         }
     }
-
 }

@@ -64,8 +64,7 @@ class UserController extends Controller
         DBALEventStore $eventStore,
         MysqlUserReadModelRepository $userReadModelRepository,
         EventDispatcherInterface $eventDispatcher
-    )
-    {
+    ) {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -78,6 +77,7 @@ class UserController extends Controller
      * @param Request $request
      *
      * @return Response
+     *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
@@ -106,7 +106,8 @@ class UserController extends Controller
 
     /**
      * @param Request $request
-     * @param string $token
+     * @param string  $token
+     *
      * @return Response
      */
     public function confirmUserAction(Request $request, string $token): Response
@@ -121,8 +122,10 @@ class UserController extends Controller
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
+     *
      * @return Response
+     *
      * @throws \Exception
      */
     public function bannedUserAction(Request $request, string $id): Response
@@ -137,5 +140,4 @@ class UserController extends Controller
 
         return $response;
     }
-
 }

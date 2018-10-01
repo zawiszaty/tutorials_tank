@@ -55,24 +55,24 @@ class UserWasCreated extends AbstractEvent
      * @var Password
      */
     private $password;
+
     /**
      * @var bool
      */
     private $enabled;
 
-
     /**
      * User constructor.
      *
      * @param AggregateRootId $id
-     * @param UserName $username
-     * @param Email $email
-     * @param Roles $roles
-     * @param Avatar $avatar
-     * @param Steemit $steemit
-     * @param bool $banned
-     * @param Password $password
-     * @param bool $enabled
+     * @param UserName        $username
+     * @param Email           $email
+     * @param Roles           $roles
+     * @param Avatar          $avatar
+     * @param Steemit         $steemit
+     * @param bool            $banned
+     * @param Password        $password
+     * @param bool            $enabled
      */
     public function __construct(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, Password $password, bool $enabled)
     {
@@ -123,7 +123,7 @@ class UserWasCreated extends AbstractEvent
             'steemit'  => $this->steemit->toString(),
             'banned'   => $this->banned,
             'password' => $this->password->toString(),
-            'enabled' => $this->enabled
+            'enabled'  => $this->enabled,
         ];
     }
 

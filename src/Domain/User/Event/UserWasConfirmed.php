@@ -6,8 +6,7 @@ use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Class UserWasConfirmed
- * @package App\Domain\User\Event
+ * Class UserWasConfirmed.
  */
 class UserWasConfirmed extends AbstractEvent
 {
@@ -18,8 +17,9 @@ class UserWasConfirmed extends AbstractEvent
 
     /**
      * UserWasConfirmed constructor.
+     *
      * @param AggregateRootId $aggregateRootId
-     * @param bool $enabled
+     * @param bool            $enabled
      */
     public function __construct(AggregateRootId $aggregateRootId, bool $enabled)
     {
@@ -29,7 +29,9 @@ class UserWasConfirmed extends AbstractEvent
 
     /**
      * @param array $data
+     *
      * @return UserWasConfirmed|mixed
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function deserialize(array $data)
@@ -48,8 +50,8 @@ class UserWasConfirmed extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
-            'enabled' => $this->enabled
+            'id'      => $this->id->toString(),
+            'enabled' => $this->enabled,
         ];
     }
 

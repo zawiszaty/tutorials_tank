@@ -6,8 +6,7 @@ use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Class UserWasConfirmed
- * @package App\Domain\User\Event
+ * Class UserWasConfirmed.
  */
 class UserWasBanned extends AbstractEvent
 {
@@ -18,8 +17,9 @@ class UserWasBanned extends AbstractEvent
 
     /**
      * UserWasConfirmed constructor.
+     *
      * @param AggregateRootId $aggregateRootId
-     * @param bool $banned
+     * @param bool            $banned
      */
     public function __construct(AggregateRootId $aggregateRootId, bool $banned)
     {
@@ -29,7 +29,9 @@ class UserWasBanned extends AbstractEvent
 
     /**
      * @param array $data
+     *
      * @return UserWasConfirmed|mixed
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function deserialize(array $data)
@@ -48,8 +50,8 @@ class UserWasBanned extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
-            'banned' => $this->banned
+            'id'     => $this->id->toString(),
+            'banned' => $this->banned,
         ];
     }
 

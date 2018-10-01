@@ -88,6 +88,7 @@ class UserView extends BaseUser
      * @param array $data
      *
      * @return UserView
+     *
      * @throws \Exception
      */
     public static function deserializeProjections(array $data)
@@ -112,6 +113,7 @@ class UserView extends BaseUser
     {
         $this->enabled = 1;
     }
+
     public function banned(): void
     {
         $this->banned = 1;

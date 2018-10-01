@@ -5,8 +5,7 @@ namespace App\Application\Command\User\SendEmail;
 use Assert\Assertion;
 
 /**
- * Class SendEmailCommand
- * @package App\Application\Command\User\SendEmail
+ * Class SendEmailCommand.
  */
 class SendEmailCommand
 {
@@ -19,9 +18,12 @@ class SendEmailCommand
      * @var string
      */
     private $token;
+
     /**
      * SendEmailCommand constructor.
+     *
      * @param string $email
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function __construct(string $email, string $token)

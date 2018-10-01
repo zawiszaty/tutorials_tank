@@ -41,7 +41,6 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         return UserView::class === $class;
     }
 
-
     private function fetchUser($username)
     {
         // make a call to your webservice here

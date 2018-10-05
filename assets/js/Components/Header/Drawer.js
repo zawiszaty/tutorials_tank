@@ -15,6 +15,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import PeopleIcon from '@material-ui/icons/People';
 import LockIcon from '@material-ui/icons/LockOutlined';
+import {connect} from 'react-redux';
+import SupervisedUserCircle from '@material-ui/icons/SupervisedUserCircle';
 
 const drawerWidth = 240;
 
@@ -105,6 +107,74 @@ class DrawerComponent extends React.Component {
     render() {
         const classes = this.props.classes;
         const theme = this.props.theme;
+        let drawer = '';
+
+        if (this.props.user.length === 0) {
+            drawer = <React.Fragment>
+                <NavLink to="/login" className={classes.menuButton}>
+                    <List>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <LockIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Zaloguj sie"/>
+                        </ListItem>
+                    </List>
+                </NavLink>
+                <NavLink to="/registration">
+                    <List>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <PeopleIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Rejestracja"/>
+                        </ListItem>
+                    </List>
+                </NavLink>
+            </React.Fragment>
+        } else {
+            let admin;
+
+            if (this.props.user.roles[0] === 'ROLE_ADMIN') {
+                admin = <React.Fragment>
+                    <NavLink to="/panel/kategorie" className={classes.menuButton}>
+                        <List>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <LockIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary="Zarządzaj kategoriami"/>
+                            </ListItem>
+                        </List>
+                    </NavLink>
+                </React.Fragment>
+            }
+
+            drawer = <React.Fragment>
+                <NavLink to="/wyloguj" className={classes.menuButton}>
+                    <List>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <LockIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Wyloguj sie"/>
+                        </ListItem>
+                    </List>
+                </NavLink>
+                <NavLink to="/panel/user" className={classes.menuButton}>
+                    <List>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <SupervisedUserCircle/>
+                            </ListItemIcon>
+                            <ListItemText primary="Panel Użytkownika"/>
+                        </ListItem>
+                    </List>
+                </NavLink>
+                {admin}
+            </React.Fragment>
+        }
+
         return (
             <React.Fragment>
                 <Drawer
@@ -121,30 +191,15 @@ class DrawerComponent extends React.Component {
                         </IconButton>
                     </div>
                     <Divider/>
-                    <NavLink to="/login" className={classes.menuButton}>
-                        <List>
-                            <ListItem button>
-                                <ListItemIcon>
-                                    <LockIcon/>
-                                </ListItemIcon>
-                                <ListItemText primary="Zaloguj sie"/>
-                            </ListItem>
-                        </List>
-                    </NavLink>
-                    <NavLink to="/registration">
-                        <List>
-                            <ListItem button>
-                                <ListItemIcon>
-                                    <PeopleIcon/>
-                                </ListItemIcon>
-                                <ListItemText primary="Rejestracja"/>
-                            </ListItem>
-                        </List>
-                    </NavLink>
+                    {drawer}
                 </Drawer>
             </React.Fragment>
         );
     }
 }
 
-export default withStyles(styles, {withTheme: true})(DrawerComponent);
+const mapStateToProps = state => ({
+    user: state.user
+});
+
+export default connect(mapStateToProps)(withStyles(styles, {withTheme: true})(DrawerComponent));

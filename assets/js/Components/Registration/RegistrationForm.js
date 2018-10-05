@@ -13,6 +13,7 @@ import {registerUserSuccess} from './../../actions/user-action'
 import {withSnackbar} from 'notistack';
 import axios from "../../axios";
 import {Route, Redirect} from 'react-router'
+import {client_id, client_secret} from './../../env';
 
 const styles = theme => ({
     layout: {

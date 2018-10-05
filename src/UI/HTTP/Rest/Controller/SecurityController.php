@@ -2,7 +2,6 @@
 
 namespace App\UI\HTTP\Rest\Controller;
 
-use App\Domain\User\Assert\UserIsBanned;
 use App\Domain\User\Exception\UserIsBannedException;
 use App\Infrastructure\User\Query\Projections\UserView;
 use Broadway\EventHandling\EventBus;
@@ -14,8 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class SecurityController
- * @package App\UI\HTTP\Rest\Controller
+ * Class SecurityController.
  */
 class SecurityController extends Controller
 {
@@ -44,8 +42,7 @@ class SecurityController extends Controller
         CommandBus $commandBus,
         EventBus $eventBus,
         DBALEventStore $eventStore
-    )
-    {
+    ) {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -54,6 +51,7 @@ class SecurityController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function securityAction(Request $request): Response
@@ -66,10 +64,10 @@ class SecurityController extends Controller
         }
 
         return new JsonResponse([
-            "name" => $user->getUsername(),
-            "email" => $user->getEmail(),
-            "roles" => $user->getRoles(),
-            "avatar" => $user->getAvatar()
+            'name'   => $user->getUsername(),
+            'email'  => $user->getEmail(),
+            'roles'  => $user->getRoles(),
+            'avatar' => $user->getAvatar(),
         ]);
     }
 }

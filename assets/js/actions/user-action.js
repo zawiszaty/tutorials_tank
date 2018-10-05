@@ -2,6 +2,7 @@ import axios from './../axios';
 
 export const UPDATE_USER = 'user:updateUser';
 export const LOGIN_USER = 'user:loginUser';
+export const LOGOUT_USER = 'user:logoutUser';
 export const REGISTER_USER = 'user:registerUser';
 export const REGISTER_USER_SUCCESS = 'user:registerUserSuccess';
 
@@ -19,6 +20,15 @@ export function loginUser(user) {
         type: LOGIN_USER,
         payload: {
             user: user
+        }
+    }
+}
+
+export function logoutUser() {
+    return {
+        type: LOGOUT_USER,
+        payload: {
+            user: []
         }
     }
 }

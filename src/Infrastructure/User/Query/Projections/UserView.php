@@ -39,7 +39,7 @@ class UserView extends BaseUser
     /**
      * @return string
      */
-    public function getAvatar(): string
+    public function getAvatar(): ?string
     {
         return $this->avatar;
     }
@@ -47,7 +47,7 @@ class UserView extends BaseUser
     /**
      * @param string $avatar
      */
-    public function setAvatar(string $avatar): void
+    public function setAvatar(?string $avatar): void
     {
         $this->avatar = $avatar;
     }

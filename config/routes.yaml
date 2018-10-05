@@ -48,6 +48,11 @@ banned_user:
   methods: POST
   controller: App\UI\HTTP\Rest\Controller\UserController:bannedUserAction
 
+seciurity:
+  path: /api/v1/seciurity
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\SecurityController:securityAction
+
 dashboard:
   path: /{react_link}
   methods: GET

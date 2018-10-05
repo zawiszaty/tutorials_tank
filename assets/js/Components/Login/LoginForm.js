@@ -10,7 +10,8 @@ import {store} from './../../store';
 import {connect} from 'react-redux';
 import {loginUser} from './../../actions/user-action'
 import axios from "../../axios";
-import { withSnackbar } from 'notistack';
+import {withSnackbar} from 'notistack';
+import {client_id, client_secret} from './../../env';
 
 const styles = theme => ({
     layout: {
@@ -82,17 +83,35 @@ const renderTextField = (
 // floatingLabelText={label}
 // errorText={touched && error}
 const SyncValidationForm = (props) => {
-    const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar} = props
+    const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar, user, onLoginUser} = props
     return (
         <form className={classes.form} onSubmit={handleSubmit(val => {
             axios.post('oauth/v2/token', {
                 "grant_type": "password",
-                "client_id": "1_60vi9taawc0sg00osskkogs4ksow448k0sgwc8c0cog8c8gkwc",
-                "client_secret": "5siyc2fgankswcg4gsskkc00swgks0sws8w4w8o0c0wsgogwcc",
+                "client_id": client_id,
+                "client_secret": client_secret,
                 "username": val.username,
                 "password": val.password
             }).then((response) => {
-              onPresentSnackbar('success', 'Successfully Login');
+                console.log(response.data.access_token);
+                let token = response.data.access_token;
+                axios.post('api/v1/seciurity', {}, {
+                    headers: {'Authorization': 'Bearer ' + token}
+                }).then((response) => {
+                    console.log(response.data);
+                    onLoginUser(response.data);
+                    {console.log(user)}
+                    localStorage.setItem('token', token);
+                    onPresentSnackbar('success', 'Successfully Login');
+                }).catch((e) => {
+                    if(e.response.data.error_description === 'User account is disabled.') {
+                        onPresentSnackbar('error', 'Konto nie potwierdzone');
+                    } else if(e.response.data.errors.title === 'App.Domain.User.Exception.UserIsBannedException') {
+                        onPresentSnackbar('error', 'Masz bana XD');
+                    } else {
+                        onPresentSnackbar('error', 'Coś poszło nie tak !!!');
+                    }
+                });
             }).catch((e) => {
                 onPresentSnackbar('error', 'Złe hasło albo nazwa użytkownika');
             });

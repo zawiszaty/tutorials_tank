@@ -19,6 +19,7 @@ class CategoryReadProjectionFactory extends Projector
      * @var MysqlCategoryReadModelRepository
      */
     private $repository;
+
     /**
      * @var CategoryRepositoryElastic
      */

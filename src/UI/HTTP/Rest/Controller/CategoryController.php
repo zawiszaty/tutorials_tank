@@ -140,7 +140,7 @@ class CategoryController extends Controller
         $limit = $request->get('limit') ?? 10;
         $query = $request->get('query') ?? '*';
 
-        $command = new GetAllCommand($page, $limit,$query);
+        $command = new GetAllCommand($page, $limit, $query);
         $model = $this->queryBus->handle($command);
 
         return new JsonResponse($model, 200);

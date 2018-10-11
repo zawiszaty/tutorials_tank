@@ -2,10 +2,8 @@
 
 namespace App\Application\Query\Category\GetAll;
 
-use App\Application\Query\Collection;
 use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
-use App\Infrastructure\Category\Repository\CategoryFosElasticaRepository;
 use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 
 /**
@@ -27,7 +25,7 @@ class GetAllHandler implements QueryHandlerInterface
      * GetAllHandler constructor.
      *
      * @param MysqlCategoryReadModelRepository $modelRepository
-     * @param CategoryRepositoryElastic $categoryRepositoryElastic
+     * @param CategoryRepositoryElastic        $categoryRepositoryElastic
      */
     public function __construct(MysqlCategoryReadModelRepository $modelRepository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {

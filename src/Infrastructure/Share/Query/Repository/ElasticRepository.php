@@ -74,9 +74,8 @@ abstract class ElasticRepository
     }
 
     /**
-     * @param int $page
-     * @param int $limit
-     *
+     * @param int    $page
+     * @param int    $limit
      * @param string $queryString
      *
      * @return Collection
@@ -93,9 +92,9 @@ abstract class ElasticRepository
         $query['body'] = [
             'query' => [
                 'wildcard' => [
-                    'name' => '*'.$queryString . '*'
-                ]
-            ]
+                    'name' => '*' . $queryString . '*',
+                ],
+            ],
         ];
 
         $response = $this->client->search($query);
@@ -120,7 +119,7 @@ abstract class ElasticRepository
     /**
      * ElasticRepository constructor.
      *
-     * @param array $config
+     * @param array  $config
      * @param string $index
      */
     public function __construct(array $config, string $index)
@@ -138,8 +137,8 @@ abstract class ElasticRepository
     {
         $params = [
             'index' => $this->index,
-            'type' => $this->index,
-            'id' => $id,
+            'type'  => $this->index,
+            'id'    => $id,
         ];
 
         return $this->client->get($params);

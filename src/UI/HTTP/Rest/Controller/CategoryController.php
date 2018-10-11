@@ -138,8 +138,9 @@ class CategoryController extends Controller
     {
         $page = $request->get('page') ?? 1;
         $limit = $request->get('limit') ?? 10;
+        $query = $request->get('query') ?? '*';
 
-        $command = new GetAllCommand($page, $limit);
+        $command = new GetAllCommand($page, $limit,$query);
         $model = $this->queryBus->handle($command);
 
         return new JsonResponse($model, 200);
@@ -160,6 +161,6 @@ class CategoryController extends Controller
         $command = new GetSingleCommand($aggregateRootId);
         $model = $this->queryBus->handle($command);
 
-        return new Response($model, 200);
+        return new JsonResponse($model, 200);
     }
 }

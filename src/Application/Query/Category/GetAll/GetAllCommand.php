@@ -18,15 +18,22 @@ class GetAllCommand
     private $limit;
 
     /**
+     * @var string
+     */
+    private $query;
+
+    /**
      * GetAllCommand constructor.
      *
      * @param int $page
      * @param int $limit
+     * @param null|string $query
      */
-    public function __construct(int $page, int $limit)
+    public function __construct(int $page, int $limit, ?string $query = null)
     {
         $this->page = $page;
         $this->limit = $limit;
+        $this->query = $query;
     }
 
     /**
@@ -43,5 +50,13 @@ class GetAllCommand
     public function getLimit(): int
     {
         return $this->limit;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getQuery(): ?string
+    {
+        return $this->query;
     }
 }

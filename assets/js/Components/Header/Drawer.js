@@ -191,6 +191,16 @@ class DrawerComponent extends React.Component {
                         </IconButton>
                     </div>
                     <Divider/>
+                    <NavLink to="/category" className={classes.menuButton}>
+                        <List>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <LockIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary="Wszystkie Kategorie"/>
+                            </ListItem>
+                        </List>
+                    </NavLink>
                     {drawer}
                 </Drawer>
             </React.Fragment>

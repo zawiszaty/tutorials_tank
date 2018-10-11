@@ -17,6 +17,26 @@ fos_elastica:
                   provider: ~
                   finder: ~
                   repository: App\Infrastructure\Category\Repository\CategoryFosElasticaRepository
+        fos_user:
+          finder: ~
+          client: default
+          types:
+            fos_user:
+              properties:
+                id: ~
+                username: ~
+                email: ~
+                roles: ~
+                enabled: ~
+                avatar: ~
+                steemit: ~
+                banned: ~
+              persistence:
+                driver: orm
+                model: App\Infrastructure\User\Query\Projections\UserView
+                provider: ~
+                finder: ~
+                repository: App\Infrastructure\User\Repository\UserFosElasticaRepository
 
 
 

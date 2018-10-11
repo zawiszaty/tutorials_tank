@@ -7,6 +7,7 @@ use App\Domain\Category\Event\CategoryWasDeleted;
 use App\Domain\Category\Event\NameWasChanged;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
+use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use Broadway\ReadModel\Projector;
 
 /**
@@ -18,6 +19,10 @@ class CategoryReadProjectionFactory extends Projector
      * @var MysqlCategoryReadModelRepository
      */
     private $repository;
+    /**
+     * @var CategoryRepositoryElastic
+     */
+    private $categoryRepositoryElastic;
 
     /**
      * @param CategoryWasCreated $categoryWasCreated
@@ -59,8 +64,9 @@ class CategoryReadProjectionFactory extends Projector
      *
      * @param MysqlCategoryReadModelRepository $repository
      */
-    public function __construct(MysqlCategoryReadModelRepository $repository)
+    public function __construct(MysqlCategoryReadModelRepository $repository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {
         $this->repository = $repository;
+        $this->categoryRepositoryElastic = $categoryRepositoryElastic;
     }
 }

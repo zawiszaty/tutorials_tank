@@ -26,3 +26,6 @@ script:
   - docker-compose up -d
   - docker-compose exec php ./vendor/bin/phpspec run
 
+notifications:
+  slack: tutorials-tank:I40AemXy3fX2PwAJhdEzPt4X
+

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Share\Query\Repository;
 
+use App\Application\Query\Collection;
 use App\Domain\Common\Event\AbstractEvent;
 use Assert\Assertion;
 use Elasticsearch\Client;
@@ -76,9 +77,11 @@ abstract class ElasticRepository
      * @param int $page
      * @param int $limit
      *
-     * @return array
+     * @param string $queryString
+     *
+     * @return Collection
      */
-    public function page(int $page = 1, int $limit = 50): array
+    public function page(int $page = 1, int $limit = 50, string $queryString = '*'): Collection
     {
         Assertion::greaterThan($page, 0, 'Pagination need to be > 0');
 
@@ -87,15 +90,21 @@ abstract class ElasticRepository
         $query['index'] = $query['type'] = $this->index;
         $query['from'] = ($page - 1) * $limit;
         $query['size'] = $limit;
+        $query['body'] = [
+            'query' => [
+                'wildcard' => [
+                    'name' => '*'.$queryString . '*'
+                ]
+            ]
+        ];
 
         $response = $this->client->search($query);
 
-        return [
-            'data' => array_map(function (array $item) {
-                return $item['_source'];
-            }, $response['hits']['hits']),
-            'total' => $response['hits']['total'],
-        ];
+        $collection = new Collection($page, $limit, $response['hits']['total'], array_map(function (array $item) {
+            return $item['_source'];
+        }, $response['hits']['hits']));
+
+        return $collection;
     }
 
     /**
@@ -111,7 +120,7 @@ abstract class ElasticRepository
     /**
      * ElasticRepository constructor.
      *
-     * @param array  $config
+     * @param array $config
      * @param string $index
      */
     public function __construct(array $config, string $index)
@@ -129,8 +138,8 @@ abstract class ElasticRepository
     {
         $params = [
             'index' => $this->index,
-            'type'  => $this->index,
-            'id'    => $id,
+            'type' => $this->index,
+            'id' => $id,
         ];
 
         return $this->client->get($params);

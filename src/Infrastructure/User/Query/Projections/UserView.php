@@ -55,7 +55,7 @@ class UserView extends BaseUser
     /**
      * @return string
      */
-    public function getSteemit(): string
+    public function getSteemit(): ?string
     {
         return $this->steemit;
     }

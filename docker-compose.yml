@@ -41,6 +41,20 @@ services:
     volumes:
      - /sessions
 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.2
+    ports:
+      - 9200:9200
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms250m -Xmx250m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+    - esdata1:/usr/share/elasticsearch/data
 
   kibana:
     image: docker.elastic.co/kibana/kibana:6.3.0
@@ -50,10 +64,8 @@ services:
       - ./docker/kibana/config:/usr/share/kibana/config/kibana.yml
 
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.0
-    ports:
-      - "9200:9200"
+
     
 volumes:
   db_data:
+  esdata1:

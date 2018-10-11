@@ -9,6 +9,10 @@ import ConfirmUser from './Components/ConfirmUser/ConfirmUser';
 import DrawerComponent from './Components/Header/Drawer';
 import Footer from './Components/Footer/Footer';
 import Logout from './Components/Logout/Logout';
+import Category from './Components/Category/Category';
+import CategoryPanel from './Components/Category/Panel/CategoryPanel';
+import AddCategory from './Components/Category/Panel/Add/AddCategory';
+import EditCategory from './Components/Category/Panel/Edit/EditCategory';
 import './index.css';
 import {SnackbarProvider} from 'notistack';
 import {withSnackbar} from 'notistack';
@@ -16,12 +20,17 @@ import {Provider} from 'react-redux';
 import {store} from './store';
 import axios from './axios';
 import {loginUser} from './actions/user-action';
+import Paper from "@material-ui/core/Paper/Paper";
+import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import {BrowserRouter} from 'react-router-dom';
+
 
 const PublicRoute = withSnackbar(({component: Component, ...rest}) => (
     <Route {...rest} render={(props) => (
         store.getState().user.length === 0
             ? <Component {...props} />
-            : <Redirect to='/' />
+            : <Redirect to='/'/>
     )}/>
 ))
 
@@ -39,7 +48,8 @@ class Index extends React.Component {
         super(props);
 
         this.state = {
-            open: false
+            open: false,
+            loading: true,
         }
 
         this.handleMenuOpen = this.handleMenuOpen.bind(this);
@@ -54,11 +64,17 @@ class Index extends React.Component {
     }
 
     componentDidMount() {
-        axios.post('api/v1/seciurity', {}, {
+        axios.post('/api/v1/seciurity', {}, {
             headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
         }).then((response) => {
             store.dispatch(loginUser(response.data));
+            this.setState({
+                loading: false
+            })
         }).catch((e) => {
+            this.setState({
+                loading: false
+            })
         });
     }
 
@@ -95,7 +111,28 @@ class Index extends React.Component {
                 marginRight: 20,
             },
         };
+        let indexView;
+        if (this.state.loading === false) {
+            indexView = <React.Fragment>
 
+                <Switch location={location}>
+                    <PublicRoute path='/login' component={Login}/>
+                    <PublicRoute path='/registration' component={Registration}/>
+                    <PublicRoute path='/user/potwierdz-konto' component={YouMustConfirm}/>
+                    <PublicRoute path='/user/token/:token' component={ConfirmUser}/>
+                    <Route path='/category' component={Category}/>
+                    <PrivateRoute path="/wyloguj" component={Logout}/>
+                    <PrivateRoute path="/panel/kategorie/dodaj" component={AddCategory}/>
+                    <PrivateRoute path="/panel/kategorie" component={CategoryPanel}/>
+                    <PrivateRoute path="/panel/edytuj/kategorie/:id" component={EditCategory}/>
+                    <Route render={() => <div>Not Found</div>}/>
+                </Switch>
+            </React.Fragment>
+        } else {
+            indexView = <Paper>
+                <CircularProgress color="secondary"/>
+            </Paper>
+        }
         return (
             <React.Fragment>
                 <Router>
@@ -105,14 +142,7 @@ class Index extends React.Component {
                                 <div>
                                     <Header handleMenuOpen={this.handleMenuOpen}/>
                                     <DrawerComponent open={this.state.open} handleMenuClose={this.handleMenuClose}/>
-                                    <Switch location={location}>
-                                        <PublicRoute path='/login' component={Login}/>
-                                        <PublicRoute path='/registration' component={Registration}/>
-                                        <PublicRoute path='/user/potwierdz-konto' component={YouMustConfirm}/>
-                                        <PublicRoute path='/user/token/:token' component={ConfirmUser}/>
-                                        <PrivateRoute path="/wyloguj" component={Logout}/>
-                                        <Route render={() => <div>Not Found</div>}/>
-                                    </Switch>
+                                    {indexView}
                                     <Footer/>
                                 </div>
                             </SnackbarProvider>

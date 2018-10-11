@@ -22,7 +22,5 @@ yarn-error.log
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-###> behat/symfony2-extension ###
-behat.yml
 ###< behat/symfony2-extension ###
 /.idea

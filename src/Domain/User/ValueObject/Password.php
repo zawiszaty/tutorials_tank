@@ -23,6 +23,18 @@ class Password
     }
 
     /**
+     * @param string $password
+     * @return Password
+     */
+    public static function formHash(string $password): self
+    {
+        $instance = new self();
+        $instance->password = $password;
+
+        return $instance;
+    }
+
+    /**
      * @return string
      */
     public function toString(): string

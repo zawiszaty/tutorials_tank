@@ -5,6 +5,7 @@ export const LOGIN_USER = 'user:loginUser';
 export const LOGOUT_USER = 'user:logoutUser';
 export const REGISTER_USER = 'user:registerUser';
 export const REGISTER_USER_SUCCESS = 'user:registerUserSuccess';
+export const CHANGE_AVATAR = 'user:changeAvatar';
 
 export function updateUser(newUser) {
     return {
@@ -36,6 +37,15 @@ export function logoutUser() {
 export function registerUserSuccess(user) {
     return {
         type: REGISTER_USER_SUCCESS,
+        payload: {
+            user: user
+        }
+    }
+}
+
+export function changeAvatar(user) {
+    return {
+        type: CHANGE_AVATAR,
         payload: {
             user: user
         }

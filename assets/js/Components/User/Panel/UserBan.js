@@ -2,7 +2,7 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
-import axios from './../../axios';
+import axios from './../../../axios';
 import {withSnackbar} from 'notistack';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -18,7 +18,8 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import Avatar from '@material-ui/core/Avatar';
-import CategoryPanelForm from './Panel/CategoryPanelForm';
+import CategoryPanelForm from './CategoryPanelForm';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
     layout: {
@@ -126,11 +127,11 @@ class TablePaginationActions extends React.Component {
     }
 }
 
-const TablePaginationActionsWrapped = withStyles(actionsStyles, { withTheme: true })(
+const TablePaginationActionsWrapped = withStyles(actionsStyles, {withTheme: true})(
     TablePaginationActions,
 );
 
-class User extends React.Component {
+class UserBan extends React.Component {
     constructor(props) {
         super(props);
         const {onPresentSnackbar} = this.props;
@@ -159,7 +160,7 @@ class User extends React.Component {
         this.setState({
             loaded: true,
         });
-        axios.get(`api/v1/user?page=${this.state.page}&limit=${this.state.perPage}&query=${this.state.query}`).then((response) => {
+        axios.get(`/api/v1/user?page=${this.state.page}&limit=${this.state.perPage}&query=${this.state.query}`).then((response) => {
             this.setState({
                 categories: response.data,
                 loaded: false,
@@ -204,6 +205,7 @@ class User extends React.Component {
                         <TableCell>Id Category</TableCell>
                         <TableCell>Name</TableCell>
                         <TableCell>Avatar</TableCell>
+                        <TableCell>Akcja</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -217,7 +219,18 @@ class User extends React.Component {
                                     {category.username}
                                 </TableCell>
                                 <TableCell scope="row">
-                               <Avatar src={category.avatar}/>
+                                    <Avatar src={category.avatar}/>
+                                </TableCell>
+                                <TableCell scope="row">
+                                    <Button variant="contained" color="secondary" onClick={() => {
+                                        axios.post(`/api/v1/user/banned/${category.id}`, {},{
+                                            headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                                        }).then((response) => {
+                                            this.state.onPresentSnackbar('success', 'Zbanowano');
+                                        })
+                                    }}>
+                                        Zbanuj
+                                    </Button>
                                 </TableCell>
                             </TableRow>
                         );
@@ -252,4 +265,4 @@ class User extends React.Component {
     }
 }
 
-export default withStyles(styles)(withSnackbar(User));
+export default withStyles(styles)(withSnackbar(UserBan));

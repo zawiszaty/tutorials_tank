@@ -147,6 +147,16 @@ class DrawerComponent extends React.Component {
                             </ListItem>
                         </List>
                     </NavLink>
+                    <NavLink to="/user/ban" className={classes.menuButton}>
+                        <List>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <LockIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary="Zbanuj"/>
+                            </ListItem>
+                        </List>
+                    </NavLink>
                 </React.Fragment>
             }
 
@@ -198,6 +208,16 @@ class DrawerComponent extends React.Component {
                                     <LockIcon/>
                                 </ListItemIcon>
                                 <ListItemText primary="Wszystkie Kategorie"/>
+                            </ListItem>
+                        </List>
+                    </NavLink>
+                    <NavLink to="/user" className={classes.menuButton}>
+                        <List>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <LockIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary="Użytkownicy"/>
                             </ListItem>
                         </List>
                     </NavLink>

@@ -48,6 +48,31 @@ banned_user:
   methods: POST
   controller: App\UI\HTTP\Rest\Controller\UserController:bannedUserAction
 
+change_user_name:
+  path: /api/v1/user/change/username
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\UserController:changeNameAction
+
+change_user_email:
+  path: /api/v1/user/change/email
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\UserController:changeEmailAction
+
+change_user_password:
+  path: /api/v1/user/change/password
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\UserController:changePasswordAction
+
+change_user_avatar:
+  path: /api/v1/user/change/avatar
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\UserController:changeAvatar
+
+get_all_user:
+  path: /api/v1/user
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\UserController:getAllAction
+
 seciurity:
   path: /api/v1/seciurity
   methods: POST

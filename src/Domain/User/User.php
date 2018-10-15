@@ -3,6 +3,10 @@
 namespace App\Domain\User;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
+use App\Domain\User\Event\UserAvatarWasChanged;
+use App\Domain\User\Event\UserMailWasChanged;
+use App\Domain\User\Event\UserNameWasChanged;
+use App\Domain\User\Event\UserPasswordWasChanged;
 use App\Domain\User\Event\UserWasBanned;
 use App\Domain\User\Event\UserWasConfirmed;
 use App\Domain\User\Event\UserWasCreated;
@@ -70,14 +74,14 @@ class User extends EventSourcedAggregateRoot
     public function serialize()
     {
         return [
-            'id'       => $this->id->toString(),
+            'id' => $this->id->toString(),
             'username' => $this->username->toString(),
-            'email'    => $this->email->toString(),
-            'roles'    => $this->roles->toArray(),
-            'steemit'  => $this->steemit->toString(),
-            'banned'   => $this->banned,
+            'email' => $this->email->toString(),
+            'roles' => $this->roles->toArray(),
+            'steemit' => $this->steemit->toString(),
+            'banned' => $this->banned,
             'password' => $this->password,
-            'enabled'  => $this->enabled,
+            'enabled' => $this->enabled,
         ];
     }
 
@@ -105,14 +109,14 @@ class User extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $id
-     * @param UserName        $username
-     * @param Email           $email
-     * @param Roles           $roles
-     * @param Avatar          $avatar
-     * @param Steemit         $steemit
-     * @param bool            $banned
-     * @param Password        $password
-     * @param bool            $enabled
+     * @param UserName $username
+     * @param Email $email
+     * @param Roles $roles
+     * @param Avatar $avatar
+     * @param Steemit $steemit
+     * @param bool $banned
+     * @param Password $password
+     * @param bool $enabled
      *
      * @return mixed
      */
@@ -122,6 +126,48 @@ class User extends EventSourcedAggregateRoot
         $user->apply(new UserWasCreated($id, $username, $email, $roles, $avatar, $steemit, $banned, $password, false));
 
         return $user;
+    }
+
+    /**
+     * @param string $name
+     * @throws \Assert\AssertionFailedException
+     */
+    public function changeName(string $name)
+    {
+        $this->apply(new UserNameWasChanged(
+            $this->getId(),
+            UserName::fromString($name),
+            $this->getEmail(),
+            $this->getRoles(),
+            $this->getAvatar(),
+            $this->getSteemit(),
+            $this->isBanned(),
+            $this->isEnabled()
+        ));
+    }
+
+    /**
+     * @param string $email
+     * @throws \Assert\AssertionFailedException
+     */
+    public function changeEmail(string $email)
+    {
+        $this->apply(new UserMailWasChanged(
+            $this->getId(),
+            Email::fromString($email)
+        ));
+    }
+
+    public function applyUserMailWasChanged(UserMailWasChanged $event)
+    {
+        $this->email = $event->getEmail();
+        $this->enabled = false;
+    }
+
+
+    public function applyUserNameWasChanged(UserNameWasChanged $event)
+    {
+        $this->username = $event->getUsername();
     }
 
     /**
@@ -157,9 +203,44 @@ class User extends EventSourcedAggregateRoot
         $this->enabled = $userWasCreated->isEnabled();
     }
 
+    public function changePassword(string $password)
+    {
+        $this->apply(new UserPasswordWasChanged(
+            $this->id,
+            Password::fromString($password)
+        ));
+    }
+
+    public function applyUserPasswordWasChanged(UserPasswordWasChanged $event)
+    {
+        $this->password = $event->getPassword();
+    }
+
+    /**
+     * @param UserWasConfirmed $userWasConfirmed
+     */
     public function applyUserWasConfirmed(UserWasConfirmed $userWasConfirmed): void
     {
         $this->enabled = $userWasConfirmed->isEnabled();
+    }
+
+    /**
+     * @param string $avatar
+     */
+    public function changeAvatar(string $avatar)
+    {
+        $this->apply(new UserAvatarWasChanged(
+            $this->id,
+            Avatar::fromString($avatar)
+        ));
+    }
+
+    /**
+     * @param UserAvatarWasChanged $event
+     */
+    public function applyUserAvatarWasChanged(UserAvatarWasChanged $event)
+    {
+        $this->avatar = $event->getAvatar();
     }
 
     /**
@@ -229,5 +310,13 @@ class User extends EventSourcedAggregateRoot
     public function isEnabled(): bool
     {
         return $this->enabled;
+    }
+
+    /**
+     * @return Password
+     */
+    public function getPassword(): Password
+    {
+        return $this->password;
     }
 }

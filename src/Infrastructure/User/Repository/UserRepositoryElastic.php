@@ -1,15 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zawiszaty
- * Date: 13.10.18
- * Time: 11:43
- */
 
 namespace App\Infrastructure\User\Repository;
 
+use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 
-class UserRepositoryElastic
+class UserRepositoryElastic extends ElasticRepository
 {
+    private const INDEX = 'fos_user';
 
+    /**
+     * CategoryRepositoryElastic constructor.
+     *
+     * @param array $elasticConfig
+     */
+    public function __construct(array $elasticConfig)
+    {
+        parent::__construct($elasticConfig, self::INDEX);
+    }
 }

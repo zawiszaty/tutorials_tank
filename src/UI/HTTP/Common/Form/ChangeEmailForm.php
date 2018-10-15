@@ -10,7 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Class CategoryType.
  */
-class ChangeEmailNameForm extends AbstractType
+class ChangeEmailForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder

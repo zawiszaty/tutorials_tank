@@ -74,13 +74,13 @@ abstract class ElasticRepository
     }
 
     /**
-     * @param int    $page
-     * @param int    $limit
+     * @param int $page
+     * @param int $limit
      * @param string $queryString
      *
      * @return Collection
      */
-    public function page(int $page = 1, int $limit = 50, string $queryString = '*'): Collection
+    public function page(int $page = 1, int $limit = 50, array $queryString = []): Collection
     {
         Assertion::greaterThan($page, 0, 'Pagination need to be > 0');
 
@@ -89,13 +89,7 @@ abstract class ElasticRepository
         $query['index'] = $query['type'] = $this->index;
         $query['from'] = ($page - 1) * $limit;
         $query['size'] = $limit;
-        $query['body'] = [
-            'query' => [
-                'wildcard' => [
-                    'name' => '*' . $queryString . '*',
-                ],
-            ],
-        ];
+        $query['body'] = $queryString;
 
         $response = $this->client->search($query);
 
@@ -119,7 +113,7 @@ abstract class ElasticRepository
     /**
      * ElasticRepository constructor.
      *
-     * @param array  $config
+     * @param array $config
      * @param string $index
      */
     public function __construct(array $config, string $index)
@@ -137,8 +131,8 @@ abstract class ElasticRepository
     {
         $params = [
             'index' => $this->index,
-            'type'  => $this->index,
-            'id'    => $id,
+            'type' => $this->index,
+            'id' => $id,
         ];
 
         return $this->client->get($params);

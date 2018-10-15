@@ -17,6 +17,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import LastPageIcon from '@material-ui/icons/LastPage';
+import Avatar from '@material-ui/core/Avatar';
 import CategoryPanelForm from './Panel/CategoryPanelForm';
 
 const styles = theme => ({
@@ -129,7 +130,7 @@ const TablePaginationActionsWrapped = withStyles(actionsStyles, { withTheme: tru
     TablePaginationActions,
 );
 
-class Category extends React.Component {
+class User extends React.Component {
     constructor(props) {
         super(props);
         const {onPresentSnackbar} = this.props;
@@ -158,7 +159,7 @@ class Category extends React.Component {
         this.setState({
             loaded: true,
         });
-        axios.get(`api/category?page=${this.state.page}&limit=${this.state.perPage}&query=${this.state.query}`).then((response) => {
+        axios.get(`/api/v1/user?page=${this.state.page}&limit=${this.state.perPage}&query=${this.state.query}`).then((response) => {
             this.setState({
                 categories: response.data,
                 loaded: false,
@@ -202,6 +203,7 @@ class Category extends React.Component {
                     <TableRow>
                         <TableCell>Id Category</TableCell>
                         <TableCell>Name</TableCell>
+                        <TableCell>Avatar</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -212,7 +214,10 @@ class Category extends React.Component {
                                     {category.id}
                                 </TableCell>
                                 <TableCell scope="row">
-                                    {category.name}
+                                    {category.username}
+                                </TableCell>
+                                <TableCell scope="row">
+                               <Avatar src={category.avatar}/>
                                 </TableCell>
                             </TableRow>
                         );
@@ -247,4 +252,4 @@ class Category extends React.Component {
     }
 }
 
-export default withStyles(styles)(withSnackbar(Category));
+export default withStyles(styles)(withSnackbar(User));

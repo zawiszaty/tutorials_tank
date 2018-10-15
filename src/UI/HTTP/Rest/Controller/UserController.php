@@ -3,12 +3,25 @@
 namespace App\UI\HTTP\Rest\Controller;
 
 use App\Application\Command\User\BannedUser\BannedUserCommand;
+use App\Application\Command\User\ChangeAvatar\ChangeAvatarCommand;
+use App\Application\Command\User\ChangeEmail\ChangeEmailCommand;
+use App\Application\Command\User\ChangeName\ChangeUserNameCommand;
+use App\Application\Command\User\ChangePassword\ChangePasswordCommand;
 use App\Application\Command\User\ConfirmUser\ConfirmUserCommand;
 use App\Application\Command\User\Create\CreateUserCommand;
 use App\Application\Command\User\SendEmail\SendEmailCommand;
+use App\Application\Query\User\GetAll\GetAllCommand;
+use App\Domain\Common\ValueObject\AggregateRootId;
+use App\Domain\User\Exception\AvatarWasChanged;
+use App\Domain\User\Exception\PasswordIsBadException;
 use App\Domain\User\ValueObject\Email;
+use App\Domain\User\ValueObject\Password;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
+use App\UI\HTTP\Common\Form\ChangeAvatarForm;
+use App\UI\HTTP\Common\Form\ChangeEmailForm;
+use App\UI\HTTP\Common\Form\ChangePasswordForm;
+use App\UI\HTTP\Common\Form\ChangeUserNameForm;
 use App\UI\HTTP\Common\Form\RegistrationFormType;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
@@ -64,7 +77,8 @@ class UserController extends Controller
         DBALEventStore $eventStore,
         MysqlUserReadModelRepository $userReadModelRepository,
         EventDispatcherInterface $eventDispatcher
-    ) {
+    )
+    {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -106,7 +120,7 @@ class UserController extends Controller
 
     /**
      * @param Request $request
-     * @param string  $token
+     * @param string $token
      *
      * @return Response
      */
@@ -122,7 +136,7 @@ class UserController extends Controller
 
     /**
      * @param Request $request
-     * @param string  $id
+     * @param string $id
      *
      * @return Response
      *
@@ -139,5 +153,177 @@ class UserController extends Controller
         $response = new JsonResponse('success', 200);
 
         return $response;
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @throws \Assert\AssertionFailedException
+     */
+    public function changeNameAction(Request $request): Response
+    {
+        $command = new ChangeUserNameCommand();
+        $command->setId(AggregateRootId::fromString($this->getUser()->getId()));
+        $form = $this->createForm(ChangeUserNameForm::class, $command);
+        $form->submit($request->request->all());
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->commandBus->handle($command);
+
+            $response = new JsonResponse('success', 200);
+
+            return $response;
+        }
+
+        $response = new JsonResponse('error', JsonResponse::HTTP_BAD_REQUEST);
+
+        return $response;
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @throws \Assert\AssertionFailedException
+     */
+    public function changeEmailAction(Request $request): Response
+    {
+        $command = new ChangeEmailCommand();
+        $command->setId(AggregateRootId::fromString($this->getUser()->getId()));
+        $form = $this->createForm(ChangeEmailForm::class, $command);
+        $form->submit($request->request->all());
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->commandBus->handle($command);
+
+            $sendEmailCommand = new SendEmailCommand($command->getEmail(), $this->getUser()->getConfirmationToken());
+            $this->commandBus->handle($sendEmailCommand);
+            $response = new JsonResponse('success', 200);
+
+            return $response;
+        }
+
+        $response = new JsonResponse('error', JsonResponse::HTTP_BAD_REQUEST);
+
+        return $response;
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function changePasswordAction(Request $request): Response
+    {
+        $command = new ChangePasswordCommand();
+        $command->setId($this->getUser()->getId());
+
+        $form = $this->createForm(ChangePasswordForm::class, $command);
+        $form->submit($request->request->all());
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (
+            !password_verify(
+                $command->getOldPassword(),
+                $this->getUser()->getPassword()
+            )
+            ) {
+                throw new PasswordIsBadException();
+            }
+            $this->commandBus->handle($command);
+            $response = new JsonResponse('success', JsonResponse::HTTP_OK);
+
+            return $response;
+        }
+
+        $response = new JsonResponse('error', JsonResponse::HTTP_BAD_REQUEST);
+
+        return $response;
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getAllAction(Request $request)
+    {
+        $page = $request->get('page') ?? 1;
+        $limit = $request->get('limit') ?? 10;
+        if ($request->get('query')) {
+            $query = [
+                'query' => [
+                    'bool' => [
+                        'should' => [
+                            [
+                                'wildcard' => [
+                                    'username' => '*' . $request->get('query') . '*',
+                                ]
+                            ],
+                            [
+                                'wildcard' => [
+                                    'email' => '*' . $request->get('query') . '*',
+                                ]
+                            ],
+                        ],
+                    ]
+                ],
+            ];
+        } else {
+            $query = [];
+        }
+
+        $command = new GetAllCommand($page, $limit, $query);
+        $model = $this->queryBus->handle($command);
+
+        return new JsonResponse($model, 200);
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function changeAvatar(Request $request): Response
+    {
+        $command = new ChangeAvatarCommand();
+        $command->setId($this->getUser()->getId());
+
+        $form = $this->createForm(ChangeAvatarForm::class, $command);
+        $file = $request->files->get('file');
+        $request->request->set('file', $file);
+        $form->submit($request->request->all());
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            try {
+                $this->commandBus->handle($command);
+            } catch (AvatarWasChanged $exception) {
+                $response = new JsonResponse([
+                    'avatar' => $exception->getMessage(),
+                ], JsonResponse::HTTP_OK);
+
+                return $response;
+            }
+        }
+        $response = new JsonResponse($this->getErrorMessages($form), JsonResponse::HTTP_BAD_REQUEST);
+
+        return $response;
+    }
+
+    private function getErrorMessages(\Symfony\Component\Form\Form $form)
+    {
+        $errors = array();
+
+        foreach ($form->getErrors() as $key => $error) {
+            if ($form->isRoot()) {
+                $errors['#'][] = $error->getMessage();
+            } else {
+                $errors[] = $error->getMessage();
+            }
+        }
+
+        foreach ($form->all() as $child) {
+            if (!$child->isValid()) {
+                $errors[$child->getName()] = $this->getErrorMessages($child);
+            }
+        }
+
+        return $errors;
     }
 }

@@ -2,6 +2,10 @@
 
 namespace App\Infrastructure\User;
 
+use App\Domain\User\Event\UserAvatarWasChanged;
+use App\Domain\User\Event\UserMailWasChanged;
+use App\Domain\User\Event\UserNameWasChanged;
+use App\Domain\User\Event\UserPasswordWasChanged;
 use App\Domain\User\Event\UserWasBanned;
 use App\Domain\User\Event\UserWasConfirmed;
 use App\Domain\User\Event\UserWasCreated;
@@ -63,6 +67,46 @@ class UserReadProjectionFactory extends Projector
         /** @var UserView $userView */
         $userView = $this->repository->oneByUuid($userWasBanned->getId());
         $userView->banned();
+        $this->repository->apply();
+    }
+
+    /**
+     * @param UserNameWasChanged $event
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function applyUserNameWasChanged(UserNameWasChanged $event)
+    {
+        /** @var UserView $userView */
+        $userView = $this->repository->oneByUuid($event->getId());
+        $userView->changeName($event->getUsername()->toString());
+        $this->repository->apply();
+    }
+
+    /**
+     * @param UserMailWasChanged $event
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function applyUserMailWasChanged(UserMailWasChanged $event)
+    {
+        /** @var UserView $userView */
+        $userView = $this->repository->oneByUuid($event->getId());
+        $userView->changeMail($event->getEmail()->toString());
+        $this->repository->apply();
+    }
+
+    public function applyUserPasswordWasChanged(UserPasswordWasChanged $event)
+    {
+        /** @var UserView $userView */
+        $userView = $this->repository->oneByUuid($event->getId());
+        $userView->changePassword($event->getPassword()->toString());
+        $this->repository->apply();
+    }
+
+    public function applyUserAvatarWasChanged(UserAvatarWasChanged $event)
+    {
+        /** @var UserView $userView */
+        $userView = $this->repository->oneByUuid($event->getId());
+        $userView->changeAvatar($event->getAvatar()->toString());
         $this->repository->apply();
     }
 }

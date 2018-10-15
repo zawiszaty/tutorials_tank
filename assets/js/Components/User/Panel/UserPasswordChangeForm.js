@@ -45,13 +45,18 @@ const styles = theme => ({
 
 const validate = values => {
     const errors = {}
-    if (!values.username) {
-        errors.username = 'Pole nie może być puste'
+    if (!values.oldPassword) {
+        errors.oldPassword = 'Pole nie może być puste'
     }
-    if (!values.password) {
-        errors.password = 'Pole nie może być puste'
+    if (!values.password_first) {
+        errors.password_first = 'Pole nie może być puste'
     }
-
+    if (!values.password_second) {
+        errors.password_second = 'Pole nie może być puste'
+    }
+    if (values.password_first !== values.password_second) {
+        errors.password_first = 'Hasła muszą być identyczne'
+    }
     return errors
 }
 
@@ -84,43 +89,58 @@ const SyncValidationForm = (props) => {
     const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar, user, onLoginUser} = props
     return (
         <form className={classes.form} onSubmit={handleSubmit(val => {
-            axios.post('/api/v1/user/change/email', {'email': val.email}, {
+            axios.post('/api/v1/user/change/password', {
+                'oldPassword': val.oldPassword,
+                'plainPassword': {
+                    'first': val.password_first,
+                    'second': val.password_second
+                }
+            }, {
                 headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
             }).then((response) => {
-                onPresentSnackbar('success', 'Zmienione email. Zaloguj sie na niego i potwierdz konto na nowo');
+                onPresentSnackbar('success', 'Hasło zmieniono');
             }).catch((e) => {
                 onPresentSnackbar('error', 'Coś poszło nie tak');
             })
         })}>
-                <Field
-                    id="email"
-                    name="email"
-                    component={renderTextField}
-                    label="email"
-                    type="email"
-                />
-                <Button
-                    type="submit"
-                    fullWidth
-                    variant="raised"
-                    color="primary"
-                >
-                    Zmień Email
-                </Button>
+            <Field
+                id="oldPassword"
+                name="oldPassword"
+                component={renderTextField}
+                label="Obecne hasło"
+                type="password"
+            />
+            <Field
+                id="password_first"
+                name="password_first"
+                component={renderTextField}
+                label="Hasło"
+                type="password"
+            />
+            <Field
+                id="password_second"
+                name="password_second"
+                component={renderTextField}
+                label="Powtórz"
+                type="password"
+            />
+            <Button
+                type="submit"
+                fullWidth
+                variant="raised"
+                color="primary"
+            >
+                Zmień Hasło
+            </Button>
         </form>
     )
 }
-const mapStateToProps = state => ({
-    initialValues: {
-        email: state.user.email
-    }
-});
+const mapStateToProps = state => ({});
 
-const mapActionToProps = {
-};
+const mapActionToProps = {};
 
 export default connect(mapStateToProps, mapActionToProps)(withStyles(styles)(reduxForm({
-    form: 'syncValidationEmail',  // a unique identifier for this form
+    form: 'syncValidationPassword',  // a unique identifier for this form
     validate,                // <--- validation function given to redux-form
     warn                     // <--- warning function given to redux-form
 })(withSnackbar(SyncValidationForm))))

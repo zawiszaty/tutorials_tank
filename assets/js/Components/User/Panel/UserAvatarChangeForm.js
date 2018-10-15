@@ -10,6 +10,7 @@ import {store} from './../../../store';
 import {connect} from 'react-redux';
 import axios from "../../../axios";
 import {withSnackbar} from 'notistack';
+import {changeAvatar} from './../../../actions/user-action';
 
 const styles = theme => ({
     layout: {
@@ -31,8 +32,9 @@ const styles = theme => ({
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     },
     avatar: {
-        margin: theme.spacing.unit,
-        backgroundColor: theme.palette.secondary.main,
+        width: '200px',
+        height: '200px',
+        borderRadius: '100%'
     },
     form: {
         width: '100%', // Fix IE11 issue.
@@ -63,64 +65,100 @@ const warn = values => {
     return warnings
 }
 
-const renderTextField = (
-    {input, label, meta, ...custom, type},
-) => (
-    <FormControl margin="normal" required fullWidth>
-        <TextField
-            error={meta.error && meta.touched}
-            label={label}
-            helperText={meta.touched && meta.error}
-            {...input}
-            type={type}
-            required
-        />
-    </FormControl>
-);
+
 // hintText={label}
 // floatingLabelText={label}
 // errorText={touched && error}
-const SyncValidationForm = (props) => {
-    const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar, user, onLoginUser} = props
-    return (
-        <form className={classes.form} onSubmit={handleSubmit(val => {
-            axios.post('/api/v1/user/change/email', {'email': val.email}, {
-                headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
-            }).then((response) => {
-                onPresentSnackbar('success', 'Zmienione email. Zaloguj sie na niego i potwierdz konto na nowo');
-            }).catch((e) => {
-                onPresentSnackbar('error', 'Coś poszło nie tak');
-            })
-        })}>
-                <Field
-                    id="email"
-                    name="email"
-                    component={renderTextField}
-                    label="email"
-                    type="email"
-                />
-                <Button
-                    type="submit"
-                    fullWidth
-                    variant="raised"
-                    color="primary"
-                >
-                    Zmień Email
-                </Button>
-        </form>
-    )
-}
-const mapStateToProps = state => ({
-    initialValues: {
-        email: state.user.email
+class SyncValidationForm extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            onPresentSnackbar: props.onPresentSnackbar,
+            user: props.user,
+            image: props.user.avatar,
+            uploadedImage: ''
+        }
     }
+
+    handleImage = (image) => {
+        this.setState({
+            image: image
+        })
+    };
+
+    render() {
+        return (
+            <React.Fragment>
+                <div>
+                    <img src={this.state.image} className={this.props.classes.avatar}/>
+                </div>
+                <form name="changeAvatarForm" className={this.props.classes.form} onSubmit={(e) => {
+                    e.preventDefault();
+                    console.log(this.state.uploadedImage);
+
+                    if (this.state.uploadedImage === '') {
+                        this.state.onPresentSnackbar('error', 'To ten sam avatar')
+                    } else {
+                        axios.post('/api/v1/user/change/avatar', this.state.uploadedImage, {
+                            headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                        }).then((response) => {
+                            this.state.onPresentSnackbar('success', 'Zmieniono');
+                            this.state.user.avatar = response.data.avatar;
+                            this.setState({
+                                uploadedImage: ''
+                            });
+                            this.props.changeAvatar(this.state.user);
+                        })
+                    }
+                }}>
+                    <input
+                        accept="image/*"
+                        style={{display: 'none'}}
+                        id="raised-button-file"
+                        multiple
+                        type="file"
+                        onChange={(files) => {
+                            console.log(files.target.files[0]);
+                            const avatar = new Blob([files.target.files[0]]);
+                            let image = new FormData();
+                            image.append("file", avatar, avatar.name);
+                            this.setState({
+                                uploadedImage: image
+                            });
+                            var reader = new FileReader();
+                            reader.readAsDataURL(files.target.files[0]);
+                            reader.onload = (e) => {
+                                console.log(e);
+                                this.handleImage(e.target.result);
+                            }
+                        }}
+                    />
+                    <label htmlFor="raised-button-file">
+                        <Button variant="raised" component="span" fullWidth>
+                            Upload
+                        </Button>
+                    </label>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="raised"
+                        color="primary"
+                    >
+                        Zmień Avatar
+                    </Button>
+                </form>
+            </React.Fragment>
+        )
+    }
+}
+
+const mapStateToProps = state => ({
+    user: state.user
 });
 
 const mapActionToProps = {
+    changeAvatar: changeAvatar
 };
 
-export default connect(mapStateToProps, mapActionToProps)(withStyles(styles)(reduxForm({
-    form: 'syncValidationEmail',  // a unique identifier for this form
-    validate,                // <--- validation function given to redux-form
-    warn                     // <--- warning function given to redux-form
-})(withSnackbar(SyncValidationForm))))
+export default connect(mapStateToProps, mapActionToProps)(withStyles(styles)(withSnackbar(SyncValidationForm)))

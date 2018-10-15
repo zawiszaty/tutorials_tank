@@ -2,7 +2,7 @@
 
 namespace App\Domain\User\Exception;
 
-class UserIsBannedException extends \InvalidArgumentException
+class PasswordIsBadException extends \InvalidArgumentException
 {
-    protected $message = 'Użytkownik jest zbanowany';
+    protected $message = 'Hasło jest nie prawidłowe';
 }

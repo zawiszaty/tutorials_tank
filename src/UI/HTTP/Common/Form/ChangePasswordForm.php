@@ -3,6 +3,8 @@
 namespace App\UI\HTTP\Common\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -10,7 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Class CategoryType.
  */
-class ChangeEmailForm extends AbstractType
+class ChangePasswordForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -19,9 +21,21 @@ class ChangeEmailForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', TextType::class, [
+            ->add('oldPassword', TextType::class, [
                 'required' => true,
-            ]);
+            ])
+            ->add('plainPassword', RepeatedType::class, array(
+                'type'    => PasswordType::class,
+                'options' => array(
+                    'translation_domain' => 'FOSUserBundle',
+                    'attr'               => array(
+                        'autocomplete' => 'new-password',
+                    ),
+                ),
+                'first_options'   => array('label' => 'form.password'),
+                'second_options'  => array('label' => 'form.password_confirmation'),
+                'invalid_message' => 'fos_user.password.mismatch',
+            ));
     }
 
     /**

@@ -84,18 +84,20 @@ const SyncValidationForm = (props) => {
     const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar, user, onLoginUser} = props
     return (
         <form className={classes.form} onSubmit={handleSubmit(val => {
-            axios.post('/api/v1/user/change/username', {'name': val.username}, {
+            axios.post('/api/v1/user/change/email', {'email': val.email}, {
                 headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
             }).then((response) => {
-                onPresentSnackbar('success', 'Zmienione nazwe');
+                onPresentSnackbar('success', 'Zmienione email. Zaloguj sie na niego i potwierdz konto na nowo');
+            }).catch((e) => {
+                onPresentSnackbar('error', 'Coś poszło nie tak');
             })
         })}>
                 <Field
-                    id="username"
-                    name="username"
+                    id="email"
+                    name="email"
                     component={renderTextField}
-                    label="Nazwa użytkownika"
-                    type="text"
+                    label="email"
+                    type="email"
                 />
                 <Button
                     type="submit"
@@ -103,14 +105,14 @@ const SyncValidationForm = (props) => {
                     variant="raised"
                     color="primary"
                 >
-                    Zmień Nazwę
+                    Zmień Email
                 </Button>
         </form>
     )
 }
 const mapStateToProps = state => ({
     initialValues: {
-        username: state.user.name
+        email: state.user.email
     }
 });
 
@@ -118,7 +120,7 @@ const mapActionToProps = {
 };
 
 export default connect(mapStateToProps, mapActionToProps)(withStyles(styles)(reduxForm({
-    form: 'syncValidation',  // a unique identifier for this form
+    form: 'syncValidationEmail',  // a unique identifier for this form
     validate,                // <--- validation function given to redux-form
     warn                     // <--- warning function given to redux-form
 })(withSnackbar(SyncValidationForm))))

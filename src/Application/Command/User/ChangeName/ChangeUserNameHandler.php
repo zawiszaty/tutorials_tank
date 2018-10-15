@@ -6,8 +6,7 @@ use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Class ChangeUserNameHandler
- * @package App\Application\Command\User\ChangeName
+ * Class ChangeUserNameHandler.
  */
 class ChangeUserNameHandler implements CommandHandlerInterface
 {

@@ -24,6 +24,7 @@ class Password
 
     /**
      * @param string $password
+     *
      * @return Password
      */
     public static function formHash(string $password): self

@@ -3,8 +3,7 @@
 namespace App\Application\Command\User\ChangePassword;
 
 /**
- * Class ChangePasswordCommand
- * @package App\Application\Command\User\ChangePassword
+ * Class ChangePasswordCommand.
  */
 class ChangePasswordCommand
 {
@@ -12,10 +11,12 @@ class ChangePasswordCommand
      * @var mixed
      */
     private $id;
+
     /**
      * @var mixed
      */
     private $oldPassword;
+
     /**
      * @var mixed
      */

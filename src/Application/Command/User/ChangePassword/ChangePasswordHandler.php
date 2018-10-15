@@ -3,7 +3,6 @@
 namespace App\Application\Command\User\ChangePassword;
 
 use App\Application\Command\CommandHandlerInterface;
-use App\Application\Command\User\ChangeName\ChangeUserNameCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 class ChangePasswordHandler implements CommandHandlerInterface

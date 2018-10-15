@@ -3,7 +3,6 @@
 namespace App\Application\Query\User\GetAll;
 
 use App\Application\Query\QueryHandlerInterface;
-use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use App\Infrastructure\User\Repository\UserRepositoryElastic;
 
 /**
@@ -11,7 +10,6 @@ use App\Infrastructure\User\Repository\UserRepositoryElastic;
  */
 class GetAllHandler implements QueryHandlerInterface
 {
-
     /**
      * @var UserRepositoryElastic
      */

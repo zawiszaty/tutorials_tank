@@ -15,7 +15,6 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
 use App\Domain\User\Exception\PasswordIsBadException;
 use App\Domain\User\ValueObject\Email;
-use App\Domain\User\ValueObject\Password;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use App\UI\HTTP\Common\Form\ChangeAvatarForm;
@@ -77,8 +76,7 @@ class UserController extends Controller
         DBALEventStore $eventStore,
         MysqlUserReadModelRepository $userReadModelRepository,
         EventDispatcherInterface $eventDispatcher
-    )
-    {
+    ) {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -120,7 +118,7 @@ class UserController extends Controller
 
     /**
      * @param Request $request
-     * @param string $token
+     * @param string  $token
      *
      * @return Response
      */
@@ -136,7 +134,7 @@ class UserController extends Controller
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @return Response
      *
@@ -157,7 +155,9 @@ class UserController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return Response
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function changeNameAction(Request $request): Response
@@ -182,7 +182,9 @@ class UserController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return Response
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function changeEmailAction(Request $request): Response
@@ -209,6 +211,7 @@ class UserController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function changePasswordAction(Request $request): Response
@@ -241,6 +244,7 @@ class UserController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return JsonResponse
      */
     public function getAllAction(Request $request)
@@ -255,15 +259,15 @@ class UserController extends Controller
                             [
                                 'wildcard' => [
                                     'username' => '*' . $request->get('query') . '*',
-                                ]
+                                ],
                             ],
                             [
                                 'wildcard' => [
                                     'email' => '*' . $request->get('query') . '*',
-                                ]
+                                ],
                             ],
                         ],
-                    ]
+                    ],
                 ],
             ];
         } else {
@@ -278,6 +282,7 @@ class UserController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function changeAvatar(Request $request): Response

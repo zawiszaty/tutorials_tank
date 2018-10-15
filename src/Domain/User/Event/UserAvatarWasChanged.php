@@ -7,8 +7,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\ValueObject\Avatar;
 
 /**
- * Class UserAvatarWasChanged
- * @package App\Domain\User\Event
+ * Class UserAvatarWasChanged.
  */
 class UserAvatarWasChanged extends AbstractEvent
 {
@@ -24,8 +23,9 @@ class UserAvatarWasChanged extends AbstractEvent
 
     /**
      * UserMailWasChanged constructor.
+     *
      * @param AggregateRootId $id
-     * @param Avatar $avatar
+     * @param Avatar          $avatar
      */
     public function __construct(AggregateRootId $id, Avatar $avatar)
     {
@@ -51,7 +51,9 @@ class UserAvatarWasChanged extends AbstractEvent
 
     /**
      * @param array $data
+     *
      * @return UserMailWasChanged|mixed
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function deserialize(array $data)
@@ -68,7 +70,7 @@ class UserAvatarWasChanged extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id'       => $this->id->toString(),
+            'id'        => $this->id->toString(),
             'avatar'    => $this->avatar->toString(),
         ];
     }

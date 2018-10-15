@@ -72,6 +72,7 @@ class UserReadProjectionFactory extends Projector
 
     /**
      * @param UserNameWasChanged $event
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserNameWasChanged(UserNameWasChanged $event)
@@ -84,6 +85,7 @@ class UserReadProjectionFactory extends Projector
 
     /**
      * @param UserMailWasChanged $event
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserMailWasChanged(UserMailWasChanged $event)

@@ -20,8 +20,9 @@ class UserPasswordWasChanged extends AbstractEvent
 
     /**
      * UserMailWasChanged constructor.
+     *
      * @param AggregateRootId $id
-     * @param password $password
+     * @param password        $password
      */
     public function __construct(AggregateRootId $id, Password $password)
     {
@@ -47,7 +48,9 @@ class UserPasswordWasChanged extends AbstractEvent
 
     /**
      * @param array $data
+     *
      * @return UserMailWasChanged|mixed
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function deserialize(array $data)
@@ -64,7 +67,7 @@ class UserPasswordWasChanged extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id'       => $this->id->toString(),
+            'id'          => $this->id->toString(),
             'password'    => $this->password->toString(),
         ];
     }

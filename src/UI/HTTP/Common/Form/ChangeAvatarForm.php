@@ -15,11 +15,11 @@ class ChangeAvatarForm extends AbstractType
         $builder
             ->add('file', FileType::class, [
                 'constraints' => new File([
-                    'maxSize' => '1M',
+                    'maxSize'   => '1M',
                     'mimeTypes' => ['image/jpeg',
-                        'image/png'
-                    ]
-                ])
+                        'image/png',
+                    ],
+                ]),
             ]);
     }
 

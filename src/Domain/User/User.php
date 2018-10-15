@@ -74,14 +74,14 @@ class User extends EventSourcedAggregateRoot
     public function serialize()
     {
         return [
-            'id' => $this->id->toString(),
+            'id'       => $this->id->toString(),
             'username' => $this->username->toString(),
-            'email' => $this->email->toString(),
-            'roles' => $this->roles->toArray(),
-            'steemit' => $this->steemit->toString(),
-            'banned' => $this->banned,
+            'email'    => $this->email->toString(),
+            'roles'    => $this->roles->toArray(),
+            'steemit'  => $this->steemit->toString(),
+            'banned'   => $this->banned,
             'password' => $this->password,
-            'enabled' => $this->enabled,
+            'enabled'  => $this->enabled,
         ];
     }
 
@@ -109,14 +109,14 @@ class User extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $id
-     * @param UserName $username
-     * @param Email $email
-     * @param Roles $roles
-     * @param Avatar $avatar
-     * @param Steemit $steemit
-     * @param bool $banned
-     * @param Password $password
-     * @param bool $enabled
+     * @param UserName        $username
+     * @param Email           $email
+     * @param Roles           $roles
+     * @param Avatar          $avatar
+     * @param Steemit         $steemit
+     * @param bool            $banned
+     * @param Password        $password
+     * @param bool            $enabled
      *
      * @return mixed
      */
@@ -130,6 +130,7 @@ class User extends EventSourcedAggregateRoot
 
     /**
      * @param string $name
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function changeName(string $name)
@@ -148,6 +149,7 @@ class User extends EventSourcedAggregateRoot
 
     /**
      * @param string $email
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function changeEmail(string $email)
@@ -163,7 +165,6 @@ class User extends EventSourcedAggregateRoot
         $this->email = $event->getEmail();
         $this->enabled = false;
     }
-
 
     public function applyUserNameWasChanged(UserNameWasChanged $event)
     {

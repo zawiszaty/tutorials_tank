@@ -2,7 +2,6 @@
 
 namespace App\Domain\User\Event;
 
-
 use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\ValueObject\Email;
@@ -21,8 +20,9 @@ class UserMailWasChanged extends AbstractEvent
 
     /**
      * UserMailWasChanged constructor.
+     *
      * @param AggregateRootId $id
-     * @param Email $email
+     * @param Email           $email
      */
     public function __construct(AggregateRootId $id, Email $email)
     {
@@ -48,7 +48,9 @@ class UserMailWasChanged extends AbstractEvent
 
     /**
      * @param array $data
+     *
      * @return UserMailWasChanged|mixed
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function deserialize(array $data)

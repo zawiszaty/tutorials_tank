@@ -3,11 +3,9 @@
 namespace App\Application\Command\User\ChangeName;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Domain\User\ValueObject\UserName;
 
 /**
- * Class ChangeUserNameCommand
- * @package App\Application\Command\User\ChangeName
+ * Class ChangeUserNameCommand.
  */
 class ChangeUserNameCommand
 {

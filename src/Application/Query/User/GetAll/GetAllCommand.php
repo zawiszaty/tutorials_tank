@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Query\Category\GetAll;
+namespace App\Application\Query\User\GetAll;
 
 /**
  * Class GetAllCommand.
@@ -18,18 +18,18 @@ class GetAllCommand
     private $limit;
 
     /**
-     * @var string
+     * @var array
      */
     private $query;
 
     /**
      * GetAllCommand constructor.
      *
-     * @param int $page
-     * @param int $limit
-     * @param array|null $query
+     * @param int         $page
+     * @param int         $limit
+     * @param null|string $query
      */
-    public function __construct(int $page, int $limit, ?array $query = [])
+    public function __construct(int $page, int $limit, ?array $query = null)
     {
         $this->page = $page;
         $this->limit = $limit;
@@ -53,7 +53,7 @@ class GetAllCommand
     }
 
     /**
-     * @return array|null
+     * @return null|array
      */
     public function getQuery(): ?array
     {

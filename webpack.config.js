@@ -10,6 +10,7 @@ Encore
     .configureBabel(function(babelConfig) {
         babelConfig.presets.push(['env', 'stage-3']);
         babelConfig.plugins.push('transform-object-rest-spread')
+        babelConfig.plugins.push('transform-class-properties')
     })
     .enableReactPreset();
 ;

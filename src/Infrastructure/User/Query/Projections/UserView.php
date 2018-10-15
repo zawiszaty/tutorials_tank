@@ -98,7 +98,7 @@ class UserView extends BaseUser
         $userView->username = $data['username'];
         $userView->avatar = $data['avatar'];
         $userView->steemit = $data['steemit'];
-        $userView->banned = $data['banned'];
+        $userView->banned = false;
         $userView->email = $data['email'];
         $userView->emailCanonical = strtolower($data['email']);
         $userView->password = $data['password'];
@@ -111,12 +111,45 @@ class UserView extends BaseUser
 
     public function confirmed(): void
     {
-        $this->enabled = 1;
+        $this->enabled = true;
     }
 
     public function banned(): void
     {
-        $this->banned = 1;
+        $this->banned = true;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function changeName(string $name): void
+    {
+        $this->username = $name;
+    }
+
+    /**
+     * @param string $mail
+     */
+    public function changeMail(string $mail): void
+    {
+        $this->email = $mail;
+        $this->enabled = false;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function changePassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @param string $avatar
+     */
+    public function changeAvatar(string $avatar): void
+    {
+        $this->avatar = $avatar;
     }
 
 //    /**

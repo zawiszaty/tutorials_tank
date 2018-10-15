@@ -12,6 +12,9 @@ import Logout from './Components/Logout/Logout';
 import Category from './Components/Category/Category';
 import CategoryPanel from './Components/Category/Panel/CategoryPanel';
 import AddCategory from './Components/Category/Panel/Add/AddCategory';
+import UserPanel from './Components/User/Panel/UserPanel';
+import User from './Components/User/User';
+import UserBan from './Components/User/Panel/UserBan';
 import EditCategory from './Components/Category/Panel/Edit/EditCategory';
 import './index.css';
 import {SnackbarProvider} from 'notistack';
@@ -120,9 +123,12 @@ class Index extends React.Component {
                     <PublicRoute path='/registration' component={Registration}/>
                     <PublicRoute path='/user/potwierdz-konto' component={YouMustConfirm}/>
                     <PublicRoute path='/user/token/:token' component={ConfirmUser}/>
+                    <PrivateRoute path="/user/ban" component={UserBan}/>
                     <Route path='/category' component={Category}/>
+                    <Route path='/user' component={User}/>
                     <PrivateRoute path="/wyloguj" component={Logout}/>
                     <PrivateRoute path="/panel/kategorie/dodaj" component={AddCategory}/>
+                    <PrivateRoute path="/panel/user" component={UserPanel}/>
                     <PrivateRoute path="/panel/kategorie" component={CategoryPanel}/>
                     <PrivateRoute path="/panel/edytuj/kategorie/:id" component={EditCategory}/>
                     <Route render={() => <div>Not Found</div>}/>

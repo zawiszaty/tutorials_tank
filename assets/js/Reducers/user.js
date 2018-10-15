@@ -3,11 +3,15 @@ import {LOGIN_USER} from './../actions/user-action'
 import {LOGOUT_USER} from './../actions/user-action'
 import {REGISTER_USER} from './../actions/user-action'
 import {REGISTER_USER_SUCCESS} from './../actions/user-action'
+import {CHANGE_AVATAR} from './../actions/user-action'
 import axios from './../axios';
 
 export default function userReducer(state = [], {type, payload}) {
     switch (type) {
         case LOGIN_USER:
+            state.user = payload.user;
+            return payload.user;
+        case CHANGE_AVATAR:
             state.user = payload.user;
             return payload.user;
         case LOGOUT_USER:

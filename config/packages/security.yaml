@@ -42,7 +42,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/api/v1/category, roles: ROLE_ADMIN }
-         - { path: ^/api/v1/user/confirm/^, roles: [ IS_AUTHENTICATED_FULLY ] }
          - { path: ^/api/v1/seciurity, roles: [ IS_AUTHENTICATED_FULLY ] }
          - { path: ^/api/v1/user/banned, roles: ROLE_ADMIN }
+         - { path: ^/api/v1/user/change, roles: IS_AUTHENTICATED_FULLY }
     # - { path: ^/profile, roles: ROLE_USER }

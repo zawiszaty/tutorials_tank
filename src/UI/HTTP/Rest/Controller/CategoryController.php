@@ -138,7 +138,17 @@ class CategoryController extends Controller
     {
         $page = $request->get('page') ?? 1;
         $limit = $request->get('limit') ?? 10;
-        $query = $request->get('query') ?? '*';
+        if ($request->get('query')) {
+            $query = [
+                'query' => [
+                    'wildcard' => [
+                        'name' => '*' . $request->get('query') . '*',
+                    ],
+                ],
+            ];
+        } else {
+            $query = [];
+        }
 
         $command = new GetAllCommand($page, $limit, $query);
         $model = $this->queryBus->handle($command);

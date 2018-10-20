@@ -6,12 +6,11 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Event\UserWasBanned;
 use PhpSpec\ObjectBehavior;
 
-class UserWasBannedSpec extends ObjectBehavior
+class UserPasswordWasChangedSpec extends ObjectBehavior
 {
     public function let(AggregateRootId $id)
     {
         $id->toString()->willReturn('023780a8-be68-11e8-a355-529269fb1459');
-
 
         $this->beConstructedWith(
             $id,

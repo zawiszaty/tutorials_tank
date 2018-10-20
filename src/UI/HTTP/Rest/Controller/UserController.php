@@ -10,6 +10,7 @@ use App\Application\Command\User\ChangePassword\ChangePasswordCommand;
 use App\Application\Command\User\ConfirmUser\ConfirmUserCommand;
 use App\Application\Command\User\Create\CreateUserCommand;
 use App\Application\Command\User\SendEmail\SendEmailCommand;
+use App\Application\Query\Item;
 use App\Application\Query\User\GetAll\GetAllCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
@@ -107,7 +108,13 @@ class UserController extends Controller
                 $user = $this->userReadModelRepository->oneByEmail(Email::fromString($command->getEmail()));
                 $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getConfirmationToken());
                 $this->commandBus->handle($sendEmailCommand);
-                $response = new JsonResponse('success', 200);
+                /** @var Item $user */
+                $user = $this->userReadModelRepository->getSingle(AggregateRootId::fromString($exception->getMessage()));
+
+                $response = new JsonResponse([
+                    'id' => $exception->getMessage(),
+                    'token' => $user->readModel->getConfirmationToken(),
+                ], 200);
 
                 return $response;
             }

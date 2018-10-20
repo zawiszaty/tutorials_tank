@@ -32,7 +32,7 @@ class UserView extends BaseUser
     protected $steemit;
 
     /**
-     * @var bool
+     * @var boolean
      */
     protected $banned;
 
@@ -71,7 +71,7 @@ class UserView extends BaseUser
     /**
      * @return bool
      */
-    public function isBanned(): bool
+    public function isBanned(): ?bool
     {
         return $this->banned;
     }
@@ -79,7 +79,7 @@ class UserView extends BaseUser
     /**
      * @param bool $banned
      */
-    public function setBanned(bool $banned): void
+    public function setBanned(?bool $banned): void
     {
         $this->banned = $banned;
     }
@@ -98,7 +98,7 @@ class UserView extends BaseUser
         $userView->username = $data['username'];
         $userView->avatar = $data['avatar'];
         $userView->steemit = $data['steemit'];
-        $userView->banned = false;
+        $userView->banned = $data['banned'];
         $userView->email = $data['email'];
         $userView->emailCanonical = strtolower($data['email']);
         $userView->password = $data['password'];

@@ -48,6 +48,6 @@ class CreateUserHandler implements CommandHandlerInterface
             );
         $this->repository->store($user);
 
-        throw new \Exception();
+        throw new \Exception($user->getId()->toString());
     }
 }

@@ -17,6 +17,7 @@
         "league/tactician-bundle": "^1.1",
         "nelmio/cors-bundle": "^1.5",
         "paragonie/random_compat": "2.0",
+        "php-amqplib/rabbitmq-bundle": "^1.14",
         "phpspec/phpspec": "^5.0",
         "ramsey/uuid": "^3.7",
         "ramsey/uuid-doctrine": "^1.5",

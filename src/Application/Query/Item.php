@@ -20,10 +20,10 @@ final class Item
     /** @var array */
     public $relationships = [];
 
-    /** @var SerializableReadModel */
+    /** @var mixed */
     public $readModel;
 
-    public function __construct(SerializableReadModel $serializableReadModel, array $relations = [])
+    public function __construct($serializableReadModel, array $relations = [])
     {
         $this->id = $serializableReadModel->getId();
         $this->type = $this->type($serializableReadModel);
@@ -32,7 +32,7 @@ final class Item
         $this->readModel = $serializableReadModel;
     }
 
-    private function type(SerializableReadModel $model): string
+    private function type($model): string
     {
         $path = explode('\\', get_class($model));
 

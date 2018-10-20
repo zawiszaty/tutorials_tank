@@ -14,31 +14,7 @@ use PhpSpec\ObjectBehavior;
 
 class UserWasCreatedSpec extends ObjectBehavior
 {
-    public function it_deserialize(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, Password $password)
-    {
-        $this->beConstructedWith(
-            $id,
-            $username,
-            $email,
-            $roles,
-            $avatar,
-            $steemit,
-            false,
-            $password
-        );
-        self::deserialize([
-            'id'          => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
-            'userName'    => 'test',
-            'email'       => 'test@wp.pl',
-            'roles'       => ['test@wp.pl'],
-            'avatar'      => 'test@wp.pl',
-            'steemit'     => 'test@wp.pl',
-            'banned'      => false,
-            'password'    => 'test',
-        ])->shouldBeAnInstanceOf(UserWasCreated::class);
-    }
-
-    public function it_serialize(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, Password $password)
+    public function let(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, Password $password)
     {
         $id->toString()->willReturn('023780a8-be68-11e8-a355-529269fb1459');
         $username->toString()->willReturn('023780a8-be68-11e8-a355-529269fb1459');
@@ -56,8 +32,28 @@ class UserWasCreatedSpec extends ObjectBehavior
             $avatar,
             $steemit,
             false,
-            $password
+            $password,
+            false
         );
+    }
+
+    public function it_deserialize()
+    {
+        self::deserialize([
+            'id'          => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
+            'username'    => 'test',
+            'email'       => 'test@wp.pl',
+            'roles'       => ['test@wp.pl'],
+            'avatar'      => 'test@wp.pl',
+            'steemit'     => 'test@wp.pl',
+            'banned'      => false,
+            'password'    => 'test',
+            'enabled'      => false,
+        ])->shouldBeAnInstanceOf(UserWasCreated::class);
+    }
+
+    public function it_serialize()
+    {
         $this->serialize()->shouldBeArray();
     }
 }

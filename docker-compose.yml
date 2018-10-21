@@ -22,6 +22,11 @@ services:
     links:
       - db
 
+  workers:
+    build: ./docker/php
+    volumes:
+    - ./:/var/www/project
+
 
   db:
     image: mysql:5.7

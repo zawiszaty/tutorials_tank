@@ -1,15 +1,24 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zawiszaty
- * Date: 20.10.18
- * Time: 14:04
- */
 
 namespace App\Infrastructure\Share\Event\Query;
 
+use App\Infrastructure\Share\Query\Repository\ElasticRepository;
+use Broadway\Domain\DomainMessage;
 
-class EventElasticRepository
+final class EventElasticRepository extends ElasticRepository
 {
-
+    private const INDEX = 'events';
+    public function storeEvent(DomainMessage $message): void
+    {
+        $document = [
+            'type'        => $message->getType(),
+            'payload'     => $message->getPayload()->serialize(),
+            'occurred_on' => $message->getRecordedOn()->toString(),
+        ];
+        $this->add($document);
+    }
+    public function __construct(array $elasticConfig)
+    {
+        parent::__construct($elasticConfig, self::INDEX);
+    }
 }

@@ -1,0 +1,17 @@
+old_sound_rabbit_mq:
+    connections:
+        default:
+            url: '%env(RABBITMQ_URL)%'
+            keepalive: false
+            heartbeat: 0
+    producers:
+        projection2:
+            connection:       default
+            exchange_options: { name: 'projection2', type: direct }
+
+    consumers:
+        projection2:
+            connection:       default
+            exchange_options: {name: 'projection2', type: direct}
+            queue_options:    {name: 'projection2'}
+            callback:         App\Infrastructure\Share\Event\Consumer\SendEventsToElasticConsumer

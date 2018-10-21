@@ -10,10 +10,12 @@ use App\Application\Command\User\ChangePassword\ChangePasswordCommand;
 use App\Application\Command\User\ConfirmUser\ConfirmUserCommand;
 use App\Application\Command\User\Create\CreateUserCommand;
 use App\Application\Command\User\SendEmail\SendEmailCommand;
+use App\Application\Query\Item;
 use App\Application\Query\User\GetAll\GetAllCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
 use App\Domain\User\Exception\PasswordIsBadException;
+use App\Domain\User\Exception\UserCreateException;
 use App\Domain\User\ValueObject\Email;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
@@ -102,18 +104,26 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $this->commandBus->handle($command);
-            } catch (\Exception $exception) {
+            } catch (UserCreateException $exception) {
                 /** @var UserView $user */
                 $user = $this->userReadModelRepository->oneByEmail(Email::fromString($command->getEmail()));
                 $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getConfirmationToken());
                 $this->commandBus->handle($sendEmailCommand);
-                $response = new JsonResponse('success', 200);
+                /** @var Item $user */
+                $user = $this->userReadModelRepository->getSingle(AggregateRootId::fromString($exception->getMessage()));
+                $msg = array('user_id' => 1235, 'image_path' => '/path/to/new/pic.png');
+                $this->get('old_sound_rabbit_mq.projection2_producer')->publish(serialize($msg));
+
+                $response = new JsonResponse([
+                    'id' => $exception->getMessage(),
+                    'token' => $user->readModel->getConfirmationToken(),
+                ], 200);
 
                 return $response;
             }
         }
 
-        return new JsonResponse('error', Response::HTTP_BAD_REQUEST);
+        return new JsonResponse($this->getErrorMessages($form), Response::HTTP_BAD_REQUEST);
     }
 
     /**

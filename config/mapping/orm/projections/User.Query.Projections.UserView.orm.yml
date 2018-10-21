@@ -11,7 +11,6 @@ App\Infrastructure\User\Query\Projections\UserView:
             id: true
 
     fields:
-
         avatar:
             type: string
             nullable: true
@@ -27,4 +26,7 @@ App\Infrastructure\User\Query\Projections\UserView:
         banned:
             type: boolean
             nullable: false
+            length: 1
+            options:
+                fixed: false
     lifecycleCallbacks: {  }

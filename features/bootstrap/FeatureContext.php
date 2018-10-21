@@ -81,6 +81,7 @@ class FeatureContext implements Context
         $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \'127c6fd0-be8d-11e8-a355-529269fb1458\', \'AdminTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
         $connection->query('INSERT INTO `refresh_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \'127c6fd0-be8d-11e8-a355-529269fb1459\', \'SampleRefreshTokenNTElODY4ZTQyOThlNWIyMjA1ZDhmZjE1ZDYyMGMwOTUxOWM2NGFmNGRjNjQ2NDBhMDVlNGZjMmQ0YzgyNDM2Ng\', NULL, NULL);');
         $connection->query('INSERT INTO `refresh_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \'127c6fd0-be8d-11e8-a355-529269fb1458\', \'AdminRefreshTokenNTElODY4ZTQyOThlNWIyMjA1ZDhmZjE1ZDYyMGMwOTUxOWM2NGFmNGRjNjQ2NDBhMDVlNGZjMmQ0YzgyNDM2Ng\', NULL, NULL);');
+        $connection->query('INSERT INTO `client` (`id`, `random_id`, `redirect_uris`, `secret`, `allowed_grant_types`) VALUES (\'3\', \'49kosu470vacc0gso8sco8swkc444kcs0o0okow40wkc88w4w4\', \'a:1:{i:0;s:9:\"localhost\";}\', \'2rt5otttbjs448swo0sk44s8088k8kogwgw8ogsc44gk440c48\', \'a:1:{i:0;s:8:\"password\";}\')');
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
         $connection->commit();
         $params = ['index' => '*'];

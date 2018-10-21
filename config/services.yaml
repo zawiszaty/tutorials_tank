@@ -55,6 +55,9 @@ services:
         resource: '../src/UI/HTTP/Rest/Controller'
         tags: ['controller.service_arguments']
 
+    App\UI\HTTP\Rest\EventSubscriber\JsonBodyParserSubscriber:
+        tags:
+        - { name: 'kernel.event_listener', event: 'kernel.request', method: 'onKernelRequest', priority: 100 }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

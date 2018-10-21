@@ -4,6 +4,7 @@ namespace App\Application\Command\User\Create;
 
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
+use App\Domain\User\Exception\UserCreateException;
 use App\Domain\User\Factory\UserFactory;
 use App\Domain\User\User;
 use App\Domain\User\ValueObject\Avatar;
@@ -48,6 +49,6 @@ class CreateUserHandler implements CommandHandlerInterface
             );
         $this->repository->store($user);
 
-        throw new \Exception();
+        throw new UserCreateException($user->getId()->toString());
     }
 }

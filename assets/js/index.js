@@ -14,6 +14,9 @@ import CategoryPanel from './Components/Category/Panel/CategoryPanel';
 import AddCategory from './Components/Category/Panel/Add/AddCategory';
 import UserPanel from './Components/User/Panel/UserPanel';
 import User from './Components/User/User';
+import Home from './Components/Home/Home';
+import Post from './Components/Post/Post';
+import SinglePost from './Components/Post/SinglePost';
 import UserBan from './Components/User/Panel/UserBan';
 import EditCategory from './Components/Category/Panel/Edit/EditCategory';
 import './index.css';
@@ -126,11 +129,14 @@ class Index extends React.Component {
                     <PrivateRoute path="/user/ban" component={UserBan}/>
                     <Route path='/category' component={Category}/>
                     <Route path='/user' component={User}/>
+                    <PrivateRoute path="/post/dodaj" component={Post}/>
+                    <Route path='/post/:id' component={SinglePost}/>
                     <PrivateRoute path="/wyloguj" component={Logout}/>
                     <PrivateRoute path="/panel/kategorie/dodaj" component={AddCategory}/>
                     <PrivateRoute path="/panel/user" component={UserPanel}/>
                     <PrivateRoute path="/panel/kategorie" component={CategoryPanel}/>
                     <PrivateRoute path="/panel/edytuj/kategorie/:id" component={EditCategory}/>
+                    <Route path='/' component={Home}/>
                     <Route render={() => <div>Not Found</div>}/>
                 </Switch>
             </React.Fragment>

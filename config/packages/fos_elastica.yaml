@@ -38,5 +38,27 @@ fos_elastica:
                 finder: ~
                 repository: App\Infrastructure\User\Repository\UserFosElasticaRepository
 
+        post:
+          finder: ~
+          client: default
+          types:
+            post:
+              properties:
+                id: ~
+                title: ~
+                content: ~
+                thumbnail: ~
+                slug: ~
+                createdAt: { type: date}
+                type: ~
+                user: ~
+              persistence:
+                driver: orm
+                model: App\Infrastructure\Post\Query\Projections\PostView
+                provider: ~
+                finder: ~
+                repository: App\Infrastructure\Post\Repository\Query\PostRepositoryElastic
+
+
 
 

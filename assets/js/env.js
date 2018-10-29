@@ -1,2 +1,2 @@
-export const client_id = '1_46qkv8o43sisgk0go40gg0g8sc0ggo0s4ks88wkks0c0kc0gok';
-export const client_secret = '5bwo7482puw4o0gow84ggwkkoggsgok8wksk48gcw0scow80co';
+export const client_id = '3_49kosu470vacc0gso8sco8swkc444kcs0o0okow40wkc88w4w4';
+export const client_secret = '2rt5otttbjs448swo0sk44s8088k8kogwgw8ogsc44gk440c48';

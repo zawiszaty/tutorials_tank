@@ -139,8 +139,8 @@ abstract class ElasticRepository
     }
 
     /** @var string */
-    private $index;
+    protected $index;
 
     /** @var Client */
-    private $client;
+    protected $client;
 }

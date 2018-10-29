@@ -1,0 +1,72 @@
+App\Infrastructure\Post\Query\Projections\PostView:
+    type: entity
+    table: post
+    indexes:
+        fk_post_user_idx:
+            columns:
+                - user
+        fk_post_category_idx:
+            columns:
+                - category
+    id:
+        id:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        content:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        thumbnail:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        type:
+            type: string
+            columnDefinition: ENUM('oder_site', 'own_post')
+        slug:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+    manyToOne:
+        user:
+            targetEntity: App\Infrastructure\User\Query\Projections\UserView
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user:
+                    referencedColumnName: id
+            orphanRemoval: false
+        category:
+            targetEntity: App\Infrastructure\Category\Query\Projections\CategoryView
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                category:
+                    referencedColumnName: id
+            orphanRemoval: false
+            nullable: true
+    lifecycleCallbacks: {  }

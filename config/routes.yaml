@@ -78,6 +78,21 @@ seciurity:
   methods: POST
   controller: App\UI\HTTP\Rest\Controller\SecurityController:securityAction
 
+add_post:
+  path: /api/v1/post
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\PostController:addPostAction
+
+get_single_post:
+  path: /api/v1/post/{id}
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\PostController:getSingle
+
+get_all_post:
+  path: /api/v1/posts
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\PostController:getAllAction
+
 dashboard:
   path: /{react_link}
   methods: GET

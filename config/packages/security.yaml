@@ -45,4 +45,5 @@ security:
          - { path: ^/api/v1/seciurity, roles: [ IS_AUTHENTICATED_FULLY ] }
          - { path: ^/api/v1/user/banned, roles: ROLE_ADMIN }
          - { path: ^/api/v1/user/change, roles: IS_AUTHENTICATED_FULLY }
+         - { path: ^/api/v1/post^, roles: IS_AUTHENTICATED_FULLY }
     # - { path: ^/profile, roles: ROLE_USER }

@@ -77,9 +77,7 @@ class CategoryController extends Controller
                 $this->commandBus->handle($command);
             } catch (CategoryCreateException $exception) {
                 $category = $this->categoryRepository->get(AggregateRootId::fromString($exception->getMessage()));
-                $this->get('old_sound_rabbit_mq.projection_producer')->publish(serialize([
-                    'test'
-                ]));
+
                 return new JsonResponse($category->serialize(), Response::HTTP_OK);
             }
         }

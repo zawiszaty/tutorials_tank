@@ -17,7 +17,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import LastPageIcon from '@material-ui/icons/LastPage';
-import CategoryPanelForm from './Panel/CategoryPanelForm';
+import CategoryPanelForm from './../Category/Panel/CategoryPanelForm';
 
 const styles = theme => ({
     layout: {
@@ -125,11 +125,11 @@ class TablePaginationActions extends React.Component {
     }
 }
 
-const TablePaginationActionsWrapped = withStyles(actionsStyles, { withTheme: true })(
+const TablePaginationActionsWrapped = withStyles(actionsStyles, {withTheme: true})(
     TablePaginationActions,
 );
 
-class Category extends React.Component {
+class SelectCategory extends React.Component {
     constructor(props) {
         super(props);
         const {onPresentSnackbar} = this.props;
@@ -144,17 +144,13 @@ class Category extends React.Component {
         }
         ;
 
-        this.getAllCategory = this.getAllCategory.bind(this);
-        this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
-        this.handleChangePage = this.handleChangePage.bind(this);
-        this.handleChangeQuery = this.handleChangeQuery.bind(this);
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.getAllCategory()
     }
 
-    getAllCategory() {
+    getAllCategory = () => {
         this.setState({
             loaded: true,
         });
@@ -167,7 +163,7 @@ class Category extends React.Component {
         });
     }
 
-    handleChangePage(e, page) {
+    handleChangePage = (e, page) => {
         this.setState({
             page: page + 1
         }, () => {
@@ -175,7 +171,7 @@ class Category extends React.Component {
         })
     }
 
-    handleChangeRowsPerPage(e) {
+    handleChangeRowsPerPage = (e) => {
         this.setState({
             perPage: e.target.value
         }, () => {
@@ -183,13 +179,13 @@ class Category extends React.Component {
         });
     }
 
-    handleChangeQuery(e) {
+    handleChangeQuery = (e) => {
         this.setState({
             query: e
         }, () => {
             this.getAllCategory();
         });
-    }
+    };
 
     render() {
         const classes = this.props.classes;
@@ -207,7 +203,9 @@ class Category extends React.Component {
                 <TableBody>
                     {this.state.categories['data'].map(category => {
                         return (
-                            <TableRow key={category.id}>
+                            <TableRow key={category.id} onClick={() => {
+                                this.props.handleChangeCategory(category.id);
+                            }}>
                                 <TableCell component="th" scope="row">
                                     {category.id}
                                 </TableCell>
@@ -247,4 +245,4 @@ class Category extends React.Component {
     }
 }
 
-export default withStyles(styles)(withSnackbar(Category));
+export default withStyles(styles)(withSnackbar(SelectCategory));

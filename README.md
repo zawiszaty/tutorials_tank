@@ -7,6 +7,11 @@
 ```bash
 $ composer install
 $ docker-compose run -d 
+$ docker-compose exec php php bin/console d:d:c
+$ docker-compose exec php php bin/console d:s:c
+$ docker-compose exec php php bin/console d:m:l
+$ docker-compose exec php php bin/console f:e:p
+$ docker-compose exec php ./vendor/bin/behat
 ```
 * Copy .env.dist to .env file 
 * Go to http://localhost:8080/ in your web browser and start hacking

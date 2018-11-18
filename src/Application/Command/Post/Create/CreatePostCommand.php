@@ -46,6 +46,11 @@ class CreatePostCommand
     private $user;
 
     /**
+     * @var string|null
+     */
+    private $shortDescription;
+
+    /**
      * @return null|File
      */
     public function getFile(): ?File
@@ -176,5 +181,21 @@ class CreatePostCommand
     public function setCategory(?string $category): void
     {
         $this->category = $category;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getShortDescription(): ?string
+    {
+        return $this->shortDescription;
+    }
+
+    /**
+     * @param null|string $shortDescription
+     */
+    public function setShortDescription(?string $shortDescription): void
+    {
+        $this->shortDescription = $shortDescription;
     }
 }

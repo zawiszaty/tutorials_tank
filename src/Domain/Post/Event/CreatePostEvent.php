@@ -50,6 +50,11 @@ class CreatePostEvent extends AbstractEvent
     private $category;
 
     /**
+     * @var string
+     */
+    private $shortDescription;
+
+    /**
      * CreatePostEvent constructor.
      * @param AggregateRootId $id
      * @param Title $title
@@ -57,8 +62,10 @@ class CreatePostEvent extends AbstractEvent
      * @param Thumbnail $thumbnail
      * @param string $type
      * @param string $user
+     * @param null|string $category
+     * @param string $shortDescription
      */
-    public function __construct(AggregateRootId $id, Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, ?string $category)
+    public function __construct(AggregateRootId $id, Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, ?string $category, string $shortDescription)
     {
         $this->id = $id;
         $this->title = $title;
@@ -67,18 +74,20 @@ class CreatePostEvent extends AbstractEvent
         $this->type = $type;
         $this->user = $user;
         $this->category = $category;
+        $this->shortDescription = $shortDescription;
     }
 
     public static function deserialize(array $data)
     {
         $post = new self(
-            $data['id'],
-            $data['title'],
-            $data['content'],
-            $data['thumbnail'],
+            AggregateRootId::fromString($data['id']),
+            Title::fromString($data['title']),
+            Content::fromString($data['content']),
+            Thumbnail::fromString($data['thumbnail']),
             $data['type'],
             $data['user'],
-            $data['category']
+            $data['category'],
+            $data['shortDescription']
         );
 
         return $post;
@@ -94,6 +103,7 @@ class CreatePostEvent extends AbstractEvent
             'type' => $this->type,
             'user' => $this->user,
             'category' => $this->category,
+            'shortDescription' => $this->shortDescription,
         ];
     }
 
@@ -151,5 +161,13 @@ class CreatePostEvent extends AbstractEvent
     public function getCategory(): ?string
     {
         return $this->category;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortDescription(): string
+    {
+        return $this->shortDescription;
     }
 }

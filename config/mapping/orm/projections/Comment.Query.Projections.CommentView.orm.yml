@@ -1,0 +1,63 @@
+App\Infrastructure\Comment\Query\Projections\CommentView:
+    type: entity
+    table: comment
+    indexes:
+        fk_comment_user_idx:
+            columns:
+                - user
+        fk_comment_post_idx:
+            columns:
+                - post
+        fk_comment_comment_idx:
+            columns:
+                - parrent_comment
+    id:
+        id:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
+    fields:
+        content:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+    manyToOne:
+        parrentComment:
+            targetEntity: CommentView
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                parrent_comment:
+                    referencedColumnName: id
+            orphanRemoval: false
+        post:
+            targetEntity: App\Infrastructure\Post\Query\Projections\PostView
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                post:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: App\Infrastructure\User\Query\Projections\UserView
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

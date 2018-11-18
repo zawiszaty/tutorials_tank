@@ -4,6 +4,7 @@ namespace App\Domain\Post;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\Event\CreatePostEvent;
+use App\Domain\Post\Event\PostWasEdited;
 use App\Domain\Post\ValueObject\Content;
 use App\Domain\Post\ValueObject\Thumbnail;
 use App\Domain\Post\ValueObject\Title;
@@ -51,6 +52,11 @@ class Post extends EventSourcedAggregateRoot
     private $category;
 
     /**
+     * @var string
+     */
+    private $shortDescription;
+
+    /**
      * @return string
      */
     public function getAggregateRootId(): string
@@ -68,10 +74,10 @@ class Post extends EventSourcedAggregateRoot
      * @param string $category
      * @return Post
      */
-    public static function create(AggregateRootId $aggregateRootId, Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, string $category): self
+    public static function create(AggregateRootId $aggregateRootId, Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, string $category, string $shortDescription): self
     {
         $post = new self();
-        
+
         $post->apply(new CreatePostEvent(
             $aggregateRootId,
             $title,
@@ -79,9 +85,10 @@ class Post extends EventSourcedAggregateRoot
             $thumbnail,
             $type,
             $user,
-            $category
+            $category,
+            $shortDescription
         ));
-        
+
         return $post;
     }
 
@@ -96,6 +103,43 @@ class Post extends EventSourcedAggregateRoot
         $this->type = $event->getType();
         $this->user = $event->getUser();
         $this->thumbnail = $event->getThumbnail();
+        $this->shortDescription = $event->getShortDescription();
+    }
+
+    /**
+     * @param Title $title
+     * @param Content $content
+     * @param Thumbnail $thumbnail
+     * @param string $type
+     * @param string $user
+     * @param string $category
+     * @param string $shortDescription
+     * @return Post
+     */
+    public function edit(Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, string $category, string $shortDescription)
+    {
+        $this->apply(new PostWasEdited(
+            $this->getId(),
+            $title,
+            $content,
+            $thumbnail,
+            $type,
+            $user,
+            $category,
+            $shortDescription
+        ));
+
+        return $this;
+    }
+
+    public function applyPostWasEdited(PostWasEdited $event)
+    {
+        $this->title = $event->getTitle();
+        $this->content = $event->getContent();
+        $this->type = $event->getType();
+        $this->user = $event->getUser();
+        $this->thumbnail = $event->getThumbnail();
+        $this->shortDescription = $event->getShortDescription();
     }
 
     /**
@@ -152,5 +196,13 @@ class Post extends EventSourcedAggregateRoot
     public function getCategory(): string
     {
         return $this->category;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortDescription(): string
+    {
+        return $this->shortDescription;
     }
 }

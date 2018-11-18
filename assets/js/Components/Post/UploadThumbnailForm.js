@@ -15,7 +15,7 @@ class UploadThumbnailForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            image: ''
+            image: this.props.thumbnail
         };
     }
 

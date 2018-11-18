@@ -221,6 +221,18 @@ class DrawerComponent extends React.Component {
                             </ListItem>
                         </List>
                     </NavLink>
+                    {this.props.user.length !==0 &&
+                    <NavLink to="/post/dodaj" className={classes.menuButton}>
+                        <List>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <LockIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary="Dodaj post"/>
+                            </ListItem>
+                        </List>
+                    </NavLink>
+                    }
                     {drawer}
                 </Drawer>
             </React.Fragment>

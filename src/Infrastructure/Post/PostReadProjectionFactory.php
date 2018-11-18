@@ -4,10 +4,11 @@ namespace App\Infrastructure\Post;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\Event\CreatePostEvent;
+use App\Domain\Post\Event\PostWasEdited;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
+use App\Infrastructure\Comment\Query\MysqlCommentReadModelRepository;
 use App\Infrastructure\Post\Query\Projections\PostView;
 use App\Infrastructure\Post\Query\Repository\MysqlPostReadModelRepository;
-use App\Infrastructure\PostType\Query\Mysql\MysqlPostTypeReadModelRepository;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;
 
@@ -41,6 +42,24 @@ class PostReadProjectionFactory extends Projector
 
         $postView = PostView::deserialize($data);
         $this->modelRepository->add($postView);
+    }
+
+    /**
+     * @param PostWasEdited $event
+     * @throws \Assert\AssertionFailedException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function applyPostWasEdited(PostWasEdited $event)
+    {
+        $data = $event->serialize();
+        $data['slug'] = join('-', explode(' ', $data['title']));
+        $data['user'] = $this->mysqlUserReadModelRepository->oneByUuid(AggregateRootId::fromString($data['user']));
+        $data['category'] = $this->categoryReadModelRepository->oneByUuid(AggregateRootId::fromString($data['category']));
+
+        /** @var PostView $postView */
+        $postView = $this->modelRepository->oneByUuid(AggregateRootId::fromString($event->getId()));
+        $postView->edit($data);
+        $this->modelRepository->apply();
     }
 
     /**

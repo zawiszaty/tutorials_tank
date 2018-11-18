@@ -31,8 +31,9 @@ class AddPostForm extends AbstractType
             ])
             ->add('category', TextType::class, [
                 'required' => true,
-            ])
-        ;
+            ])->add('shortDescription', TextType::class, [
+                'required' => true,
+            ]);
     }
 
     /**

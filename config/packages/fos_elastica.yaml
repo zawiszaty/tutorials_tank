@@ -49,16 +49,53 @@ fos_elastica:
                 content: ~
                 thumbnail: ~
                 slug: ~
+                shortDescription: ~
                 createdAt: { type: date}
                 type: ~
                 user: ~
+                category: ~
               persistence:
                 driver: orm
                 model: App\Infrastructure\Post\Query\Projections\PostView
                 provider: ~
                 finder: ~
                 repository: App\Infrastructure\Post\Repository\Query\PostRepositoryElastic
-
+        comment:
+          finder: ~
+          client: default
+          types:
+            comment:
+              properties:
+                id: ~
+                content: ~
+                parrentComment: ~
+                post: ~
+                user: ~
+                createdAt: { type: date}
+              persistence:
+                driver: orm
+                model: App\Infrastructure\Comment\Query\Projections\CommentView
+                provider: ~
+                finder: ~
+                repository: App\Infrastructure\Comment\Query\CommentRepositoryElastic
+        message:
+          finder: ~
+          client: default
+          types:
+            message:
+              properties:
+                id: ~
+                content: ~
+                displayed: ~
+                sender: ~
+                recipient: ~
+                createdAt: { type: date}
+              persistence:
+                driver: orm
+                model: App\Infrastructure\Message\MessageView
+                provider: ~
+                finder: ~
+                repository: App\Infrastructure\Message\Query\MessageRepositoryElastic
 
 
 

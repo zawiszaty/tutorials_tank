@@ -11,8 +11,7 @@ use App\Domain\Post\ValueObject\Title;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
 
 /**
- * Class Post
- * @package App\Domain\Post
+ * Class Post.
  */
 class Post extends EventSourcedAggregateRoot
 {
@@ -66,12 +65,13 @@ class Post extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $aggregateRootId
-     * @param Title $title
-     * @param Content $content
-     * @param Thumbnail $thumbnail
-     * @param string $type
-     * @param string $user
-     * @param string $category
+     * @param Title           $title
+     * @param Content         $content
+     * @param Thumbnail       $thumbnail
+     * @param string          $type
+     * @param string          $user
+     * @param string          $category
+     *
      * @return Post
      */
     public static function create(AggregateRootId $aggregateRootId, Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, string $category, string $shortDescription): self
@@ -107,13 +107,14 @@ class Post extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param Title $title
-     * @param Content $content
+     * @param Title     $title
+     * @param Content   $content
      * @param Thumbnail $thumbnail
-     * @param string $type
-     * @param string $user
-     * @param string $category
-     * @param string $shortDescription
+     * @param string    $type
+     * @param string    $user
+     * @param string    $category
+     * @param string    $shortDescription
+     *
      * @return Post
      */
     public function edit(Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, string $category, string $shortDescription)

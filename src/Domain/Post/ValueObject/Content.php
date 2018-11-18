@@ -3,8 +3,7 @@
 namespace App\Domain\Post\ValueObject;
 
 /**
- * Class Content
- * @package App\Domain\Post\ValueObject
+ * Class Content.
  */
 class Content
 {
@@ -15,6 +14,7 @@ class Content
 
     /**
      * content constructor.
+     *
      * @param string $content
      */
     public function __construct(string $content)

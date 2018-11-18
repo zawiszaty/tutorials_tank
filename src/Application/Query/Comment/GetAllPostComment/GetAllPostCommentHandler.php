@@ -7,8 +7,7 @@ use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
 
 /**
- * Class GetAllPostCommentHandler
- * @package App\Application\Query\Comment\GetAllPostComment
+ * Class GetAllPostCommentHandler.
  */
 class GetAllPostCommentHandler implements QueryHandlerInterface
 {
@@ -16,6 +15,7 @@ class GetAllPostCommentHandler implements QueryHandlerInterface
      * @var CommentRepositoryElastic
      */
     private $repositoryElastic;
+
     /**
      * @var CommentDataBuilder
      */
@@ -23,8 +23,9 @@ class GetAllPostCommentHandler implements QueryHandlerInterface
 
     /**
      * GetAllPostCommentHandler constructor.
+     *
      * @param CommentRepositoryElastic $repositoryElastic
-     * @param CommentDataBuilder $builder
+     * @param CommentDataBuilder       $builder
      */
     public function __construct(CommentRepositoryElastic $repositoryElastic, CommentDataBuilder $builder)
     {
@@ -34,6 +35,7 @@ class GetAllPostCommentHandler implements QueryHandlerInterface
 
     /**
      * @param GetAllPostCommentCommand $command
+     *
      * @return \App\Application\Query\Collection
      */
     public function __invoke(GetAllPostCommentCommand $command)
@@ -42,6 +44,6 @@ class GetAllPostCommentHandler implements QueryHandlerInterface
         $total = $data->total;
         $data = $this->builder->build($data->data);
 
-        return new Collection($command->getPage(),$command->getLimit(), $total, $data);
+        return new Collection($command->getPage(), $command->getLimit(), $total, $data);
     }
 }

@@ -5,18 +5,15 @@ namespace App\Application\Command\Post\Edit;
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\Exception\CreatePostException;
-use App\Domain\Post\Post;
 use App\Domain\Post\ValueObject\Content;
 use App\Domain\Post\ValueObject\Thumbnail;
 use App\Domain\Post\ValueObject\Title;
-use App\Domain\PostType\ValueObject\Type;
 use App\Infrastructure\Post\Repository\PostRepository;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
- * Class EditPostHandler
- * @package App\Application\Command\Post\Edit
+ * Class EditPostHandler.
  */
 class EditPostHandler implements CommandHandlerInterface
 {
@@ -32,6 +29,7 @@ class EditPostHandler implements CommandHandlerInterface
 
     /**
      * @param EditPostCommand $command
+     *
      * @throws CreatePostException
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
@@ -44,7 +42,7 @@ class EditPostHandler implements CommandHandlerInterface
             throw new AccessDeniedException();
         }
 
-        if ($command->getFile() !== null) {
+        if (null !== $command->getFile()) {
             $file = $command->getFile();
             $fileName = '/thumbnails/' . Uuid::uuid4() . '-' . Uuid::uuid4() . '.' . $file->guessExtension();
             $file->move(

@@ -2,13 +2,11 @@
 
 namespace App\Application\Query\Post\GetAll;
 
-use App\Application\Command\CommandHandlerInterface;
 use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Post\Query\Repository\PostRepositoryElastic;
 
 /**
- * Class GetAllHandler
- * @package App\Application\Query\Post\GetAll
+ * Class GetAllHandler.
  */
 class GetAllHandler implements QueryHandlerInterface
 {
@@ -19,7 +17,6 @@ class GetAllHandler implements QueryHandlerInterface
 
     public function __construct(PostRepositoryElastic $repositoryElastic)
     {
-
         $this->repositoryElastic = $repositoryElastic;
     }
 

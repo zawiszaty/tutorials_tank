@@ -8,6 +8,7 @@ use Broadway\Domain\DomainMessage;
 final class EventElasticRepository extends ElasticRepository
 {
     private const INDEX = 'events';
+
     public function storeEvent(DomainMessage $message): void
     {
         $document = [
@@ -17,6 +18,7 @@ final class EventElasticRepository extends ElasticRepository
         ];
         $this->add($document);
     }
+
     public function __construct(array $elasticConfig)
     {
         parent::__construct($elasticConfig, self::INDEX);

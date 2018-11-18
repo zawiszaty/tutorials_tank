@@ -32,7 +32,7 @@ class UserView extends BaseUser
     protected $steemit;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $banned;
 

@@ -12,7 +12,6 @@ class UserWasBannedSpec extends ObjectBehavior
     {
         $id->toString()->willReturn('023780a8-be68-11e8-a355-529269fb1459');
 
-
         $this->beConstructedWith(
             $id,
             false

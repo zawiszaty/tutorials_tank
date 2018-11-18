@@ -9,7 +9,6 @@ use App\Application\Query\Post\GetSingle\GetSingleCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\Exception\CreatePostException;
 use App\UI\HTTP\Common\Form\AddPostForm;
-use App\UI\HTTP\Common\Form\AddPostTypeForm;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
 use League\Tactician\CommandBus;
@@ -19,8 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class PostController
- * @package App\UI\HTTP\Rest\Controller
+ * Class PostController.
  */
 class PostController extends Controller
 {
@@ -31,7 +29,6 @@ class PostController extends Controller
 
     /**
      * @var CommandBus
-     *
      */
     private $commandBus;
 
@@ -50,8 +47,7 @@ class PostController extends Controller
         CommandBus $commandBus,
         EventBus $eventBus,
         DBALEventStore $eventStore
-    )
-    {
+    ) {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -60,6 +56,7 @@ class PostController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function addPostAction(Request $request): Response
@@ -75,7 +72,6 @@ class PostController extends Controller
             try {
                 $this->commandBus->handle($command);
             } catch (CreatePostException $exception) {
-
                 return new JsonResponse('success', Response::HTTP_OK);
             }
         }
@@ -83,10 +79,10 @@ class PostController extends Controller
         return new JsonResponse($this->getErrorMessages($form), Response::HTTP_BAD_REQUEST);
     }
 
-
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
+     *
      * @return Response
      */
     public function editPostAction(Request $request, string $id): Response
@@ -103,7 +99,6 @@ class PostController extends Controller
             try {
                 $this->commandBus->handle($command);
             } catch (CreatePostException $exception) {
-
                 return new JsonResponse('success', Response::HTTP_OK);
             }
         }
@@ -113,8 +108,10 @@ class PostController extends Controller
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
+     *
      * @return Response
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function getSingle(Request $request, string $id): Response
@@ -127,6 +124,7 @@ class PostController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function getAllAction(Request $request): Response

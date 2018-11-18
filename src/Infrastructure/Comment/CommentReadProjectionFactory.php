@@ -31,8 +31,7 @@ class CommentReadProjectionFactory extends Projector
         MysqlCommentReadModelRepository $modelRepository,
         MysqlPostReadModelRepository $mysqlPostReadModelRepository,
         MysqlUserReadModelRepository $mysqlUserReadModelRepository
-    )
-    {
+    ) {
         $this->modelRepository = $modelRepository;
         $this->mysqlPostReadModelRepository = $mysqlPostReadModelRepository;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
@@ -40,6 +39,7 @@ class CommentReadProjectionFactory extends Projector
 
     /**
      * @param CommentWasCreated $event
+     *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */

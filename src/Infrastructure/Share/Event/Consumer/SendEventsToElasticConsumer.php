@@ -12,6 +12,7 @@ class SendEventsToElasticConsumer implements ConsumerInterface
     {
         $this->eventElasticRepository->storeEvent(unserialize($msg->body));
     }
+
     public function __construct(EventElasticRepository $eventElasticRepository)
     {
         $this->eventElasticRepository = $eventElasticRepository;

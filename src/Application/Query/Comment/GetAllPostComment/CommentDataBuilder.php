@@ -2,10 +2,8 @@
 
 namespace App\Application\Query\Comment\GetAllPostComment;
 
-
 use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
 use App\Infrastructure\User\Repository\UserRepositoryElastic;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CommentDataBuilder
 {
@@ -13,6 +11,7 @@ class CommentDataBuilder
      * @var UserRepositoryElastic
      */
     private $repositoryElastic;
+
     /**
      * @var CommentRepositoryElastic
      */
@@ -22,20 +21,21 @@ class CommentDataBuilder
 
     /**
      * CommentDataBuilder constructor.
-     * @param UserRepositoryElastic $repositoryElastic
+     *
+     * @param UserRepositoryElastic    $repositoryElastic
      * @param CommentRepositoryElastic $commentRepositoryElastic
      */
     public function __construct(
         UserRepositoryElastic $repositoryElastic,
         CommentRepositoryElastic $commentRepositoryElastic
-    )
-    {
+    ) {
         $this->repositoryElastic = $repositoryElastic;
         $this->commentRepositoryElastic = $commentRepositoryElastic;
     }
 
     /**
      * @param array $data
+     *
      * @return array
      */
     public function build(array $data)
@@ -43,8 +43,8 @@ class CommentDataBuilder
         foreach ($data as $index => $item) {
             $user = $this->repositoryElastic->get($item['user'])['_source'];
             $data[$index]['user'] = [
-                'avatar' => $user['avatar'],
-                'username' => $user['username']
+                'avatar'   => $user['avatar'],
+                'username' => $user['username'],
             ];
 
             $query = [
@@ -60,10 +60,10 @@ class CommentDataBuilder
                                 'match' => [
                                     'parrentComment' => $item['id'],
                                 ],
-                            ]
+                            ],
                         ],
-                    ]
-                ]
+                    ],
+                ],
             ];
 
             try {
@@ -76,14 +76,12 @@ class CommentDataBuilder
             foreach ($data[$index]['childrenComment'] as $indexComment => $itemComment) {
                 $user = $this->repositoryElastic->get($itemComment['user'])['_source'];
                 $data[$index]['childrenComment'][$indexComment]['user'] = [
-                    'avatar' => $user['avatar'],
-                    'username' => $user['username']
+                    'avatar'   => $user['avatar'],
+                    'username' => $user['username'],
                 ];
             }
-
-        };
+        }
 
         return $data;
     }
-
 }

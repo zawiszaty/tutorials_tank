@@ -9,8 +9,7 @@ use App\Domain\Post\ValueObject\Thumbnail;
 use App\Domain\Post\ValueObject\Title;
 
 /**
- * Class PostWasEdited
- * @package App\Domain\Post\Event
+ * Class PostWasEdited.
  */
 class PostWasEdited extends AbstractEvent
 {
@@ -56,14 +55,15 @@ class PostWasEdited extends AbstractEvent
 
     /**
      * CreatePostEvent constructor.
+     *
      * @param AggregateRootId $id
-     * @param Title $title
-     * @param Content $content
-     * @param Thumbnail $thumbnail
-     * @param string $type
-     * @param string $user
-     * @param null|string $category
-     * @param string $shortDescription
+     * @param Title           $title
+     * @param Content         $content
+     * @param Thumbnail       $thumbnail
+     * @param string          $type
+     * @param string          $user
+     * @param null|string     $category
+     * @param string          $shortDescription
      */
     public function __construct(AggregateRootId $id, Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, ?string $category, string $shortDescription)
     {
@@ -96,13 +96,13 @@ class PostWasEdited extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
-            'title' => $this->title->toString(),
-            'content' => $this->content->toString(),
-            'thumbnail' => $this->thumbnail->toString(),
-            'type' => $this->type,
-            'user' => $this->user,
-            'category' => $this->category,
+            'id'               => $this->id->toString(),
+            'title'            => $this->title->toString(),
+            'content'          => $this->content->toString(),
+            'thumbnail'        => $this->thumbnail->toString(),
+            'type'             => $this->type,
+            'user'             => $this->user,
+            'category'         => $this->category,
             'shortDescription' => $this->shortDescription,
         ];
     }

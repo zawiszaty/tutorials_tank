@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Application\Query;
 
-use Broadway\ReadModel\SerializableReadModel;
-
 final class Item
 {
     /** @var string */

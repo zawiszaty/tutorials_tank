@@ -5,8 +5,7 @@ namespace App\Infrastructure\Message;
 use App\Infrastructure\User\Query\Projections\UserView;
 
 /**
- * Class MessageView
- * @package App\Infrastructure\Message
+ * Class MessageView.
  */
 class MessageView
 {
@@ -19,8 +18,9 @@ class MessageView
      * @var string
      */
     private $content;
+
     /**
-     * @var boolean
+     * @var bool
      */
     private $displayed;
 
@@ -39,14 +39,14 @@ class MessageView
      */
     private $createdAt;
 
-
     /**
      * MessageView constructor.
-     * @param string $id
-     * @param string $content
-     * @param bool $displayed
-     * @param UserView $sender
-     * @param UserView $recipient
+     *
+     * @param string    $id
+     * @param string    $content
+     * @param bool      $displayed
+     * @param UserView  $sender
+     * @param UserView  $recipient
      * @param \DateTime $createdAt
      */
     public function __construct(string $id, string $content, bool $displayed, UserView $sender, UserView $recipient, \DateTime $createdAt)

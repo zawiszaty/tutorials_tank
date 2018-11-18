@@ -3,8 +3,7 @@
 namespace App\Domain\Post\ValueObject;
 
 /**
- * Class thumbnail
- * @package App\Domain\Post\ValueObject
+ * Class thumbnail.
  */
 class Thumbnail
 {
@@ -15,6 +14,7 @@ class Thumbnail
 
     /**
      * thumbnail constructor.
+     *
      * @param string $thumbnail
      */
     public function __construct(?string $thumbnail)

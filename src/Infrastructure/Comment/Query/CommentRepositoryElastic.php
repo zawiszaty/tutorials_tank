@@ -21,8 +21,8 @@ class CommentRepositoryElastic extends ElasticRepository
     }
 
     /**
-     * @param int $page
-     * @param int $limit
+     * @param int    $page
+     * @param int    $limit
      * @param string $queryString
      *
      * @return Collection

@@ -5,8 +5,7 @@ namespace App\Application\Command\Post\Create;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * Class CreatePostCommand
- * @package App\Application\Command\Post\Create
+ * Class CreatePostCommand.
  */
 class CreatePostCommand
 {

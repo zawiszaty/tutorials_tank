@@ -6,15 +6,13 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\Event\CreatePostEvent;
 use App\Domain\Post\Event\PostWasEdited;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
-use App\Infrastructure\Comment\Query\MysqlCommentReadModelRepository;
 use App\Infrastructure\Post\Query\Projections\PostView;
 use App\Infrastructure\Post\Query\Repository\MysqlPostReadModelRepository;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;
 
 /**
- * Class PostReadProjectionFactory
- * @package App\Infrastructure\Post
+ * Class PostReadProjectionFactory.
  */
 class PostReadProjectionFactory extends Projector
 {
@@ -22,6 +20,7 @@ class PostReadProjectionFactory extends Projector
      * @var MysqlUserReadModelRepository
      */
     private $mysqlUserReadModelRepository;
+
     /**
      * @var MysqlCategoryReadModelRepository
      */
@@ -29,6 +28,7 @@ class PostReadProjectionFactory extends Projector
 
     /**
      * @param CreatePostEvent $event
+     *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
@@ -37,7 +37,7 @@ class PostReadProjectionFactory extends Projector
         $data = $event->serialize();
         $data['user'] = $this->mysqlUserReadModelRepository->oneByUuid(AggregateRootId::fromString($data['user']));
         $data['category'] = $this->categoryReadModelRepository->oneByUuid(AggregateRootId::fromString($data['category']));
-        $data['slug'] = join('-', explode(' ', $data['title']));
+        $data['slug'] = implode('-', explode(' ', $data['title']));
         $data['createdAt'] = new \DateTime();
 
         $postView = PostView::deserialize($data);
@@ -46,13 +46,14 @@ class PostReadProjectionFactory extends Projector
 
     /**
      * @param PostWasEdited $event
+     *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyPostWasEdited(PostWasEdited $event)
     {
         $data = $event->serialize();
-        $data['slug'] = join('-', explode(' ', $data['title']));
+        $data['slug'] = implode('-', explode(' ', $data['title']));
         $data['user'] = $this->mysqlUserReadModelRepository->oneByUuid(AggregateRootId::fromString($data['user']));
         $data['category'] = $this->categoryReadModelRepository->oneByUuid(AggregateRootId::fromString($data['category']));
 
@@ -69,16 +70,16 @@ class PostReadProjectionFactory extends Projector
 
     /**
      * PostReadProjectionFactory constructor.
-     * @param MysqlPostReadModelRepository $modelRepository
-     * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
+     *
+     * @param MysqlPostReadModelRepository     $modelRepository
+     * @param MysqlUserReadModelRepository     $mysqlUserReadModelRepository
      * @param MysqlCategoryReadModelRepository $categoryReadModelRepository
      */
     public function __construct(
         MysqlPostReadModelRepository $modelRepository,
         MysqlUserReadModelRepository $mysqlUserReadModelRepository,
         MysqlCategoryReadModelRepository $categoryReadModelRepository
-    )
-    {
+    ) {
         $this->modelRepository = $modelRepository;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
         $this->categoryReadModelRepository = $categoryReadModelRepository;

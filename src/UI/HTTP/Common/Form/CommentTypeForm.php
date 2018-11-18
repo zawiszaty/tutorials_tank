@@ -8,8 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class CommentTypeForm
- * @package App\UI\HTTP\Common\Form
+ * Class CommentTypeForm.
  */
 class CommentTypeForm extends AbstractType
 {

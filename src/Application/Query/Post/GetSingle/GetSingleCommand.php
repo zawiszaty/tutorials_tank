@@ -5,8 +5,7 @@ namespace App\Application\Query\Post\GetSingle;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Class GetSingleCommand
- * @package App\Application\Query\Post\GetSingle
+ * Class GetSingleCommand.
  */
 class GetSingleCommand
 {

@@ -4,7 +4,6 @@ namespace spec\App\Domain\User\Event;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Event\UserNameWasChanged;
-use App\Domain\User\Event\UserWasCreated;
 use App\Domain\User\ValueObject\Avatar;
 use App\Domain\User\ValueObject\Email;
 use App\Domain\User\ValueObject\Password;
@@ -41,14 +40,14 @@ class UserNameWasChangedSpec extends ObjectBehavior
     public function it_deserialize()
     {
         self::deserialize([
-            'id'          => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
-            'username'    => 'test',
-            'email'       => 'test@wp.pl',
-            'roles'       => ['test@wp.pl'],
-            'avatar'      => 'test@wp.pl',
-            'steemit'     => 'test@wp.pl',
-            'banned'      => false,
-            'password'    => 'test',
+            'id'           => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
+            'username'     => 'test',
+            'email'        => 'test@wp.pl',
+            'roles'        => ['test@wp.pl'],
+            'avatar'       => 'test@wp.pl',
+            'steemit'      => 'test@wp.pl',
+            'banned'       => false,
+            'password'     => 'test',
             'enabled'      => false,
         ])->shouldBeAnInstanceOf(UserNameWasChanged::class);
     }

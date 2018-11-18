@@ -77,6 +77,7 @@ class PostView implements UserViewInterface
 
     /**
      * @param array $data
+     *
      * @return PostView|mixed
      */
     public static function deserialize(array $data)
@@ -102,15 +103,15 @@ class PostView implements UserViewInterface
     public function serialize(): array
     {
         return [
-            'id' => $this->id,
-            'title' => $this->title,
-            'content' => $this->content,
-            'thumbnail' => $this->thumbnail,
-            'type' => $this->type,
-            'user' => $this->user,
-            'slug' => $this->slug,
-            'createdAt' => $this->createdAt,
-            'category' => $this->category,
+            'id'               => $this->id,
+            'title'            => $this->title,
+            'content'          => $this->content,
+            'thumbnail'        => $this->thumbnail,
+            'type'             => $this->type,
+            'user'             => $this->user,
+            'slug'             => $this->slug,
+            'createdAt'        => $this->createdAt,
+            'category'         => $this->category,
             'shortDescription' => $this->shortDescription,
         ];
     }

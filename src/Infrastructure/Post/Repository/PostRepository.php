@@ -2,7 +2,6 @@
 
 namespace App\Infrastructure\Post\Repository;
 
-
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\Post;
 use Broadway\EventHandling\EventBus;
@@ -10,7 +9,7 @@ use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
 use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventStore\EventStore;
 
-class PostRepository  extends EventSourcingRepository
+class PostRepository extends EventSourcingRepository
 {
     public function get(AggregateRootId $id): Post
     {

@@ -12,6 +12,7 @@ class GetAllHandler implements QueryHandlerInterface
      * @var MessageRepositoryElastic
      */
     private $repositoryElastic;
+
     /**
      * @var DataBuilder
      */
@@ -28,6 +29,7 @@ class GetAllHandler implements QueryHandlerInterface
         $data = $this->repositoryElastic->messageByCreatedAt($command->getPage(), $command->getLimit(), $command->getQuery());
         $total = $data->total;
         $data = $this->dataBuilder->build($data->data);
+
         return new Collection($command->getPage(), $command->getLimit(), $total, $data);
     }
 }

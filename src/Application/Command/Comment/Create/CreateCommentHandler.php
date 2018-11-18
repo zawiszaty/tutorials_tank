@@ -18,6 +18,7 @@ class CreateCommentHandler implements CommandHandlerInterface
 
     /**
      * CreateCommentHandler constructor.
+     *
      * @param CommentRepository $commentRepository
      */
     public function __construct(CommentRepository $commentRepository)
@@ -27,6 +28,7 @@ class CreateCommentHandler implements CommandHandlerInterface
 
     /**
      * @param CreateCommentCommand $command
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function __invoke(CreateCommentCommand $command)
@@ -39,6 +41,5 @@ class CreateCommentHandler implements CommandHandlerInterface
             $command->getUser()
         );
         $this->commentRepository->store($aggregateRoot);
-
     }
 }

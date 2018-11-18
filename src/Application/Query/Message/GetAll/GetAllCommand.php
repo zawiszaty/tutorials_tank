@@ -3,8 +3,7 @@
 namespace App\Application\Query\Message\GetAll;
 
 /**
- * Class GetAllCommand
- * @package App\Application\Query\Message\GetAll
+ * Class GetAllCommand.
  */
 class GetAllCommand
 {
@@ -26,8 +25,8 @@ class GetAllCommand
     /**
      * GetAllCommand constructor.
      *
-     * @param int         $page
-     * @param int         $limit
+     * @param int        $page
+     * @param int        $limit
      * @param null|array $query
      */
     public function __construct(int $page, int $limit, ?array $query = null)

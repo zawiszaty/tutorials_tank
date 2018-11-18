@@ -115,7 +115,7 @@ class UserController extends Controller
                 $this->get('old_sound_rabbit_mq.projection2_producer')->publish(serialize($msg));
 
                 $response = new JsonResponse([
-                    'id' => $exception->getMessage(),
+                    'id'    => $exception->getMessage(),
                     'token' => $user->readModel->getConfirmationToken(),
                 ], 200);
 

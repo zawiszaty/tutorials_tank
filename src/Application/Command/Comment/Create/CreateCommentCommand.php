@@ -3,8 +3,7 @@
 namespace App\Application\Command\Comment\Create;
 
 /**
- * Class CreateCommentCommand
- * @package App\Application\Command\Comment\Create
+ * Class CreateCommentCommand.
  */
 class CreateCommentCommand
 {

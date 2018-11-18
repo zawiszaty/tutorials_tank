@@ -16,8 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class CommentController
- * @package App\UI\HTTP\Rest\Controller
+ * Class CommentController.
  */
 class CommentController extends Controller
 {
@@ -40,6 +39,7 @@ class CommentController extends Controller
      * @var DBALEventStore
      */
     private $eventStore;
+
     /**
      * @var CommentRepository
      */
@@ -47,10 +47,11 @@ class CommentController extends Controller
 
     /**
      * CommentController constructor.
-     * @param CommandBus $queryBus
-     * @param CommandBus $commandBus
-     * @param EventBus $eventBus
-     * @param DBALEventStore $eventStore
+     *
+     * @param CommandBus        $queryBus
+     * @param CommandBus        $commandBus
+     * @param EventBus          $eventBus
+     * @param DBALEventStore    $eventStore
      * @param CommentRepository $commentRepository
      */
     public function __construct(
@@ -59,8 +60,7 @@ class CommentController extends Controller
         EventBus $eventBus,
         DBALEventStore $eventStore,
         CommentRepository $commentRepository
-    )
-    {
+    ) {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -70,6 +70,7 @@ class CommentController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function createCommentAction(Request $request): Response
@@ -92,7 +93,8 @@ class CommentController extends Controller
 
     /**
      * @param Request $request
-     * @param string $post
+     * @param string  $post
+     *
      * @return Response
      */
     public function getPostComment(Request $request, string $post): Response
@@ -109,15 +111,14 @@ class CommentController extends Controller
                             ],
                         ],
                     ],
-                    "must_not" => [
-                        "exists" => [
-                            "field" => "parrentComment"
-                        ]
-                    ]
-                ]
-            ]
+                    'must_not' => [
+                        'exists' => [
+                            'field' => 'parrentComment',
+                        ],
+                    ],
+                ],
+            ],
         ];
-
 
         $command = new GetAllPostCommentCommand($page, $limit, $query);
         $model = $this->queryBus->handle($command);
@@ -127,7 +128,8 @@ class CommentController extends Controller
 
     /**
      * @param Request $request
-     * @param string $parrentComment
+     * @param string  $parrentComment
+     *
      * @return Response
      */
     public function getChildrenComment(Request $request, string $parrentComment): Response
@@ -144,10 +146,9 @@ class CommentController extends Controller
                             ],
                         ],
                     ],
-                ]
-            ]
+                ],
+            ],
         ];
-
 
         $command = new GetAllChildrenCommentCommand($page, $limit, $query);
         $model = $this->queryBus->handle($command);

@@ -3,8 +3,7 @@
 namespace App\Application\Query\Comment\GetAllChildrenComment;
 
 /**
- * Class GetAllChildrenComment
- * @package App\Application\Query\Comment\GetAllChildrenComment
+ * Class GetAllChildrenComment.
  */
 class GetAllChildrenCommentCommand
 {
@@ -26,8 +25,8 @@ class GetAllChildrenCommentCommand
     /**
      * GetAllCommand constructor.
      *
-     * @param int $page
-     * @param int $limit
+     * @param int        $page
+     * @param int        $limit
      * @param null|array $query
      */
     public function __construct(int $page, int $limit, ?array $query = null)

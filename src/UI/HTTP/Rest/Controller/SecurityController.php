@@ -42,8 +42,7 @@ class SecurityController extends Controller
         CommandBus $commandBus,
         EventBus $eventBus,
         DBALEventStore $eventStore
-    )
-    {
+    ) {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -65,10 +64,10 @@ class SecurityController extends Controller
         }
 
         return new JsonResponse([
-            'id' => $user->getId(),
-            'name' => $user->getUsername(),
-            'email' => $user->getEmail(),
-            'roles' => $user->getRoles(),
+            'id'     => $user->getId(),
+            'name'   => $user->getUsername(),
+            'email'  => $user->getEmail(),
+            'roles'  => $user->getRoles(),
             'avatar' => $user->getAvatar(),
         ]);
     }

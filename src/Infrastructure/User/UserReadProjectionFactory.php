@@ -12,9 +12,6 @@ use App\Domain\User\Event\UserWasCreated;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;
-use OldSound\RabbitMqBundle\OldSoundRabbitMqBundle;
-use OldSound\RabbitMqBundle\RabbitMq\Consumer;
-use OldSound\RabbitMqBundle\RabbitMq\Producer;
 
 /**
  * Class UserReadProjectionFactory.

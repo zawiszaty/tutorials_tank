@@ -8,12 +8,10 @@ use App\Domain\Post\ValueObject\Content;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
 
 /**
- * Class Comment
- * @package App\Domain\Comment
+ * Class Comment.
  */
 class Comment extends EventSourcedAggregateRoot
 {
-
     /**
      * @var AggregateRootId
      */
@@ -89,10 +87,11 @@ class Comment extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $aggregateRootId
-     * @param Content $content
-     * @param string $parrentComment
-     * @param string $post
-     * @param string $user
+     * @param Content         $content
+     * @param string          $parrentComment
+     * @param string          $post
+     * @param string          $user
+     *
      * @return Comment
      */
     public static function create(
@@ -101,8 +100,7 @@ class Comment extends EventSourcedAggregateRoot
         ?string $parrentComment,
         string $post,
         string $user
-    )
-    {
+    ) {
         $comment = new self();
         $comment->apply(new CommentWasCreated(
             $aggregateRootId,

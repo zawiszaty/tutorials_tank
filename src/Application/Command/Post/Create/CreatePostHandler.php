@@ -9,7 +9,6 @@ use App\Domain\Post\Post;
 use App\Domain\Post\ValueObject\Content;
 use App\Domain\Post\ValueObject\Thumbnail;
 use App\Domain\Post\ValueObject\Title;
-use App\Domain\PostType\ValueObject\Type;
 use App\Infrastructure\Post\Repository\PostRepository;
 use Ramsey\Uuid\Uuid;
 
@@ -27,6 +26,7 @@ class CreatePostHandler implements CommandHandlerInterface
 
     /**
      * @param CreatePostCommand $command
+     *
      * @throws CreatePostException
      * @throws \Assert\AssertionFailedException
      */
@@ -41,9 +41,9 @@ class CreatePostHandler implements CommandHandlerInterface
 
         $aggregateRoot = Post::create(
           AggregateRootId::fromString(Uuid::uuid4()),
-          Title::fromString($command->getTitle())  ,
+          Title::fromString($command->getTitle()),
             Content::fromString($command->getContent()),
-            Thumbnail::fromString('/thumbnails/'.$fileName),
+            Thumbnail::fromString('/thumbnails/' . $fileName),
             $command->getType(),
             $command->getUser(),
             $command->getCategory(),

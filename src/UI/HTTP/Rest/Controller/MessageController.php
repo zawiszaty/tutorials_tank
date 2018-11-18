@@ -12,8 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class MessageController
- * @package App\UI\HTTP\Rest\Controller
+ * Class MessageController.
  */
 class MessageController extends Controller
 {
@@ -24,7 +23,6 @@ class MessageController extends Controller
 
     /**
      * @var CommandBus
-     *
      */
     private $commandBus;
 
@@ -43,8 +41,7 @@ class MessageController extends Controller
         CommandBus $commandBus,
         EventBus $eventBus,
         DBALEventStore $eventStore
-    )
-    {
+    ) {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -53,6 +50,7 @@ class MessageController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function getAllUserMessage(Request $request): Response
@@ -76,7 +74,7 @@ class MessageController extends Controller
                                 ],
                             ],
                         ],
-                    ]
+                    ],
                 ],
             ];
         } else {

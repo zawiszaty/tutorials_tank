@@ -3,8 +3,7 @@
 namespace App\Domain\Post\ValueObject;
 
 /**
- * Class Title
- * @package App\Domain\Post\ValueObject
+ * Class Title.
  */
 class Title
 {
@@ -15,6 +14,7 @@ class Title
 
     /**
      * Title constructor.
+     *
      * @param string $title
      */
     public function __construct(string $title)

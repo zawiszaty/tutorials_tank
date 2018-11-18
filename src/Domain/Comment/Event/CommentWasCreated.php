@@ -7,8 +7,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\ValueObject\Content;
 
 /**
- * Class CommentWasCreated
- * @package App\Domain\Comment\Event
+ * Class CommentWasCreated.
  */
 class CommentWasCreated extends AbstractEvent
 {
@@ -44,16 +43,15 @@ class CommentWasCreated extends AbstractEvent
 
     /**
      * CommentWasCreated constructor.
+     *
      * @param AggregateRootId $id
-     * @param Content $content
-     * @param string $parrentComment
-     * @param string $post
-     * @param string $user
+     * @param Content         $content
+     * @param string          $parrentComment
+     * @param string          $post
+     * @param string          $user
      */
-    public function __construct(AggregateRootId $id, Content $content, ?string $parrentComment, string $post, string $user
-        , \DateTime $createdAt
-    )
-    {
+    public function __construct(AggregateRootId $id, Content $content, ?string $parrentComment, string $post, string $user, \DateTime $createdAt
+    ) {
         $this->id = $id;
         $this->content = $content;
         $this->parrentComment = $parrentComment;
@@ -79,12 +77,12 @@ class CommentWasCreated extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->getId()->toString(),
-            'content' => $this->getContent()->toString(),
+            'id'             => $this->getId()->toString(),
+            'content'        => $this->getContent()->toString(),
             'parrentComment' => $this->getParrentComment(),
-            'post' => $this->getPost(),
-            'user' => $this->getUser(),
-            'createdAt' => $this->getCreatedAt()
+            'post'           => $this->getPost(),
+            'user'           => $this->getUser(),
+            'createdAt'      => $this->getCreatedAt(),
         ];
     }
 

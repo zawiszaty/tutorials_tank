@@ -43,6 +43,11 @@ class PostView implements UserViewInterface
     private $slug;
 
     /**
+     * @var string
+     */
+    private $shortDescription;
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -86,6 +91,7 @@ class PostView implements UserViewInterface
         $userView->slug = $data['slug'];
         $userView->createdAt = $data['createdAt'];
         $userView->category = $data['category'];
+        $userView->shortDescription = $data['shortDescription'];
 
         return $userView;
     }
@@ -105,6 +111,7 @@ class PostView implements UserViewInterface
             'slug' => $this->slug,
             'createdAt' => $this->createdAt,
             'category' => $this->category,
+            'shortDescription' => $this->shortDescription,
         ];
     }
 
@@ -153,7 +160,7 @@ class PostView implements UserViewInterface
      */
     public function getUser(): string
     {
-        return $this->user;
+        return $this->user->getId();
     }
 
     /**
@@ -169,6 +176,29 @@ class PostView implements UserViewInterface
      */
     public function getCategory(): ?string
     {
-        return $this->category;
+        return $this->category->getId();
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortDescription(): string
+    {
+        return $this->shortDescription;
+    }
+
+    /**
+     * @param array $data
+     */
+    public function edit(array $data)
+    {
+        $this->title = $data['title'];
+        $this->content = $data['content'];
+        $this->thumbnail = $data['thumbnail'];
+        $this->type = $data['type'];
+        $this->user = $data['user'];
+        $this->slug = $data['slug'];
+        $this->category = $data['category'];
+        $this->shortDescription = $data['shortDescription'];
     }
 }

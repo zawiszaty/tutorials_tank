@@ -21,6 +21,8 @@ services:
       - ./:/var/www/project
     links:
       - db
+    ports:
+      - "8123:8123"
 
   workers:
     build: ./docker/php

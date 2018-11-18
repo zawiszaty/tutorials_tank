@@ -55,6 +55,10 @@ services:
         resource: '../src/UI/HTTP/Rest/Controller'
         tags: ['controller.service_arguments']
 
+    App\UI\CLI\Command\RunMessengerCommand:
+        public: true
+        tags: ['console.command']
+
     App\UI\HTTP\Rest\EventSubscriber\JsonBodyParserSubscriber:
         tags:
         - { name: 'kernel.event_listener', event: 'kernel.request', method: 'onKernelRequest', priority: 100 }

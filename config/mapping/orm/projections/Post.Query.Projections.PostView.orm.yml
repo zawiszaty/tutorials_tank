@@ -44,6 +44,12 @@ App\Infrastructure\Post\Query\Projections\PostView:
             length: 255
             options:
                 fixed: false
+        shortDescription:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
         createdAt:
             type: datetime
             nullable: false

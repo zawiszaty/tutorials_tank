@@ -46,7 +46,8 @@ class CreatePostHandler implements CommandHandlerInterface
             Thumbnail::fromString('/thumbnails/'.$fileName),
             $command->getType(),
             $command->getUser(),
-            $command->getCategory()
+            $command->getCategory(),
+            $command->getShortDescription()
         );
 
         $this->postRepository->store($aggregateRoot);

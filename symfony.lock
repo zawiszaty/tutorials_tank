@@ -56,6 +56,9 @@
     "broadway/uuid-generator": {
         "version": "0.4.0"
     },
+    "cboden/ratchet": {
+        "version": "v0.4.1"
+    },
     "container-interop/container-interop": {
         "version": "1.2.0"
     },
@@ -139,6 +142,9 @@
     },
     "elasticsearch/elasticsearch": {
         "version": "v6.0.1"
+    },
+    "evenement/evenement": {
+        "version": "v3.0.1"
     },
     "fig/link-util": {
         "version": "1.0.0"
@@ -278,6 +284,9 @@
     "phpspec/prophecy": {
         "version": "1.7.6"
     },
+    "prolic/fpp": {
+        "version": "dev-master"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -308,8 +317,29 @@
             "ref": "f7895777cd673fcefbc321a9063077a24e5df646"
         }
     },
+    "ratchet/rfc6455": {
+        "version": "0.2.4"
+    },
+    "react/cache": {
+        "version": "v0.5.0"
+    },
+    "react/dns": {
+        "version": "v0.4.16"
+    },
+    "react/event-loop": {
+        "version": "v1.0.0"
+    },
     "react/promise": {
         "version": "v2.7.0"
+    },
+    "react/promise-timer": {
+        "version": "v1.5.0"
+    },
+    "react/socket": {
+        "version": "v1.1.0"
+    },
+    "react/stream": {
+        "version": "v1.0.0"
     },
     "ruflin/elastica": {
         "version": "6.0.2"

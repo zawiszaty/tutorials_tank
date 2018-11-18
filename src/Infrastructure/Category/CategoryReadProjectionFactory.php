@@ -6,6 +6,7 @@ use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Category\Event\CategoryWasDeleted;
 use App\Domain\Category\Event\NameWasChanged;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
+use App\Infrastructure\Category\Query\Mysql\MysqlCommentReadModelRepository;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use Broadway\ReadModel\Projector;
@@ -64,6 +65,7 @@ class CategoryReadProjectionFactory extends Projector
      * CategoryReadProjectionFactory constructor.
      *
      * @param MysqlCategoryReadModelRepository $repository
+     * @param CategoryRepositoryElastic $categoryRepositoryElastic
      */
     public function __construct(MysqlCategoryReadModelRepository $repository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {

@@ -36,7 +36,7 @@ class Collection
      * @param int   $total
      * @param array $data
      */
-    public function __construct(int $page, int $limit, int $total, array $data)
+    public function __construct(int $page, int $limit, int $total, ?array $data)
     {
         $this->exists($page, $limit, $total);
         $this->page = $page;

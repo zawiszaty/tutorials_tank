@@ -83,6 +83,11 @@ add_post:
   methods: POST
   controller: App\UI\HTTP\Rest\Controller\PostController:addPostAction
 
+edit_post:
+  path: /api/v1/post/{id}
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\PostController:editPostAction
+
 get_single_post:
   path: /api/v1/post/{id}
   methods: GET
@@ -92,6 +97,26 @@ get_all_post:
   path: /api/v1/posts
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\PostController:getAllAction
+
+create_comment:
+  path: /api/v1/comment
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\CommentController:createCommentAction
+
+get_all_post_comment:
+  path: /api/comment/{post}
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\CommentController:getPostComment
+
+get_all_children_comment:
+  path: /api/comment/children/{parrentComment}
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\CommentController:getChildrenComment
+
+get_all_user_message:
+  path: /api/v1/message
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\MessageController:getAllUserMessage
 
 dashboard:
   path: /{react_link}

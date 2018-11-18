@@ -183,7 +183,7 @@ class Home extends React.Component {
                                                     {post.title}
                                                 </Typography>
                                                 <Typography variant="subtitle1" color="textSecondary">
-                                                    {post.content}
+                                                    {post.shortDescription}
                                                 </Typography>
                                                 <Typography variant="subtitle1" color="primary">
                                                     <NavLink to={"/post/" + post.id}>

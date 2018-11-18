@@ -16,9 +16,11 @@ import UserPanel from './Components/User/Panel/UserPanel';
 import User from './Components/User/User';
 import Home from './Components/Home/Home';
 import Post from './Components/Post/Post';
+import EditPost from './Components/Post/EditPost';
 import SinglePost from './Components/Post/SinglePost';
 import UserBan from './Components/User/Panel/UserBan';
 import EditCategory from './Components/Category/Panel/Edit/EditCategory';
+import Messanger from './Components/Messanger/Messanger';
 import './index.css';
 import {SnackbarProvider} from 'notistack';
 import {withSnackbar} from 'notistack';
@@ -130,12 +132,14 @@ class Index extends React.Component {
                     <Route path='/category' component={Category}/>
                     <Route path='/user' component={User}/>
                     <PrivateRoute path="/post/dodaj" component={Post}/>
+                    <PrivateRoute path='/post/edytuj/:id' component={EditPost}/>
                     <Route path='/post/:id' component={SinglePost}/>
                     <PrivateRoute path="/wyloguj" component={Logout}/>
                     <PrivateRoute path="/panel/kategorie/dodaj" component={AddCategory}/>
                     <PrivateRoute path="/panel/user" component={UserPanel}/>
                     <PrivateRoute path="/panel/kategorie" component={CategoryPanel}/>
                     <PrivateRoute path="/panel/edytuj/kategorie/:id" component={EditCategory}/>
+                    <PrivateRoute path="/wiadomosci/:user" component={Messanger}/>
                     <Route path='/' component={Home}/>
                     <Route render={() => <div>Not Found</div>}/>
                 </Switch>

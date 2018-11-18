@@ -3,6 +3,7 @@
 namespace App\UI\HTTP\Rest\Controller;
 
 use App\Application\Command\Post\Create\CreatePostCommand;
+use App\Application\Command\Post\Edit\EditPostCommand;
 use App\Application\Query\Post\GetAll\GetAllCommand;
 use App\Application\Query\Post\GetSingle\GetSingleCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
@@ -65,6 +66,34 @@ class PostController extends Controller
     {
         $command = new CreatePostCommand();
         $command->setUser($this->getUser()->getId());
+        $file = $request->files->get('file');
+        $request->request->set('file', $file);
+        $form = $this->createForm(AddPostForm::class, $command);
+        $form->submit($request->request->all());
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            try {
+                $this->commandBus->handle($command);
+            } catch (CreatePostException $exception) {
+
+                return new JsonResponse('success', Response::HTTP_OK);
+            }
+        }
+
+        return new JsonResponse($this->getErrorMessages($form), Response::HTTP_BAD_REQUEST);
+    }
+
+
+    /**
+     * @param Request $request
+     * @param string $id
+     * @return Response
+     */
+    public function editPostAction(Request $request, string $id): Response
+    {
+        $command = new EditPostCommand();
+        $command->setUser($this->getUser()->getId());
+        $command->setId($id);
         $file = $request->files->get('file');
         $request->request->set('file', $file);
         $form = $this->createForm(AddPostForm::class, $command);

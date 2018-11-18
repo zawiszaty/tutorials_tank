@@ -18,6 +18,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import CategoryPanelForm from './../Category/Panel/CategoryPanelForm';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = theme => ({
     layout: {
@@ -196,16 +197,24 @@ class SelectCategory extends React.Component {
             categoryView = <Table className={classes.table}>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Id Category</TableCell>
-                        <TableCell>Name</TableCell>
+                        <TableCell>Wybierz Kategorie</TableCell>
+                        <TableCell>Id</TableCell>
+                        <TableCell>Nazwa</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {this.state.categories['data'].map(category => {
                         return (
-                            <TableRow key={category.id} onClick={() => {
-                                this.props.handleChangeCategory(category.id);
-                            }}>
+                            <TableRow key={category.id}>
+                                <TableCell padding="checkbox">
+                                    <Checkbox
+                                        indeterminate={this.props.category > 0}
+                                        checked={this.props.category === category.id}
+                                        onChange={() => {
+                                            this.props.handleChangeCategory(category.id)
+                                        }}
+                                    />
+                                </TableCell>
                                 <TableCell component="th" scope="row">
                                     {category.id}
                                 </TableCell>

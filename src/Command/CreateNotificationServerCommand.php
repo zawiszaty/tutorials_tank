@@ -15,8 +15,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use ZMQ;
-use ZMQContext;
 
 class CreateNotificationServerCommand extends ContainerAwareCommand
 {
@@ -41,7 +39,7 @@ class CreateNotificationServerCommand extends ContainerAwareCommand
         }
 
         $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
-        $loop   = Factory::create();
+        $loop = Factory::create();
         $pusher = new Notification($this->getContainer());
         // Listen for the web server to make a ZeroMQ push after an ajax request
         $context = new Context($loop);

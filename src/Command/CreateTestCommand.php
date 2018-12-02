@@ -38,8 +38,8 @@ class CreateTestCommand extends Command
         $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
         $context = new \ZMQContext();
         $socket = $context->getSocket(\ZMQ::SOCKET_PUSH, 'my pusher');
-        $socket->connect("tcp://localhost:5555");
+        $socket->connect('tcp://localhost:5555');
 
-        $socket->send(json_encode(["user" => '127c6fd0-be8d-11e8-a355-529269fb1459', "title" => "test"]));
+        $socket->send(json_encode(['user' => '127c6fd0-be8d-11e8-a355-529269fb1459', 'title' => 'test']));
     }
 }

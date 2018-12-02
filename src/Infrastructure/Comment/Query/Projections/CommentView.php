@@ -63,12 +63,12 @@ class CommentView implements CommentViewInterface
     public function serialize(): array
     {
         return [
-            'id' => $this->getId(),
-            'content' => $this->getContent(),
+            'id'             => $this->getId(),
+            'content'        => $this->getContent(),
             'parrentComment' => $this->getParrentComment(),
-            'post' => $this->getPost(),
-            'user' => $this->getUser(),
-            'createdAt' => $this->getCreatedAt(),
+            'post'           => $this->getPost(),
+            'user'           => $this->getUser(),
+            'createdAt'      => $this->getCreatedAt(),
         ];
     }
 

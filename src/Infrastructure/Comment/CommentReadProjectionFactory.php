@@ -6,7 +6,6 @@ use App\Domain\Comment\Event\CommentWasCreated;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Infrastructure\Comment\Query\MysqlCommentReadModelRepository;
 use App\Infrastructure\Comment\Query\Projections\CommentView;
-use App\Infrastructure\Notification\NotificationFactory;
 use App\Infrastructure\Notification\Strategy\NotificationAbstractFactory;
 use App\Infrastructure\Post\Query\Repository\MysqlPostReadModelRepository;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
@@ -28,6 +27,7 @@ class CommentReadProjectionFactory extends Projector
      * @var MysqlUserReadModelRepository
      */
     private $mysqlUserReadModelRepository;
+
     /**
      * @var NotificationAbstractFactory
      */
@@ -65,19 +65,19 @@ class CommentReadProjectionFactory extends Projector
         $this->modelRepository->add($comment);
 
         $this->notificationAbstractFactory->create('comment', [
-            'user' => $comment->getFullPost()->getUser(),
+            'user'    => $comment->getFullPost()->getUser(),
             'content' => [
                 'post' => [
-                    'id' => $comment->getFullPost()->getId(),
+                    'id'    => $comment->getFullPost()->getId(),
                     'title' => $comment->getFullPost()->getTitle(),
                 ],
                 'sender' => [
-                    'id' => $comment->getFullUser()->getId(),
+                    'id'       => $comment->getFullUser()->getId(),
                     'username' => $comment->getFullUser()->getUsername(),
-                    'avatar' => $comment->getFullUser()->getAvatar(),
-                ]
+                    'avatar'   => $comment->getFullUser()->getAvatar(),
+                ],
             ],
-            'type' => 'comment'
+            'type' => 'comment',
         ]);
     }
 }

@@ -7,8 +7,7 @@ use App\Infrastructure\Share\Query\Repository\MysqlRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * Class MysqlNotificationRepository
- * @package App\Infrastructure\Notification\Query
+ * Class MysqlNotificationRepository.
  */
 class MysqlNotificationRepository extends MysqlRepository
 {

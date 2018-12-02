@@ -5,8 +5,7 @@ namespace App\Infrastructure\Notification;
 use App\Infrastructure\User\Query\Projections\UserView;
 
 /**
- * Class NotificationView
- * @package App\Infrastructure\Notification
+ * Class NotificationView.
  */
 class NotificationView
 {
@@ -42,9 +41,10 @@ class NotificationView
 
     /**
      * NotificationView constructor.
-     * @param string $id
-     * @param string $content
-     * @param string $displayed
+     *
+     * @param string   $id
+     * @param string   $content
+     * @param string   $displayed
      * @param UserView $user
      */
     public function __construct(string $id, string $content, string $displayed, UserView $user, string $type, \DateTime $createdAt)

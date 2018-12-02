@@ -9,8 +9,7 @@ use App\Infrastructure\Notification\Strategy\Unit\CommentCreateNotification;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 
 /**
- * Class NotificationAbstractFactory
- * @package App\Infrastructure\Notification\Strategy
+ * Class NotificationAbstractFactory.
  */
 class NotificationAbstractFactory
 {
@@ -18,6 +17,7 @@ class NotificationAbstractFactory
      * @var MysqlNotificationRepository
      */
     private $mysqlNotificationRepository;
+
     /**
      * @var MysqlUserReadModelRepository
      */
@@ -25,7 +25,8 @@ class NotificationAbstractFactory
 
     /**
      * NotificationAbstractFactory constructor.
-     * @param MysqlNotificationRepository $mysqlNotificationRepository
+     *
+     * @param MysqlNotificationRepository  $mysqlNotificationRepository
      * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
      */
     public function __construct(MysqlNotificationRepository $mysqlNotificationRepository, MysqlUserReadModelRepository $mysqlUserReadModelRepository)
@@ -36,7 +37,8 @@ class NotificationAbstractFactory
 
     /**
      * @param string $type
-     * @param array $data
+     * @param array  $data
+     *
      * @throws \ZMQSocketException
      * @throws \Exception
      * @throws \Assert\AssertionFailedException
@@ -46,6 +48,7 @@ class NotificationAbstractFactory
         switch ($type) {
             case 'comment':
                 CommentCreateNotification::notify($data);
+
                 break;
         }
         $user = $this->mysqlUserReadModelRepository->getSingle(AggregateRootId::fromString($data['user']));

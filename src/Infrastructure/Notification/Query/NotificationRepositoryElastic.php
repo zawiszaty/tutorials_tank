@@ -21,8 +21,8 @@ class NotificationRepositoryElastic extends ElasticRepository
     }
 
     /**
-     * @param int $page
-     * @param int $limit
+     * @param int   $page
+     * @param int   $limit
      * @param array $queryString
      *
      * @return Collection

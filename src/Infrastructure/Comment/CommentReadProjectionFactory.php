@@ -6,6 +6,8 @@ use App\Domain\Comment\Event\CommentWasCreated;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Infrastructure\Comment\Query\MysqlCommentReadModelRepository;
 use App\Infrastructure\Comment\Query\Projections\CommentView;
+use App\Infrastructure\Notification\NotificationFactory;
+use App\Infrastructure\Notification\Strategy\NotificationAbstractFactory;
 use App\Infrastructure\Post\Query\Repository\MysqlPostReadModelRepository;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;
@@ -26,15 +28,21 @@ class CommentReadProjectionFactory extends Projector
      * @var MysqlUserReadModelRepository
      */
     private $mysqlUserReadModelRepository;
+    /**
+     * @var NotificationAbstractFactory
+     */
+    private $notificationAbstractFactory;
 
     public function __construct(
         MysqlCommentReadModelRepository $modelRepository,
         MysqlPostReadModelRepository $mysqlPostReadModelRepository,
-        MysqlUserReadModelRepository $mysqlUserReadModelRepository
+        MysqlUserReadModelRepository $mysqlUserReadModelRepository,
+        NotificationAbstractFactory $notificationAbstractFactory
     ) {
         $this->modelRepository = $modelRepository;
         $this->mysqlPostReadModelRepository = $mysqlPostReadModelRepository;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
+        $this->notificationAbstractFactory = $notificationAbstractFactory;
     }
 
     /**
@@ -42,6 +50,7 @@ class CommentReadProjectionFactory extends Projector
      *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \ZMQSocketException
      */
     public function applyCommentWasCreated(CommentWasCreated $event)
     {
@@ -54,5 +63,21 @@ class CommentReadProjectionFactory extends Projector
         }
         $comment = CommentView::deserialize($data);
         $this->modelRepository->add($comment);
+
+        $this->notificationAbstractFactory->create('comment', [
+            'user' => $comment->getFullPost()->getUser(),
+            'content' => [
+                'post' => [
+                    'id' => $comment->getFullPost()->getId(),
+                    'title' => $comment->getFullPost()->getTitle(),
+                ],
+                'sender' => [
+                    'id' => $comment->getFullUser()->getId(),
+                    'username' => $comment->getFullUser()->getUsername(),
+                    'avatar' => $comment->getFullUser()->getAvatar(),
+                ]
+            ],
+            'type' => 'comment'
+        ]);
     }
 }

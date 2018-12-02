@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Post\Query\Projections;
 
 use App\Domain\User\Query\Projections\UserViewInterface;
+use App\Infrastructure\User\Query\Projections\UserView;
 use Broadway\Serializer\Serializable;
 
 class PostView implements UserViewInterface
@@ -103,15 +104,15 @@ class PostView implements UserViewInterface
     public function serialize(): array
     {
         return [
-            'id'               => $this->id,
-            'title'            => $this->title,
-            'content'          => $this->content,
-            'thumbnail'        => $this->thumbnail,
-            'type'             => $this->type,
-            'user'             => $this->user,
-            'slug'             => $this->slug,
-            'createdAt'        => $this->createdAt,
-            'category'         => $this->category,
+            'id' => $this->id,
+            'title' => $this->title,
+            'content' => $this->content,
+            'thumbnail' => $this->thumbnail,
+            'type' => $this->type,
+            'user' => $this->user,
+            'slug' => $this->slug,
+            'createdAt' => $this->createdAt,
+            'category' => $this->category,
             'shortDescription' => $this->shortDescription,
         ];
     }
@@ -201,5 +202,13 @@ class PostView implements UserViewInterface
         $this->slug = $data['slug'];
         $this->category = $data['category'];
         $this->shortDescription = $data['shortDescription'];
+    }
+
+    /**
+     * @return UserView
+     */
+    public function getFullUser(): UserView
+    {
+        return $this->user;
     }
 }

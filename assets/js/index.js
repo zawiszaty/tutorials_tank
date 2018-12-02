@@ -17,6 +17,7 @@ import User from './Components/User/User';
 import Home from './Components/Home/Home';
 import Post from './Components/Post/Post';
 import EditPost from './Components/Post/EditPost';
+import Notification from './Components/Notification/Notification';
 import SinglePost from './Components/Post/SinglePost';
 import UserBan from './Components/User/Panel/UserBan';
 import EditCategory from './Components/Category/Panel/Edit/EditCategory';
@@ -58,7 +59,7 @@ class Index extends React.Component {
         this.state = {
             open: false,
             loading: true,
-        }
+        };
 
         this.handleMenuOpen = this.handleMenuOpen.bind(this);
         this.handleMenuClose = this.handleMenuClose.bind(this);
@@ -160,6 +161,7 @@ class Index extends React.Component {
                                     <DrawerComponent open={this.state.open} handleMenuClose={this.handleMenuClose}/>
                                     {indexView}
                                     <Footer/>
+                                    <Notification/>
                                 </div>
                             </SnackbarProvider>
                         )}>

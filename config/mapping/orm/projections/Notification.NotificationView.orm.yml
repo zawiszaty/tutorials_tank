@@ -1,0 +1,46 @@
+App\Infrastructure\Notification\NotificationView:
+    type: entity
+    table: notification
+    indexes:
+        fk_notification_user1_idx:
+            columns:
+                - user
+    id:
+        id:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
+    fields:
+        content:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        displayed:
+            type: boolean
+            nullable: false
+        createdAt:
+            type: datetime
+            nullable: false
+    manyToOne:
+        user:
+            targetEntity: App\Infrastructure\User\Query\Projections\UserView
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

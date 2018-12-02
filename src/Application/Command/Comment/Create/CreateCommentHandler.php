@@ -7,6 +7,7 @@ use App\Domain\Comment\Comment;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\ValueObject\Content;
 use App\Infrastructure\Comment\Repository\CommentRepository;
+use App\Infrastructure\Notification\Strategy\NotificationAbstractFactory;
 use Ramsey\Uuid\Uuid;
 
 class CreateCommentHandler implements CommandHandlerInterface
@@ -30,6 +31,7 @@ class CreateCommentHandler implements CommandHandlerInterface
      * @param CreateCommentCommand $command
      *
      * @throws \Assert\AssertionFailedException
+     * @throws \ZMQSocketException
      */
     public function __invoke(CreateCommentCommand $command)
     {

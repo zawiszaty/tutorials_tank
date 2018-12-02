@@ -23,6 +23,8 @@ services:
       - db
     ports:
       - "8123:8123"
+      - "8888:8888"
+      - "5555:5555"
 
   workers:
     build: ./docker/php

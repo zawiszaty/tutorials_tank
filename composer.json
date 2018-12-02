@@ -23,6 +23,7 @@
         "prolic/fpp": "dev-master",
         "ramsey/uuid": "^3.7",
         "ramsey/uuid-doctrine": "^1.5",
+        "react/zmq": "0.2.*|0.3.*",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "^4.1",
         "symfony/console": "^4.1",
@@ -42,7 +43,9 @@
         "symfony/validator": "^4.1",
         "symfony/web-link": "^4.1",
         "symfony/webpack-encore-pack": "*",
-        "symfony/yaml": "^4.1"
+        "symfony/yaml": "^4.1",
+      "ext-zmq": "*",
+      "ext-json": "*"
     },
     "require-dev": {
         "behat/behat": "dev-master",

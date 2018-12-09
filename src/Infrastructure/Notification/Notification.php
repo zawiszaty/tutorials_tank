@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Notification;
 
 use App\Infrastructure\User\Query\Projections\UserView;
+use const Fpp\dump;
 use Ratchet\ConnectionInterface;
 use Ratchet\Wamp\WampServerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -23,12 +24,11 @@ class Notification implements WampServerInterface
     {
         $querystring = $conn->httpRequest->getUri()->getQuery();
         parse_str($querystring, $queryarray);
-        dump($topic);
+
 
         if (!$queryarray['token']) {
             throw new AccessDeniedException('Brak tokena');
         }
-
         $token = $this->container->get('doctrine')->getRepository('App:AccessToken')->findOneBy([
             'token' => $queryarray['token'],
         ]);
@@ -39,7 +39,8 @@ class Notification implements WampServerInterface
 
         /** @var UserView $sender */
         $user = $token->getUser();
-        $this->subscribedTopics[$topic->getId()][$user->getId()] = $topic;
+        dump($user->getId());
+        $this->subscribedTopics[$user->getId()] = $topic;
     }
 
     public function onUnSubscribe(ConnectionInterface $conn, $topic)
@@ -77,9 +78,12 @@ class Notification implements WampServerInterface
     {
         $entryData = json_decode($entry, true);
 
-        $topic = $this->subscribedTopics['user'][$entryData['user']];
-
-        // re-send the data to all the clients subscribed to that category
-        $topic->broadcast($entryData);
+        try {
+            $topic = $this->subscribedTopics[$entryData['user']];
+            // re-send the data to all the clients subscribed to that category
+            $topic->broadcast($entryData);
+        } catch (\Exception $exception) {
+          dump($exception->getMessage());
+        }
     }
 }

@@ -9,6 +9,7 @@ use App\Domain\Post\ValueObject\Content;
 use App\Domain\Post\ValueObject\Thumbnail;
 use App\Domain\Post\ValueObject\Title;
 use App\Infrastructure\Post\Repository\PostRepository;
+use App\Infrastructure\Share\Application\File\FileMover;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
@@ -38,17 +39,8 @@ class EditPostHandler implements CommandHandlerInterface
     {
         $aggregateRoot = $this->postRepository->get(AggregateRootId::fromString($command->getId()));
 
-        if ($aggregateRoot->getUser() !== $command->getUser()) {
-            throw new AccessDeniedException();
-        }
-
         if (null !== $command->getFile()) {
-            $file = $command->getFile();
-            $fileName = '/thumbnails/' . Uuid::uuid4() . '-' . Uuid::uuid4() . '.' . $file->guessExtension();
-            $file->move(
-                'thumbnails',
-                $fileName
-            );
+            $fileName = FileMover::move($command->getFile());
         } else {
             $fileName = $aggregateRoot->getThumbnail()->toString();
         }

@@ -77,6 +77,7 @@ class Index extends React.Component {
             headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
         }).then((response) => {
             store.dispatch(loginUser(response.data));
+            localStorage.setItem('userId',response.data.id);
             this.setState({
                 loading: false
             })

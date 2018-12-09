@@ -61,6 +61,7 @@ class CommentReadProjectionFactory extends Projector
         if ($data['parrentComment']) {
             $data['parrentComment'] = $this->modelRepository->oneByUuid(AggregateRootId::fromString($data['parrentComment']));
         }
+
         $comment = CommentView::deserialize($data);
         $this->modelRepository->add($comment);
 

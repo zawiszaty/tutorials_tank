@@ -5,6 +5,7 @@ namespace App\Application\Command\User\ChangeAvatar;
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
+use App\Infrastructure\Share\Application\File\FileMover;
 use Ramsey\Uuid\Uuid;
 
 class ChangeAvatarHandler implements CommandHandlerInterface
@@ -33,12 +34,7 @@ class ChangeAvatarHandler implements CommandHandlerInterface
     public function __invoke(ChangeAvatarCommand $command): void
     {
         $user = $this->aggregatRepository->get(AggregateRootId::fromString($command->getId()));
-        $file = $command->getFile();
-        $fileName = Uuid::uuid4() . '-' . Uuid::uuid4() . '.' . $file->guessExtension();
-        $file->move(
-            'avatars',
-            $fileName
-        );
+        $fileName = FileMover::move($command->getFile());
         $user->changeAvatar('/avatars/' . $fileName);
         $this->aggregatRepository->store($user);
 

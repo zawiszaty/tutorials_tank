@@ -23,7 +23,7 @@ class ChangeEmailHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param BannedUserCommand $command
+     * @param ChangeEmailCommand $command
      *
      * @throws \Assert\AssertionFailedException
      */

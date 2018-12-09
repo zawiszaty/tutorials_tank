@@ -36,16 +36,6 @@ class SendEmailHandler implements CommandHandlerInterface
               '
               http://localhost:8080/user/token/' . $command->getToken()
             )
-            /*
-             * If you also want to include a plaintext version of the message
-            ->addPart(
-                $this->renderView(
-                    'emails/registration.txt.twig',
-                    array('name' => $name)
-                ),
-                'text/plain'
-            )
-            */
         ;
 
         $this->mailer->send($message);

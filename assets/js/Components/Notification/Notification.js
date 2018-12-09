@@ -3,6 +3,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import {withSnackbar} from "notistack";
+import {connect} from 'react-redux';
+import {loginUser} from "../../actions/user-action";
 
 const styles = theme => ({
 
@@ -11,21 +13,26 @@ const styles = theme => ({
 class Notification extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+        };
     }
 
-    componentDidMount = () => {
+    notify = () => {
         this.onNotify();
     };
 
     onNotify = () => {
-        var conn = new ab.Session(`ws://0.0.0.0:8888?token=${localStorage.getItem('token')}`,
-            () => {
-                conn.publish('user', (topic, data)  => {
-                    this.props.onPresentSnackbar('success', 'test')
+        let then = this;
+        // var userid = this.state.user;
+        var conn = new ab.Session(`ws://localhost:8888?token=${localStorage.getItem('token')}`,
+            function() {
+                conn.subscribe(localStorage.getItem('userId'), function(topic, data) {
+                    // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
+                    then.props.onPresentSnackbar('info', 'Dodano notke');
+                    console.log('New article published to category "' + topic + '" : ' + data.title);
                 });
-            } ,
-            () => {
+            },
+            function() {
                 console.warn('WebSocket connection closed');
             },
             {'skipSubprotocolCheck': true}
@@ -36,10 +43,18 @@ class Notification extends React.Component {
         return (
             <React.Fragment>
                 <CssBaseline/>
-
+                {this.props.user.length !== 0 && this.notify()}
             </React.Fragment>
         );
     }
 }
 
-export default withSnackbar(withStyles(styles)(Notification));
+const mapStateToProps = state => ({
+    user: state.user
+});
+
+const mapActionToProps = {
+    onLoginUser: loginUser
+};
+
+export default connect(mapStateToProps, mapActionToProps)(withSnackbar(withStyles(styles)(Notification)));

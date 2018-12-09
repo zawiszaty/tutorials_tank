@@ -10,8 +10,6 @@ use App\Domain\Post\ValueObject\Thumbnail;
 use App\Domain\Post\ValueObject\Title;
 use App\Infrastructure\Post\Repository\PostRepository;
 use App\Infrastructure\Share\Application\File\FileMover;
-use Ramsey\Uuid\Uuid;
-use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
  * Class EditPostHandler.

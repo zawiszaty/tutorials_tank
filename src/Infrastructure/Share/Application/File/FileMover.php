@@ -5,14 +5,15 @@ namespace App\Infrastructure\Share\Application\File;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * Class FileMover
- * @package App\Infrastructure\Share\Application\File
+ * Class FileMover.
  */
 class FileMover
 {
     /**
      * @param File $file
+     *
      * @return string
+     *
      * @throws \Exception
      */
     public static function move(File $file)

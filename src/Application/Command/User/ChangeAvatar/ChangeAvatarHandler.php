@@ -6,7 +6,6 @@ use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
 use App\Infrastructure\Share\Application\File\FileMover;
-use Ramsey\Uuid\Uuid;
 
 class ChangeAvatarHandler implements CommandHandlerInterface
 {

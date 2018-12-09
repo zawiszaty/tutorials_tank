@@ -5,14 +5,15 @@ namespace App\Infrastructure\Share\Application\File;
 use Ramsey\Uuid\Uuid;
 
 /**
- * Class FileNameGenerator
- * @package App\Infrastructure\Share\Application\File
+ * Class FileNameGenerator.
  */
 class FileNameGenerator
 {
     /**
      * @param string $extention
+     *
      * @return string
+     *
      * @throws \Exception
      */
     public static function generate(string $extention)

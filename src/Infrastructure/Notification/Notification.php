@@ -25,7 +25,6 @@ class Notification implements WampServerInterface
         $querystring = $conn->httpRequest->getUri()->getQuery();
         parse_str($querystring, $queryarray);
 
-
         if (!$queryarray['token']) {
             throw new AccessDeniedException('Brak tokena');
         }
@@ -83,7 +82,7 @@ class Notification implements WampServerInterface
             // re-send the data to all the clients subscribed to that category
             $topic->broadcast($entryData);
         } catch (\Exception $exception) {
-          dump($exception->getMessage());
+            dump($exception->getMessage());
         }
     }
 }

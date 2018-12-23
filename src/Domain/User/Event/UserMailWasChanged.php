@@ -7,8 +7,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\ValueObject\Email;
 
 /**
- * Class UserMailWasChanged
- * @package App\Domain\User\Event
+ * Class UserMailWasChanged.
  */
 class UserMailWasChanged extends AbstractEvent
 {

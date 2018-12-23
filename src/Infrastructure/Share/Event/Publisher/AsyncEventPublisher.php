@@ -31,7 +31,7 @@ class AsyncEventPublisher implements EventPublisher, EventSubscriberInterface, E
     public static function getSubscribedEvents()
     {
         return [
-            KernelEvents::TERMINATE => 'publish',
+            KernelEvents::TERMINATE  => 'publish',
             ConsoleEvents::TERMINATE => 'publish',
         ];
     }
@@ -45,6 +45,7 @@ class AsyncEventPublisher implements EventPublisher, EventSubscriberInterface, E
      * @var ProducerInterface
      */
     private $eventProducer;
+
     /** @var DomainMessage[] */
     private $events = [];
 }

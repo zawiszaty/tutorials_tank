@@ -3,8 +3,7 @@
 namespace App\Application\Command\Post\Delete;
 
 /**
- * Class DeletePostCommand
- * @package App\Application\Command\Post\Delete
+ * Class DeletePostCommand.
  */
 class DeletePostCommand
 {
@@ -12,6 +11,7 @@ class DeletePostCommand
      * @var string
      */
     private $id;
+
     /**
      * @var string
      */
@@ -19,6 +19,7 @@ class DeletePostCommand
 
     /**
      * DeletePostCommand constructor.
+     *
      * @param string $id
      * @param string $user
      */

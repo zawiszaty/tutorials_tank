@@ -17,13 +17,13 @@ class ChangeAvatarForm extends AbstractType
             ->add('file', FileType::class, [
                 'constraints' => [
                     new File([
-                        'maxSize' => '1M',
+                        'maxSize'   => '1M',
                         'mimeTypes' => ['image/jpeg',
                             'image/png',
                         ],
                     ]),
                     new NotNull(),
-                ]
+                ],
             ]);
     }
 

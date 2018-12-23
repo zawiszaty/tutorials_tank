@@ -18,27 +18,31 @@ use Broadway\Repository\AggregateNotFoundException;
 use Broadway\Repository\Repository;
 
 /**
- * Class EventSourcingRepository
- * @package App\Infrastructure\Share\Broadway\EventSourcing
+ * Class EventSourcingRepository.
  */
 class EventSourcingRepository implements Repository
 {
     private $eventStore;
+
     private $eventBus;
+
     private $aggregateClass;
+
     private $eventStreamDecorators = [];
+
     private $aggregateFactory;
+
     /**
      * @var EventToProjectionsProducer
      */
     private $eventToProjectionsProducer;
 
     /**
-     * @param EventStore $eventStore
-     * @param EventBus $eventBus
-     * @param string $aggregateClass
-     * @param AggregateFactory $aggregateFactory
-     * @param EventStreamDecorator[] $eventStreamDecorators
+     * @param EventStore                 $eventStore
+     * @param EventBus                   $eventBus
+     * @param string                     $aggregateClass
+     * @param AggregateFactory           $aggregateFactory
+     * @param EventStreamDecorator[]     $eventStreamDecorators
      * @param EventToProjectionsProducer $eventToProjectionsProducer
      */
     public function __construct(
@@ -48,8 +52,7 @@ class EventSourcingRepository implements Repository
         AggregateFactory $aggregateFactory,
         EventToProjectionsProducer $eventToProjectionsProducer,
         array $eventStreamDecorators = []
-    )
-    {
+    ) {
         $this->assertExtendsEventSourcedAggregateRoot($aggregateClass);
 
         $this->eventStore = $eventStore;

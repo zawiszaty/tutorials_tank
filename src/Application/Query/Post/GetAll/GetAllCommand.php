@@ -25,8 +25,8 @@ class GetAllCommand
     /**
      * GetAllCommand constructor.
      *
-     * @param int $page
-     * @param int $limit
+     * @param int         $page
+     * @param int         $limit
      * @param string|null $query
      */
     public function __construct(int $page, int $limit, ?string $query = null)

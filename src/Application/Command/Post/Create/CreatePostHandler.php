@@ -4,7 +4,6 @@ namespace App\Application\Command\Post\Create;
 
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Domain\Post\Exception\CreatePostException;
 use App\Domain\Post\Post;
 use App\Domain\Post\ValueObject\Content;
 use App\Domain\Post\ValueObject\Thumbnail;

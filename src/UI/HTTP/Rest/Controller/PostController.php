@@ -44,7 +44,7 @@ class PostController extends RestController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @return Response
      */
@@ -69,7 +69,7 @@ class PostController extends RestController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @return Response
      *
@@ -102,7 +102,8 @@ class PostController extends RestController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
+     *
      * @return Response
      */
     public function deletePostAction(Request $request, string $id): Response

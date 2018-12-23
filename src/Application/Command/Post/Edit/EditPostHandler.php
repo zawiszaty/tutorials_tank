@@ -4,7 +4,6 @@ namespace App\Application\Command\Post\Edit;
 
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Domain\Post\Exception\CreatePostException;
 use App\Domain\Post\ValueObject\Content;
 use App\Domain\Post\ValueObject\Thumbnail;
 use App\Domain\Post\ValueObject\Title;
@@ -23,6 +22,7 @@ class EditPostHandler implements CommandHandlerInterface
 
     /**
      * EditPostHandler constructor.
+     *
      * @param PostRepository $postRepository
      */
     public function __construct(PostRepository $postRepository)

@@ -10,8 +10,7 @@ use InvalidArgumentException;
 use Symfony\Component\Validator\Constraint;
 
 /**
- * Class UniqueValueInEntityValidator
- * @package App\Infrastructure\Share\Validator\Constraint
+ * Class UniqueValueInEntityValidator.
  */
 class UniqueValueInEntityValidator extends ConstraintValidator
 {
@@ -22,6 +21,7 @@ class UniqueValueInEntityValidator extends ConstraintValidator
 
     /**
      * UniqueValueInEntityValidator constructor.
+     *
      * @param EntityManagerInterface $em
      */
     public function __construct(EntityManagerInterface $em)
@@ -30,7 +30,7 @@ class UniqueValueInEntityValidator extends ConstraintValidator
     }
 
     /**
-     * @param mixed $value
+     * @param mixed      $value
      * @param Constraint $constraint
      */
     public function validate($value, Constraint $constraint)
@@ -42,11 +42,11 @@ class UniqueValueInEntityValidator extends ConstraintValidator
         }
 
         $searchResults = $entityRepository->findBy([
-            $constraint->field => $value->{$constraint->field}
+            $constraint->field => $value->{$constraint->field},
         ]);
 
         if (count($searchResults) > 0) {
-            $constraint->message = "Value ".$constraint->field." is already used.";
+            $constraint->message = 'Value ' . $constraint->field . ' is already used.';
             $this->context->buildViolation($constraint->message)
                 ->addViolation();
         }

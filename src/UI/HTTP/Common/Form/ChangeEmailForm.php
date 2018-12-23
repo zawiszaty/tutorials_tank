@@ -4,7 +4,6 @@ namespace App\UI\HTTP\Common\Form;
 
 use App\Infrastructure\Share\Validator\Constraint\UniqueValueInEntity;
 use App\Infrastructure\User\Query\Projections\UserView;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +16,7 @@ class ChangeEmailForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -34,12 +33,12 @@ class ChangeEmailForm extends AbstractType
     {
         $resolver->setDefaults([
             'csrf_protection' => false,
-            'constraints' => [
+            'constraints'     => [
                 new UniqueValueInEntity([
-                    'field' => 'email',
-                    'entityClass' => UserView::class
-                ])
-            ]
+                    'field'       => 'email',
+                    'entityClass' => UserView::class,
+                ]),
+            ],
         ]);
     }
 }

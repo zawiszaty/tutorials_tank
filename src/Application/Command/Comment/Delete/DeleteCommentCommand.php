@@ -3,8 +3,7 @@
 namespace App\Application\Command\Comment\Delete;
 
 /**
- * Class DeleteCommentCommand
- * @package App\Application\Command\Comment\Delete
+ * Class DeleteCommentCommand.
  */
 class DeleteCommentCommand
 {
@@ -20,6 +19,7 @@ class DeleteCommentCommand
 
     /**
      * DeleteCommentCommand constructor.
+     *
      * @param string $id
      * @param string $user
      */

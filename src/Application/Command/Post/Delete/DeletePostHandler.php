@@ -11,8 +11,7 @@ use App\Infrastructure\Post\Repository\PostRepository;
 use League\Tactician\CommandBus;
 
 /**
- * Class DeletePostHandler
- * @package App\Application\Command\Post\Delete
+ * Class DeletePostHandler.
  */
 class DeletePostHandler implements CommandHandlerInterface
 {
@@ -20,14 +19,17 @@ class DeletePostHandler implements CommandHandlerInterface
      * @var PostRepository
      */
     private $postRepository;
+
     /**
      * @var CommentRepositoryElastic
      */
     private $commentRepositoryElastic;
+
     /**
      * @var CommandBus
      */
     private $commandBus;
+
     /**
      * @var MysqlCommentReadModelRepository
      */

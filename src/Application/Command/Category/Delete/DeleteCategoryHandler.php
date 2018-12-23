@@ -18,10 +18,12 @@ class DeleteCategoryHandler implements CommandHandlerInterface
      * @var CategoryRepositoryInterface
      */
     private $categoryRepository;
+
     /**
      * @var CommandBus
      */
     private $commandBus;
+
     /**
      * @var PostRepositoryElastic
      */
@@ -31,8 +33,8 @@ class DeleteCategoryHandler implements CommandHandlerInterface
      * DeleteCategoryHandler constructor.
      *
      * @param CategoryRepositoryInterface $categoryRepository
-     * @param CommandBus $commandBus
-     * @param PostRepositoryElastic $postRepositoryElastic
+     * @param CommandBus                  $commandBus
+     * @param PostRepositoryElastic       $postRepositoryElastic
      */
     public function __construct(CategoryRepositoryInterface $categoryRepository, CommandBus $commandBus, PostRepositoryElastic $postRepositoryElastic)
     {
@@ -47,11 +49,11 @@ class DeleteCategoryHandler implements CommandHandlerInterface
     public function __invoke(DeleteCategoryCommand $categoryCommand): void
     {
         $posts = $this->postRepositoryElastic->search([
-            "query" => [
-                "match" => [
-                    "category" => $categoryCommand->getId()->toString()
-                ]
-            ]
+            'query' => [
+                'match' => [
+                    'category' => $categoryCommand->getId()->toString(),
+                ],
+            ],
         ]);
 
         foreach ($posts['hits']['hits'] as $post) {
@@ -69,7 +71,6 @@ class DeleteCategoryHandler implements CommandHandlerInterface
             try {
                 $this->commandBus->handle($editPostCommand);
             } catch (CreatePostException $exception) {
-
             }
         }
         $category = $this->categoryRepository->get($categoryCommand->getId());

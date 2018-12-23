@@ -20,5 +20,4 @@ class EventToProjectionsProducer
     {
         $this->producer->publish(serialize($domainMessage), 'projections');
     }
-
 }

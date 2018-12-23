@@ -13,8 +13,7 @@ use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;
 
 /**
- * Class CommentReadProjectionFactory
- * @package App\Infrastructure\Comment
+ * Class CommentReadProjectionFactory.
  */
 class CommentReadProjectionFactory extends Projector
 {
@@ -40,18 +39,18 @@ class CommentReadProjectionFactory extends Projector
 
     /**
      * CommentReadProjectionFactory constructor.
+     *
      * @param MysqlCommentReadModelRepository $modelRepository
-     * @param MysqlPostReadModelRepository $mysqlPostReadModelRepository
-     * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
-     * @param NotificationAbstractFactory $notificationAbstractFactory
+     * @param MysqlPostReadModelRepository    $mysqlPostReadModelRepository
+     * @param MysqlUserReadModelRepository    $mysqlUserReadModelRepository
+     * @param NotificationAbstractFactory     $notificationAbstractFactory
      */
     public function __construct(
         MysqlCommentReadModelRepository $modelRepository,
         MysqlPostReadModelRepository $mysqlPostReadModelRepository,
         MysqlUserReadModelRepository $mysqlUserReadModelRepository,
         NotificationAbstractFactory $notificationAbstractFactory
-    )
-    {
+    ) {
         $this->modelRepository = $modelRepository;
         $this->mysqlPostReadModelRepository = $mysqlPostReadModelRepository;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
@@ -79,16 +78,16 @@ class CommentReadProjectionFactory extends Projector
         $this->modelRepository->add($comment);
 
         $this->notificationAbstractFactory->create('comment', [
-            'user' => $comment->getFullPost()->getUser(),
+            'user'    => $comment->getFullPost()->getUser(),
             'content' => [
                 'post' => [
-                    'id' => $comment->getFullPost()->getId(),
+                    'id'    => $comment->getFullPost()->getId(),
                     'title' => $comment->getFullPost()->getTitle(),
                 ],
                 'sender' => [
-                    'id' => $comment->getFullUser()->getId(),
+                    'id'       => $comment->getFullUser()->getId(),
                     'username' => $comment->getFullUser()->getUsername(),
-                    'avatar' => $comment->getFullUser()->getAvatar(),
+                    'avatar'   => $comment->getFullUser()->getAvatar(),
                 ],
             ],
             'type' => 'comment',
@@ -97,6 +96,7 @@ class CommentReadProjectionFactory extends Projector
 
     /**
      * @param CommentWasDeletedEvent $commentWasDeletedEvent
+     *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */

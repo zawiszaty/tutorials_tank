@@ -16,6 +16,7 @@ class BannedUserHandler implements CommandHandlerInterface
      * @var \App\Infrastructure\User\Repository\UserRepository
      */
     private $aggregatRepository;
+
     /**
      * @var TokenStorage
      */

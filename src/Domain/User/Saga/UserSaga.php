@@ -13,8 +13,7 @@ use Broadway\Saga\State\Criteria;
 use League\Tactician\CommandBus;
 
 /**
- * Class UserSaga
- * @package App\Domain\User\Saga
+ * Class UserSaga.
  */
 class UserSaga extends Saga implements StaticallyConfiguredSagaInterface
 {
@@ -22,6 +21,7 @@ class UserSaga extends Saga implements StaticallyConfiguredSagaInterface
      * @var CommandBus
      */
     private $commandBus;
+
     /**
      * @var MysqlUserReadModelRepository
      */
@@ -29,14 +29,14 @@ class UserSaga extends Saga implements StaticallyConfiguredSagaInterface
 
     /**
      * UserSaga constructor.
-     * @param CommandBus $commandBus
+     *
+     * @param CommandBus                   $commandBus
      * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
      */
     public function __construct(
         CommandBus $commandBus,
         MysqlUserReadModelRepository $mysqlUserReadModelRepository
-    )
-    {
+    ) {
         $this->commandBus = $commandBus;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
     }
@@ -49,16 +49,18 @@ class UserSaga extends Saga implements StaticallyConfiguredSagaInterface
         return [
             'UserWasCreated' => function (UserWasCreated $userWasCreated) {
                 return new Criteria([
-                    'id' => $userWasCreated->getId()
+                    'id' => $userWasCreated->getId(),
                 ]);
-            }
+            },
         ];
     }
 
     /**
      * @param UserWasCreated $userWasCreated
-     * @param State $state
+     * @param State          $state
+     *
      * @return State
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      * @throws \Assert\AssertionFailedException
      */

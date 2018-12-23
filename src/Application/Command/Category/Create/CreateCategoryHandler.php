@@ -3,7 +3,6 @@
 namespace App\Application\Command\Category\Create;
 
 use App\Application\Command\CommandHandlerInterface;
-use App\Domain\Category\Exception\CategoryCreateException;
 use App\Domain\Category\Factory\CategoryFactory;
 use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use App\Domain\Category\ValueObject\Name;

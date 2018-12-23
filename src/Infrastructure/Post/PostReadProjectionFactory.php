@@ -11,7 +11,6 @@ use App\Infrastructure\Post\Query\Projections\PostView;
 use App\Infrastructure\Post\Query\Repository\MysqlPostReadModelRepository;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;
-use Ramsey\Uuid\Uuid;
 
 /**
  * Class PostReadProjectionFactory.
@@ -84,16 +83,15 @@ class PostReadProjectionFactory extends Projector
     /**
      * PostReadProjectionFactory constructor.
      *
-     * @param MysqlPostReadModelRepository $modelRepository
-     * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
+     * @param MysqlPostReadModelRepository     $modelRepository
+     * @param MysqlUserReadModelRepository     $mysqlUserReadModelRepository
      * @param MysqlCategoryReadModelRepository $categoryReadModelRepository
      */
     public function __construct(
         MysqlPostReadModelRepository $modelRepository,
         MysqlUserReadModelRepository $mysqlUserReadModelRepository,
         MysqlCategoryReadModelRepository $categoryReadModelRepository
-    )
-    {
+    ) {
         $this->modelRepository = $modelRepository;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
         $this->categoryReadModelRepository = $categoryReadModelRepository;

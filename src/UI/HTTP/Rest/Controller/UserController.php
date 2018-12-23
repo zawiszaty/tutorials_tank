@@ -10,30 +10,18 @@ use App\Application\Command\User\ChangePassword\ChangePasswordCommand;
 use App\Application\Command\User\ConfirmUser\ConfirmUserCommand;
 use App\Application\Command\User\Create\CreateUserCommand;
 use App\Application\Command\User\SendEmail\SendEmailCommand;
-use App\Application\Query\Item;
 use App\Application\Query\User\GetAll\GetAllCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
-use App\Domain\User\Exception\PasswordIsBadException;
-use App\Domain\User\Exception\UserCreateException;
-use App\Domain\User\ValueObject\Email;
-use App\Infrastructure\User\Query\Projections\UserView;
-use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use App\UI\HTTP\Common\Controller\RestController;
 use App\UI\HTTP\Common\Form\ChangeAvatarForm;
 use App\UI\HTTP\Common\Form\ChangeEmailForm;
 use App\UI\HTTP\Common\Form\ChangePasswordForm;
 use App\UI\HTTP\Common\Form\ChangeUserNameForm;
 use App\UI\HTTP\Common\Form\RegistrationFormType;
-use Broadway\EventHandling\EventBus;
-use Broadway\EventStore\Dbal\DBALEventStore;
-use League\Tactician\CommandBus;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class UserController.
@@ -62,7 +50,7 @@ class UserController extends RestController
 
     /**
      * @param Request $request
-     * @param string $token
+     * @param string  $token
      *
      * @return Response
      */
@@ -77,7 +65,7 @@ class UserController extends RestController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @return Response
      *

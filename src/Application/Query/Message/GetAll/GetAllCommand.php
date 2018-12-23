@@ -21,10 +21,12 @@ class GetAllCommand
      * @var string
      */
     private $query;
+
     /**
      * @var string
      */
     private $recipient;
+
     /**
      * @var string
      */
@@ -33,11 +35,11 @@ class GetAllCommand
     /**
      * GetAllCommand constructor.
      *
-     * @param int $page
-     * @param int $limit
+     * @param int         $page
+     * @param int         $limit
      * @param string|null $query
-     * @param string $recipient
-     * @param string $user
+     * @param string      $recipient
+     * @param string      $user
      */
     public function __construct(int $page, int $limit, ?string $query, string $recipient, string $user)
     {

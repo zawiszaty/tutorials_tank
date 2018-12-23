@@ -6,8 +6,7 @@ use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Class CommentWasDeletedEvent
- * @package App\Domain\Comment\Event
+ * Class CommentWasDeletedEvent.
  */
 class CommentWasDeletedEvent extends AbstractEvent
 {
@@ -18,8 +17,9 @@ class CommentWasDeletedEvent extends AbstractEvent
 
     /**
      * CommentWasDeletedEvent constructor.
+     *
      * @param AggregateRootId $id
-     * @param string $user
+     * @param string          $user
      */
     public function __construct(AggregateRootId $id, string $user)
     {
@@ -45,7 +45,9 @@ class CommentWasDeletedEvent extends AbstractEvent
 
     /**
      * @param array $data
+     *
      * @return CommentWasDeletedEvent|mixed
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function deserialize(array $data)
@@ -64,8 +66,8 @@ class CommentWasDeletedEvent extends AbstractEvent
     public function serialize(): array
     {
         return [
-            "id" => $this->id->toString(),
-            "user" => $this->user
+            'id'   => $this->id->toString(),
+            'user' => $this->user,
         ];
     }
 }

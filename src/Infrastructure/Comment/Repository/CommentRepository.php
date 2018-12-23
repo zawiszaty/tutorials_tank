@@ -29,18 +29,17 @@ class CommentRepository extends EventSourcingRepository implements CommentReposi
     /**
      * CommentRepository constructor.
      *
-     * @param EventStore $eventStore
-     * @param EventBus $eventBus
+     * @param EventStore                 $eventStore
+     * @param EventBus                   $eventBus
      * @param EventToProjectionsProducer $eventToProjectionsProducer
-     * @param array $eventStreamDecorators
+     * @param array                      $eventStreamDecorators
      */
     public function __construct(
         EventStore $eventStore,
         EventBus $eventBus,
         EventToProjectionsProducer $eventToProjectionsProducer,
         array $eventStreamDecorators = []
-    )
-    {
+    ) {
         parent::__construct(
             $eventStore,
             $eventBus,

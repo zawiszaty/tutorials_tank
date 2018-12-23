@@ -90,10 +90,10 @@ class Comment extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $aggregateRootId
-     * @param Content $content
-     * @param string $parrentComment
-     * @param string $post
-     * @param string $user
+     * @param Content         $content
+     * @param string          $parrentComment
+     * @param string          $post
+     * @param string          $user
      *
      * @return Comment
      *
@@ -105,8 +105,7 @@ class Comment extends EventSourcedAggregateRoot
         ?CommentView $parrentComment,
         string $post,
         string $user
-    )
-    {
+    ) {
         $comment = new self();
 
         if ($parrentComment) {

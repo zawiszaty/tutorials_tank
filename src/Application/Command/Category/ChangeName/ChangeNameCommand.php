@@ -8,5 +8,6 @@ namespace App\Application\Command\Category\ChangeName;
 class ChangeNameCommand
 {
     public $id;
+
     public $name;
 }

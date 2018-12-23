@@ -25,8 +25,8 @@ class GetAllChildrenCommentCommand
     /**
      * GetAllCommand constructor.
      *
-     * @param int $page
-     * @param int $limit
+     * @param int         $page
+     * @param int         $limit
      * @param string|null $parrentComment
      */
     public function __construct(int $page, int $limit, ?string $parrentComment = null)

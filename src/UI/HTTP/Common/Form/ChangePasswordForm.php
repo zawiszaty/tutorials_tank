@@ -18,39 +18,39 @@ class ChangePasswordForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('oldPassword', TextType::class, [
-                'required' => true,
+                'required'    => true,
                 'constraints' => [
                     new NotNull(),
                     new Length([
                         'min' => '6',
-                        'max' => '20'
+                        'max' => '20',
                     ]),
-                ]
+                ],
             ])
             ->add('plainPassword', RepeatedType::class, array(
-                'type' => PasswordType::class,
+                'type'    => PasswordType::class,
                 'options' => array(
                     'translation_domain' => 'FOSUserBundle',
-                    'attr' => array(
+                    'attr'               => array(
                         'autocomplete' => 'new-password',
                     ),
                 ),
-                'first_options' => array('label' => 'form.password'),
-                'second_options' => array('label' => 'form.password_confirmation'),
+                'first_options'   => array('label' => 'form.password'),
+                'second_options'  => array('label' => 'form.password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
-                'constraints' => [
+                'constraints'     => [
                     new NotNull(),
                     new Length([
                         'min' => '6',
-                        'max' => '20'
+                        'max' => '20',
                     ]),
-                ]
+                ],
             ));
     }
 

@@ -6,8 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class DashboardController
- * @package App\UI\HTTP\Rest\Controller
+ * Class DashboardController.
  */
 class DashboardController extends Controller
 {

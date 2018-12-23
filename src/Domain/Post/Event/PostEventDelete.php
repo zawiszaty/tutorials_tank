@@ -20,7 +20,9 @@ class PostEventDelete extends AbstractEvent
 
     /**
      * @param array $data
+     *
      * @return mixed The object instance
+     *
      * @throws \Assert\AssertionFailedException
      */
     public static function deserialize(array $data)
@@ -39,8 +41,8 @@ class PostEventDelete extends AbstractEvent
     public function serialize(): array
     {
         return [
-            "id" => $this->id->toString(),
-            "user" => $this->user
+            'id'   => $this->id->toString(),
+            'user' => $this->user,
         ];
     }
 }

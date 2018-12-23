@@ -25,8 +25,8 @@ class GetAllPostCommentCommand
     /**
      * GetAllCommand constructor.
      *
-     * @param int $page
-     * @param int $limit
+     * @param int         $page
+     * @param int         $limit
      * @param string|null $post
      */
     public function __construct(int $page, int $limit, ?string $post = null)

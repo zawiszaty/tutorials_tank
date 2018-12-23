@@ -5,7 +5,6 @@ namespace App\Application\Command\User\Create;
 use App\Application\Command\CommandHandlerInterface;
 use App\Application\Command\User\SendEmail\SendEmailCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Domain\User\Exception\UserCreateException;
 use App\Domain\User\Factory\UserFactory;
 use App\Domain\User\User;
 use App\Domain\User\ValueObject\Avatar;
@@ -21,8 +20,7 @@ use League\Tactician\CommandBus;
 use Ramsey\Uuid\Uuid;
 
 /**
- * Class CreateUserHandler
- * @package App\Application\Command\User\Create
+ * Class CreateUserHandler.
  */
 class CreateUserHandler implements CommandHandlerInterface
 {
@@ -30,10 +28,12 @@ class CreateUserHandler implements CommandHandlerInterface
      * @var UserRepository
      */
     private $repository;
+
     /**
      * @var MysqlUserReadModelRepository
      */
     private $mysqlUserReadModelRepository;
+
     /**
      * @var CommandBus
      */
@@ -41,9 +41,10 @@ class CreateUserHandler implements CommandHandlerInterface
 
     /**
      * CreateUserHandler constructor.
-     * @param UserRepository $repository
+     *
+     * @param UserRepository               $repository
      * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
-     * @param CommandBus $commandBus
+     * @param CommandBus                   $commandBus
      */
     public function __construct(UserRepository $repository, MysqlUserReadModelRepository $mysqlUserReadModelRepository, CommandBus $commandBus)
     {

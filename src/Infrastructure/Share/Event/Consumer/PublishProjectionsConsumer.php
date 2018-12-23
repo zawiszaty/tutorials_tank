@@ -8,8 +8,7 @@ use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
- * Class PublishProjectionsConsumer
- * @package App\Infrastructure\Share\Event\Consumer
+ * Class PublishProjectionsConsumer.
  */
 class PublishProjectionsConsumer implements ConsumerInterface
 {
@@ -20,6 +19,7 @@ class PublishProjectionsConsumer implements ConsumerInterface
 
     /**
      * PublishProjectionsConsumer constructor.
+     *
      * @param EventBus $eventBus
      */
     public function __construct(EventBus $eventBus)
@@ -29,6 +29,7 @@ class PublishProjectionsConsumer implements ConsumerInterface
 
     /**
      * @param AMQPMessage $msg
+     *
      * @return mixed|void
      */
     public function execute(AMQPMessage $msg): void

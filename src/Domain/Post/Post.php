@@ -67,12 +67,12 @@ class Post extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $aggregateRootId
-     * @param Title $title
-     * @param Content $content
-     * @param Thumbnail $thumbnail
-     * @param string $type
-     * @param string $user
-     * @param string $category
+     * @param Title           $title
+     * @param Content         $content
+     * @param Thumbnail       $thumbnail
+     * @param string          $type
+     * @param string          $user
+     * @param string          $category
      *
      * @return Post
      */
@@ -109,13 +109,13 @@ class Post extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param Title $title
-     * @param Content $content
+     * @param Title     $title
+     * @param Content   $content
      * @param Thumbnail $thumbnail
-     * @param string $type
-     * @param string $user
-     * @param string $category
-     * @param string $shortDescription
+     * @param string    $type
+     * @param string    $user
+     * @param string    $category
+     * @param string    $shortDescription
      *
      * @return Post
      */
@@ -149,7 +149,6 @@ class Post extends EventSourcedAggregateRoot
 
     public function applyPostEventDelete(PostEventDelete $eventDelete)
     {
-        
     }
 
     public function applyPostWasEdited(PostWasEdited $event)

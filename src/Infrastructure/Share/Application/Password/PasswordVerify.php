@@ -5,8 +5,7 @@ namespace App\Infrastructure\Share\Application\Password;
 use App\Domain\User\Exception\PasswordIsBadException;
 
 /**
- * Class PasswordVerify
- * @package App\Infrastructure\Share\Password
+ * Class PasswordVerify.
  */
 class PasswordVerify
 {

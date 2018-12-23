@@ -25,7 +25,7 @@ class GetAllHandler implements QueryHandlerInterface
      * GetAllHandler constructor.
      *
      * @param MysqlCategoryReadModelRepository $modelRepository
-     * @param CategoryRepositoryElastic $categoryRepositoryElastic
+     * @param CategoryRepositoryElastic        $categoryRepositoryElastic
      */
     public function __construct(MysqlCategoryReadModelRepository $modelRepository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {

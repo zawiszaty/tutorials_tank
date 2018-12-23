@@ -11,8 +11,7 @@ use League\Tactician\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Class RestController
- * @package App\UI\HTTP\Common\Controller
+ * Class RestController.
  */
 class RestController extends Controller
 {
@@ -20,18 +19,22 @@ class RestController extends Controller
      * @var CommandBus
      */
     protected $queryBus;
+
     /**
      * @var CommandBus
      */
     protected $commandBus;
+
     /**
      * @var EventBus
      */
     protected $eventBus;
+
     /**
      * @var DBALEventStore
      */
     protected $eventStore;
+
     /**
      * @var EventDispatcherInterface
      */
@@ -39,10 +42,11 @@ class RestController extends Controller
 
     /**
      * RestController constructor.
-     * @param CommandBus $queryBus
-     * @param CommandBus $commandBus
-     * @param EventBus $eventBus
-     * @param DBALEventStore $eventStore
+     *
+     * @param CommandBus               $queryBus
+     * @param CommandBus               $commandBus
+     * @param EventBus                 $eventBus
+     * @param DBALEventStore           $eventStore
      * @param EventDispatcherInterface $eventDispatcher
      */
     public function __construct(
@@ -51,8 +55,7 @@ class RestController extends Controller
         EventBus $eventBus,
         DBALEventStore $eventStore,
         EventDispatcherInterface $eventDispatcher
-    )
-    {
+    ) {
         $this->queryBus = $queryBus;
         $this->commandBus = $commandBus;
         $this->eventBus = $eventBus;
@@ -62,6 +65,7 @@ class RestController extends Controller
 
     /**
      * @param \Symfony\Component\Form\Form $form
+     *
      * @return array
      */
     protected function getErrorMessages(\Symfony\Component\Form\Form $form)

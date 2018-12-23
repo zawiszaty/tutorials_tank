@@ -6,13 +6,8 @@ use App\Application\Command\Comment\Create\CreateCommentCommand;
 use App\Application\Command\Comment\Delete\DeleteCommentCommand;
 use App\Application\Query\Comment\GetAllChildrenComment\GetAllChildrenCommentCommand;
 use App\Application\Query\Comment\GetAllPostComment\GetAllPostCommentCommand;
-use App\Infrastructure\Comment\Repository\CommentRepository;
 use App\UI\HTTP\Common\Controller\RestController;
 use App\UI\HTTP\Common\Form\CommentTypeForm;
-use Broadway\EventHandling\EventBus;
-use Broadway\EventStore\Dbal\DBALEventStore;
-use League\Tactician\CommandBus;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,7 +41,7 @@ class CommentController extends RestController
 
     /**
      * @param Request $request
-     * @param string $post
+     * @param string  $post
      *
      * @return Response
      */
@@ -62,7 +57,7 @@ class CommentController extends RestController
 
     /**
      * @param Request $request
-     * @param string $parrentComment
+     * @param string  $parrentComment
      *
      * @return Response
      */
@@ -78,7 +73,8 @@ class CommentController extends RestController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
+     *
      * @return Response
      */
     public function deleteCommentAction(Request $request, string $id): Response

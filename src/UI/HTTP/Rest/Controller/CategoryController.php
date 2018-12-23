@@ -7,16 +7,9 @@ use App\Application\Command\Category\Create\CreateCategoryCommand;
 use App\Application\Command\Category\Delete\DeleteCategoryCommand;
 use App\Application\Query\Category\GetAll\GetAllCommand;
 use App\Application\Query\Category\GetSingle\GetSingleCommand;
-use App\Domain\Category\Exception\CategoryCreateException;
-use App\Domain\Category\Exception\CategoryNameWasChangedException;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Infrastructure\Category\Repository\CategoryRepository;
 use App\UI\HTTP\Common\Controller\RestController;
 use App\UI\HTTP\Common\Form\CategoryType;
-use Broadway\EventHandling\EventBus;
-use Broadway\EventStore\Dbal\DBALEventStore;
-use League\Tactician\CommandBus;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,7 +41,7 @@ class CategoryController extends RestController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @return Response
      */
@@ -70,7 +63,7 @@ class CategoryController extends RestController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @throws \Assert\AssertionFailedException
      *
@@ -102,7 +95,7 @@ class CategoryController extends RestController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @throws \Assert\AssertionFailedException
      *

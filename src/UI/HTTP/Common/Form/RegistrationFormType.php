@@ -5,7 +5,6 @@ namespace App\UI\HTTP\Common\Form;
 use App\Application\Command\User\Create\CreateUserCommand;
 use App\Infrastructure\Share\Validator\Constraint\UniqueValueInEntity;
 use App\Infrastructure\User\Query\Projections\UserView;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -20,8 +19,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 
 /**
- * Class RegistrationFormType
- * @package App\UI\HTTP\Common\Form
+ * Class RegistrationFormType.
  */
 class RegistrationFormType extends AbstractType
 {
@@ -36,36 +34,36 @@ class RegistrationFormType extends AbstractType
                     new Email(),
                     new NotNull(),
                     new Length([
-                        'max' => '20'
-                    ])
-                ]
+                        'max' => '20',
+                    ]),
+                ],
             ])
             ->add('username', TextType::class, [
                 'constraints' => [
                     new NotNull(),
                     new Length([
-                        'max' => '20'
-                    ])
-                ]
+                        'max' => '20',
+                    ]),
+                ],
             ])
             ->add('plainPassword', RepeatedType::class, array(
-                'type' => PasswordType::class,
+                'type'    => PasswordType::class,
                 'options' => array(
                     'translation_domain' => 'FOSUserBundle',
-                    'attr' => array(
+                    'attr'               => array(
                         'autocomplete' => 'new-password',
                     ),
                 ),
-                'first_options' => array('label' => 'form.password'),
-                'second_options' => array('label' => 'form.password_confirmation'),
+                'first_options'   => array('label' => 'form.password'),
+                'second_options'  => array('label' => 'form.password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
-                'constraints' => [
+                'constraints'     => [
                     new NotNull(),
                     new Length([
                         'min' => '6',
-                        'max' => '20'
+                        'max' => '20',
                     ]),
-                ]
+                ],
             ));
 
         $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
@@ -87,16 +85,16 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults(array(
             'csrf_protection' => false,
-            'constraints' => [
+            'constraints'     => [
                 new UniqueValueInEntity([
-                    'field' => 'username',
-                    'entityClass' => UserView::class
+                    'field'       => 'username',
+                    'entityClass' => UserView::class,
                 ]),
                 new UniqueValueInEntity([
-                    'field' => 'email',
-                    'entityClass' => UserView::class
-                ])
-            ]
+                    'field'       => 'email',
+                    'entityClass' => UserView::class,
+                ]),
+            ],
         ));
     }
 }

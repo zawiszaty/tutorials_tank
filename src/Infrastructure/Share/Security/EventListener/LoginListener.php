@@ -7,8 +7,7 @@ use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 
 /**
- * Class LoginListener
- * @package App\Infrastructure\Share\Security\EventListener
+ * Class LoginListener.
  */
 class LoginListener
 {

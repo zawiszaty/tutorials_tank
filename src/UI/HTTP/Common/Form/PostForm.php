@@ -6,9 +6,7 @@ use App\Domain\Category\Category;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Post\Query\Projections\PostView;
 use App\Infrastructure\Share\Validator\Constraint\UniqueValueInEntity;
-use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,7 +20,7 @@ class PostForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -50,13 +48,13 @@ class PostForm extends AbstractType
                     new NotNull(),
                     new Choice([
                         'oder_site',
-                        'own_post'
-                    ])
+                        'own_post',
+                    ]),
                 ],
                 'required' => true,
             ])
             ->add('category', EntityType::class, [
-                'class' => CategoryView::class,
+                'class'       => CategoryView::class,
                 'constraints' => [
                     new NotNull(),
                 ],
@@ -79,14 +77,14 @@ class PostForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => PostView::class,
+            'data_class'      => PostView::class,
             'csrf_protection' => false,
-            'constraints' => [
+            'constraints'     => [
                 new UniqueValueInEntity([
-                    'field' => 'title',
-                    'entityClass' => PostView::class
-                ])
-            ]
+                    'field'       => 'title',
+                    'entityClass' => PostView::class,
+                ]),
+            ],
         ]);
     }
 }

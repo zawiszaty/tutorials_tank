@@ -18,22 +18,22 @@ class GetAllPostCommentCommand
     private $limit;
 
     /**
-     * @var array
+     * @var string
      */
-    private $query;
+    private $post;
 
     /**
      * GetAllCommand constructor.
      *
-     * @param int        $page
-     * @param int        $limit
-     * @param null|array $query
+     * @param int $page
+     * @param int $limit
+     * @param string|null $post
      */
-    public function __construct(int $page, int $limit, ?array $query = null)
+    public function __construct(int $page, int $limit, ?string $post = null)
     {
         $this->page = $page;
         $this->limit = $limit;
-        $this->query = $query;
+        $this->post = $post;
     }
 
     /**
@@ -55,8 +55,8 @@ class GetAllPostCommentCommand
     /**
      * @return null|array
      */
-    public function getQuery(): ?array
+    public function getPost(): ?string
     {
-        return $this->query;
+        return $this->post;
     }
 }

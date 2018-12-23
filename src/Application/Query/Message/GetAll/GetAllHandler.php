@@ -26,7 +26,29 @@ class GetAllHandler implements QueryHandlerInterface
 
     public function __invoke(GetAllCommand $command)
     {
-        $data = $this->repositoryElastic->messageByCreatedAt($command->getPage(), $command->getLimit(), $command->getQuery());
+        if ($command->getQuery()) {
+            $query = [
+                'query' => [
+                    'bool' => [
+                        'should' => [
+                            [
+                                'match' => [
+                                    'recipient' => $command->getRecipient(),
+                                ],
+                            ],
+                            [
+                                'match' => [
+                                    'recipient' => $command->getUser(),
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ];
+        } else {
+            $query = [];
+        }
+        $data = $this->repositoryElastic->messageByCreatedAt($command->getPage(), $command->getLimit(), $query);
         $total = $data->total;
         $data = $this->dataBuilder->build($data->data);
 

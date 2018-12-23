@@ -118,6 +118,16 @@ get_all_user_message:
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\MessageController:getAllUserMessage
 
+delete_post_action:
+  path: /api/v1/post/{id}
+  methods: DELETE
+  controller: App\UI\HTTP\Rest\Controller\PostController:deletePostAction
+
+delete_comment_action:
+  path: /api/v1/comment/{id}
+  methods: DELETE
+  controller: App\UI\HTTP\Rest\Controller\CommentController:deleteCommentAction
+
 dashboard:
   path: /{react_link}
   methods: GET

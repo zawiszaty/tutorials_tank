@@ -4,11 +4,13 @@ namespace App\Domain\Post;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\Event\CreatePostEvent;
+use App\Domain\Post\Event\PostEventDelete;
 use App\Domain\Post\Event\PostWasEdited;
 use App\Domain\Post\ValueObject\Content;
 use App\Domain\Post\ValueObject\Thumbnail;
 use App\Domain\Post\ValueObject\Title;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
  * Class Post.
@@ -65,12 +67,12 @@ class Post extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $aggregateRootId
-     * @param Title           $title
-     * @param Content         $content
-     * @param Thumbnail       $thumbnail
-     * @param string          $type
-     * @param string          $user
-     * @param string          $category
+     * @param Title $title
+     * @param Content $content
+     * @param Thumbnail $thumbnail
+     * @param string $type
+     * @param string $user
+     * @param string $category
      *
      * @return Post
      */
@@ -107,17 +109,17 @@ class Post extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param Title     $title
-     * @param Content   $content
+     * @param Title $title
+     * @param Content $content
      * @param Thumbnail $thumbnail
-     * @param string    $type
-     * @param string    $user
-     * @param string    $category
-     * @param string    $shortDescription
+     * @param string $type
+     * @param string $user
+     * @param string $category
+     * @param string $shortDescription
      *
      * @return Post
      */
-    public function edit(Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, string $category, string $shortDescription)
+    public function edit(Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, ?string $category, string $shortDescription)
     {
         $this->apply(new PostWasEdited(
             $this->getId(),
@@ -131,6 +133,23 @@ class Post extends EventSourcedAggregateRoot
         ));
 
         return $this;
+    }
+
+    /**
+     * @param string $user
+     */
+    public function delete(string $user)
+    {
+        if ($user != $this->getUser()) {
+            throw  new AccessDeniedException();
+        }
+
+        $this->apply(new PostEventDelete($this->id, $user));
+    }
+
+    public function applyPostEventDelete(PostEventDelete $eventDelete)
+    {
+        
     }
 
     public function applyPostWasEdited(PostWasEdited $event)

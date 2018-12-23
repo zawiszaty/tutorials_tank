@@ -22,13 +22,14 @@ class CommentDataBuilder
     /**
      * CommentDataBuilder constructor.
      *
-     * @param UserRepositoryElastic    $repositoryElastic
+     * @param UserRepositoryElastic $repositoryElastic
      * @param CommentRepositoryElastic $commentRepositoryElastic
      */
     public function __construct(
         UserRepositoryElastic $repositoryElastic,
         CommentRepositoryElastic $commentRepositoryElastic
-    ) {
+    )
+    {
         $this->repositoryElastic = $repositoryElastic;
         $this->commentRepositoryElastic = $commentRepositoryElastic;
     }
@@ -43,7 +44,7 @@ class CommentDataBuilder
         foreach ($data as $index => $item) {
             $user = $this->repositoryElastic->get($item['user'])['_source'];
             $data[$index]['user'] = [
-                'avatar'   => $user['avatar'],
+                'avatar' => $user['avatar'],
                 'username' => $user['username'],
             ];
 
@@ -76,7 +77,7 @@ class CommentDataBuilder
             foreach ($data[$index]['childrenComment'] as $indexComment => $itemComment) {
                 $user = $this->repositoryElastic->get($itemComment['user'])['_source'];
                 $data[$index]['childrenComment'][$indexComment]['user'] = [
-                    'avatar'   => $user['avatar'],
+                    'avatar' => $user['avatar'],
                     'username' => $user['username'],
                 ];
             }

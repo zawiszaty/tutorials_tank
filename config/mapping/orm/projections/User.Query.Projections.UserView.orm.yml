@@ -29,4 +29,38 @@ App\Infrastructure\User\Query\Projections\UserView:
             length: 1
             options:
                 fixed: false
+    oneToMany:
+        comment:
+            targetEntity: App\Infrastructure\Comment\Query\Projections\CommentView
+            cascade: [ remove ]
+            fetch: LAZY
+            mappedBy: post
+            inversedBy: null
+            orphanRemoval: true
+            nullable: true
+        post:
+            targetEntity: App\Infrastructure\Post\Query\Projections\PostView
+            cascade: [ remove ]
+            fetch: LAZY
+            mappedBy: post
+            inversedBy: null
+            orphanRemoval: true
+            nullable: true
+        message:
+            targetEntity: App\Infrastructure\Message\MessageView
+            cascade: [ remove ]
+            fetch: LAZY
+            mappedBy: post
+            inversedBy: null
+            orphanRemoval: true
+            nullable: true
+        notification:
+            targetEntity: App\Infrastructure\Notification\NotificationView
+            cascade: [ remove ]
+            fetch: LAZY
+            mappedBy: post
+            inversedBy: null
+            orphanRemoval: true
+            nullable: true
+
     lifecycleCallbacks: {  }

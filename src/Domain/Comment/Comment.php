@@ -3,9 +3,12 @@
 namespace App\Domain\Comment;
 
 use App\Domain\Comment\Event\CommentWasCreated;
+use App\Domain\Comment\Event\CommentWasDeletedEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\ValueObject\Content;
+use App\Infrastructure\Comment\Query\Projections\CommentView;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
  * Class Comment.
@@ -62,9 +65,9 @@ class Comment extends EventSourcedAggregateRoot
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getParrentComment(): string
+    public function getParrentComment(): ?string
     {
         return $this->parrentComment;
     }
@@ -87,10 +90,10 @@ class Comment extends EventSourcedAggregateRoot
 
     /**
      * @param AggregateRootId $aggregateRootId
-     * @param Content         $content
-     * @param string          $parrentComment
-     * @param string          $post
-     * @param string          $user
+     * @param Content $content
+     * @param string $parrentComment
+     * @param string $post
+     * @param string $user
      *
      * @return Comment
      *
@@ -99,19 +102,32 @@ class Comment extends EventSourcedAggregateRoot
     public static function create(
         AggregateRootId $aggregateRootId,
         Content $content,
-        ?string $parrentComment,
+        ?CommentView $parrentComment,
         string $post,
         string $user
-    ) {
+    )
+    {
         $comment = new self();
-        $comment->apply(new CommentWasCreated(
-            $aggregateRootId,
-            $content,
-            $parrentComment,
-            $post,
-            $user,
-            new \DateTime()
-        ));
+
+        if ($parrentComment) {
+            $comment->apply(new CommentWasCreated(
+                $aggregateRootId,
+                $content,
+                $parrentComment->getId(),
+                $post,
+                $user,
+                new \DateTime()
+            ));
+        } else {
+            $comment->apply(new CommentWasCreated(
+                $aggregateRootId,
+                $content,
+                null,
+                $post,
+                $user,
+                new \DateTime()
+            ));
+        }
 
         return $comment;
     }
@@ -126,5 +142,24 @@ class Comment extends EventSourcedAggregateRoot
         $this->parrentComment = $event->getParrentComment();
         $this->post = $event->getPost();
         $this->user = $event->getUser();
+    }
+
+    /**
+     * @param string $user
+     */
+    public function delete(string $user): void
+    {
+        if ($this->user !== $user) {
+            throw new AccessDeniedException();
+        }
+        $this->apply(new CommentWasDeletedEvent($this->id, $user));
+    }
+
+    /**
+     * @param CommentWasDeletedEvent $commentWasDeletedEvent
+     */
+    public function applyCommentWasDeletedEvent(CommentWasDeletedEvent $commentWasDeletedEvent): void
+    {
+        return;
     }
 }

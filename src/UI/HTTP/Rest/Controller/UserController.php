@@ -19,6 +19,7 @@ use App\Domain\User\Exception\UserCreateException;
 use App\Domain\User\ValueObject\Email;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
+use App\UI\HTTP\Common\Controller\RestController;
 use App\UI\HTTP\Common\Form\ChangeAvatarForm;
 use App\UI\HTTP\Common\Form\ChangeEmailForm;
 use App\UI\HTTP\Common\Form\ChangePasswordForm;
@@ -36,64 +37,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class UserController.
- *
- * @Route("/api")
  */
-class UserController extends Controller
+class UserController extends RestController
 {
-    /**
-     * @var CommandBus
-     */
-    private $queryBus;
-
-    /**
-     * @var CommandBus
-     */
-    private $commandBus;
-
-    /**
-     * @var EventBus
-     */
-    private $eventBus;
-
-    /**
-     * @var DBALEventStore
-     */
-    private $eventStore;
-
-    /**
-     * @var MysqlUserReadModelRepository
-     */
-    private $userReadModelRepository;
-
-    /**
-     * @var EventDispatcherInterface
-     */
-    private $eventDispatcher;
-
-    public function __construct(
-        CommandBus $queryBus,
-        CommandBus $commandBus,
-        EventBus $eventBus,
-        DBALEventStore $eventStore,
-        MysqlUserReadModelRepository $userReadModelRepository,
-        EventDispatcherInterface $eventDispatcher
-    ) {
-        $this->queryBus = $queryBus;
-        $this->commandBus = $commandBus;
-        $this->eventBus = $eventBus;
-        $this->eventStore = $eventStore;
-        $this->userReadModelRepository = $userReadModelRepository;
-        $this->eventDispatcher = $eventDispatcher;
-    }
-
     /**
      * @param Request $request
      *
      * @return Response
-     *
-     * @throws \Assert\AssertionFailedException
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function createCategoryAction(Request $request): Response
     {
@@ -102,25 +52,9 @@ class UserController extends Controller
         $form->submit($request->request->all());
 
         if ($form->isSubmitted() && $form->isValid()) {
-            try {
-                $this->commandBus->handle($command);
-            } catch (UserCreateException $exception) {
-                /** @var UserView $user */
-                $user = $this->userReadModelRepository->oneByEmail(Email::fromString($command->getEmail()));
-                $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getConfirmationToken());
-                $this->commandBus->handle($sendEmailCommand);
-                /** @var Item $user */
-                $user = $this->userReadModelRepository->getSingle(AggregateRootId::fromString($exception->getMessage()));
-                $msg = array('user_id' => 1235, 'image_path' => '/path/to/new/pic.png');
-                $this->get('old_sound_rabbit_mq.projection2_producer')->publish(serialize($msg));
+            $this->commandBus->handle($command);
 
-                $response = new JsonResponse([
-                    'id'    => $exception->getMessage(),
-                    'token' => $user->readModel->getConfirmationToken(),
-                ], 200);
-
-                return $response;
-            }
+            return new JsonResponse('success', Response::HTTP_CREATED);
         }
 
         return new JsonResponse($this->getErrorMessages($form), Response::HTTP_BAD_REQUEST);
@@ -128,23 +62,22 @@ class UserController extends Controller
 
     /**
      * @param Request $request
-     * @param string  $token
+     * @param string $token
      *
      * @return Response
      */
     public function confirmUserAction(Request $request, string $token): Response
     {
         $command = new ConfirmUserCommand($token);
-
-        $this->commandBus->handle($command);
-        $response = new JsonResponse('success', 200);
+        $this->queryBus->handle($command);
+        $response = new JsonResponse('success', Response::HTTP_OK);
 
         return $response;
     }
 
     /**
      * @param Request $request
-     * @param string  $id
+     * @param string $id
      *
      * @return Response
      *
@@ -152,15 +85,10 @@ class UserController extends Controller
      */
     public function bannedUserAction(Request $request, string $id): Response
     {
-        if ($this->getUser()->getId() === $id) {
-            throw new \Exception('Nie mozesz zbanować sam siebie');
-        }
         $command = new BannedUserCommand($id);
         $this->commandBus->handle($command);
 
-        $response = new JsonResponse('success', 200);
-
-        return $response;
+        return new JsonResponse('success', Response::HTTP_OK);
     }
 
     /**
@@ -173,19 +101,16 @@ class UserController extends Controller
     public function changeNameAction(Request $request): Response
     {
         $command = new ChangeUserNameCommand();
-        $command->setId(AggregateRootId::fromString($this->getUser()->getId()));
+        $command->id = $this->getUser()->getId();
         $form = $this->createForm(ChangeUserNameForm::class, $command);
         $form->submit($request->request->all());
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->commandBus->handle($command);
 
-            $response = new JsonResponse('success', 200);
-
-            return $response;
+            return new JsonResponse('success', Response::HTTP_OK);
         }
-
-        $response = new JsonResponse('error', JsonResponse::HTTP_BAD_REQUEST);
+        $response = new JsonResponse($this->getErrorMessages($form), JsonResponse::HTTP_BAD_REQUEST);
 
         return $response;
     }
@@ -206,14 +131,12 @@ class UserController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->commandBus->handle($command);
-
             $sendEmailCommand = new SendEmailCommand($command->getEmail(), $this->getUser()->getConfirmationToken());
             $this->commandBus->handle($sendEmailCommand);
             $response = new JsonResponse('success', 200);
 
             return $response;
         }
-
         $response = new JsonResponse('error', JsonResponse::HTTP_BAD_REQUEST);
 
         return $response;
@@ -227,27 +150,19 @@ class UserController extends Controller
     public function changePasswordAction(Request $request): Response
     {
         $command = new ChangePasswordCommand();
-        $command->setId($this->getUser()->getId());
-
+        $command->id = $this->getUser()->getId();
+        $command->currentPassword = $this->getUser()->getPassword();
         $form = $this->createForm(ChangePasswordForm::class, $command);
         $form->submit($request->request->all());
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if (
-            !password_verify(
-                $command->getOldPassword(),
-                $this->getUser()->getPassword()
-            )
-            ) {
-                throw new PasswordIsBadException();
-            }
             $this->commandBus->handle($command);
             $response = new JsonResponse('success', JsonResponse::HTTP_OK);
 
             return $response;
         }
 
-        $response = new JsonResponse('error', JsonResponse::HTTP_BAD_REQUEST);
+        $response = new JsonResponse($this->getErrorMessages($form), JsonResponse::HTTP_BAD_REQUEST);
 
         return $response;
     }
@@ -261,29 +176,7 @@ class UserController extends Controller
     {
         $page = $request->get('page') ?? 1;
         $limit = $request->get('limit') ?? 10;
-        if ($request->get('query')) {
-            $query = [
-                'query' => [
-                    'bool' => [
-                        'should' => [
-                            [
-                                'wildcard' => [
-                                    'username' => '*' . $request->get('query') . '*',
-                                ],
-                            ],
-                            [
-                                'wildcard' => [
-                                    'email' => '*' . $request->get('query') . '*',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ];
-        } else {
-            $query = [];
-        }
-
+        $query = $request->get('query') ?? 10;
         $command = new GetAllCommand($page, $limit, $query);
         $model = $this->queryBus->handle($command);
 
@@ -299,7 +192,6 @@ class UserController extends Controller
     {
         $command = new ChangeAvatarCommand();
         $command->setId($this->getUser()->getId());
-
         $form = $this->createForm(ChangeAvatarForm::class, $command);
         $file = $request->files->get('file');
         $request->request->set('file', $file);
@@ -319,26 +211,5 @@ class UserController extends Controller
         $response = new JsonResponse($this->getErrorMessages($form), JsonResponse::HTTP_BAD_REQUEST);
 
         return $response;
-    }
-
-    private function getErrorMessages(\Symfony\Component\Form\Form $form)
-    {
-        $errors = array();
-
-        foreach ($form->getErrors() as $key => $error) {
-            if ($form->isRoot()) {
-                $errors['#'][] = $error->getMessage();
-            } else {
-                $errors[] = $error->getMessage();
-            }
-        }
-
-        foreach ($form->all() as $child) {
-            if (!$child->isValid()) {
-                $errors[$child->getName()] = $this->getErrorMessages($child);
-            }
-        }
-
-        return $errors;
     }
 }

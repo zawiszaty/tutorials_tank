@@ -18,22 +18,22 @@ class GetAllChildrenCommentCommand
     private $limit;
 
     /**
-     * @var array
+     * @var string
      */
-    private $query;
+    private $parrentComment;
 
     /**
      * GetAllCommand constructor.
      *
-     * @param int        $page
-     * @param int        $limit
-     * @param null|array $query
+     * @param int $page
+     * @param int $limit
+     * @param string|null $parrentComment
      */
-    public function __construct(int $page, int $limit, ?array $query = null)
+    public function __construct(int $page, int $limit, ?string $parrentComment = null)
     {
         $this->page = $page;
         $this->limit = $limit;
-        $this->query = $query;
+        $this->parrentComment = $parrentComment;
     }
 
     /**
@@ -53,10 +53,10 @@ class GetAllChildrenCommentCommand
     }
 
     /**
-     * @return null|array
+     * @return string
      */
-    public function getQuery(): ?array
+    public function getParrentComment(): string
     {
-        return $this->query;
+        return $this->parrentComment;
     }
 }

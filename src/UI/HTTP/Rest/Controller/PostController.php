@@ -3,16 +3,13 @@
 namespace App\UI\HTTP\Rest\Controller;
 
 use App\Application\Command\Post\Create\CreatePostCommand;
+use App\Application\Command\Post\Delete\DeletePostCommand;
 use App\Application\Command\Post\Edit\EditPostCommand;
 use App\Application\Query\Post\GetAll\GetAllCommand;
 use App\Application\Query\Post\GetSingle\GetSingleCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Domain\Post\Exception\CreatePostException;
-use App\UI\HTTP\Common\Form\AddPostForm;
-use Broadway\EventHandling\EventBus;
-use Broadway\EventStore\Dbal\DBALEventStore;
-use League\Tactician\CommandBus;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\UI\HTTP\Common\Controller\RestController;
+use App\UI\HTTP\Common\Form\PostForm;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,40 +17,8 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class PostController.
  */
-class PostController extends Controller
+class PostController extends RestController
 {
-    /**
-     * @var CommandBus
-     */
-    private $queryBus;
-
-    /**
-     * @var CommandBus
-     */
-    private $commandBus;
-
-    /**
-     * @var EventBus
-     */
-    private $eventBus;
-
-    /**
-     * @var DBALEventStore
-     */
-    private $eventStore;
-
-    public function __construct(
-        CommandBus $queryBus,
-        CommandBus $commandBus,
-        EventBus $eventBus,
-        DBALEventStore $eventStore
-    ) {
-        $this->queryBus = $queryBus;
-        $this->commandBus = $commandBus;
-        $this->eventBus = $eventBus;
-        $this->eventStore = $eventStore;
-    }
-
     /**
      * @param Request $request
      *
@@ -65,15 +30,13 @@ class PostController extends Controller
         $command->setUser($this->getUser()->getId());
         $file = $request->files->get('file');
         $request->request->set('file', $file);
-        $form = $this->createForm(AddPostForm::class, $command);
+        $form = $this->createForm(PostForm::class, $command);
         $form->submit($request->request->all());
 
         if ($form->isSubmitted() && $form->isValid()) {
-            try {
-                $this->commandBus->handle($command);
-            } catch (CreatePostException $exception) {
-                return new JsonResponse('success', Response::HTTP_OK);
-            }
+            $this->commandBus->handle($command);
+
+            return new JsonResponse('success', Response::HTTP_OK);
         }
 
         return new JsonResponse($this->getErrorMessages($form), Response::HTTP_BAD_REQUEST);
@@ -81,7 +44,7 @@ class PostController extends Controller
 
     /**
      * @param Request $request
-     * @param string  $id
+     * @param string $id
      *
      * @return Response
      */
@@ -92,15 +55,13 @@ class PostController extends Controller
         $command->setId($id);
         $file = $request->files->get('file');
         $request->request->set('file', $file);
-        $form = $this->createForm(AddPostForm::class, $command);
+        $form = $this->createForm(PostForm::class, $command);
         $form->submit($request->request->all());
 
         if ($form->isSubmitted() && $form->isValid()) {
-            try {
-                $this->commandBus->handle($command);
-            } catch (CreatePostException $exception) {
-                return new JsonResponse('success', Response::HTTP_OK);
-            }
+            $this->commandBus->handle($command);
+
+            return new JsonResponse('success', Response::HTTP_OK);
         }
 
         return new JsonResponse($this->getErrorMessages($form), Response::HTTP_BAD_REQUEST);
@@ -108,7 +69,7 @@ class PostController extends Controller
 
     /**
      * @param Request $request
-     * @param string  $id
+     * @param string $id
      *
      * @return Response
      *
@@ -131,17 +92,7 @@ class PostController extends Controller
     {
         $page = $request->get('page') ?? 1;
         $limit = $request->get('limit') ?? 10;
-        if ($request->get('query')) {
-            $query = [
-                'query' => [
-                    'wildcard' => [
-                        'title' => '*' . $request->get('query') . '*',
-                    ],
-                ],
-            ];
-        } else {
-            $query = [];
-        }
+        $query = $request->get('query') ?? null;
 
         $command = new GetAllCommand($page, $limit, $query);
         $model = $this->queryBus->handle($command);
@@ -149,24 +100,16 @@ class PostController extends Controller
         return new JsonResponse($model, 200);
     }
 
-    private function getErrorMessages(\Symfony\Component\Form\Form $form)
+    /**
+     * @param Request $request
+     * @param string $id
+     * @return Response
+     */
+    public function deletePostAction(Request $request, string $id): Response
     {
-        $errors = array();
+        $command = new DeletePostCommand($id, $this->getUser()->getId());
+        $this->commandBus->handle($command);
 
-        foreach ($form->getErrors() as $key => $error) {
-            if ($form->isRoot()) {
-                $errors['#'][] = $error->getMessage();
-            } else {
-                $errors[] = $error->getMessage();
-            }
-        }
-
-        foreach ($form->all() as $child) {
-            if (!$child->isValid()) {
-                $errors[$child->getName()] = $this->getErrorMessages($child);
-            }
-        }
-
-        return $errors;
+        return new JsonResponse('success', 200);
     }
 }

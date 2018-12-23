@@ -32,32 +32,34 @@ App\Infrastructure\Comment\Query\Projections\CommentView:
     manyToOne:
         parrentComment:
             targetEntity: CommentView
-            cascade: {  }
+            cascade: [ remove ]
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
                 parrent_comment:
                     referencedColumnName: id
-            orphanRemoval: false
+                    onDelete: CASCADE
+            orphanRemoval: true
         post:
             targetEntity: App\Infrastructure\Post\Query\Projections\PostView
-            cascade: {  }
+            cascade: [ remove ]
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
                 post:
                     referencedColumnName: id
+                    onDelete: CASCADE
             orphanRemoval: false
         user:
             targetEntity: App\Infrastructure\User\Query\Projections\UserView
-            cascade: {  }
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
                 user:
                     referencedColumnName: id
+                    onDelete: CASCADE
             orphanRemoval: false
     lifecycleCallbacks: {  }

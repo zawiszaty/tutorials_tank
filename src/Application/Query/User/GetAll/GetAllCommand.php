@@ -29,7 +29,7 @@ class GetAllCommand
      * @param int         $limit
      * @param null|string $query
      */
-    public function __construct(int $page, int $limit, ?array $query = null)
+    public function __construct(int $page, int $limit, ?string $query = null)
     {
         $this->page = $page;
         $this->limit = $limit;
@@ -55,7 +55,7 @@ class GetAllCommand
     /**
      * @return null|array
      */
-    public function getQuery(): ?array
+    public function getQuery(): ?string
     {
         return $this->query;
     }

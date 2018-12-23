@@ -28,10 +28,9 @@ class CreatePostHandler implements CommandHandlerInterface
     /**
      * @param CreatePostCommand $command
      *
-     * @throws CreatePostException
      * @throws \Assert\AssertionFailedException
      */
-    public function __invoke(CreatePostCommand $command)
+    public function __invoke(CreatePostCommand $command): void
     {
         $fileName = FileMover::move($command->getFile());
         $aggregateRoot = Post::create(
@@ -46,7 +45,5 @@ class CreatePostHandler implements CommandHandlerInterface
         );
 
         $this->postRepository->store($aggregateRoot);
-
-        throw new CreatePostException($aggregateRoot->getId());
     }
 }

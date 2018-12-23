@@ -35,6 +35,16 @@ class MysqlPostReadModelRepository extends MysqlRepository
     }
 
     /**
+     * @param string $id
+     */
+    public function delete(string $id)
+    {
+        $post = $this->repository->find($id);
+        $this->entityManager->remove($post);
+        $this->entityManager->flush();
+    }
+
+    /**
      * MysqlUserReadModelRepository constructor.
      *
      * @param EntityManagerInterface $entityManager

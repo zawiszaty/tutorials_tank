@@ -44,6 +44,9 @@
             "ref": "a4ded8381c60e594474584599659eef9d931c872"
         }
     },
+    "broadway/broadway-saga": {
+        "version": "0.5.0"
+    },
     "broadway/event-store-dbal": {
         "version": "0.2",
         "recipe": {

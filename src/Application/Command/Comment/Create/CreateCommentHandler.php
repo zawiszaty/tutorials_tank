@@ -30,16 +30,16 @@ class CreateCommentHandler implements CommandHandlerInterface
      * @param CreateCommentCommand $command
      *
      * @throws \Assert\AssertionFailedException
-     * @throws \ZMQSocketException
+     * @throws \Exception
      */
     public function __invoke(CreateCommentCommand $command)
     {
         $aggregateRoot = Comment::create(
             AggregateRootId::fromString(Uuid::uuid4()),
-            Content::fromString($command->getContent()),
-            $command->getParentComment(),
-            $command->getPost(),
-            $command->getUser()
+            Content::fromString($command->content),
+            $command->parentComment,
+            $command->post->getId(),
+            $command->user
         );
         $this->commentRepository->store($aggregateRoot);
     }

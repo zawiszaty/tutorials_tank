@@ -4,12 +4,14 @@ namespace App\Infrastructure\Post;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\Event\CreatePostEvent;
+use App\Domain\Post\Event\PostEventDelete;
 use App\Domain\Post\Event\PostWasEdited;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
 use App\Infrastructure\Post\Query\Projections\PostView;
 use App\Infrastructure\Post\Query\Repository\MysqlPostReadModelRepository;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class PostReadProjectionFactory.
@@ -55,12 +57,23 @@ class PostReadProjectionFactory extends Projector
         $data = $event->serialize();
         $data['slug'] = implode('-', explode(' ', $data['title']));
         $data['user'] = $this->mysqlUserReadModelRepository->oneByUuid(AggregateRootId::fromString($data['user']));
-        $data['category'] = $this->categoryReadModelRepository->oneByUuid(AggregateRootId::fromString($data['category']));
+
+        if ($data['category']) {
+            $data['category'] = $this->categoryReadModelRepository->oneByUuid(AggregateRootId::fromString($data['category']));
+        }
 
         /** @var PostView $postView */
         $postView = $this->modelRepository->oneByUuid(AggregateRootId::fromString($event->getId()));
         $postView->edit($data);
         $this->modelRepository->apply();
+    }
+
+    /**
+     * @param PostEventDelete $eventDelete
+     */
+    public function applyPostEventDelete(PostEventDelete $eventDelete)
+    {
+        $this->modelRepository->delete($eventDelete->getId());
     }
 
     /**
@@ -71,15 +84,16 @@ class PostReadProjectionFactory extends Projector
     /**
      * PostReadProjectionFactory constructor.
      *
-     * @param MysqlPostReadModelRepository     $modelRepository
-     * @param MysqlUserReadModelRepository     $mysqlUserReadModelRepository
+     * @param MysqlPostReadModelRepository $modelRepository
+     * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
      * @param MysqlCategoryReadModelRepository $categoryReadModelRepository
      */
     public function __construct(
         MysqlPostReadModelRepository $modelRepository,
         MysqlUserReadModelRepository $mysqlUserReadModelRepository,
         MysqlCategoryReadModelRepository $categoryReadModelRepository
-    ) {
+    )
+    {
         $this->modelRepository = $modelRepository;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
         $this->categoryReadModelRepository = $categoryReadModelRepository;

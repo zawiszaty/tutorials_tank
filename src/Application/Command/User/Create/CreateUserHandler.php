@@ -3,6 +3,7 @@
 namespace App\Application\Command\User\Create;
 
 use App\Application\Command\CommandHandlerInterface;
+use App\Application\Command\User\SendEmail\SendEmailCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\UserCreateException;
 use App\Domain\User\Factory\UserFactory;
@@ -13,19 +14,42 @@ use App\Domain\User\ValueObject\Password;
 use App\Domain\User\ValueObject\Roles;
 use App\Domain\User\ValueObject\Steemit;
 use App\Domain\User\ValueObject\UserName;
+use App\Infrastructure\User\Query\Projections\UserView;
+use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use App\Infrastructure\User\Repository\UserRepository;
+use League\Tactician\CommandBus;
 use Ramsey\Uuid\Uuid;
 
+/**
+ * Class CreateUserHandler
+ * @package App\Application\Command\User\Create
+ */
 class CreateUserHandler implements CommandHandlerInterface
 {
     /**
      * @var UserRepository
      */
     private $repository;
+    /**
+     * @var MysqlUserReadModelRepository
+     */
+    private $mysqlUserReadModelRepository;
+    /**
+     * @var CommandBus
+     */
+    private $commandBus;
 
-    public function __construct(UserRepository $repository)
+    /**
+     * CreateUserHandler constructor.
+     * @param UserRepository $repository
+     * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
+     * @param CommandBus $commandBus
+     */
+    public function __construct(UserRepository $repository, MysqlUserReadModelRepository $mysqlUserReadModelRepository, CommandBus $commandBus)
     {
         $this->repository = $repository;
+        $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
+        $this->commandBus = $commandBus;
     }
 
     /**
@@ -48,7 +72,9 @@ class CreateUserHandler implements CommandHandlerInterface
             Password::fromString($command->getPlainPassword())
             );
         $this->repository->store($user);
-
-        throw new UserCreateException($user->getId()->toString());
+//        /** @var UserView $user */
+//        $user = $this->mysqlUserReadModelRepository->oneByEmail(Email::fromString($command->getEmail()));
+//        $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getConfirmationToken());
+//        $this->commandBus->handle($sendEmailCommand);
     }
 }

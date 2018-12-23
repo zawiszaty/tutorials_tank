@@ -22,7 +22,7 @@ class GetAllChildrenCommentHandler implements QueryHandlerInterface
      * GetAllPostCommentHandler constructor.
      *
      * @param CommentRepositoryElastic $repositoryElastic
-     * @param CommentDataBuilder       $builder
+     * @param CommentDataBuilder $builder
      */
     public function __construct(CommentRepositoryElastic $repositoryElastic, CommentDataBuilder $builder)
     {
@@ -37,7 +37,20 @@ class GetAllChildrenCommentHandler implements QueryHandlerInterface
      */
     public function __invoke(GetAllChildrenCommentCommand $command)
     {
-        $data = $this->repositoryElastic->commentByCreatedAt($command->getPage(), $command->getLimit(), $command->getQuery());
+        $query = [
+            'query' => [
+                'bool' => [
+                    'must' => [
+                        [
+                            'match' => [
+                                'parrentComment' => $command->getParrentComment(),
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
+        $data = $this->repositoryElastic->commentByCreatedAt($command->getPage(), $command->getLimit(), $query);
         $total = $data->total;
         $data = $this->builder->build($data->data);
 

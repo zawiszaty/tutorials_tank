@@ -60,6 +60,12 @@ class CommentWasCreated extends AbstractEvent
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param array $data
+     * @return CommentWasCreated|mixed
+     * @throws \Assert\AssertionFailedException
+     * @throws \Exception
+     */
     public static function deserialize(array $data)
     {
         $instance = new self(
@@ -68,7 +74,7 @@ class CommentWasCreated extends AbstractEvent
             $data['parrentComment'],
             $data['post'],
             $data['user'],
-            $data['createdAt']
+            new \DateTime($data['createdAt']['date'])
         );
 
         return $instance;

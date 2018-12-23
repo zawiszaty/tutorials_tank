@@ -1,17 +1,42 @@
 old_sound_rabbit_mq:
-    connections:
-        default:
-            url: '%env(RABBITMQ_URL)%'
-            keepalive: false
-            heartbeat: 0
-    producers:
-        projection2:
-            connection:       default
-            exchange_options: { name: 'projection2', type: direct }
+  connections:
+    default:
+      url: '%env(RABBITMQ_URL)%'
+      lazy: true
+      keepalive: false
 
-    consumers:
-        projection2:
-            connection:       default
-            exchange_options: {name: 'projection2', type: direct}
-            queue_options:    {name: 'projection2'}
-            callback:         App\Infrastructure\Share\Event\Consumer\SendEventsToElasticConsumer
+  producers:
+    events:
+      connection:       default
+      exchange_options: { name: 'events', type: topic }
+    projections:
+      class: App\Infrastructure\Share\Event\Producer\EventToProjectionsProducer
+      connection:       default
+      exchange_options: { name: 'events', type: topic }
+
+
+  multiple_consumers:
+    events:
+      connection:       default
+      exchange_options: { name: 'events', type: topic }
+      queues:
+        elastic_events:
+          name: elastic_events
+          routing_keys:
+            - 'App.Domain.#'
+          callback: App\Infrastructure\Share\Event\Consumer\SendEventsToElasticConsumer
+        var_dump_all_events:
+          name: var_dump_all_events
+          routing_keys:
+            - 'App.Domain.#'
+          callback: App\Consumer\DemoEventsConsumer
+    projections:
+      connection:       default
+      exchange_options: { name: 'events', type: topic }
+      queues:
+        projections:
+          name: projections
+          routing_keys:
+            - 'projections'
+          callback: App\Infrastructure\Share\Event\Consumer\PublishProjectionsConsumer
+

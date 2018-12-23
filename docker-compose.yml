@@ -2,6 +2,24 @@
 version: '3.1'
 
 services:
+  rabbit:
+    image: "rabbitmq:3.7.8-management"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "admin"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    labels:
+      NAME: "rabbitmq"
+#    links:
+#      - workers_1
+#      - workers_2
+#    depends_on:
+#      - workers_1
+#      - workers_2
   nginx:
     image: nginx:1.11-alpine
     ports:
@@ -26,11 +44,37 @@ services:
       - "8888:8888"
       - "5555:5555"
 
-  workers:
-    build: ./docker/php
-    volumes:
-    - ./:/var/www/project
+#  workers_1:
+#    build: ./docker/php
+#    working_dir: /var/www/project
+#    restart: always
+#    volumes:
+#      - ./:/var/www/project
+#    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
+#
+#
+#  workers_2:
+#    build: ./docker/php
+#    working_dir: /var/www/project
+#    restart: always
+#    volumes:
+#      - ./:/var/www/project
+#    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'projections']
 
+
+  workers_3:
+    build: ./docker/php
+    working_dir: /var/www/project
+    volumes:
+      - ./:/var/www/project
+    command: ['php','bin/console', 'app:create-message-server']
+
+  workers_4:
+    build: ./docker/php
+    working_dir: /var/www/project
+    volumes:
+      - ./:/var/www/project
+    command: ['php','bin/console', 'app:create-notification-server']
 
   db:
     image: mysql:5.7
@@ -46,9 +90,9 @@ services:
       MYSQL_ROOT_PASSWORD: admin
     restart: always
     ports:
-     - 8000:80
+      - 8000:80
     volumes:
-     - /sessions
+      - /sessions
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.4.2
@@ -63,7 +107,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-    - esdata1:/usr/share/elasticsearch/data
+      - esdata1:/usr/share/elasticsearch/data
 
   kibana:
     image: docker.elastic.co/kibana/kibana:6.3.0
@@ -72,20 +116,11 @@ services:
     volumes:
       - ./docker/kibana/config:/usr/share/kibana/config/kibana.yml
 
-#  rabbit:
-#    image: "rabbitmq:3.7.8-management"
-#    environment:
-#      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
-#      RABBITMQ_DEFAULT_USER: "admin"
-#      RABBITMQ_DEFAULT_PASS: "admin"
-#      RABBITMQ_DEFAULT_VHOST: "/"
-#    ports:
-#    - "15672:15672"
-#    - "5672:5672"
-#    labels:
-#      NAME: "rabbitmq"
-
-    
+  mailcatcher:
+    image: yappabe/mailcatcher
+    ports:
+      - 1025:1025
+      - 1080:1080
 volumes:
   db_data:
   esdata1:

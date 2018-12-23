@@ -6,6 +6,10 @@ use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\ValueObject\Email;
 
+/**
+ * Class UserMailWasChanged
+ * @package App\Domain\User\Event
+ */
 class UserMailWasChanged extends AbstractEvent
 {
     /**
@@ -53,7 +57,7 @@ class UserMailWasChanged extends AbstractEvent
      *
      * @throws \Assert\AssertionFailedException
      */
-    public static function deserialize(array $data)
+    public static function deserialize(array $data): self
     {
         return new self(
             AggregateRootId::fromString($data['id']),

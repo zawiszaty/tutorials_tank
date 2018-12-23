@@ -36,9 +36,7 @@ class CreateCategoryHandler implements CommandHandlerInterface
      */
     public function __invoke(CreateCategoryCommand $categoryCommand)
     {
-        $aggregateRoot = CategoryFactory::create(Name::fromString($categoryCommand->getName()));
+        $aggregateRoot = CategoryFactory::create(Name::fromString($categoryCommand->name));
         $this->categoryRepository->store($aggregateRoot);
-
-        throw new CategoryCreateException($aggregateRoot->getId());
     }
 }

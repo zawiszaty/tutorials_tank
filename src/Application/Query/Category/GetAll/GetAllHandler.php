@@ -25,7 +25,7 @@ class GetAllHandler implements QueryHandlerInterface
      * GetAllHandler constructor.
      *
      * @param MysqlCategoryReadModelRepository $modelRepository
-     * @param CategoryRepositoryElastic        $categoryRepositoryElastic
+     * @param CategoryRepositoryElastic $categoryRepositoryElastic
      */
     public function __construct(MysqlCategoryReadModelRepository $modelRepository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {
@@ -40,7 +40,18 @@ class GetAllHandler implements QueryHandlerInterface
      */
     public function __invoke(GetAllCommand $command)
     {
-        $data = $this->categoryRepositoryElastic->page($command->getPage(), $command->getLimit(), $command->getQuery());
+        if ($command->getQuery()) {
+            $query = [
+                'query' => [
+                    'wildcard' => [
+                        'name' => '*' . $command->getQuery() . '*',
+                    ],
+                ],
+            ];
+        } else {
+            $query = [];
+        }
+        $data = $this->categoryRepositoryElastic->page($command->getPage(), $command->getLimit(), $query);
 
         return $data;
     }

@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 class ChangeAvatarForm extends AbstractType
 {
@@ -14,12 +15,15 @@ class ChangeAvatarForm extends AbstractType
     {
         $builder
             ->add('file', FileType::class, [
-                'constraints' => new File([
-                    'maxSize'   => '1M',
-                    'mimeTypes' => ['image/jpeg',
-                        'image/png',
-                    ],
-                ]),
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1M',
+                        'mimeTypes' => ['image/jpeg',
+                            'image/png',
+                        ],
+                    ]),
+                    new NotNull(),
+                ]
             ]);
     }
 

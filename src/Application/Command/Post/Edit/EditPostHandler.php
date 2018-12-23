@@ -21,6 +21,10 @@ class EditPostHandler implements CommandHandlerInterface
      */
     private $postRepository;
 
+    /**
+     * EditPostHandler constructor.
+     * @param PostRepository $postRepository
+     */
     public function __construct(PostRepository $postRepository)
     {
         $this->postRepository = $postRepository;
@@ -29,11 +33,9 @@ class EditPostHandler implements CommandHandlerInterface
     /**
      * @param EditPostCommand $command
      *
-     * @throws CreatePostException
      * @throws \Assert\AssertionFailedException
-     * @throws \Exception
      */
-    public function __invoke(EditPostCommand $command)
+    public function __invoke(EditPostCommand $command): void
     {
         $aggregateRoot = $this->postRepository->get(AggregateRootId::fromString($command->getId()));
 
@@ -54,7 +56,5 @@ class EditPostHandler implements CommandHandlerInterface
         );
 
         $this->postRepository->store($aggregateRoot);
-
-        throw new CreatePostException($aggregateRoot->getId());
     }
 }

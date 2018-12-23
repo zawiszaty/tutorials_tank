@@ -26,6 +26,8 @@ services:
 
           $eventStore: '@Broadway\EventStore\Dbal\DBALEventStore'
 
+          $eventProducer: '@old_sound_rabbit_mq.events_producer'
+
     _instanceof:
 
         App\Application\Command\CommandHandlerInterface:
@@ -62,6 +64,10 @@ services:
     App\UI\HTTP\Rest\EventSubscriber\JsonBodyParserSubscriber:
         tags:
         - { name: 'kernel.event_listener', event: 'kernel.request', method: 'onKernelRequest', priority: 100 }
+        
+    App\Infrastructure\Share\Security\EventListener\LoginListener:
+        tags:
+            - { name: 'kernel.event_listener', event: 'security.interactive_login' }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
@@ -74,3 +80,13 @@ services:
             - 'events'
             - 'false'
             - '@broadway.uuid.converter'
+
+
+    user_saga:
+        class: App\Domain\User\Saga\UserSaga
+        public: true
+        arguments:
+            - '@tactician.commandbus'
+            - '@App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository'
+        tags:
+            - {name: broadway.saga, type: user}

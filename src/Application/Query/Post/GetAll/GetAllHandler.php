@@ -27,6 +27,17 @@ class GetAllHandler implements QueryHandlerInterface
      */
     public function __invoke(GetAllCommand $command)
     {
+        if ($command->getQuery()) {
+            $query = [
+                'query' => [
+                    'wildcard' => [
+                        'title' => '*' . $command->getQuery() . '*',
+                    ],
+                ],
+            ];
+        } else {
+            $query = [];
+        }
         $data = $this->repositoryElastic->pageByCreatedAt($command->getPage(), $command->getLimit(), $command->getQuery());
 
         return $data;

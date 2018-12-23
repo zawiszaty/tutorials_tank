@@ -4,6 +4,7 @@ namespace App\UI\HTTP\Rest\Controller;
 
 use App\Domain\User\Exception\UserIsBannedException;
 use App\Infrastructure\User\Query\Projections\UserView;
+use App\UI\HTTP\Common\Controller\RestController;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
 use League\Tactician\CommandBus;
@@ -15,40 +16,8 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class SecurityController.
  */
-class SecurityController extends Controller
+class SecurityController extends RestController
 {
-    /**
-     * @var CommandBus
-     */
-    private $queryBus;
-
-    /**
-     * @var CommandBus
-     */
-    private $commandBus;
-
-    /**
-     * @var EventBus
-     */
-    private $eventBus;
-
-    /**
-     * @var DBALEventStore
-     */
-    private $eventStore;
-
-    public function __construct(
-        CommandBus $queryBus,
-        CommandBus $commandBus,
-        EventBus $eventBus,
-        DBALEventStore $eventStore
-    ) {
-        $this->queryBus = $queryBus;
-        $this->commandBus = $commandBus;
-        $this->eventBus = $eventBus;
-        $this->eventStore = $eventStore;
-    }
-
     /**
      * @param Request $request
      *

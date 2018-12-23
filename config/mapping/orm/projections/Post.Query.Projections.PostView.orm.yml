@@ -63,7 +63,8 @@ App\Infrastructure\Post\Query\Projections\PostView:
             joinColumns:
                 user:
                     referencedColumnName: id
-            orphanRemoval: false
+                    onDelete: CASCADE
+            orphanRemoval: true
         category:
             targetEntity: App\Infrastructure\Category\Query\Projections\CategoryView
             cascade: {  }
@@ -73,6 +74,17 @@ App\Infrastructure\Post\Query\Projections\PostView:
             joinColumns:
                 category:
                     referencedColumnName: id
-            orphanRemoval: false
+            orphanRemoval: true
             nullable: true
+    oneToMany:
+        comment:
+            targetEntity: App\Infrastructure\Comment\Query\Projections\CommentView
+            cascade: [ remove ]
+            fetch: LAZY
+            mappedBy: post
+            inversedBy: null
+            orphanRemoval: true
+            nullable: true
+
+
     lifecycleCallbacks: {  }

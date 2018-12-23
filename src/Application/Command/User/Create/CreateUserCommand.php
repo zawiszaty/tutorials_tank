@@ -9,42 +9,42 @@ class CreateUserCommand implements CommandHandlerInterface
     /**
      * @var mixed
      */
-    private $id;
+    public $id;
 
     /**
      * @var mixed
      */
-    private $username;
+    public $username;
 
     /**
      * @var mixed
      */
-    private $email;
+    public $email;
 
     /**
      * @var mixed
      */
-    private $roles;
+    public $roles;
 
     /**
      * @var mixed
      */
-    private $avatar;
+    public $avatar;
 
     /**
      * @var mixed
      */
-    private $steemit;
+    public $steemit;
 
     /**
      * @var mixed
      */
-    private $banned;
+    public $banned;
 
     /**
      * @var mixed
      */
-    private $plainPassword;
+    public $plainPassword;
 
     /**
      * @return mixed

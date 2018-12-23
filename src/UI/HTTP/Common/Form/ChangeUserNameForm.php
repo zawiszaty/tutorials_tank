@@ -2,6 +2,9 @@
 
 namespace App\UI\HTTP\Common\Form;
 
+use App\Infrastructure\Share\Validator\Constraint\UniqueValueInEntity;
+use App\Infrastructure\User\Query\Projections\UserView;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,13 +17,16 @@ class ChangeUserNameForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array                $options
+     * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, [
+            ->add('username', TextType::class, [
                 'required' => true,
+                'constraints' => [
+                    new NotNull(),
+                ]
             ]);
     }
 
@@ -31,6 +37,12 @@ class ChangeUserNameForm extends AbstractType
     {
         $resolver->setDefaults([
             'csrf_protection' => false,
+            'constraints' => [
+                new UniqueValueInEntity([
+                    'field' => 'username',
+                    'entityClass' => UserView::class
+                ])
+            ],
         ]);
     }
 }

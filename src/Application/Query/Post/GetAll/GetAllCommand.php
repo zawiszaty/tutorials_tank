@@ -18,18 +18,18 @@ class GetAllCommand
     private $limit;
 
     /**
-     * @var array
+     * @var string
      */
     private $query;
 
     /**
      * GetAllCommand constructor.
      *
-     * @param int        $page
-     * @param int        $limit
-     * @param null|array $query
+     * @param int $page
+     * @param int $limit
+     * @param string|null $query
      */
-    public function __construct(int $page, int $limit, ?array $query = null)
+    public function __construct(int $page, int $limit, ?string $query = null)
     {
         $this->page = $page;
         $this->limit = $limit;
@@ -53,9 +53,9 @@ class GetAllCommand
     }
 
     /**
-     * @return null|array
+     * @return null|string
      */
-    public function getQuery(): ?array
+    public function getQuery(): ?string
     {
         return $this->query;
     }

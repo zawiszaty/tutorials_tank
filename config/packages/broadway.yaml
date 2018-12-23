@@ -1,2 +1,6 @@
 broadway:
     event_store: 'Broadway\EventStore\Dbal\DBALEventStore'
+    saga:
+        enabled: true
+        state_repository: 'broadway.saga.state.in_memory_repository'
+

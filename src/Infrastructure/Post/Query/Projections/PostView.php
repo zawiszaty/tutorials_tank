@@ -59,6 +59,11 @@ class PostView implements UserViewInterface
     private $category;
 
     /**
+     * @var array
+     */
+    private $comment;
+
+    /**
      * @return \DateTime
      */
     public function getCreatedAt(): \DateTime
@@ -104,15 +109,15 @@ class PostView implements UserViewInterface
     public function serialize(): array
     {
         return [
-            'id'               => $this->id,
-            'title'            => $this->title,
-            'content'          => $this->content,
-            'thumbnail'        => $this->thumbnail,
-            'type'             => $this->type,
-            'user'             => $this->user,
-            'slug'             => $this->slug,
-            'createdAt'        => $this->createdAt,
-            'category'         => $this->category,
+            'id' => $this->id,
+            'title' => $this->title,
+            'content' => $this->content,
+            'thumbnail' => $this->thumbnail,
+            'type' => $this->type,
+            'user' => $this->user,
+            'slug' => $this->slug,
+            'createdAt' => $this->createdAt,
+            'category' => $this->category,
             'shortDescription' => $this->shortDescription,
         ];
     }
@@ -178,7 +183,11 @@ class PostView implements UserViewInterface
      */
     public function getCategory(): ?string
     {
-        return $this->category->getId();
+        if ($this->category) {
+            return $this->category->getId();
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -202,6 +211,14 @@ class PostView implements UserViewInterface
         $this->slug = $data['slug'];
         $this->category = $data['category'];
         $this->shortDescription = $data['shortDescription'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 
     /**

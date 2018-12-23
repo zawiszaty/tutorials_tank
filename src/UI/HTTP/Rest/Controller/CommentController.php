@@ -3,9 +3,11 @@
 namespace App\UI\HTTP\Rest\Controller;
 
 use App\Application\Command\Comment\Create\CreateCommentCommand;
+use App\Application\Command\Comment\Delete\DeleteCommentCommand;
 use App\Application\Query\Comment\GetAllChildrenComment\GetAllChildrenCommentCommand;
 use App\Application\Query\Comment\GetAllPostComment\GetAllPostCommentCommand;
 use App\Infrastructure\Comment\Repository\CommentRepository;
+use App\UI\HTTP\Common\Controller\RestController;
 use App\UI\HTTP\Common\Form\CommentTypeForm;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
@@ -18,56 +20,8 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class CommentController.
  */
-class CommentController extends Controller
+class CommentController extends RestController
 {
-    /**
-     * @var CommandBus
-     */
-    private $queryBus;
-
-    /**
-     * @var CommandBus
-     */
-    private $commandBus;
-
-    /**
-     * @var EventBus
-     */
-    private $eventBus;
-
-    /**
-     * @var DBALEventStore
-     */
-    private $eventStore;
-
-    /**
-     * @var CommentRepository
-     */
-    private $commentRepository;
-
-    /**
-     * CommentController constructor.
-     *
-     * @param CommandBus        $queryBus
-     * @param CommandBus        $commandBus
-     * @param EventBus          $eventBus
-     * @param DBALEventStore    $eventStore
-     * @param CommentRepository $commentRepository
-     */
-    public function __construct(
-        CommandBus $queryBus,
-        CommandBus $commandBus,
-        EventBus $eventBus,
-        DBALEventStore $eventStore,
-        CommentRepository $commentRepository
-    ) {
-        $this->queryBus = $queryBus;
-        $this->commandBus = $commandBus;
-        $this->eventBus = $eventBus;
-        $this->eventStore = $eventStore;
-        $this->commentRepository = $commentRepository;
-    }
-
     /**
      * @param Request $request
      *
@@ -76,8 +30,7 @@ class CommentController extends Controller
     public function createCommentAction(Request $request): Response
     {
         $command = new CreateCommentCommand();
-        $command->setUser($this->getUser()->getId());
-//        $command->setUser('127c6fd0-be8d-11e8-a355-529269fb1458');
+        $command->user = $this->getUser()->getId();
 
         $form = $this->createForm(CommentTypeForm::class, $command);
         $form->submit($request->request->all());
@@ -93,7 +46,7 @@ class CommentController extends Controller
 
     /**
      * @param Request $request
-     * @param string  $post
+     * @param string $post
      *
      * @return Response
      */
@@ -101,26 +54,7 @@ class CommentController extends Controller
     {
         $page = $request->get('page') ?? 1;
         $limit = $request->get('limit') ?? 10;
-        $query = [
-            'query' => [
-                'bool' => [
-                    'should' => [
-                        [
-                            'match' => [
-                                'post' => $post,
-                            ],
-                        ],
-                    ],
-                    'must_not' => [
-                        'exists' => [
-                            'field' => 'parrentComment',
-                        ],
-                    ],
-                ],
-            ],
-        ];
-
-        $command = new GetAllPostCommentCommand($page, $limit, $query);
+        $command = new GetAllPostCommentCommand($page, $limit, $post);
         $model = $this->queryBus->handle($command);
 
         return new JsonResponse($model, 200);
@@ -128,7 +62,7 @@ class CommentController extends Controller
 
     /**
      * @param Request $request
-     * @param string  $parrentComment
+     * @param string $parrentComment
      *
      * @return Response
      */
@@ -136,44 +70,22 @@ class CommentController extends Controller
     {
         $page = $request->get('page') ?? 1;
         $limit = $request->get('limit') ?? 10;
-        $query = [
-            'query' => [
-                'bool' => [
-                    'must' => [
-                        [
-                            'match' => [
-                                'parrentComment' => $parrentComment,
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ];
-
-        $command = new GetAllChildrenCommentCommand($page, $limit, $query);
+        $command = new GetAllChildrenCommentCommand($page, $limit, $parrentComment);
         $model = $this->queryBus->handle($command);
 
         return new JsonResponse($model, 200);
     }
 
-    private function getErrorMessages(\Symfony\Component\Form\Form $form)
+    /**
+     * @param Request $request
+     * @param string $id
+     * @return Response
+     */
+    public function deleteCommentAction(Request $request, string $id): Response
     {
-        $errors = array();
+        $command = new DeleteCommentCommand($id, $this->getUser()->getId());
+        $this->commandBus->handle($command);
 
-        foreach ($form->getErrors() as $key => $error) {
-            if ($form->isRoot()) {
-                $errors['#'][] = $error->getMessage();
-            } else {
-                $errors[] = $error->getMessage();
-            }
-        }
-
-        foreach ($form->all() as $child) {
-            if (!$child->isValid()) {
-                $errors[$child->getName()] = $this->getErrorMessages($child);
-            }
-        }
-
-        return $errors;
+        return new JsonResponse('success', 200);
     }
 }

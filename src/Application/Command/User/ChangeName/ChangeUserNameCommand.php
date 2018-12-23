@@ -10,44 +10,12 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 class ChangeUserNameCommand
 {
     /**
-     * @var AggregateRootId|null
+     * @var string
      */
-    private $id;
+    public $id;
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $name;
-
-    /**
-     * @return AggregateRootId|null
-     */
-    public function getId(): ?AggregateRootId
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param AggregateRootId|null $id
-     */
-    public function setId(?AggregateRootId $id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param null|string $name
-     */
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
-    }
+    public $name;
 }

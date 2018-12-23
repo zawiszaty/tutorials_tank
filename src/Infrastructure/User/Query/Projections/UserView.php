@@ -2,6 +2,10 @@
 
 namespace App\Infrastructure\User\Query\Projections;
 
+use App\Infrastructure\Comment\Query\Projections\CommentView;
+use App\Infrastructure\Message\MessageView;
+use App\Infrastructure\Notification\NotificationView;
+use App\Infrastructure\Post\Query\Projections\PostView;
 use FOS\UserBundle\Model\User as BaseUser;
 use Ramsey\Uuid\Uuid;
 
@@ -35,6 +39,26 @@ class UserView extends BaseUser
      * @var bool
      */
     protected $banned;
+
+    /**
+     * @var CommentView
+     */
+    protected $comment;
+
+    /**
+     * @var PostView
+     */
+    protected $post;
+
+    /**
+     * @var MessageView
+     */
+    protected $message;
+
+    /**
+     * @var NotificationView
+     */
+    protected $notification;
 
     /**
      * @return string

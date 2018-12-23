@@ -35,10 +35,8 @@ class ChangeNameHandler implements CommandHandlerInterface
      */
     public function __invoke(ChangeNameCommand $command): void
     {
-        $category = $this->categoryRepository->get(AggregateRootId::fromString($command->getId()));
-        $category->changeName(Name::fromString($command->getName()));
+        $category = $this->categoryRepository->get(AggregateRootId::fromString($command->id));
+        $category->changeName(Name::fromString($command->name));
         $this->categoryRepository->store($category);
-
-        throw new CategoryNameWasChangedException($command->getId());
     }
 }

@@ -5,23 +5,14 @@ Feature: User Feature
     And I send a "POST" request to "/api/v1/user/register" with body:
     """
     {
-	"email": "test13@wp.pl",
-	"username": "test14",
+	"email": "test@wp.pl",
+	"username": "test",
 	"plainPassword": {
-		"first": "test",
-		"second": "test"
+		"first": "test123",
+		"second": "test123"
 		}
     }
     """
     And the response should be in JSON
     And the header "Content-Type" should be equal to "application/json"
     Then the response status code should be 200
-
-  Scenario: Change Name User
-    When i send changeName request
-
-  Scenario: Change User Email
-    When i send changeEmail request
-
-  Scenario: Change User Password
-    When i send changePassword request

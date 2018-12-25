@@ -24,12 +24,12 @@ delete_category:
   controller: App\UI\HTTP\Rest\Controller\CategoryController:deleteCategoryAction
 
 get_all_category:
-  path: /api/category
+  path: /api/v1/category
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\CategoryController:getAllCategoryAction
 
 get_single_category:
-  path: /api/category/{id}
+  path: /api/v1/category/{id}
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\CategoryController:getSingleAction
 
@@ -40,32 +40,32 @@ add_user:
 
 confirm_user:
   path: /api/v1/user/confirm/{token}
-  methods: POST
+  methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\UserController:confirmUserAction
 
 banned_user:
   path: /api/v1/user/banned/{id}
-  methods: POST
+  methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\UserController:bannedUserAction
 
 change_user_name:
   path: /api/v1/user/change/username
-  methods: POST
+  methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\UserController:changeNameAction
 
 change_user_email:
   path: /api/v1/user/change/email
-  methods: POST
+  methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\UserController:changeEmailAction
 
 change_user_password:
   path: /api/v1/user/change/password
-  methods: POST
+  methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\UserController:changePasswordAction
 
 change_user_avatar:
   path: /api/v1/user/change/avatar
-  methods: POST
+  methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\UserController:changeAvatar
 
 get_all_user:
@@ -85,7 +85,7 @@ add_post:
 
 edit_post:
   path: /api/v1/post/{id}
-  methods: POST
+  methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\PostController:editPostAction
 
 get_single_post:
@@ -127,6 +127,11 @@ delete_comment_action:
   path: /api/v1/comment/{id}
   methods: DELETE
   controller: App\UI\HTTP\Rest\Controller\CommentController:deleteCommentAction
+
+app.swagger_ui:
+  path: /api/doc
+  methods: GET
+  defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
 
 dashboard:
   path: /{react_link}

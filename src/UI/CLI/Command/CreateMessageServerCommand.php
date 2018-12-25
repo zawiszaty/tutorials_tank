@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace App\UI\CLI\Command;
 
 use App\Infrastructure\Message\Message;
 use Ratchet\Http\HttpServer;

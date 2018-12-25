@@ -1,0 +1,23 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Tutorials Tank
+            description: Competetive app
+            version: 1.0.0
+        securityDefinitions:
+            BearerAdmin:
+                type: apiKey
+                description: 'Value: Bearer {jwt}'
+                name: Authorization
+                in: header
+            BearerUser:
+                type: apiKey
+                description: 'Value: Bearer {jwt}'
+                name: Authorization
+                in: header
+        security:
+            - BearerAdmin: []
+            - BearerUser: []
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/api(?!/doc$) # Accepts routes under /api except /api/doc

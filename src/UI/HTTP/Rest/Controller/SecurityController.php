@@ -8,6 +8,8 @@ use App\UI\HTTP\Common\Controller\RestController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
+use Swagger\Annotations as SWG;
 
 /**
  * Class SecurityController.
@@ -18,6 +20,20 @@ class SecurityController extends RestController
      * @param Request $request
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     *
+     * @SWG\Tag(name="Security")
+     * @NelmioSecurity(name="BearerUser")
+     * @NelmioSecurity(name="BearerAdmin")
      */
     public function securityAction(Request $request): Response
     {

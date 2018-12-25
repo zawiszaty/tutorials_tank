@@ -61,6 +61,11 @@ class UserView extends BaseUser
     protected $notification;
 
     /**
+     * @var string
+     */
+    protected $ban;
+
+    /**
      * @return string
      */
     public function getAvatar(): ?string
@@ -128,7 +133,7 @@ class UserView extends BaseUser
         $userView->password = $data['password'];
         $userView->roles = $data['roles'];
         $userView->enabled = $data['enabled'];
-        $userView->confirmationToken = Uuid::uuid4() . '-' . Uuid::uuid4();
+        $userView->confirmationToken = $data['confirmationToken'];
 
         return $userView;
     }
@@ -141,6 +146,11 @@ class UserView extends BaseUser
     public function banned(): void
     {
         $this->banned = true;
+    }
+
+    public function unBan()
+    {
+        $this->banned = false;
     }
 
     /**
@@ -174,6 +184,11 @@ class UserView extends BaseUser
     public function changeAvatar(string $avatar): void
     {
         $this->avatar = $avatar;
+    }
+
+    public function getBan()
+    {
+        return $this->banned;
     }
 
 //    /**

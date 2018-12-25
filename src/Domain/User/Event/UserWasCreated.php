@@ -5,6 +5,7 @@ namespace App\Domain\User\Event;
 use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\ValueObject\Avatar;
+use App\Domain\User\ValueObject\ConfirmationToken;
 use App\Domain\User\ValueObject\Email;
 use App\Domain\User\ValueObject\Password;
 use App\Domain\User\ValueObject\Roles;
@@ -60,21 +61,37 @@ class UserWasCreated extends AbstractEvent
      * @var bool
      */
     private $enabled;
+    /**
+     * @var ConfirmationToken
+     */
+    private $confirmationToken;
 
     /**
      * User constructor.
      *
      * @param AggregateRootId $id
-     * @param UserName        $username
-     * @param Email           $email
-     * @param Roles           $roles
-     * @param Avatar          $avatar
-     * @param Steemit         $steemit
-     * @param bool            $banned
-     * @param Password        $password
-     * @param bool            $enabled
+     * @param UserName $username
+     * @param Email $email
+     * @param Roles $roles
+     * @param Avatar $avatar
+     * @param Steemit $steemit
+     * @param bool $banned
+     * @param Password $password
+     * @param bool $enabled
+     * @param ConfirmationToken $confirmationToken
      */
-    public function __construct(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, Password $password, bool $enabled)
+    public function __construct(
+        AggregateRootId $id,
+        UserName $username,
+        Email $email,
+        Roles $roles,
+        Avatar $avatar,
+        Steemit $steemit,
+        bool $banned,
+        Password $password,
+        bool $enabled,
+        ConfirmationToken $confirmationToken
+    )
     {
         $this->id = $id;
         $this->username = $username;
@@ -85,6 +102,7 @@ class UserWasCreated extends AbstractEvent
         $this->banned = $banned;
         $this->password = $password;
         $this->enabled = $enabled;
+        $this->confirmationToken = $confirmationToken;
     }
 
     /**
@@ -105,7 +123,8 @@ class UserWasCreated extends AbstractEvent
             Steemit::fromString($data['steemit']),
             $data['banned'],
             Password::fromString($data['password']),
-            $data['enabled']
+            $data['enabled'],
+            ConfirmationToken::fromString($data['confirmationToken'])
         );
     }
 
@@ -115,15 +134,16 @@ class UserWasCreated extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id'       => $this->id->toString(),
+            'id' => $this->id->toString(),
             'username' => $this->username->toString(),
-            'email'    => $this->email->toString(),
-            'roles'    => $this->roles->toArray(),
-            'avatar'   => $this->avatar->toString(),
-            'steemit'  => $this->steemit->toString(),
-            'banned'   => $this->banned,
+            'email' => $this->email->toString(),
+            'roles' => $this->roles->toArray(),
+            'avatar' => $this->avatar->toString(),
+            'steemit' => $this->steemit->toString(),
+            'banned' => $this->banned,
             'password' => $this->password->toString(),
-            'enabled'  => $this->enabled,
+            'enabled' => $this->enabled,
+            'confirmationToken' => $this->confirmationToken->toString()
         ];
     }
 
@@ -189,5 +209,13 @@ class UserWasCreated extends AbstractEvent
     public function isEnabled(): bool
     {
         return $this->enabled;
+    }
+
+    /**
+     * @return ConfirmationToken
+     */
+    public function getConfirmationToken(): ConfirmationToken
+    {
+        return $this->confirmationToken;
     }
 }

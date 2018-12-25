@@ -42,9 +42,9 @@ class CreateUserHandler implements CommandHandlerInterface
     /**
      * CreateUserHandler constructor.
      *
-     * @param UserRepository               $repository
+     * @param UserRepository $repository
      * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
-     * @param CommandBus                   $commandBus
+     * @param CommandBus $commandBus
      */
     public function __construct(UserRepository $repository, MysqlUserReadModelRepository $mysqlUserReadModelRepository, CommandBus $commandBus)
     {
@@ -71,11 +71,9 @@ class CreateUserHandler implements CommandHandlerInterface
             Steemit::fromString($command->getSteemit()),
             $command->getBanned(),
             Password::fromString($command->getPlainPassword())
-            );
+        );
         $this->repository->store($user);
-//        /** @var UserView $user */
-//        $user = $this->mysqlUserReadModelRepository->oneByEmail(Email::fromString($command->getEmail()));
-//        $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getConfirmationToken());
+//        $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getConfirmationToken()->toString());
 //        $this->commandBus->handle($sendEmailCommand);
     }
 }

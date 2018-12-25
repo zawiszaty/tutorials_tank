@@ -151,7 +151,7 @@ class CreateUserCommand implements CommandHandlerInterface
     }
 
     /**
-     * @param mixed $banned
+     * @param boolean $banned
      */
     public function setBanned($banned): void
     {

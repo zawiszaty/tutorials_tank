@@ -25,11 +25,6 @@ old_sound_rabbit_mq:
           routing_keys:
             - 'App.Domain.#'
           callback: App\Infrastructure\Share\Event\Consumer\SendEventsToElasticConsumer
-        var_dump_all_events:
-          name: var_dump_all_events
-          routing_keys:
-            - 'App.Domain.#'
-          callback: App\Consumer\DemoEventsConsumer
     projections:
       connection:       default
       exchange_options: { name: 'events', type: topic }

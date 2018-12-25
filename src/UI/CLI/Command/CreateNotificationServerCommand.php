@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace App\UI\CLI\Command;
 
 use App\Infrastructure\Notification\Notification;
 use Ratchet\Http\HttpServer;

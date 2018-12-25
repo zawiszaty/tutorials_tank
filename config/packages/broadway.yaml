@@ -1,6 +1,8 @@
 broadway:
     event_store: 'Broadway\EventStore\Dbal\DBALEventStore'
     saga:
-        enabled: true
-        state_repository: 'broadway.saga.state.in_memory_repository'
+        enabled: false
+
+        # a service definition id implementing Broadway\Saga\State\RepositoryInterface
+        state_repository: broadway.saga.state.in_memory_repository
 

@@ -22,6 +22,8 @@ use App\UI\HTTP\Common\Form\RegistrationFormType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
+use Swagger\Annotations as SWG;
 
 /**
  * Class UserController.
@@ -32,6 +34,26 @@ class UserController extends RestController
      * @param Request $request
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="credentials",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="username", type="string"),
+     *         @SWG\Property(property="plainPassword", type="array", @SWG\Items(type="object",@SWG\Property(property="first", type="string"),@SWG\Property(property="second", type="string"))),
+     *     )
+     * )
+     * @SWG\Tag(name="User")
      */
     public function createCategoryAction(Request $request): Response
     {
@@ -53,11 +75,21 @@ class UserController extends RestController
      * @param string  $token
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     * @SWG\Tag(name="User")
      */
     public function confirmUserAction(Request $request, string $token): Response
     {
         $command = new ConfirmUserCommand($token);
-        $this->queryBus->handle($command);
+        $this->commandBus->handle($command);
         $response = new JsonResponse('success', Response::HTTP_OK);
 
         return $response;
@@ -70,6 +102,17 @@ class UserController extends RestController
      * @return Response
      *
      * @throws \Exception
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     * @SWG\Tag(name="User")
+     * @NelmioSecurity(name="BearerAdmin")
      */
     public function bannedUserAction(Request $request, string $id): Response
     {
@@ -84,7 +127,26 @@ class UserController extends RestController
      *
      * @return Response
      *
-     * @throws \Assert\AssertionFailedException
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     * @SWG\Tag(name="User")
+     *
+     * @SWG\Parameter(
+     *     name="name",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="name", type="string"),
+     *     )
+     * )
+     *
+     * @NelmioSecurity(name="BearerUser")
      */
     public function changeNameAction(Request $request): Response
     {
@@ -109,6 +171,27 @@ class UserController extends RestController
      * @return Response
      *
      * @throws \Assert\AssertionFailedException
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     * @SWG\Tag(name="User")
+     *
+     * @SWG\Parameter(
+     *     name="name",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="email", type="email"),
+     *     )
+     * )
+     *
+     * @NelmioSecurity(name="BearerUser")
      */
     public function changeEmailAction(Request $request): Response
     {
@@ -134,6 +217,27 @@ class UserController extends RestController
      * @param Request $request
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     * @SWG\Tag(name="User")
+     *
+     * @SWG\Parameter(
+     *     name="credentials",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="plainPassword", type="array", @SWG\Items(type="object",@SWG\Property(property="first", type="string"),@SWG\Property(property="second", type="string"))),
+     *     )
+     * )
+     *
+     * @NelmioSecurity(name="BearerUser")
      */
     public function changePasswordAction(Request $request): Response
     {
@@ -159,6 +263,39 @@ class UserController extends RestController
      * @param Request $request
      *
      * @return JsonResponse
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="page",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="limit",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="query",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Tag(name="User")
      */
     public function getAllAction(Request $request)
     {
@@ -175,6 +312,27 @@ class UserController extends RestController
      * @param Request $request
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     * @SWG\Tag(name="User")
+     *
+     * @SWG\Parameter(
+     *     name="credentials",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="file", type="file"),
+     *     )
+     * )
+     *
+     * @NelmioSecurity(name="BearerUser")
      */
     public function changeAvatar(Request $request): Response
     {

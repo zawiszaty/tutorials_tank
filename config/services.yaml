@@ -10,6 +10,8 @@ parameters:
           - '%env(ELASTIC_HOST)%'
 
     env(ELASTIC_HOST): 'elasticsearch:9200'
+    events_table: '%env(EVENTS_TABLE)%'
+    env(EVENTS_TABLE): 'events'
 
 services:
 
@@ -27,6 +29,8 @@ services:
           $eventStore: '@Broadway\EventStore\Dbal\DBALEventStore'
 
           $eventProducer: '@old_sound_rabbit_mq.events_producer'
+
+          $eventStoreTable: '%events_table%'
 
     _instanceof:
 
@@ -57,10 +61,6 @@ services:
         resource: '../src/UI/HTTP/Rest/Controller'
         tags: ['controller.service_arguments']
 
-    App\UI\CLI\Command\RunMessengerCommand:
-        public: true
-        tags: ['console.command']
-
     App\UI\HTTP\Rest\EventSubscriber\JsonBodyParserSubscriber:
         tags:
         - { name: 'kernel.event_listener', event: 'kernel.request', method: 'onKernelRequest', priority: 100 }
@@ -80,13 +80,3 @@ services:
             - 'events'
             - 'false'
             - '@broadway.uuid.converter'
-
-
-    user_saga:
-        class: App\Domain\User\Saga\UserSaga
-        public: true
-        arguments:
-            - '@tactician.commandbus'
-            - '@App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository'
-        tags:
-            - {name: broadway.saga, type: user}

@@ -13,6 +13,7 @@ php:
 
 before_install:
   - sudo service mysql stop
+  - sudo service mysql status
   - curl -L https://github.com/docker/compose/releases/download/1.21.1/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
@@ -23,7 +24,7 @@ before_install:
   - echo "extension = zmq.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.in
   - echo "extension = amqp.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.in
 before_script:
-  - composer install --ignore-platform-reqs
+  - composer install --ignore-platform-reqs --no-scripts
   - docker-compose up -d
 #  - docker-compose exec php php bin/console d:d:c
 #  - docker-compose exec php php bin/console d:s:c

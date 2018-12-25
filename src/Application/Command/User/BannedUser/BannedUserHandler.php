@@ -5,7 +5,7 @@ namespace App\Application\Command\User\BannedUser;
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Assert\UserIsBanned;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * Class BannedUserHandler.
@@ -18,7 +18,7 @@ class BannedUserHandler implements CommandHandlerInterface
     private $aggregatRepository;
 
     /**
-     * @var TokenStorage
+     * @var TokenStorageInterface
      */
     private $tokenStorage;
 
@@ -26,8 +26,9 @@ class BannedUserHandler implements CommandHandlerInterface
      * ConfirmUserHandler constructor.
      *
      * @param \App\Infrastructure\User\Repository\UserRepository $aggregatRepository
+     * @param TokenStorageInterface $tokenStorage
      */
-    public function __construct(\App\Infrastructure\User\Repository\UserRepository $aggregatRepository, TokenStorage $tokenStorage)
+    public function __construct(\App\Infrastructure\User\Repository\UserRepository $aggregatRepository, TokenStorageInterface $tokenStorage)
     {
         $this->aggregatRepository = $aggregatRepository;
         $this->tokenStorage = $tokenStorage;

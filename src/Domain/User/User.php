@@ -11,12 +11,14 @@ use App\Domain\User\Event\UserWasBanned;
 use App\Domain\User\Event\UserWasConfirmed;
 use App\Domain\User\Event\UserWasCreated;
 use App\Domain\User\ValueObject\Avatar;
+use App\Domain\User\ValueObject\ConfirmationToken;
 use App\Domain\User\ValueObject\Email;
 use App\Domain\User\ValueObject\Password;
 use App\Domain\User\ValueObject\Roles;
 use App\Domain\User\ValueObject\Steemit;
 use App\Domain\User\ValueObject\UserName;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use const Fpp\dump;
 
 /**
  * Class User.
@@ -69,19 +71,25 @@ class User extends EventSourcedAggregateRoot
     private $password;
 
     /**
+     * @var ConfirmationToken
+     */
+    private $confirmationToken;
+
+    /**
      * @return array
      */
     public function serialize()
     {
         return [
-            'id'       => $this->id->toString(),
+            'id' => $this->id->toString(),
             'username' => $this->username->toString(),
-            'email'    => $this->email->toString(),
-            'roles'    => $this->roles->toArray(),
-            'steemit'  => $this->steemit->toString(),
-            'banned'   => $this->banned,
+            'email' => $this->email->toString(),
+            'roles' => $this->roles->toArray(),
+            'steemit' => $this->steemit->toString(),
+            'banned' => $this->banned,
             'password' => $this->password,
-            'enabled'  => $this->enabled,
+            'enabled' => $this->enabled,
+            'confirmationToken' => $this->confirmationToken,
         ];
     }
 
@@ -103,27 +111,37 @@ class User extends EventSourcedAggregateRoot
         $self->banned = $params['banned'];
         $self->password = Password::fromString($params['password']);
         $self->enabled = $params['enabled'];
+        $self->confirmationToken = ConfirmationToken::fromString($params['confirmationToken']);
 
         return $self;
     }
 
     /**
      * @param AggregateRootId $id
-     * @param UserName        $username
-     * @param Email           $email
-     * @param Roles           $roles
-     * @param Avatar          $avatar
-     * @param Steemit         $steemit
-     * @param bool            $banned
-     * @param Password        $password
-     * @param bool            $enabled
-     *
+     * @param UserName $username
+     * @param Email $email
+     * @param Roles $roles
+     * @param Avatar $avatar
+     * @param Steemit $steemit
+     * @param bool $banned
+     * @param Password $password
+     * @param ConfirmationToken $confirmationToken
      * @return mixed
      */
-    public static function create(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, Password $password)
+    public static function create(
+        AggregateRootId $id,
+        UserName $username,
+        Email $email,
+        Roles $roles,
+        Avatar $avatar,
+        Steemit $steemit,
+        bool $banned,
+        Password $password,
+        ConfirmationToken $confirmationToken
+    )
     {
         $user = new self();
-        $user->apply(new UserWasCreated($id, $username, $email, $roles, $avatar, $steemit, $banned, $password, false));
+        $user->apply(new UserWasCreated($id, $username, $email, $roles, $avatar, $steemit, $banned, $password, false, $confirmationToken));
 
         return $user;
     }
@@ -172,7 +190,7 @@ class User extends EventSourcedAggregateRoot
     }
 
     /**
-     * @return User
+     * @return void
      */
     public function confirm()
     {
@@ -202,6 +220,7 @@ class User extends EventSourcedAggregateRoot
         $this->steemit = $userWasCreated->getSteemit();
         $this->banned = $userWasCreated->isBanned();
         $this->enabled = $userWasCreated->isEnabled();
+        $this->confirmationToken = $userWasCreated->getConfirmationToken();
     }
 
     public function changePassword(string $password)
@@ -319,5 +338,13 @@ class User extends EventSourcedAggregateRoot
     public function getPassword(): Password
     {
         return $this->password;
+    }
+
+    /**
+     * @return ConfirmationToken
+     */
+    public function getConfirmationToken(): ConfirmationToken
+    {
+        return $this->confirmationToken;
     }
 }

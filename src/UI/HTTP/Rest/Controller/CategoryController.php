@@ -10,9 +10,11 @@ use App\Application\Query\Category\GetSingle\GetSingleCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\UI\HTTP\Common\Controller\RestController;
 use App\UI\HTTP\Common\Form\CategoryType;
+use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Swagger\Annotations as SWG;
 
 /**
  * Class CategoryController.
@@ -23,6 +25,30 @@ class CategoryController extends RestController
      * @param Request $request
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="credentials",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="name", type="string"),
+     *     )
+     * )
+     * @SWG\Tag(name="Category")
+     * @NelmioSecurity(name="BearerAdmin")
      */
     public function createCategoryAction(Request $request): Response
     {
@@ -44,6 +70,36 @@ class CategoryController extends RestController
      * @param string  $id
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success edit"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="credentials",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="name", type="string"),
+     *     )
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="id",
+     *     type="string",
+     *     in="path",
+     * )
+     * @SWG\Tag(name="Category")
+     * @NelmioSecurity(name="BearerAdmin")
      */
     public function changeNameAction(Request $request, string $id): Response
     {
@@ -68,6 +124,26 @@ class CategoryController extends RestController
      * @throws \Assert\AssertionFailedException
      *
      * @return Response
+     * @SWG\Response(
+     *     response=200,
+     *     description="success edit"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="id",
+     *     type="string",
+     *     in="path",
+     * )
+     * @SWG\Tag(name="Category")
+     * @NelmioSecurity(name="BearerAdmin")
      */
     public function deleteCategoryAction(Request $request, string $id): Response
     {
@@ -81,6 +157,16 @@ class CategoryController extends RestController
      * @param Request $request
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="All Category in Database"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Not Found"
+     * )
+     * @SWG\Tag(name="Category")
      */
     public function getAllCategoryAction(Request $request): Response
     {
@@ -100,6 +186,22 @@ class CategoryController extends RestController
      * @throws \Assert\AssertionFailedException
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Not Found"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="id",
+     *     type="string",
+     *     in="path",
+     * )
+     * @SWG\Tag(name="Category")
      */
     public function getSingleAction(Request $request, string $id): Response
     {

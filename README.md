@@ -14,7 +14,8 @@ $ docker-compose exec php php bin/console f:e:p
 $ docker-compose exec php ./vendor/bin/behat
 ```
 * Copy .env.dist to .env file 
-* Go to http://localhost:8080/ in your web browser and start hacking
+* Go to http://localhost:9999/ in your web browser and start hacking
+* Go to http://localhost:9999/api/doc in your web browser to view a api docs
 
 ## Implementations
 
@@ -23,9 +24,10 @@ $ docker-compose exec php ./vendor/bin/behat
 - [x] Event Store
 - [x] Elasticsearch Read Model
 - [x] Rest API
-- [x] Continuous integration with Travis.ci and Style.ci
-- [ ] RabbitMq Async Event Subscribers
+- [x] Continuous integration with Travis.Ci and Style.Ci
+- [x] RabbitMq Async Event Subscribers
+- [x] RabbitMq Async Projector
 - [ ] React Web UI
 - [ ] Event Store Rest API 
-- [ ] Nelmio API Doc
+- [x] Nelmio API Doc
 - [ ] Makefile Runner

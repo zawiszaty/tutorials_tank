@@ -30,7 +30,7 @@ fos_elastica:
                 enabled: ~
                 avatar: ~
                 steemit: ~
-                banned: ~
+                ban: ~
               persistence:
                 driver: orm
                 model: App\Infrastructure\User\Query\Projections\UserView

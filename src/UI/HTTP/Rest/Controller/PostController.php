@@ -13,6 +13,8 @@ use App\UI\HTTP\Common\Form\PostForm;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
+use Swagger\Annotations as SWG;
 
 /**
  * Class PostController.
@@ -23,6 +25,37 @@ class PostController extends RestController
      * @param Request $request
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="credentials",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="content", type="string"),
+     *         @SWG\Property(property="title", type="string"),
+     *         @SWG\Property(property="file", type="file"),
+     *         @SWG\Property(property="type", type="string"),
+     *         @SWG\Property(property="category", type="string"),
+     *         @SWG\Property(property="user", type="string"),
+     *         @SWG\Property(property="shortDescription", type="string"),
+     *     )
+     * )
+     *
+     * @SWG\Tag(name="Post")
+     * @NelmioSecurity(name="BearerUser")
      */
     public function addPostAction(Request $request): Response
     {
@@ -47,6 +80,37 @@ class PostController extends RestController
      * @param string  $id
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="credentials",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="content", type="string"),
+     *         @SWG\Property(property="title", type="string"),
+     *         @SWG\Property(property="file", type="file"),
+     *         @SWG\Property(property="type", type="string"),
+     *         @SWG\Property(property="category", type="string"),
+     *         @SWG\Property(property="user", type="string"),
+     *         @SWG\Property(property="shortDescription", type="string"),
+     *     )
+     * )
+     *
+     * @SWG\Tag(name="Post")
+     * @NelmioSecurity(name="BearerUser")
      */
     public function editPostAction(Request $request, string $id): Response
     {
@@ -74,6 +138,28 @@ class PostController extends RestController
      * @return Response
      *
      * @throws \Assert\AssertionFailedException
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="id",
+     *     type="string",
+     *     in="path",
+     * )
+     *
+     * @SWG\Tag(name="Post")
+     * @NelmioSecurity(name="BearerUser")
      */
     public function getSingle(Request $request, string $id): Response
     {
@@ -87,6 +173,39 @@ class PostController extends RestController
      * @param Request $request
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="page",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="limit",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="query",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Tag(name="Post")
      */
     public function getAllAction(Request $request): Response
     {
@@ -105,6 +224,23 @@ class PostController extends RestController
      * @param string  $id
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     *
+     * @SWG\Tag(name="Post")
+     * @NelmioSecurity(name="BearerUser")
      */
     public function deletePostAction(Request $request, string $id): Response
     {

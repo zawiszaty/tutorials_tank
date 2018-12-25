@@ -2,6 +2,12 @@
 
 namespace App\Domain\User\ValueObject;
 
+use App\Infrastructure\Share\Application\Password\PasswordEncoder;
+
+/**
+ * Class Password
+ * @package App\Domain\User\ValueObject
+ */
 class Password
 {
     /**
@@ -17,7 +23,7 @@ class Password
     public static function fromString(string $password): self
     {
         $instance = new self();
-        $instance->password = password_hash($password, PASSWORD_DEFAULT);
+        $instance->password = PasswordEncoder::encode($password);
 
         return $instance;
     }

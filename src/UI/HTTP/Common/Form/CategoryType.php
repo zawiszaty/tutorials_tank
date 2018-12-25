@@ -32,6 +32,10 @@ class CategoryType extends AbstractType
                         'max' => '20',
                     ]),
                 ],
+                'documentation' => [
+                    'type' => 'string', // would have been automatically detected in this case
+                    'description' => 'Category name.',
+                ],
             ]);
     }
 

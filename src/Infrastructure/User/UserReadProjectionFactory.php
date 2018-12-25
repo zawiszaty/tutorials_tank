@@ -41,6 +41,9 @@ class UserReadProjectionFactory extends Projector
     public function applyUserWasCreated(UserWasCreated $userWasCreated)
     {
         $userView = UserView::deserializeProjections($userWasCreated->serialize());
+//        if ($userView->isBanned()) {
+//            $userView->unBan();
+//        }
         $this->repository->add($userView);
     }
 

@@ -6,6 +6,10 @@ use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Infrastructure\Share\Application\Password\PasswordVerify;
 
+/**
+ * Class ChangePasswordHandler
+ * @package App\Application\Command\User\ChangePassword
+ */
 class ChangePasswordHandler implements CommandHandlerInterface
 {
     /**

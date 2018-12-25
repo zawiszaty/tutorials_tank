@@ -7,6 +7,8 @@ use App\UI\HTTP\Common\Controller\RestController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
+use Swagger\Annotations as SWG;
 
 /**
  * Class MessageController.
@@ -17,6 +19,39 @@ class MessageController extends RestController
      * @param Request $request
      *
      * @return Response
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="page",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="limit",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="query",
+     *     type="string",
+     *     in="query",
+     * )
+     * @SWG\Tag(name="Message")
+     * @NelmioSecurity(name="BearerUser")
      */
     public function getAllUserMessage(Request $request): Response
     {

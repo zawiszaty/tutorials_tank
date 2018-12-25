@@ -5,6 +5,7 @@ namespace spec\App\Domain\User\Event;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Event\UserWasCreated;
 use App\Domain\User\ValueObject\Avatar;
+use App\Domain\User\ValueObject\ConfirmationToken;
 use App\Domain\User\ValueObject\Email;
 use App\Domain\User\ValueObject\Password;
 use App\Domain\User\ValueObject\Roles;
@@ -14,7 +15,7 @@ use PhpSpec\ObjectBehavior;
 
 class UserWasCreatedSpec extends ObjectBehavior
 {
-    public function let(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, Password $password)
+    public function let(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, Password $password, ConfirmationToken $confirmationToken)
     {
         $id->toString()->willReturn('023780a8-be68-11e8-a355-529269fb1459');
         $username->toString()->willReturn('023780a8-be68-11e8-a355-529269fb1459');
@@ -23,6 +24,7 @@ class UserWasCreatedSpec extends ObjectBehavior
         $avatar->toString()->willReturn('test@wp.pl');
         $steemit->toString()->willReturn('test@wp.pl');
         $password->toString()->willReturn('test@wp.pl');
+        $confirmationToken->toString()->willReturn('023780a8-be68-11e8-a355-529269fb1459');
 
         $this->beConstructedWith(
             $id,
@@ -33,7 +35,8 @@ class UserWasCreatedSpec extends ObjectBehavior
             $steemit,
             false,
             $password,
-            false
+            false,
+            $confirmationToken
         );
     }
 
@@ -49,6 +52,7 @@ class UserWasCreatedSpec extends ObjectBehavior
             'banned'       => false,
             'password'     => 'test',
             'enabled'      => false,
+            'confirmationToken' => '023780a8-be68-11e8-a355-529269fb1459'
         ])->shouldBeAnInstanceOf(UserWasCreated::class);
     }
 

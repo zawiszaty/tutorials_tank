@@ -6,5 +6,4 @@ namespace App\Application\Command\Events\Replay;
 
 class ReplayEventsCommand
 {
-
 }

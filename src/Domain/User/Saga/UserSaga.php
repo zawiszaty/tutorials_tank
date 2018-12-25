@@ -7,7 +7,6 @@ use App\Domain\User\Event\UserWasCreated;
 use Broadway\Saga\Metadata\StaticallyConfiguredSagaInterface;
 use Broadway\Saga\Saga;
 use Broadway\Saga\State;
-use Broadway\Saga\State\Criteria;
 use League\Tactician\CommandBus;
 
 /**
@@ -27,8 +26,7 @@ class UserSaga extends Saga implements StaticallyConfiguredSagaInterface
      */
     public function __construct(
         CommandBus $commandBus
-    )
-    {
+    ) {
         $this->commandBus = $commandBus;
     }
 
@@ -46,7 +44,7 @@ class UserSaga extends Saga implements StaticallyConfiguredSagaInterface
 
     /**
      * @param UserWasCreated $userWasCreated
-     * @param State $state
+     * @param State          $state
      *
      * @return State
      *

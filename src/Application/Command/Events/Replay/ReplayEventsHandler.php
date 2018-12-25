@@ -16,6 +16,7 @@ class ReplayEventsHandler implements CommandHandlerInterface
             $this->eventStreamProcessor->process($stream);
         }
     }
+
     public function __construct(
         EventStreamProcessorInterface $eventStreamProcessor,
         IterableAggregateEventStoreInterface $iterableDbalEventStore
@@ -23,10 +24,12 @@ class ReplayEventsHandler implements CommandHandlerInterface
         $this->eventStreamProcessor = $eventStreamProcessor;
         $this->iterableDbalEventStore = $iterableDbalEventStore;
     }
+
     /**
      * @var EventStreamProcessorInterface
      */
     private $eventStreamProcessor;
+
     /**
      * @var IterableAggregateEventStoreInterface
      */

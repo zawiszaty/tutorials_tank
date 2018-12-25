@@ -18,7 +18,6 @@ use App\Domain\User\ValueObject\Roles;
 use App\Domain\User\ValueObject\Steemit;
 use App\Domain\User\ValueObject\UserName;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
-use const Fpp\dump;
 
 /**
  * Class User.
@@ -81,14 +80,14 @@ class User extends EventSourcedAggregateRoot
     public function serialize()
     {
         return [
-            'id' => $this->id->toString(),
-            'username' => $this->username->toString(),
-            'email' => $this->email->toString(),
-            'roles' => $this->roles->toArray(),
-            'steemit' => $this->steemit->toString(),
-            'banned' => $this->banned,
-            'password' => $this->password,
-            'enabled' => $this->enabled,
+            'id'                => $this->id->toString(),
+            'username'          => $this->username->toString(),
+            'email'             => $this->email->toString(),
+            'roles'             => $this->roles->toArray(),
+            'steemit'           => $this->steemit->toString(),
+            'banned'            => $this->banned,
+            'password'          => $this->password,
+            'enabled'           => $this->enabled,
             'confirmationToken' => $this->confirmationToken,
         ];
     }
@@ -117,15 +116,16 @@ class User extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param AggregateRootId $id
-     * @param UserName $username
-     * @param Email $email
-     * @param Roles $roles
-     * @param Avatar $avatar
-     * @param Steemit $steemit
-     * @param bool $banned
-     * @param Password $password
+     * @param AggregateRootId   $id
+     * @param UserName          $username
+     * @param Email             $email
+     * @param Roles             $roles
+     * @param Avatar            $avatar
+     * @param Steemit           $steemit
+     * @param bool              $banned
+     * @param Password          $password
      * @param ConfirmationToken $confirmationToken
+     *
      * @return mixed
      */
     public static function create(
@@ -138,8 +138,7 @@ class User extends EventSourcedAggregateRoot
         bool $banned,
         Password $password,
         ConfirmationToken $confirmationToken
-    )
-    {
+    ) {
         $user = new self();
         $user->apply(new UserWasCreated($id, $username, $email, $roles, $avatar, $steemit, $banned, $password, false, $confirmationToken));
 
@@ -189,9 +188,6 @@ class User extends EventSourcedAggregateRoot
         $this->username = $event->getUsername();
     }
 
-    /**
-     * @return void
-     */
     public function confirm()
     {
         $this->apply(new UserWasConfirmed($this->id, true));

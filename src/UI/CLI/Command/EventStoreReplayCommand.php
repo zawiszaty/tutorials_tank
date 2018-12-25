@@ -30,8 +30,7 @@ class EventStoreReplayCommand extends Command
     public function __construct(
         CommandBus $commandBus,
         IterableAggregateEventStoreInterface $iterableDbalEventStore
-    )
-    {
+    ) {
         parent::__construct();
         $this->commandBus = $commandBus;
         $this->iterableDbalEventStore = $iterableDbalEventStore;
@@ -41,6 +40,7 @@ class EventStoreReplayCommand extends Command
      * @var CommandBus
      */
     private $commandBus;
+
     /**
      * @var IterableAggregateEventStoreInterface
      */

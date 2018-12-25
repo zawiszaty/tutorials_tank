@@ -61,6 +61,7 @@ class UserWasCreated extends AbstractEvent
      * @var bool
      */
     private $enabled;
+
     /**
      * @var ConfirmationToken
      */
@@ -69,15 +70,15 @@ class UserWasCreated extends AbstractEvent
     /**
      * User constructor.
      *
-     * @param AggregateRootId $id
-     * @param UserName $username
-     * @param Email $email
-     * @param Roles $roles
-     * @param Avatar $avatar
-     * @param Steemit $steemit
-     * @param bool $banned
-     * @param Password $password
-     * @param bool $enabled
+     * @param AggregateRootId   $id
+     * @param UserName          $username
+     * @param Email             $email
+     * @param Roles             $roles
+     * @param Avatar            $avatar
+     * @param Steemit           $steemit
+     * @param bool              $banned
+     * @param Password          $password
+     * @param bool              $enabled
      * @param ConfirmationToken $confirmationToken
      */
     public function __construct(
@@ -91,8 +92,7 @@ class UserWasCreated extends AbstractEvent
         Password $password,
         bool $enabled,
         ConfirmationToken $confirmationToken
-    )
-    {
+    ) {
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
@@ -134,16 +134,16 @@ class UserWasCreated extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
-            'username' => $this->username->toString(),
-            'email' => $this->email->toString(),
-            'roles' => $this->roles->toArray(),
-            'avatar' => $this->avatar->toString(),
-            'steemit' => $this->steemit->toString(),
-            'banned' => $this->banned,
-            'password' => $this->password->toString(),
-            'enabled' => $this->enabled,
-            'confirmationToken' => $this->confirmationToken->toString()
+            'id'                => $this->id->toString(),
+            'username'          => $this->username->toString(),
+            'email'             => $this->email->toString(),
+            'roles'             => $this->roles->toArray(),
+            'avatar'            => $this->avatar->toString(),
+            'steemit'           => $this->steemit->toString(),
+            'banned'            => $this->banned,
+            'password'          => $this->password->toString(),
+            'enabled'           => $this->enabled,
+            'confirmationToken' => $this->confirmationToken->toString(),
         ];
     }
 

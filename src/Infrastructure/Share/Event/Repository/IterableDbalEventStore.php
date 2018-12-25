@@ -12,8 +12,7 @@ use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 /**
- * Class IterableDbalEventStore
- * @package App\Infrastructure\Share\Event\Repository
+ * Class IterableDbalEventStore.
  */
 class IterableDbalEventStore implements IterableAggregateEventStoreInterface
 {
@@ -25,6 +24,7 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
         if (!$this->isStatementPrepared()) {
             $this->initializeIterator();
         }
+
         return $this->nextAggregate;
     }
 
@@ -55,7 +55,6 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
     {
         return !$this->isStatementPrepared() || $this->nextAggregate instanceof DomainEventStream;
     }
-
 
     public function rewind()
     {
@@ -89,7 +88,6 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
             'SELECT DISTINCT `uuid` FROM ' . $this->eventStoreTable
         );
         $this->statement->execute();
-
     }
 
     private function resetIndex(): void
@@ -113,8 +111,7 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
         Connection $connection,
         DBALEventStore $eventStore,
         string $eventStoreTable
-    )
-    {
+    ) {
         $this->connection = $connection;
         $this->eventStore = $eventStore;
         $this->eventStoreTable = $eventStoreTable;
@@ -125,22 +122,27 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
      * @var Connection
      */
     private $connection;
+
     /**
      * @var DBALEventStore
      */
     private $eventStore;
+
     /**
      * @var string
      */
     private $eventStoreTable;
+
     /**
      * @var int
      */
     private $index;
+
     /**
      * @var DomainEventStream|null
      */
     private $nextAggregate;
+
     /**
      * @var Statement|null
      */

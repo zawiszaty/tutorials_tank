@@ -5,8 +5,7 @@ namespace App\Domain\User\ValueObject;
 use App\Infrastructure\Share\Application\Password\PasswordEncoder;
 
 /**
- * Class Password
- * @package App\Domain\User\ValueObject
+ * Class Password.
  */
 class Password
 {

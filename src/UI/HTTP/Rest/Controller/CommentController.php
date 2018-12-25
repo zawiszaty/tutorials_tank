@@ -69,7 +69,7 @@ class CommentController extends RestController
 
     /**
      * @param Request $request
-     * @param string $post
+     * @param string  $post
      *
      * @return Response
      *
@@ -123,7 +123,7 @@ class CommentController extends RestController
 
     /**
      * @param Request $request
-     * @param string $parrentComment
+     * @param string  $parrentComment
      *
      * @return Response
      *
@@ -178,7 +178,7 @@ class CommentController extends RestController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @return Response
      *

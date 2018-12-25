@@ -7,7 +7,6 @@ use App\Infrastructure\Message\MessageView;
 use App\Infrastructure\Notification\NotificationView;
 use App\Infrastructure\Post\Query\Projections\PostView;
 use FOS\UserBundle\Model\User as BaseUser;
-use Ramsey\Uuid\Uuid;
 
 /**
  * Class UserView.

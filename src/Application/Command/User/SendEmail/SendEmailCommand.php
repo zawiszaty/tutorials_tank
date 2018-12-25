@@ -23,8 +23,8 @@ class SendEmailCommand
      * SendEmailCommand constructor.
      *
      * @param string $email
-     *
      * @param string $token
+     *
      * @throws \Assert\AssertionFailedException
      */
     public function __construct(string $email, string $token)

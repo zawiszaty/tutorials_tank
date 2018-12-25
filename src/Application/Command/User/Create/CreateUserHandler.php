@@ -13,7 +13,6 @@ use App\Domain\User\ValueObject\Password;
 use App\Domain\User\ValueObject\Roles;
 use App\Domain\User\ValueObject\Steemit;
 use App\Domain\User\ValueObject\UserName;
-use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use App\Infrastructure\User\Repository\UserRepository;
 use League\Tactician\CommandBus;
@@ -42,9 +41,9 @@ class CreateUserHandler implements CommandHandlerInterface
     /**
      * CreateUserHandler constructor.
      *
-     * @param UserRepository $repository
+     * @param UserRepository               $repository
      * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
-     * @param CommandBus $commandBus
+     * @param CommandBus                   $commandBus
      */
     public function __construct(UserRepository $repository, MysqlUserReadModelRepository $mysqlUserReadModelRepository, CommandBus $commandBus)
     {

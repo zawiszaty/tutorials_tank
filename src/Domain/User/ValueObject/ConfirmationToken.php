@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\User\ValueObject;
 
 /**
- * Class ConfirmationToken
- * @package App\Domain\User\ValueObject
+ * Class ConfirmationToken.
  */
 class ConfirmationToken
 {
@@ -17,6 +16,7 @@ class ConfirmationToken
 
     /**
      * @param string $token
+     *
      * @return ConfirmationToken
      */
     public static function fromString(string $token): self

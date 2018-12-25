@@ -26,7 +26,7 @@ class BannedUserHandler implements CommandHandlerInterface
      * ConfirmUserHandler constructor.
      *
      * @param \App\Infrastructure\User\Repository\UserRepository $aggregatRepository
-     * @param TokenStorageInterface $tokenStorage
+     * @param TokenStorageInterface                              $tokenStorage
      */
     public function __construct(\App\Infrastructure\User\Repository\UserRepository $aggregatRepository, TokenStorageInterface $tokenStorage)
     {

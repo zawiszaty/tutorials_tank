@@ -16,10 +16,12 @@ class EventStreamProcessor implements EventStreamProcessorInterface
         }
         $this->eventBus->publish(new DomainEventStream($events));
     }
+
     public function __construct(EventBus $eventBus)
     {
         $this->eventBus = $eventBus;
     }
+
     /**
      * @var EventBus
      */

@@ -33,7 +33,7 @@ class CategoryType extends AbstractType
                     ]),
                 ],
                 'documentation' => [
-                    'type' => 'string', // would have been automatically detected in this case
+                    'type'        => 'string', // would have been automatically detected in this case
                     'description' => 'Category name.',
                 ],
             ]);

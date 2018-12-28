@@ -44,22 +44,22 @@ services:
       - "8888:8888"
       - "5555:5555"
 
-#  workers_1:
-#    build: ./docker/php
-#    working_dir: /var/www/project
-#    restart: always
-#    volumes:
-#      - ./:/var/www/project
-#    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
-#
-#
-#  workers_2:
-#    build: ./docker/php
-#    working_dir: /var/www/project
-#    restart: always
-#    volumes:
-#      - ./:/var/www/project
-#    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'projections']
+  workers_1:
+    build: ./docker/php
+    working_dir: /var/www/project
+    restart: always
+    volumes:
+      - ./:/var/www/project
+    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
+
+
+  workers_2:
+    build: ./docker/php
+    working_dir: /var/www/project
+    restart: always
+    volumes:
+      - ./:/var/www/project
+    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'projections']
 
 
   workers_3:

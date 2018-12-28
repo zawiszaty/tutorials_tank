@@ -18,20 +18,13 @@ class BannedUserHandler implements CommandHandlerInterface
     private $aggregatRepository;
 
     /**
-     * @var TokenStorageInterface
-     */
-    private $tokenStorage;
-
-    /**
      * ConfirmUserHandler constructor.
      *
      * @param \App\Infrastructure\User\Repository\UserRepository $aggregatRepository
-     * @param TokenStorageInterface                              $tokenStorage
      */
-    public function __construct(\App\Infrastructure\User\Repository\UserRepository $aggregatRepository, TokenStorageInterface $tokenStorage)
+    public function __construct(\App\Infrastructure\User\Repository\UserRepository $aggregatRepository)
     {
         $this->aggregatRepository = $aggregatRepository;
-        $this->tokenStorage = $tokenStorage;
     }
 
     /**
@@ -41,9 +34,6 @@ class BannedUserHandler implements CommandHandlerInterface
      */
     public function __invoke(BannedUserCommand $command): void
     {
-        if ($this->tokenStorage->getToken()->getUser()->getId() === $command->getId()) {
-            throw new \Exception('Nie mozesz zbanować sam siebie');
-        }
         $user = $this->aggregatRepository->get(AggregateRootId::fromString($command->getId()));
         UserIsBanned::check($user);
         $user->banned();

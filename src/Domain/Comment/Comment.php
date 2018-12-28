@@ -102,7 +102,7 @@ class Comment extends EventSourcedAggregateRoot
     public static function create(
         AggregateRootId $aggregateRootId,
         Content $content,
-        ?CommentView $parrentComment,
+        ?string $parrentComment,
         string $post,
         string $user
     ) {
@@ -112,7 +112,7 @@ class Comment extends EventSourcedAggregateRoot
             $comment->apply(new CommentWasCreated(
                 $aggregateRootId,
                 $content,
-                $parrentComment->getId(),
+                $parrentComment,
                 $post,
                 $user,
                 new \DateTime()

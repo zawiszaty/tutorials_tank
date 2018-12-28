@@ -38,7 +38,7 @@ class CreateCommentHandler implements CommandHandlerInterface
             AggregateRootId::fromString(Uuid::uuid4()),
             Content::fromString($command->content),
             $command->parentComment,
-            $command->post->getId(),
+            $command->post,
             $command->user
         );
         $this->commentRepository->store($aggregateRoot);

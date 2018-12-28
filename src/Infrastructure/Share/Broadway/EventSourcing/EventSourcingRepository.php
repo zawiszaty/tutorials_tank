@@ -38,11 +38,11 @@ class EventSourcingRepository implements Repository
     private $eventToProjectionsProducer;
 
     /**
-     * @param EventStore                 $eventStore
-     * @param EventBus                   $eventBus
-     * @param string                     $aggregateClass
-     * @param AggregateFactory           $aggregateFactory
-     * @param EventStreamDecorator[]     $eventStreamDecorators
+     * @param EventStore $eventStore
+     * @param EventBus $eventBus
+     * @param string $aggregateClass
+     * @param AggregateFactory $aggregateFactory
+     * @param EventStreamDecorator[] $eventStreamDecorators
      * @param EventToProjectionsProducer $eventToProjectionsProducer
      */
     public function __construct(
@@ -52,7 +52,8 @@ class EventSourcingRepository implements Repository
         AggregateFactory $aggregateFactory,
         EventToProjectionsProducer $eventToProjectionsProducer,
         array $eventStreamDecorators = []
-    ) {
+    )
+    {
         $this->assertExtendsEventSourcedAggregateRoot($aggregateClass);
 
         $this->eventStore = $eventStore;
@@ -88,7 +89,8 @@ class EventSourcingRepository implements Repository
         $domainEventStream = $aggregate->getUncommittedEvents();
         $eventStream = $this->decorateForWrite($aggregate, $domainEventStream);
         $this->eventStore->append($aggregate->getAggregateRootId(), $eventStream);
-        $this->eventToProjectionsProducer->add($eventStream);
+//        $this->eventToProjectionsProducer->add($eventStream);
+        $this->eventBus->publish($eventStream);
     }
 
     private function decorateForWrite(AggregateRoot $aggregate, DomainEventStream $eventStream): DomainEventStream

@@ -72,7 +72,7 @@ class UserController extends RestController
 
     /**
      * @param Request $request
-     * @param string  $token
+     * @param string $token
      *
      * @return Response
      *
@@ -97,7 +97,7 @@ class UserController extends RestController
 
     /**
      * @param Request $request
-     * @param string  $id
+     * @param string $id
      *
      * @return Response
      *
@@ -116,6 +116,9 @@ class UserController extends RestController
      */
     public function bannedUserAction(Request $request, string $id): Response
     {
+        if ($this->getUser()->getId() === $id) {
+            throw new \Exception('Nie mozesz zbanować sam siebie');
+        }
         $command = new BannedUserCommand($id);
         $this->commandBus->handle($command);
 

@@ -62,6 +62,7 @@ class GetAllPostCommentHandler implements QueryHandlerInterface
         $total = $data->total;
         $data = $this->builder->build($data->data);
 
+
         return new Collection($command->getPage(), $command->getLimit(), $total, $data);
     }
 }

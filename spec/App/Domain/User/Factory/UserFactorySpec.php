@@ -5,6 +5,7 @@ namespace spec\App\Domain\User\Factory;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\User;
 use App\Domain\User\ValueObject\Avatar;
+use App\Domain\User\ValueObject\ConfirmationToken;
 use App\Domain\User\ValueObject\Email;
 use App\Domain\User\ValueObject\Password;
 use App\Domain\User\ValueObject\Roles;

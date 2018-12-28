@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpMissingParentConstructorInspection */
 
 namespace App\Infrastructure\User;
 
@@ -9,6 +9,7 @@ use App\Domain\User\Event\UserPasswordWasChanged;
 use App\Domain\User\Event\UserWasBanned;
 use App\Domain\User\Event\UserWasConfirmed;
 use App\Domain\User\Event\UserWasCreated;
+use App\Infrastructure\Share\Event\Producer\EventToProjectionsProducer;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;

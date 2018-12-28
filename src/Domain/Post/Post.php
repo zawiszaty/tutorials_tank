@@ -106,6 +106,7 @@ class Post extends EventSourcedAggregateRoot
         $this->user = $event->getUser();
         $this->thumbnail = $event->getThumbnail();
         $this->shortDescription = $event->getShortDescription();
+        $this->category = $event->getCategory();
     }
 
     /**
@@ -159,6 +160,7 @@ class Post extends EventSourcedAggregateRoot
         $this->user = $event->getUser();
         $this->thumbnail = $event->getThumbnail();
         $this->shortDescription = $event->getShortDescription();
+        $this->category = $event->getCategory();
     }
 
     /**

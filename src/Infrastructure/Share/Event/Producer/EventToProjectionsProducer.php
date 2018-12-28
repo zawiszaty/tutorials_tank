@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Share\Event\Producer;
 
-use Broadway\Domain\DomainEventStream;
+use App\Infrastructure\Share\Broadway\Projector\Projector;
+use Broadway\Domain\DomainMessage;
 use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;
 
 class EventToProjectionsProducer
@@ -16,8 +17,12 @@ class EventToProjectionsProducer
         $this->producer = $eventProducer;
     }
 
-    public function add(DomainEventStream $domainMessage)
+    public function add(DomainMessage $domainMessage, Projector $projector)
     {
-        $this->producer->publish(serialize($domainMessage), 'projections');
+        $message = [
+            serialize($domainMessage),
+            serialize($projector),
+        ];
+        $this->producer->publish(implode(" ", $message), 'projections');
     }
 }

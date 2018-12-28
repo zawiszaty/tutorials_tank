@@ -7,6 +7,7 @@ namespace App\Infrastructure\Share\Query\Repository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class MysqlRepository.
@@ -42,7 +43,7 @@ abstract class MysqlRepository
             ->getOneOrNullResult();
 
         if (null === $model) {
-            throw new \Exception('nie działa');
+            throw new NotFoundHttpException();
         }
 
         return $model;

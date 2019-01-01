@@ -53,7 +53,7 @@ class PostForm extends AbstractType
                 'required' => true,
             ])
             ->add('category', EntityType::class, [
-                'class' => CategoryView::class,
+                'class'       => CategoryView::class,
                 'constraints' => [
                     new NotNull(),
                 ],
@@ -76,11 +76,11 @@ class PostForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => PostView::class,
+            'data_class'      => PostView::class,
             'csrf_protection' => false,
-            'constraints' => [
+            'constraints'     => [
                 new UniqueValueInEntity([
-                    'field' => 'title',
+                    'field'       => 'title',
                     'entityClass' => PostView::class,
                 ]),
             ],

@@ -24,15 +24,15 @@ class DataBuilder
             $sender = $this->repositoryElastic->get($item['sender'])['_source'];
             $data[$key]['sender'] = [
                 'username' => $sender['username'],
-                'avatar' => $sender['avatar'],
-                'id' => $sender['id'],
+                'avatar'   => $sender['avatar'],
+                'id'       => $sender['id'],
             ];
             /** @var UserView $sender */
             $recipient = $this->repositoryElastic->get($item['recipient']);
             $data[$key]['recipient'] = [
                 'username' => $sender['username'],
-                'avatar' => $sender['avatar'],
-                'id' => $sender['id'],
+                'avatar'   => $sender['avatar'],
+                'id'       => $sender['id'],
             ];
         }
 

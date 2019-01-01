@@ -47,17 +47,17 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('plainPassword', RepeatedType::class, [
-                'type' => PasswordType::class,
+                'type'    => PasswordType::class,
                 'options' => [
                     'translation_domain' => 'FOSUserBundle',
-                    'attr' => [
+                    'attr'               => [
                         'autocomplete' => 'new-password',
                     ],
                 ],
-                'first_options' => ['label' => 'form.password'],
-                'second_options' => ['label' => 'form.password_confirmation'],
+                'first_options'   => ['label' => 'form.password'],
+                'second_options'  => ['label' => 'form.password_confirmation'],
                 'invalid_message' => 'fos_user.password.mismatch',
-                'constraints' => [
+                'constraints'     => [
                     new NotNull(),
                     new Length([
                         'min' => '6',
@@ -85,13 +85,13 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'csrf_protection' => false,
-            'constraints' => [
+            'constraints'     => [
                 new UniqueValueInEntity([
-                    'field' => 'username',
+                    'field'       => 'username',
                     'entityClass' => UserView::class,
                 ]),
                 new UniqueValueInEntity([
-                    'field' => 'email',
+                    'field'       => 'email',
                     'entityClass' => UserView::class,
                 ]),
             ],

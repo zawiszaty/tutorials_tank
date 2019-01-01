@@ -85,12 +85,12 @@ class CommentWasCreated extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->getId()->toString(),
-            'content' => $this->getContent()->toString(),
+            'id'             => $this->getId()->toString(),
+            'content'        => $this->getContent()->toString(),
             'parrentComment' => $this->getParrentComment(),
-            'post' => $this->getPost(),
-            'user' => $this->getUser(),
-            'createdAt' => $this->getCreatedAt(),
+            'post'           => $this->getPost(),
+            'user'           => $this->getUser(),
+            'createdAt'      => $this->getCreatedAt(),
         ];
     }
 

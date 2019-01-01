@@ -82,14 +82,14 @@ class User extends EventSourcedAggregateRoot
     public function serialize()
     {
         return [
-            'id' => $this->id->toString(),
-            'username' => $this->username->toString(),
-            'email' => $this->email->toString(),
-            'roles' => $this->roles->toArray(),
-            'steemit' => $this->steemit->toString(),
-            'banned' => $this->banned,
-            'password' => $this->password,
-            'enabled' => $this->enabled,
+            'id'                => $this->id->toString(),
+            'username'          => $this->username->toString(),
+            'email'             => $this->email->toString(),
+            'roles'             => $this->roles->toArray(),
+            'steemit'           => $this->steemit->toString(),
+            'banned'            => $this->banned,
+            'password'          => $this->password,
+            'enabled'           => $this->enabled,
             'confirmationToken' => $this->confirmationToken,
         ];
     }

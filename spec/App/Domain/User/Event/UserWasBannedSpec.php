@@ -21,7 +21,7 @@ class UserWasBannedSpec extends ObjectBehavior
     public function it_deserialize()
     {
         self::deserialize([
-            'id' => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
+            'id'     => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
             'banned' => false,
         ])->shouldBeAnInstanceOf(UserWasBanned::class);
     }

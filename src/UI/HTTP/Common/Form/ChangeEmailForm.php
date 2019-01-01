@@ -33,9 +33,9 @@ class ChangeEmailForm extends AbstractType
     {
         $resolver->setDefaults([
             'csrf_protection' => false,
-            'constraints' => [
+            'constraints'     => [
                 new UniqueValueInEntity([
-                    'field' => 'email',
+                    'field'       => 'email',
                     'entityClass' => UserView::class,
                 ]),
             ],

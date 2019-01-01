@@ -96,13 +96,13 @@ class PostWasEdited extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
-            'title' => $this->title->toString(),
-            'content' => $this->content->toString(),
-            'thumbnail' => $this->thumbnail->toString(),
-            'type' => $this->type,
-            'user' => $this->user,
-            'category' => $this->category,
+            'id'               => $this->id->toString(),
+            'title'            => $this->title->toString(),
+            'content'          => $this->content->toString(),
+            'thumbnail'        => $this->thumbnail->toString(),
+            'type'             => $this->type,
+            'user'             => $this->user,
+            'category'         => $this->category,
             'shortDescription' => $this->shortDescription,
         ];
     }

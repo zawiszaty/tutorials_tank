@@ -50,7 +50,7 @@ class Category extends EventSourcedAggregateRoot
     public function serialize()
     {
         return [
-          'id' => $this->id->toString(),
+          'id'   => $this->id->toString(),
           'name' => $this->name->toString(),
         ];
     }

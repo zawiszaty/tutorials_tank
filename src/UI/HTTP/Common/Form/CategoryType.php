@@ -24,7 +24,7 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'required' => true,
+                'required'    => true,
                 'constraints' => [
                     new NotNull(),
                     new Length([
@@ -33,7 +33,7 @@ class CategoryType extends AbstractType
                     ]),
                 ],
                 'documentation' => [
-                    'type' => 'string', // would have been automatically detected in this case
+                    'type'        => 'string', // would have been automatically detected in this case
                     'description' => 'Category name.',
                 ],
             ]);
@@ -46,9 +46,9 @@ class CategoryType extends AbstractType
     {
         $resolver->setDefaults([
             'csrf_protection' => false,
-            'constraints' => [
+            'constraints'     => [
                 new UniqueValueInEntity([
-                    'field' => 'name',
+                    'field'       => 'name',
                     'entityClass' => CategoryView::class,
                 ]),
             ],

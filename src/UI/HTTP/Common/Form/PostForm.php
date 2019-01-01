@@ -2,7 +2,6 @@
 
 namespace App\UI\HTTP\Common\Form;
 
-use App\Domain\Category\Category;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Post\Query\Projections\PostView;
 use App\Infrastructure\Share\Validator\Constraint\UniqueValueInEntity;
@@ -54,7 +53,7 @@ class PostForm extends AbstractType
                 'required' => true,
             ])
             ->add('category', EntityType::class, [
-                'class'       => CategoryView::class,
+                'class' => CategoryView::class,
                 'constraints' => [
                     new NotNull(),
                 ],
@@ -77,11 +76,11 @@ class PostForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class'      => PostView::class,
+            'data_class' => PostView::class,
             'csrf_protection' => false,
-            'constraints'     => [
+            'constraints' => [
                 new UniqueValueInEntity([
-                    'field'       => 'title',
+                    'field' => 'title',
                     'entityClass' => PostView::class,
                 ]),
             ],

@@ -13,8 +13,7 @@ use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
 
 /**
- * Class BannedUserHandlerTest
- * @package App\Tests\Application\Command\User\Banned
+ * Class BannedUserHandlerTest.
  */
 class BannedUserHandlerTest extends ApplicationTestCase
 {
@@ -22,7 +21,6 @@ class BannedUserHandlerTest extends ApplicationTestCase
      * @test
      *
      * @group integration
-     *
      */
     public function command_handler_must_fire_domain_event(): void
     {

@@ -45,7 +45,7 @@ class CreateNotificationServerCommand extends ContainerAwareCommand
         $context = new Context($loop);
         $pull = $context->getSocket(\ZMQ::SOCKET_PULL);
         $pull->bind('tcp://127.0.0.1:5555'); // Binding to 127.0.0.1 means the only client that can connect is itself
-        $pull->on('message', array($pusher, 'onNotify'));
+        $pull->on('message', [$pusher, 'onNotify']);
 
         // Set up our WebSocket server for clients wanting real-time updates
         $webSock = new Server('0.0.0.0:8888', $loop); // Binding to 0.0.0.0 means remotes can connect

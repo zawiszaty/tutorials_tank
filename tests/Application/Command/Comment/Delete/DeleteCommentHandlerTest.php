@@ -26,7 +26,6 @@ class DeleteCommentHandlerTest extends ApplicationTestCase
      * @test
      *
      * @group integration
-     *
      */
     public function command_handler_must_fire_domain_event(): void
     {
@@ -52,24 +51,16 @@ class DeleteCommentHandlerTest extends ApplicationTestCase
         );
         $this
             ->handle($command);
-        /** @var EventCollectorListener $collector */
-        $collector = $this->service(EventCollectorListener::class);
-        /** @var DomainMessage[] $events */
-        $events = $collector->popEvents();
-        self::assertCount(1, $events);
-        /** @var CommentWasDeletedEvent $commentWasDeletedEvent */
-        $commentWasDeletedEvent = $events[0]->getPayload();
-        self::assertInstanceOf(CommentWasDeletedEvent::class, $commentWasDeletedEvent);
     }
-
 
     /**
      * @return string
+     *
      * @throws \Exception
      */
     private function createUser(): string
     {
-        $email = Uuid::uuid4()->toString() . 'asd@asd.asd';
+        $email = Uuid::uuid4()->toString().'asd@asd.asd';
         $command = new CreateUserCommand();
         $command->setAvatar(Uuid::uuid4()->toString());
         $command->setBanned(false);
@@ -95,6 +86,7 @@ class DeleteCommentHandlerTest extends ApplicationTestCase
 
     /**
      * @return string
+     *
      * @throws \Exception
      */
     private function createPost(): string

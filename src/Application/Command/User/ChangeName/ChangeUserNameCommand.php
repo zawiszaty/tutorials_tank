@@ -15,5 +15,5 @@ class ChangeUserNameCommand
     /**
      * @var string
      */
-    public $name;
+    public $username;
 }

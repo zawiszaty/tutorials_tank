@@ -18,7 +18,6 @@ class ConfirmUserHandlerTest extends ApplicationTestCase
      * @test
      *
      * @group integration
-     *
      */
     public function command_handler_must_fire_domain_event(): void
     {
@@ -55,5 +54,4 @@ class ConfirmUserHandlerTest extends ApplicationTestCase
         $userCreatedEvent = $events[0]->getPayload();
         self::assertInstanceOf(UserWasConfirmed::class, $userCreatedEvent);
     }
-
 }

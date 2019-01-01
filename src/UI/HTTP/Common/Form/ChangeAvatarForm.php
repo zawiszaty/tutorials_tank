@@ -17,7 +17,7 @@ class ChangeAvatarForm extends AbstractType
             ->add('file', FileType::class, [
                 'constraints' => [
                     new File([
-                        'maxSize'   => '1M',
+                        'maxSize' => '1M',
                         'mimeTypes' => ['image/jpeg',
                             'image/png',
                         ],
@@ -29,8 +29,8 @@ class ChangeAvatarForm extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'csrf_protection' => false,
-        ));
+        ]);
     }
 }

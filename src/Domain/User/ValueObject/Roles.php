@@ -43,4 +43,18 @@ class Roles
     {
         return $this->roles;
     }
+
+    /**
+     * @param string $role
+     *
+     * @throws \Exception
+     */
+    public function appendRole(string $role)
+    {
+        if (in_array($role, $this->roles)) {
+            throw new \Exception();
+        }
+
+        array_push($this->roles, $role);
+    }
 }

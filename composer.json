@@ -13,6 +13,7 @@
         "broadway/event-store-dbal": "^0.2.1",
         "cboden/ratchet": "^0.4.1",
         "elasticsearch/elasticsearch": "^6.0",
+        "friendsofphp/php-cs-fixer": "^2.13",
         "friendsofsymfony/elastica-bundle": "dev-master",
         "friendsofsymfony/oauth-server-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "~2.0",

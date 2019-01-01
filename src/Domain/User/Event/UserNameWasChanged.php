@@ -113,14 +113,14 @@ class UserNameWasChanged extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id'       => $this->id->toString(),
+            'id' => $this->id->toString(),
             'username' => $this->username->toString(),
-            'email'    => $this->email->toString(),
-            'roles'    => $this->roles->toArray(),
-            'avatar'   => $this->avatar->toString(),
-            'steemit'  => $this->steemit->toString(),
-            'banned'   => $this->banned,
-            'enabled'  => $this->enabled,
+            'email' => $this->email->toString(),
+            'roles' => $this->roles->toArray(),
+            'avatar' => $this->avatar->toString(),
+            'steemit' => $this->steemit->toString(),
+            'banned' => $this->banned,
+            'enabled' => $this->enabled,
         ];
     }
 

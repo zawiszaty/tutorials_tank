@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 /**
  * Class CategoryType.
@@ -22,7 +23,7 @@ class ChangeUserNameForm extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
-                'required'    => true,
+                'required' => true,
                 'constraints' => [
                     new NotNull(),
                 ],
@@ -36,9 +37,9 @@ class ChangeUserNameForm extends AbstractType
     {
         $resolver->setDefaults([
             'csrf_protection' => false,
-            'constraints'     => [
+            'constraints' => [
                 new UniqueValueInEntity([
-                    'field'       => 'username',
+                    'field' => 'username',
                     'entityClass' => UserView::class,
                 ]),
             ],

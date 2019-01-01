@@ -3,7 +3,6 @@
 namespace App\Infrastructure\Category\Query\Projections;
 
 use App\Domain\Category\Query\Projections\CategoryViewInterface;
-use App\Domain\Category\ValueObject\Name;
 use Broadway\Serializer\Serializable;
 
 /**
@@ -51,8 +50,8 @@ class CategoryView implements CategoryViewInterface
     public function serialize(): array
     {
         return [
-            'id'      => $this->id,
-            'name'    => $this->name,
+            'id' => $this->id,
+            'name' => $this->name,
         ];
     }
 

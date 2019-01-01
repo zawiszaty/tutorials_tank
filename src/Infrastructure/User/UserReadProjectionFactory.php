@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpMissingParentConstructorInspection */
+<?php
+
+/** @noinspection PhpMissingParentConstructorInspection */
 
 namespace App\Infrastructure\User;
 
@@ -6,10 +8,10 @@ use App\Domain\User\Event\UserAvatarWasChanged;
 use App\Domain\User\Event\UserMailWasChanged;
 use App\Domain\User\Event\UserNameWasChanged;
 use App\Domain\User\Event\UserPasswordWasChanged;
+use App\Domain\User\Event\UserWasAdminRoleGranted;
 use App\Domain\User\Event\UserWasBanned;
 use App\Domain\User\Event\UserWasConfirmed;
 use App\Domain\User\Event\UserWasCreated;
-use App\Infrastructure\Share\Event\Producer\EventToProjectionsProducer;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Broadway\ReadModel\Projector;
@@ -113,6 +115,19 @@ class UserReadProjectionFactory extends Projector
         /** @var UserView $userView */
         $userView = $this->repository->oneByUuid($event->getId());
         $userView->changeAvatar($event->getAvatar()->toString());
+        $this->repository->apply();
+    }
+
+    /**
+     * @param UserWasAdminRoleGranted $adminRoleGranted
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function applyUserWasAdminRoleGranted(UserWasAdminRoleGranted $adminRoleGranted): void
+    {
+        /** @var UserView $userView */
+        $userView = $this->repository->oneByUuid($adminRoleGranted->getId());
+        $userView->appendRole('ROLE_ADMIN');
         $this->repository->apply();
     }
 }

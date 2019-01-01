@@ -25,7 +25,7 @@ class CommentTest extends TestCase
      */
     public function given_a_valid_credential_parrent_comment_null_it_should_create_a_comment_instance(): void
     {
-        $content = "test";
+        $content = 'test';
         $comment = Comment::create(
             AggregateRootId::fromString(Uuid::uuid4()->toString()),
             Content::fromString($content),
@@ -52,7 +52,7 @@ class CommentTest extends TestCase
      */
     public function given_a_valid_credential_it_should_create_a_comment_instance(): void
     {
-        $content = "test";
+        $content = 'test';
         $comment = Comment::create(
             AggregateRootId::fromString(Uuid::uuid4()->toString()),
             Content::fromString($content),
@@ -79,7 +79,7 @@ class CommentTest extends TestCase
      */
     public function given_a_delete_comment_instance(): void
     {
-        $content = "test";
+        $content = 'test';
         $comment = Comment::create(
             AggregateRootId::fromString(Uuid::uuid4()->toString()),
             Content::fromString($content),

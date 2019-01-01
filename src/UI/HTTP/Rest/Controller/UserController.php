@@ -9,6 +9,7 @@ use App\Application\Command\User\ChangeName\ChangeUserNameCommand;
 use App\Application\Command\User\ChangePassword\ChangePasswordCommand;
 use App\Application\Command\User\ConfirmUser\ConfirmUserCommand;
 use App\Application\Command\User\Create\CreateUserCommand;
+use App\Application\Command\User\GranteUserAdminRole\GranteUserAdminRoleCommand;
 use App\Application\Command\User\SendEmail\SendEmailCommand;
 use App\Application\Query\User\GetAll\GetAllCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
@@ -72,7 +73,7 @@ class UserController extends RestController
 
     /**
      * @param Request $request
-     * @param string $token
+     * @param string  $token
      *
      * @return Response
      *
@@ -97,7 +98,7 @@ class UserController extends RestController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @return Response
      *
@@ -360,5 +361,42 @@ class UserController extends RestController
         $response = new JsonResponse($this->getErrorMessages($form), JsonResponse::HTTP_BAD_REQUEST);
 
         return $response;
+    }
+
+    /**
+     * @param Request $request
+     * @param string  $user
+     *
+     * @return JsonResponse
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="user",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Tag(name="User")
+     * @NelmioSecurity(name="BearerUser")
+     */
+    public function grantedAdminUserRole(Request $request, string $user): Response
+    {
+        $command = new GranteUserAdminRoleCommand();
+        $command->userId = $user;
+        $this->commandBus->handle($command);
+
+        return new JsonResponse('success', Response::HTTP_ACCEPTED);
     }
 }

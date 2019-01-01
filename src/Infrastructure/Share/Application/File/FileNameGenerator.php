@@ -18,7 +18,7 @@ class FileNameGenerator
      */
     public static function generate(string $extention)
     {
-        $name = Uuid::uuid4() . '-' . Uuid::uuid4() . '.' . $extention;
+        $name = Uuid::uuid4().'-'.Uuid::uuid4().'.'.$extention;
 
         return $name;
     }

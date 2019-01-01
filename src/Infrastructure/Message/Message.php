@@ -11,7 +11,7 @@ use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 class Message implements MessageComponentInterface
 {
-    protected $connections = array();
+    protected $connections = [];
 
     protected $container;
 
@@ -57,7 +57,7 @@ class Message implements MessageComponentInterface
 
     public function onError(ConnectionInterface $conn, \Exception $e)
     {
-        $conn->send('Error : ' . $e->getMessage());
+        $conn->send('Error : '.$e->getMessage());
         $conn->close();
     }
 
@@ -90,17 +90,17 @@ class Message implements MessageComponentInterface
 
             try {
                 $this->connections[$recipient->getId()]->send(json_encode([
-                    'id'      => $message->getId(),
+                    'id' => $message->getId(),
                     'content' => $message->getContent(),
-                    'sender'  => [
-                        'id'       => $sender->getId(),
+                    'sender' => [
+                        'id' => $sender->getId(),
                         'username' => $sender->getUsername(),
-                        'avatar'   => $sender->getAvatar(),
+                        'avatar' => $sender->getAvatar(),
                     ],
                     'recipient' => [
-                        'id'       => $recipient->getId(),
+                        'id' => $recipient->getId(),
                         'username' => $recipient->getUsername(),
-                        'avatar'   => $recipient->getAvatar(),
+                        'avatar' => $recipient->getAvatar(),
                     ],
                     'createdAt' => $message->getCreatedAt(),
                 ]));

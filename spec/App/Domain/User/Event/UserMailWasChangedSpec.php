@@ -23,7 +23,7 @@ class UserMailWasChangedSpec extends ObjectBehavior
     public function it_deserialize()
     {
         self::deserialize([
-            'id'    => '023780a8-be68-11e8-a355-529269fb1459',
+            'id' => '023780a8-be68-11e8-a355-529269fb1459',
             'email' => 'test@wp.pl2',
         ])->shouldBeAnInstanceOf(UserMailWasChanged::class);
     }

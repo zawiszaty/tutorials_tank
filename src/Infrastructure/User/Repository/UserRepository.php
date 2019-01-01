@@ -5,7 +5,6 @@ namespace App\Infrastructure\User\Repository;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Domain\User\User;
-use App\Infrastructure\Share\Event\Producer\EventToProjectionsProducer;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
 use Broadway\EventSourcing\EventSourcingRepository;
@@ -38,8 +37,8 @@ class UserRepository extends EventSourcingRepository implements UserRepositoryIn
      * CategoryRepository constructor.
      *
      * @param EventStore $eventStore
-     * @param EventBus $eventBus
-     * @param array $eventStreamDecorators
+     * @param EventBus   $eventBus
+     * @param array      $eventStreamDecorators
      */
     public function __construct(
         EventStore $eventStore,

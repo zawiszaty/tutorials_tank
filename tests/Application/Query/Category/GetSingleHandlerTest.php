@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Application\Query\Category;
 
 use App\Application\Command\Category\Create\CreateCategoryCommand;
-use App\Application\Query\Category\GetAll\GetAllCommand;
 use App\Application\Query\Category\GetSingle\GetSingleCommand;
 use App\Domain\Category\Event\CategoryWasCreated;
 use App\Tests\Application\ApplicationTestCase;
@@ -18,7 +17,6 @@ class GetSingleHandlerTest extends ApplicationTestCase
      * @test
      *
      * @group integration
-     *
      */
     public function command_handler_must_fire_domain_event(): void
     {

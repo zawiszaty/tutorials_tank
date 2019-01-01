@@ -45,10 +45,10 @@ class SecurityController extends RestController
         }
 
         return new JsonResponse([
-            'id'     => $user->getId(),
-            'name'   => $user->getUsername(),
-            'email'  => $user->getEmail(),
-            'roles'  => $user->getRoles(),
+            'id' => $user->getId(),
+            'name' => $user->getUsername(),
+            'email' => $user->getEmail(),
+            'roles' => $user->getRoles(),
             'avatar' => $user->getAvatar(),
         ]);
     }

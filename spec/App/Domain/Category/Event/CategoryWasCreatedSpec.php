@@ -16,8 +16,8 @@ class CategoryWasCreatedSpec extends ObjectBehavior
         $name
         );
         self::deserialize([
-            'id'      => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
-            'name'    => 'test',
+            'id' => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
+            'name' => 'test',
         ])->shouldBeAnInstanceOf(CategoryWasCreated::class);
     }
 

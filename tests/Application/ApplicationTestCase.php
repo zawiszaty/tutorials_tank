@@ -18,14 +18,17 @@ abstract class ApplicationTestCase extends KernelTestCase
     {
         return $this->queryBus->handle($query);
     }
+
     protected function handle($command): void
     {
         $this->commandBus->handle($command);
     }
+
     protected function service(string $serviceId)
     {
         return self::$container->get($serviceId);
     }
+
     protected function fireTerminateEvent(): void
     {
         /** @var EventDispatcherInterface $dispatcher */
@@ -46,6 +49,18 @@ abstract class ApplicationTestCase extends KernelTestCase
         $this->service('doctrine.orm.entity_manager')->getConnection()->beginTransaction();
         $this->commandBus = $this->service('tactician.commandbus.command');
         $this->queryBus = $this->service('tactician.commandbus.query');
+        $connection = self::$container->get('doctrine')->getConnection();
+        $connection->beginTransaction();
+        $connection->query('SET FOREIGN_KEY_CHECKS=0');
+        $connection->query('DELETE FROM events');
+        $connection->query('DELETE FROM category');
+        $connection->query('DELETE FROM fos_user');
+        $connection->query('DELETE FROM access_token');
+        $connection->query('DELETE FROM auth_code');
+        $connection->query('DELETE FROM refresh_token');
+        $connection->query('DELETE FROM client');
+        $connection->query('SET FOREIGN_KEY_CHECKS=1');
+        $connection->commit();
     }
 
     protected function tearDown()
@@ -54,6 +69,7 @@ abstract class ApplicationTestCase extends KernelTestCase
         $this->queryBus = null;
         $this->service('doctrine.orm.entity_manager')->getConnection()->rollback();
     }
+
     /** @var CommandBus|null */
     private $commandBus;
     /** @var CommandBus|null */

@@ -85,7 +85,7 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
     private function prepareStatement()
     {
         $this->statement = $this->connection->prepare(
-            'SELECT DISTINCT `uuid` FROM ' . $this->eventStoreTable
+            'SELECT DISTINCT `uuid` FROM '.$this->eventStoreTable
         );
         $this->statement->execute();
     }

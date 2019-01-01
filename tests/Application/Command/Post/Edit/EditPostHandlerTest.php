@@ -17,7 +17,6 @@ use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class EditPostHandlerTest extends ApplicationTestCase
 {
@@ -25,7 +24,6 @@ class EditPostHandlerTest extends ApplicationTestCase
      * @test
      *
      * @group integration
-     *
      */
     public function command_handler_must_fire_domain_event(): void
     {
@@ -82,7 +80,6 @@ class EditPostHandlerTest extends ApplicationTestCase
         self::assertInstanceOf(PostWasEdited::class, $editPostEvent);
     }
 
-
     private function createCategory(): string
     {
         $name = Uuid::uuid4()->toString();
@@ -107,7 +104,7 @@ class EditPostHandlerTest extends ApplicationTestCase
      */
     private function createUser(): string
     {
-        $email = Uuid::uuid4()->toString() . '@asd.asd';
+        $email = Uuid::uuid4()->toString().'@asd.asd';
         $command = new CreateUserCommand();
         $command->setAvatar(Uuid::uuid4()->toString());
         $command->setBanned(false);

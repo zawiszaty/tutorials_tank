@@ -3,10 +3,8 @@
 namespace App\Infrastructure\Share\Event\Consumer;
 
 use App\Infrastructure\Share\Broadway\Projector\Projector;
-use Broadway\Domain\DomainEventStream;
 use Broadway\Domain\DomainMessage;
 use Broadway\EventHandling\EventBus;
-use const Fpp\dump;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
 
@@ -37,7 +35,7 @@ class PublishProjectionsConsumer implements ConsumerInterface
      */
     public function execute(AMQPMessage $msg): void
     {
-        $message = explode(" ",$msg->body);
+        $message = explode(' ', $msg->body);
         /** @var DomainMessage $domainMessage */
         $domainMessage = unserialize($message[0]);
         /** @var Projector $projector */

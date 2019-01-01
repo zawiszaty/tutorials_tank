@@ -50,8 +50,10 @@ class CreateCommentHandlerTest extends ApplicationTestCase
         self::assertSame($content, $commentWasCreated->getContent()->toString());
         self::assertInstanceOf(CommentWasCreated::class, $commentWasCreated);
     }
+
     /**
      * @return string
+     *
      * @throws \Exception
      */
     private function createUser(): string
@@ -82,6 +84,7 @@ class CreateCommentHandlerTest extends ApplicationTestCase
 
     /**
      * @return string
+     *
      * @throws \Exception
      */
     private function createPost(): string

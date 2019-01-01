@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Tests\Application\Command\User\ChangeName;
 
-use App\Application\Command\Category\ChangeName\ChangeNameCommand;
 use App\Application\Command\User\ChangeName\ChangeUserNameCommand;
 use App\Application\Command\User\Create\CreateUserCommand;
-use App\Domain\Category\Event\NameWasChanged;
 use App\Domain\User\Event\UserNameWasChanged;
 use App\Domain\User\Event\UserWasCreated;
 use App\Tests\Application\ApplicationTestCase;
@@ -20,7 +18,6 @@ class ChangeNameHandlerTest extends ApplicationTestCase
      * @test
      *
      * @group integration
-     *
      */
     public function command_handler_must_fire_domain_event(): void
     {
@@ -45,7 +42,7 @@ class ChangeNameHandlerTest extends ApplicationTestCase
         $userCreatedEvent = $events[0]->getPayload();
         self::assertInstanceOf(UserWasCreated::class, $userCreatedEvent);
         $command = new ChangeUserNameCommand();
-        $command->name = 'test';
+        $command->username = 'test';
         $command->id = $userCreatedEvent->getId()->toString();
         $this
             ->handle($command);
@@ -58,5 +55,4 @@ class ChangeNameHandlerTest extends ApplicationTestCase
         $userCreatedEvent = $events[0]->getPayload();
         self::assertInstanceOf(UserNameWasChanged::class, $userCreatedEvent);
     }
-
 }

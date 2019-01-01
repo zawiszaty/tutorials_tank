@@ -37,8 +37,8 @@ class CategoryWasCreated extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id'      => $this->id->toString(),
-            'name'    => $this->name->toString(),
+            'id' => $this->id->toString(),
+            'name' => $this->name->toString(),
         ];
     }
 

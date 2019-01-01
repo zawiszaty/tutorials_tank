@@ -26,7 +26,7 @@ class CategoryTest extends TestCase
      */
     public function given_a_valid_name_it_should_create_a_category_instance(): void
     {
-        $name = "test";
+        $name = 'test';
         $category = Category::create(
           AggregateRootId::fromString(Uuid::uuid4()->toString()),
             Name::fromString($name)
@@ -50,7 +50,7 @@ class CategoryTest extends TestCase
      */
     public function given_a_valid_name_it_should_change_a_category_instance(): void
     {
-        $name = "test";
+        $name = 'test';
         $category = Category::create(
             AggregateRootId::fromString(Uuid::uuid4()->toString()),
             Name::fromString($name)
@@ -76,7 +76,7 @@ class CategoryTest extends TestCase
      */
     public function given_category_was_delete(): void
     {
-        $name = "test";
+        $name = 'test';
         $category = Category::create(
             AggregateRootId::fromString(Uuid::uuid4()->toString()),
             Name::fromString($name)

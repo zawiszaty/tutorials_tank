@@ -190,6 +190,14 @@ class UserView extends BaseUser
         return $this->banned;
     }
 
+    /**
+     * @param string $role
+     */
+    public function appendRole(string $role): void
+    {
+        array_push($this->roles, $role);
+    }
+
 //    /**
 //     * @return array
 //     */

@@ -62,6 +62,12 @@
     "cboden/ratchet": {
         "version": "v0.4.1"
     },
+    "composer/semver": {
+        "version": "1.4.2"
+    },
+    "composer/xdebug-handler": {
+        "version": "1.3.1"
+    },
     "container-interop/container-interop": {
         "version": "1.2.0"
     },
@@ -83,6 +89,9 @@
     "doctrine/common": {
         "version": "v2.9.0"
     },
+    "doctrine/data-fixtures": {
+        "version": "v1.3.1"
+    },
     "doctrine/dbal": {
         "version": "v2.8.0"
     },
@@ -97,6 +106,15 @@
     },
     "doctrine/doctrine-cache-bundle": {
         "version": "1.3.3"
+    },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "fc52d86631a6dfd9fdf3381d0b7e3df2069e51b3"
+        }
     },
     "doctrine/doctrine-migrations-bundle": {
         "version": "1.2",
@@ -154,6 +172,15 @@
     },
     "fig/link-util": {
         "version": "1.0.0"
+    },
+    "friendsofphp/php-cs-fixer": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.2",
+            "ref": "81dee417d2cc60cd1c9d6208dff2ec22a1103e93"
+        }
     },
     "friendsofsymfony/elastica-bundle": {
         "version": "5.0",
@@ -274,6 +301,9 @@
             "version": "1.12",
             "ref": "ce3ca2e4577270c4f518539aa6b9e878998fcfef"
         }
+    },
+    "php-cs-fixer/diff": {
+        "version": "v1.3.0"
     },
     "phpcollection/phpcollection": {
         "version": "0.5.0"

@@ -24,18 +24,18 @@ class CommentTypeForm extends AbstractType
     {
         $builder
             ->add('content', TextType::class, [
-                'required'    => true,
+                'required' => true,
                 'constraints' => [
                     new NotNull(),
                 ],
             ])
             ->add('parentComment', EntityType::class, [
-                'class'    => CommentView::class,
+                'class' => CommentView::class,
                 'required' => false,
             ])
             ->add('post', EntityType::class, [
-                'class'       => PostView::class,
-                'required'    => false,
+                'class' => PostView::class,
+                'required' => false,
                 'constraints' => [
                     new NotNull(),
                 ],

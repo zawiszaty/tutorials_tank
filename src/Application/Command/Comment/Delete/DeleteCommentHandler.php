@@ -58,27 +58,6 @@ class DeleteCommentHandler implements CommandHandlerInterface
     public function __invoke(DeleteCommentCommand $deleteCommentCommand)
     {
         $aggregateRoot = $this->commentRepository->get(AggregateRootId::fromString($deleteCommentCommand->getId()));
-
-        if (!$aggregateRoot->getParrentComment()) {
-            $comments = $this->commentRepositoryElastic->search([
-                'query' => [
-                    'bool' => [
-                        'must' => [
-                            [
-                                'match' => [
-                                    'parrentComment' => $aggregateRoot->getId()->toString(),
-                                ],
-                            ],
-                        ],
-                    ],
-                ], ]);
-
-            foreach ($comments['hits']['hits'] as $comment) {
-                $comment = $comment['_source'];
-                $this->commentReadModelRepository->delete($comment['id']);
-            }
-        }
-
         $aggregateRoot->delete($deleteCommentCommand->getUser());
     }
 }

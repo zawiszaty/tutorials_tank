@@ -5,10 +5,9 @@ namespace App\Infrastructure\Comment\Repository;
 use App\Domain\Comment\Comment;
 use App\Domain\Comment\Repository\CommentRepositoryInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Infrastructure\Share\Broadway\EventSourcing\EventSourcingRepository;
-use App\Infrastructure\Share\Event\Producer\EventToProjectionsProducer;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
+use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventStore\EventStore;
 
 class CommentRepository extends EventSourcingRepository implements CommentRepositoryInterface
@@ -29,15 +28,13 @@ class CommentRepository extends EventSourcingRepository implements CommentReposi
     /**
      * CommentRepository constructor.
      *
-     * @param EventStore                 $eventStore
-     * @param EventBus                   $eventBus
-     * @param EventToProjectionsProducer $eventToProjectionsProducer
-     * @param array                      $eventStreamDecorators
+     * @param EventStore $eventStore
+     * @param EventBus   $eventBus
+     * @param array      $eventStreamDecorators
      */
     public function __construct(
         EventStore $eventStore,
         EventBus $eventBus,
-        EventToProjectionsProducer $eventToProjectionsProducer,
         array $eventStreamDecorators = []
     ) {
         parent::__construct(
@@ -45,7 +42,6 @@ class CommentRepository extends EventSourcingRepository implements CommentReposi
             $eventBus,
             Comment::class,
             new PublicConstructorAggregateFactory(),
-            $eventToProjectionsProducer,
             $eventStreamDecorators
         );
     }

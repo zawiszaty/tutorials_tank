@@ -13,11 +13,14 @@ class EventCollectorListener implements EventListener
     {
         $this->publishedEvents[] = $domainMessage;
     }
+
     public function popEvents(): array
     {
         $events = $this->publishedEvents;
         $this->publishedEvents = [];
+
         return $events;
     }
+
     private $publishedEvents = [];
 }

@@ -3,10 +3,12 @@
 namespace App\Domain\User;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
+use App\Domain\User\Assert\UserIsNotAdmin;
 use App\Domain\User\Event\UserAvatarWasChanged;
 use App\Domain\User\Event\UserMailWasChanged;
 use App\Domain\User\Event\UserNameWasChanged;
 use App\Domain\User\Event\UserPasswordWasChanged;
+use App\Domain\User\Event\UserWasAdminRoleGranted;
 use App\Domain\User\Event\UserWasBanned;
 use App\Domain\User\Event\UserWasConfirmed;
 use App\Domain\User\Event\UserWasCreated;
@@ -80,14 +82,14 @@ class User extends EventSourcedAggregateRoot
     public function serialize()
     {
         return [
-            'id'                => $this->id->toString(),
-            'username'          => $this->username->toString(),
-            'email'             => $this->email->toString(),
-            'roles'             => $this->roles->toArray(),
-            'steemit'           => $this->steemit->toString(),
-            'banned'            => $this->banned,
-            'password'          => $this->password,
-            'enabled'           => $this->enabled,
+            'id' => $this->id->toString(),
+            'username' => $this->username->toString(),
+            'email' => $this->email->toString(),
+            'roles' => $this->roles->toArray(),
+            'steemit' => $this->steemit->toString(),
+            'banned' => $this->banned,
+            'password' => $this->password,
+            'enabled' => $this->enabled,
             'confirmationToken' => $this->confirmationToken,
         ];
     }
@@ -342,5 +344,24 @@ class User extends EventSourcedAggregateRoot
     public function getConfirmationToken(): ConfirmationToken
     {
         return $this->confirmationToken;
+    }
+
+    /**
+     * @throws Exception\UserIsAdminException
+     */
+    public function grantedAdminRole(): void
+    {
+        UserIsNotAdmin::check($this->roles);
+        $this->apply(new UserWasAdminRoleGranted($this->id));
+    }
+
+    /**
+     * @param UserWasAdminRoleGranted $adminRoleGranted
+     *
+     * @throws \Exception
+     */
+    public function applyUserWasAdminRoleGranted(UserWasAdminRoleGranted $adminRoleGranted): void
+    {
+        $this->roles->appendRole('ROLE_ADMIN');
     }
 }

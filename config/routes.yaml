@@ -128,6 +128,11 @@ delete_comment_action:
   methods: DELETE
   controller: App\UI\HTTP\Rest\Controller\CommentController:deleteCommentAction
 
+granted_user_admin_role:
+  path: /api/v1/user/role/admin/{user}
+  methods: PATCH
+  controller: App\UI\HTTP\Rest\Controller\UserController:grantedAdminUserRole
+
 app.swagger_ui:
   path: /api/doc
   methods: GET

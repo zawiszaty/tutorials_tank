@@ -46,25 +46,25 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('plainPassword', RepeatedType::class, array(
-                'type'    => PasswordType::class,
-                'options' => array(
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'options' => [
                     'translation_domain' => 'FOSUserBundle',
-                    'attr'               => array(
+                    'attr' => [
                         'autocomplete' => 'new-password',
-                    ),
-                ),
-                'first_options'   => array('label' => 'form.password'),
-                'second_options'  => array('label' => 'form.password_confirmation'),
+                    ],
+                ],
+                'first_options' => ['label' => 'form.password'],
+                'second_options' => ['label' => 'form.password_confirmation'],
                 'invalid_message' => 'fos_user.password.mismatch',
-                'constraints'     => [
+                'constraints' => [
                     new NotNull(),
                     new Length([
                         'min' => '6',
                         'max' => '20',
                     ]),
                 ],
-            ));
+            ]);
 
         $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
             /** @var CreateUserCommand $data */
@@ -83,18 +83,18 @@ class RegistrationFormType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'csrf_protection' => false,
-            'constraints'     => [
+            'constraints' => [
                 new UniqueValueInEntity([
-                    'field'       => 'username',
+                    'field' => 'username',
                     'entityClass' => UserView::class,
                 ]),
                 new UniqueValueInEntity([
-                    'field'       => 'email',
+                    'field' => 'email',
                     'entityClass' => UserView::class,
                 ]),
             ],
-        ));
+        ]);
     }
 }

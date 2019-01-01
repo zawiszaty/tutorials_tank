@@ -23,6 +23,6 @@ class EventToProjectionsProducer
             serialize($domainMessage),
             serialize($projector),
         ];
-        $this->producer->publish(implode(" ", $message), 'projections');
+        $this->producer->publish(implode(' ', $message), 'projections');
     }
 }

@@ -7,12 +7,12 @@ class ChangeEmailCommand
     /**
      * @var string|null
      */
-    private $id;
+    public $id;
 
     /**
      * @var string|null
      */
-    private $email;
+    public $email;
 
     /**
      * @return null|string

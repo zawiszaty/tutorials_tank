@@ -34,12 +34,12 @@ class GetAllHandler implements QueryHandlerInterface
                         'should' => [
                             [
                                 'wildcard' => [
-                                    'username' => '*' . $command->getQuery() . '*',
+                                    'username' => '*'.$command->getQuery().'*',
                                 ],
                             ],
                             [
                                 'wildcard' => [
-                                    'email' => '*' . $command->getQuery() . '*',
+                                    'email' => '*'.$command->getQuery().'*',
                                 ],
                             ],
                         ],

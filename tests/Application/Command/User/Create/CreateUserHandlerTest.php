@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Application\Command\User\Create;
 
-use App\Application\Command\User\ChangeEmail\ChangeEmailCommand;
 use App\Application\Command\User\Create\CreateUserCommand;
-use App\Domain\User\Event\UserMailWasChanged;
 use App\Domain\User\Event\UserWasCreated;
 use App\Tests\Application\ApplicationTestCase;
 use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
@@ -18,7 +16,6 @@ class CreateUserHandlerTest extends ApplicationTestCase
      * @test
      *
      * @group integration
-     *
      */
     public function command_handler_must_fire_domain_event(): void
     {

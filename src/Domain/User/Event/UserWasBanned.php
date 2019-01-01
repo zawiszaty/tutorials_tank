@@ -50,7 +50,7 @@ class UserWasBanned extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id'     => $this->id->toString(),
+            'id' => $this->id->toString(),
             'banned' => $this->banned,
         ];
     }

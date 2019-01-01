@@ -6,7 +6,6 @@ use App\Domain\Comment\Event\CommentWasCreated;
 use App\Domain\Comment\Event\CommentWasDeletedEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\ValueObject\Content;
-use App\Infrastructure\Comment\Query\Projections\CommentView;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
@@ -159,6 +158,5 @@ class Comment extends EventSourcedAggregateRoot
      */
     public function applyCommentWasDeletedEvent(CommentWasDeletedEvent $commentWasDeletedEvent): void
     {
-        return;
     }
 }

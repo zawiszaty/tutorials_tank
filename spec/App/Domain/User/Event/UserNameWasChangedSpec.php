@@ -40,15 +40,15 @@ class UserNameWasChangedSpec extends ObjectBehavior
     public function it_deserialize()
     {
         self::deserialize([
-            'id'           => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
-            'username'     => 'test',
-            'email'        => 'test@wp.pl',
-            'roles'        => ['test@wp.pl'],
-            'avatar'       => 'test@wp.pl',
-            'steemit'      => 'test@wp.pl',
-            'banned'       => false,
-            'password'     => 'test',
-            'enabled'      => false,
+            'id' => 'becc2ada-8e79-11e8-9eb6-529269fb1459',
+            'username' => 'test',
+            'email' => 'test@wp.pl',
+            'roles' => ['test@wp.pl'],
+            'avatar' => 'test@wp.pl',
+            'steemit' => 'test@wp.pl',
+            'banned' => false,
+            'password' => 'test',
+            'enabled' => false,
         ])->shouldBeAnInstanceOf(UserNameWasChanged::class);
     }
 

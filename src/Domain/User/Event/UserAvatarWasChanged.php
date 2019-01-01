@@ -70,8 +70,8 @@ class UserAvatarWasChanged extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id'        => $this->id->toString(),
-            'avatar'    => $this->avatar->toString(),
+            'id' => $this->id->toString(),
+            'avatar' => $this->avatar->toString(),
         ];
     }
 }

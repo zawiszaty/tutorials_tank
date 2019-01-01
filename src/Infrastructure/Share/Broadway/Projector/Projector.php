@@ -20,6 +20,7 @@ abstract class Projector implements EventListener
 
     /**
      * Projector constructor.
+     *
      * @param EventToProjectionsProducer $eventToProjectionsProducer
      */
     public function __construct(EventToProjectionsProducer $eventToProjectionsProducer)
@@ -50,6 +51,6 @@ abstract class Projector implements EventListener
     {
         $classParts = explode('\\', get_class($event));
 
-        return 'apply' . end($classParts);
+        return 'apply'.end($classParts);
     }
 }

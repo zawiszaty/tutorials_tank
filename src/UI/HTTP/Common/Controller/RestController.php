@@ -70,7 +70,7 @@ class RestController extends Controller
      */
     protected function getErrorMessages(\Symfony\Component\Form\Form $form)
     {
-        $errors = array();
+        $errors = [];
 
         foreach ($form->getErrors() as $key => $error) {
             if ($form->isRoot()) {

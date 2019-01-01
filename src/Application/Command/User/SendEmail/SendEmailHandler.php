@@ -34,7 +34,7 @@ class SendEmailHandler implements CommandHandlerInterface
             ->setTo($command->getEmail())
             ->setBody(
               '
-              http://localhost:8080/user/token/' . $command->getToken()
+              http://localhost:8080/user/token/'.$command->getToken()
             )
         ;
 

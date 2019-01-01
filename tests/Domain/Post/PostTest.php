@@ -28,7 +28,7 @@ class PostTest extends TestCase
      */
     public function given_a_valid_credential_it_should_create_a_post_instance(): void
     {
-        $content = "test";
+        $content = 'test';
         $post = Post::create(
             AggregateRootId::fromString(Uuid::uuid4()->toString()),
             Title::fromString('title'),
@@ -59,7 +59,7 @@ class PostTest extends TestCase
      */
     public function given_a_valid_credential_it_should_edit_a_post_instance(): void
     {
-        $content = "test";
+        $content = 'test';
         $post = Post::create(
             AggregateRootId::fromString(Uuid::uuid4()->toString()),
             Title::fromString('title'),
@@ -101,7 +101,7 @@ class PostTest extends TestCase
      */
     public function given_delete_post_instance(): void
     {
-        $content = "test";
+        $content = 'test';
         $post = Post::create(
             AggregateRootId::fromString(Uuid::uuid4()->toString()),
             Title::fromString('title'),

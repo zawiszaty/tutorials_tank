@@ -43,7 +43,7 @@ class CommentDataBuilder
         foreach ($data as $index => $item) {
             $user = $this->repositoryElastic->get($item['user'])['_source'];
             $data[$index]['user'] = [
-                'avatar'   => $user['avatar'],
+                'avatar' => $user['avatar'],
                 'username' => $user['username'],
             ];
 
@@ -76,7 +76,7 @@ class CommentDataBuilder
             foreach ($data[$index]['childrenComment'] as $indexComment => $itemComment) {
                 $user = $this->repositoryElastic->get($itemComment['user'])['_source'];
                 $data[$index]['childrenComment'][$indexComment]['user'] = [
-                    'avatar'   => $user['avatar'],
+                    'avatar' => $user['avatar'],
                     'username' => $user['username'],
                 ];
             }

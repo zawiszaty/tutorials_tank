@@ -5,7 +5,6 @@ namespace App\Application\Command\User\BannedUser;
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Assert\UserIsBanned;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * Class BannedUserHandler.

@@ -33,7 +33,7 @@ class ChangeUserNameHandler implements CommandHandlerInterface
     public function __invoke(ChangeUserNameCommand $command): void
     {
         $user = $this->aggregatRepository->get(AggregateRootId::fromString($command->id));
-        $user->changeName($command->name);
+        $user->changeName($command->username);
         $this->aggregatRepository->store($user);
     }
 }

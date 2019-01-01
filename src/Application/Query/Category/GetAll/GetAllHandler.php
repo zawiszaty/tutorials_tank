@@ -44,7 +44,7 @@ class GetAllHandler implements QueryHandlerInterface
             $query = [
                 'query' => [
                     'wildcard' => [
-                        'name' => '*' . $command->getQuery() . '*',
+                        'name' => '*'.$command->getQuery().'*',
                     ],
                 ],
             ];

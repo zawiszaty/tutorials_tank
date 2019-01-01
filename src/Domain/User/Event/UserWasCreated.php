@@ -134,15 +134,15 @@ class UserWasCreated extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id'                => $this->id->toString(),
-            'username'          => $this->username->toString(),
-            'email'             => $this->email->toString(),
-            'roles'             => $this->roles->toArray(),
-            'avatar'            => $this->avatar->toString(),
-            'steemit'           => $this->steemit->toString(),
-            'banned'            => $this->banned,
-            'password'          => $this->password->toString(),
-            'enabled'           => $this->enabled,
+            'id' => $this->id->toString(),
+            'username' => $this->username->toString(),
+            'email' => $this->email->toString(),
+            'roles' => $this->roles->toArray(),
+            'avatar' => $this->avatar->toString(),
+            'steemit' => $this->steemit->toString(),
+            'banned' => $this->banned,
+            'password' => $this->password->toString(),
+            'enabled' => $this->enabled,
             'confirmationToken' => $this->confirmationToken->toString(),
         ];
     }

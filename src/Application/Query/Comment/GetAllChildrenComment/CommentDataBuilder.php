@@ -46,7 +46,7 @@ class CommentDataBuilder
         foreach ($data as $index => $item) {
             $user = $this->repositoryElastic->get($item['user'])['_source'];
             $data[$index]['user'] = [
-                'avatar'   => $user['avatar'],
+                'avatar' => $user['avatar'],
                 'username' => $user['username'],
             ];
         }

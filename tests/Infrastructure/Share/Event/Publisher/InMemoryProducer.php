@@ -15,11 +15,14 @@ class InMemoryProducer implements ProducerInterface
         $amqMessage = $this->amqMessageAdapter($msgBody, $additionalProperties);
         $this->consume($routingKey, $amqMessage);
     }
+
     public function addConsumer(string $routing, ConsumerInterface $consumer): self
     {
         $this->consumers[$routing][] = $consumer;
+
         return $this;
     }
+
     private function consume(string $routingKey, AMQPMessage $message): void
     {
         /** @var ConsumerInterface[] $consumers */
@@ -31,10 +34,12 @@ class InMemoryProducer implements ProducerInterface
             $consumer->execute($message);
         }
     }
+
     private function amqMessageAdapter(string $body, array $properties): AMQPMessage
     {
         return new AMQPMessage($body, $properties);
     }
+
     /** @var array */
     protected $consumers = [];
 }

@@ -14,7 +14,6 @@ use App\Domain\User\Event\UserWasCreated;
 use App\Tests\Application\ApplicationTestCase;
 use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
-use const Fpp\dump;
 
 class GranteUserAdminRoleHandlerTest extends ApplicationTestCase
 {

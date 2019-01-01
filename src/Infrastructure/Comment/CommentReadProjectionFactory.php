@@ -78,16 +78,16 @@ class CommentReadProjectionFactory extends Projector
         $this->modelRepository->add($comment);
 
         $this->notificationAbstractFactory->create('comment', [
-            'user' => $comment->getFullPost()->getUser(),
+            'user'    => $comment->getFullPost()->getUser(),
             'content' => [
                 'post' => [
-                    'id' => $comment->getFullPost()->getId(),
+                    'id'    => $comment->getFullPost()->getId(),
                     'title' => $comment->getFullPost()->getTitle(),
                 ],
                 'sender' => [
-                    'id' => $comment->getFullUser()->getId(),
+                    'id'       => $comment->getFullUser()->getId(),
                     'username' => $comment->getFullUser()->getUsername(),
-                    'avatar' => $comment->getFullUser()->getAvatar(),
+                    'avatar'   => $comment->getFullUser()->getAvatar(),
                 ],
             ],
             'type' => 'comment',

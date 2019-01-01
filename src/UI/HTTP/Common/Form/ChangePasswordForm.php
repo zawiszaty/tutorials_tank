@@ -24,7 +24,7 @@ class ChangePasswordForm extends AbstractType
     {
         $builder
             ->add('oldPassword', TextType::class, [
-                'required' => true,
+                'required'    => true,
                 'constraints' => [
                     new NotNull(),
                     new Length([
@@ -34,17 +34,17 @@ class ChangePasswordForm extends AbstractType
                 ],
             ])
             ->add('plainPassword', RepeatedType::class, [
-                'type' => PasswordType::class,
+                'type'    => PasswordType::class,
                 'options' => [
                     'translation_domain' => 'FOSUserBundle',
-                    'attr' => [
+                    'attr'               => [
                         'autocomplete' => 'new-password',
                     ],
                 ],
-                'first_options' => ['label' => 'form.password'],
-                'second_options' => ['label' => 'form.password_confirmation'],
+                'first_options'   => ['label' => 'form.password'],
+                'second_options'  => ['label' => 'form.password_confirmation'],
                 'invalid_message' => 'fos_user.password.mismatch',
-                'constraints' => [
+                'constraints'     => [
                     new NotNull(),
                     new Length([
                         'min' => '6',

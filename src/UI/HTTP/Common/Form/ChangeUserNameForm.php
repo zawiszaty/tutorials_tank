@@ -23,7 +23,7 @@ class ChangeUserNameForm extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
-                'required' => true,
+                'required'    => true,
                 'constraints' => [
                     new NotNull(),
                 ],
@@ -37,9 +37,9 @@ class ChangeUserNameForm extends AbstractType
     {
         $resolver->setDefaults([
             'csrf_protection' => false,
-            'constraints' => [
+            'constraints'     => [
                 new UniqueValueInEntity([
-                    'field' => 'username',
+                    'field'       => 'username',
                     'entityClass' => UserView::class,
                 ]),
             ],

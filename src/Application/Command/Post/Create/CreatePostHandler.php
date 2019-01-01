@@ -36,7 +36,7 @@ class CreatePostHandler implements CommandHandlerInterface
             AggregateRootId::fromString(Uuid::uuid4()),
             Title::fromString($command->getTitle()),
             Content::fromString($command->getContent()),
-            Thumbnail::fromString('/thumbnails/'.$fileName),
+            Thumbnail::fromString('/thumbnails/' . $fileName),
             $command->getType(),
             $command->getUser(),
             $command->getCategory(),

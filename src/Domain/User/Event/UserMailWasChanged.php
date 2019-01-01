@@ -70,7 +70,7 @@ class UserMailWasChanged extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id' => $this->id->toString(),
+            'id'    => $this->id->toString(),
             'email' => $this->email->toString(),
         ];
     }

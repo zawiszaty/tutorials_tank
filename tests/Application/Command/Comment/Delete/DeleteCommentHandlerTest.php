@@ -11,7 +11,6 @@ use App\Application\Command\Post\Create\CreatePostCommand;
 use App\Application\Command\User\Create\CreateUserCommand;
 use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Comment\Event\CommentWasCreated;
-use App\Domain\Comment\Event\CommentWasDeletedEvent;
 use App\Domain\Post\Event\CreatePostEvent;
 use App\Domain\User\Event\UserWasCreated;
 use App\Tests\Application\ApplicationTestCase;
@@ -60,7 +59,7 @@ class DeleteCommentHandlerTest extends ApplicationTestCase
      */
     private function createUser(): string
     {
-        $email = Uuid::uuid4()->toString().'asd@asd.asd';
+        $email = Uuid::uuid4()->toString() . 'asd@asd.asd';
         $command = new CreateUserCommand();
         $command->setAvatar(Uuid::uuid4()->toString());
         $command->setBanned(false);

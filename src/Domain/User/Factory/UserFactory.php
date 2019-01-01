@@ -34,7 +34,7 @@ class UserFactory
      */
     public static function create(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, Password $password)
     {
-        $token = ConfirmationToken::fromString(Uuid::uuid4().'-'.Uuid::uuid4());
+        $token = ConfirmationToken::fromString(Uuid::uuid4() . '-' . Uuid::uuid4());
         $user = User::create($id, $username, $email, $roles, $avatar, $steemit, $banned, $password, $token);
 
         return $user;

@@ -51,6 +51,6 @@ abstract class Projector implements EventListener
     {
         $classParts = explode('\\', get_class($event));
 
-        return 'apply'.end($classParts);
+        return 'apply' . end($classParts);
     }
 }

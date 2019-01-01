@@ -12,8 +12,8 @@ final class EventElasticRepository extends ElasticRepository
     public function storeEvent(DomainMessage $message): void
     {
         $document = [
-            'type' => $message->getType(),
-            'payload' => $message->getPayload()->serialize(),
+            'type'        => $message->getType(),
+            'payload'     => $message->getPayload()->serialize(),
             'occurred_on' => $message->getRecordedOn()->toString(),
         ];
         $this->add($document);

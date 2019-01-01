@@ -131,8 +131,8 @@ abstract class ElasticRepository
     {
         $params = [
             'index' => $this->index,
-            'type' => $this->index,
-            'id' => $id,
+            'type'  => $this->index,
+            'id'    => $id,
         ];
 
         return $this->client->get($params);

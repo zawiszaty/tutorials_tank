@@ -50,7 +50,7 @@ class CategoryView implements CategoryViewInterface
     public function serialize(): array
     {
         return [
-            'id' => $this->id,
+            'id'   => $this->id,
             'name' => $this->name,
         ];
     }

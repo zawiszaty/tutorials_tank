@@ -30,6 +30,7 @@ services:
     links:
       - db
       - php
+      - frontend
 
 
   php:
@@ -43,23 +44,32 @@ services:
       - "8123:8123"
       - "8888:8888"
       - "5555:5555"
-
-  workers_1:
-    build: ./docker/php
-    working_dir: /var/www/project
-    restart: always
+  frontend:
+    build: ./web-app
+    expose:
+      - 80
+    ports:
+      - 80:3000
     volumes:
-      - ./:/var/www/project
-    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
+      - ./web-app/src:/usr/src/app/src
+      - ./web-app/public:/usr/src/app/public
+
+#  workers_1:
+#    build: ./docker/php
+#    working_dir: /var/www/project
+#    restart: always
+#    volumes:
+#      - ./:/var/www/project
+#    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
 
 
-  workers_2:
-    build: ./docker/php
-    working_dir: /var/www/project
-    restart: always
-    volumes:
-      - ./:/var/www/project
-    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'projections']
+#  workers_2:
+#    build: ./docker/php
+#    working_dir: /var/www/project
+#    restart: always
+#    volumes:
+#      - ./:/var/www/project
+#    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'projections']
 
 
   workers_3:
@@ -124,6 +134,7 @@ services:
     ports:
       - 1025:1025
       - 1080:1080
+
 volumes:
   db_data:
   esdata1:

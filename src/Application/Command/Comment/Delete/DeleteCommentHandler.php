@@ -43,8 +43,7 @@ class DeleteCommentHandler implements CommandHandlerInterface
      * @param MysqlCommentReadModelRepository $commentReadModelRepository
      */
     public function __construct(CommentRepository $commentRepository, CommandBus $commandBus, CommentRepositoryElastic $commentRepositoryElastic, MysqlCommentReadModelRepository $commentReadModelRepository
-    )
-    {
+    ) {
         $this->commandBus = $commandBus;
         $this->commentRepository = $commentRepository;
         $this->commentRepositoryElastic = $commentRepositoryElastic;

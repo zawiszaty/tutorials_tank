@@ -223,7 +223,7 @@ class UserContext implements \Behat\Behat\Context\Context
         $user = $manager->getRepository('Projections:User\Query\Projections\UserView')->find(self::$userId);
 
         dump($user->getUsername());
-////        if ($user->getEmail() !== 'test2w@wp.pl') {
+        ////        if ($user->getEmail() !== 'test2w@wp.pl') {
 ////            throw new \Exception();
 ////        }
     }

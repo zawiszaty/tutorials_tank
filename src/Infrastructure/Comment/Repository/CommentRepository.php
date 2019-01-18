@@ -11,9 +11,7 @@ use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventStore\EventStore;
 
 /**
- * Class CommentRepository
- *
- * @package App\Infrastructure\Comment\Repository
+ * Class CommentRepository.
  */
 class CommentRepository extends EventSourcingRepository implements CommentRepositoryInterface
 {

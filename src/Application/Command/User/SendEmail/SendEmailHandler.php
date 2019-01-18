@@ -3,8 +3,6 @@
 namespace App\Application\Command\User\SendEmail;
 
 use App\Application\Command\CommandHandlerInterface;
-use Pagerfanta\View\Template\TemplateInterface;
-use Symfony\Bundle\TwigBundle\DependencyInjection\TwigExtension;
 use Twig_Environment;
 
 /**
@@ -16,6 +14,7 @@ class SendEmailHandler implements CommandHandlerInterface
      * @var \Swift_Mailer
      */
     private $mailer;
+
     /**
      * @var Twig_Environment
      */

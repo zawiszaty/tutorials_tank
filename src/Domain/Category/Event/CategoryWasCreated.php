@@ -5,7 +5,6 @@ namespace App\Domain\Category\Event;
 use App\Domain\Category\ValueObject\Name;
 use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Domain\Common\ValueObject\Deleted;
 use Assert\Assertion;
 
 /**
@@ -37,7 +36,7 @@ class CategoryWasCreated extends AbstractEvent
     public function serialize(): array
     {
         return [
-            'id'   => $this->id->toString(),
+            'id' => $this->id->toString(),
             'name' => $this->name->toString(),
         ];
     }
@@ -47,7 +46,6 @@ class CategoryWasCreated extends AbstractEvent
      *
      * @param AggregateRootId $id
      * @param Name            $name
-     * @param Deleted         $deleted
      */
     public function __construct(AggregateRootId $id, Name $name)
     {

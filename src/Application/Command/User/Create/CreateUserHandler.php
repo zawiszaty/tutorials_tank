@@ -45,8 +45,11 @@ class CreateUserHandler implements CommandHandlerInterface
      * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
      * @param CommandBus                   $commandBus
      */
-    public function __construct(UserRepository $repository, MysqlUserReadModelRepository $mysqlUserReadModelRepository, CommandBus $commandBus)
-    {
+    public function __construct(
+        UserRepository $repository,
+        MysqlUserReadModelRepository $mysqlUserReadModelRepository,
+        CommandBus $commandBus
+    ) {
         $this->repository = $repository;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
         $this->commandBus = $commandBus;
@@ -72,7 +75,7 @@ class CreateUserHandler implements CommandHandlerInterface
             Password::fromString($command->getPlainPassword())
         );
         $this->repository->store($user);
-//        $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getConfirmationToken()->toString());
-//        $this->commandBus->handle($sendEmailCommand);
+        $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getConfirmationToken()->toString());
+        $this->commandBus->handle($sendEmailCommand);
     }
 }

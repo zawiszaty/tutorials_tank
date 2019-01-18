@@ -49,7 +49,7 @@ const PrivateRoute = withSnackbar(({component: Component, ...rest}) => (
             ? <Component {...props} />
             : <Redirect to='/'/>
     )}/>
-))
+));
 
 
 class Index extends React.Component {

@@ -34,6 +34,11 @@ class FeatureContext implements Context
      */
     private $client;
 
+    /**
+     * FeatureContext constructor.
+     *
+     * @param KernelInterface $kernel
+     */
     public function __construct(KernelInterface $kernel)
     {
         $this->kernel = $kernel;

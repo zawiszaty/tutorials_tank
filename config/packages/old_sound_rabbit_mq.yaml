@@ -25,13 +25,9 @@ old_sound_rabbit_mq:
           routing_keys:
             - 'App.Domain.#'
           callback: App\Infrastructure\Share\Event\Consumer\SendEventsToElasticConsumer
-#    projections:
-#      connection:       default
-#      exchange_options: { name: 'events', type: topic }
-#      queues:
-#        projections:
-#          name: projections
-#          routing_keys:
-#            - 'projections'
-#          callback: App\Infrastructure\Share\Event\Consumer\PublishProjectionsConsumer
+        send_email:
+          name: send_email
+          routing_keys:
+            - 'App.Domain.User.Event.UserWasCreated'
+          callback: App\Infrastructure\User\Consumers\SendUserCreatedEmailConsumer
 

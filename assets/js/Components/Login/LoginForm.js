@@ -85,64 +85,68 @@ const renderTextField = (
 const SyncValidationForm = (props) => {
     const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar, user, onLoginUser} = props
     return (
-        <form className={classes.form} onSubmit={handleSubmit(val => {
-            axios.post('oauth/v2/token', {
-                "grant_type": "password",
-                "client_id": client_id,
-                "client_secret": client_secret,
-                "username": val.username,
-                "password": val.password
-            }).then((response) => {
-                console.log(response.data.access_token);
-                let token = response.data.access_token;
-                axios.post('api/v1/seciurity', {}, {
-                    headers: {'Authorization': 'Bearer ' + token}
-                }).then((response) => {
-                    console.log(response.data);
-                    onLoginUser(response.data);
-                    {console.log(user)}
-                    localStorage.setItem('token', token);
-                    onPresentSnackbar('success', 'Successfully Login');
-                }).catch((e) => {
-                    if(e.response.data.error_description === 'User account is disabled.') {
-                        onPresentSnackbar('error', 'Konto nie potwierdzone');
-                    } else if(e.response.data.errors.title === 'App.Domain.User.Exception.UserIsBannedException') {
-                        onPresentSnackbar('error', 'Masz bana XD');
-                    } else {
-                        onPresentSnackbar('error', 'Coś poszło nie tak !!!');
-                    }
-                });
-            }).catch((e) => {
-                onPresentSnackbar('error', 'Złe hasło albo nazwa użytkownika');
-            });
-        })}>
-            <div>
-                <Field
-                    id="username"
-                    name="username"
-                    component={renderTextField}
-                    label="Nazwa użytkownika"
-                    type="text"
-                />
-                <Field
-                    id="password"
-                    name="password"
-                    component={renderTextField}
-                    label="Hasło"
-                    type="password"
-                />
-            </div>
-            <div>
-                <Button
-                    type="submit"
-                    fullWidth
-                    variant="raised"
-                    color="primary"
-                >
-                    Zaloguj
-                </Button>
-            </div>
-        </form>
+
+                <form className={classes.form} onSubmit={handleSubmit(val => {
+                    axios.post('oauth/v2/token', {
+                        "grant_type": "password",
+                        "client_id": client_id,
+                        "client_secret": client_secret,
+                        "username": val.username,
+                        "password": val.password
+                    }).then((response) => {
+                        console.log(response.data.access_token);
+                        let token = response.data.access_token;
+                        axios.post('api/v1/seciurity', {}, {
+                            headers: {'Authorization': 'Bearer ' + token}
+                        }).then((response) => {
+                            console.log(response.data);
+                            onLoginUser(response.data);
+                            {
+                                console.log(user)
+                            }
+                            localStorage.setItem('token', token);
+                            onPresentSnackbar('success', 'Successfully Login');
+                        }).catch((e) => {
+                            if (e.response.data.error_description === 'User account is disabled.') {
+                                onPresentSnackbar('error', 'Konto nie potwierdzone');
+                            } else if (e.response.data.errors.title === 'App.Domain.User.Exception.UserIsBannedException') {
+                                onPresentSnackbar('error', 'Masz bana XD');
+                            } else {
+                                onPresentSnackbar('error', 'Coś poszło nie tak !!!');
+                            }
+                        });
+                    }).catch((e) => {
+                        onPresentSnackbar('error', 'Złe hasło albo nazwa użytkownika');
+                    });
+                })}>
+                    <div>
+                        <Field
+                            id="username"
+                            name="username"
+                            component={renderTextField}
+                            label="Nazwa użytkownika"
+                            type="text"
+                        />
+                        <Field
+                            id="password"
+                            name="password"
+                            component={renderTextField}
+                            label="Hasło"
+                            type="password"
+                        />
+                    </div>
+                    <div>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="raised"
+                            color="primary"
+                        >
+                            Zaloguj
+                        </Button>
+                    </div>
+                </form>)}
+        </AuthConsumer>
     )
 }
 const mapStateToProps = state => ({

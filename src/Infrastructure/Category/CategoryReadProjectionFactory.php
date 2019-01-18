@@ -9,6 +9,7 @@ use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use Broadway\ReadModel\Projector;
+use const Fpp\dump;
 
 /**
  * Class CategoryReadProjectionFactory.

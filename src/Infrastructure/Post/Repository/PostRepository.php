@@ -4,12 +4,15 @@ namespace App\Infrastructure\Post\Repository;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\Post;
-use App\Infrastructure\Share\Broadway\EventSourcing\EventSourcingRepository;
 use App\Infrastructure\Share\Event\Producer\EventToProjectionsProducer;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
+use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventStore\EventStore;
 
+/**
+ * Class PostRepository.
+ */
 class PostRepository extends EventSourcingRepository
 {
     /**
@@ -17,6 +20,11 @@ class PostRepository extends EventSourcingRepository
      */
     private $eventToProjectionsProducer;
 
+    /**
+     * @param AggregateRootId $id
+     *
+     * @return Post
+     */
     public function get(AggregateRootId $id): Post
     {
         /** @var Post $postType */
@@ -25,6 +33,9 @@ class PostRepository extends EventSourcingRepository
         return $postType;
     }
 
+    /**
+     * @param Post $postType
+     */
     public function store(Post $postType): void
     {
         $this->save($postType);
@@ -33,15 +44,13 @@ class PostRepository extends EventSourcingRepository
     /**
      * CategoryRepository constructor.
      *
-     * @param EventStore                 $eventStore
-     * @param EventBus                   $eventBus
-     * @param EventToProjectionsProducer $eventToProjectionsProducer
-     * @param array                      $eventStreamDecorators
+     * @param EventStore $eventStore
+     * @param EventBus   $eventBus
+     * @param array      $eventStreamDecorators
      */
     public function __construct(
         EventStore $eventStore,
         EventBus $eventBus,
-        EventToProjectionsProducer $eventToProjectionsProducer,
         array $eventStreamDecorators = []
     ) {
         parent::__construct(
@@ -49,7 +58,6 @@ class PostRepository extends EventSourcingRepository
             $eventBus,
             Post::class,
             new PublicConstructorAggregateFactory(),
-            $eventToProjectionsProducer,
             $eventStreamDecorators
         );
     }

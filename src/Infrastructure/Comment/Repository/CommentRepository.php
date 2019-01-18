@@ -10,6 +10,11 @@ use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
 use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventStore\EventStore;
 
+/**
+ * Class CommentRepository
+ *
+ * @package App\Infrastructure\Comment\Repository
+ */
 class CommentRepository extends EventSourcingRepository implements CommentRepositoryInterface
 {
     public function get(AggregateRootId $id): Comment

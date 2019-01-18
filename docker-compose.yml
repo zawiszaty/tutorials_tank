@@ -51,16 +51,15 @@ services:
     ports:
       - 80:3000
     volumes:
-      - ./web-app/src:/usr/src/app/src
-      - ./web-app/public:/usr/src/app/public
+      - ./web-app:/usr/src/app
 
-#  workers_1:
-#    build: ./docker/php
-#    working_dir: /var/www/project
-#    restart: always
-#    volumes:
-#      - ./:/var/www/project
-#    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
+  workers_1:
+    build: ./docker/php
+    working_dir: /var/www/project
+    restart: always
+    volumes:
+      - ./:/var/www/project
+    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
 
 
 #  workers_2:

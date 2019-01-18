@@ -218,11 +218,11 @@ class UserContext implements \Behat\Behat\Context\Context
      */
     public function iHaveUserWithChangedName()
     {
-//        /** @var \Doctrine\ORM\EntityManager $manager */
-//        $manager = self::$container->get('doctrine.orm.entity_manager');
-//        $user = $manager->getRepository('Projections:User\Query\Projections\UserView')->find(self::$userId);
-//
-//        dump($user->getUsername());
+        /** @var \Doctrine\ORM\EntityManager $manager */
+        $manager = self::$container->get('doctrine.orm.entity_manager');
+        $user = $manager->getRepository('Projections:User\Query\Projections\UserView')->find(self::$userId);
+
+        dump($user->getUsername());
 ////        if ($user->getEmail() !== 'test2w@wp.pl') {
 ////            throw new \Exception();
 ////        }

@@ -3,6 +3,9 @@
 namespace App\Application\Command\User\SendEmail;
 
 use App\Application\Command\CommandHandlerInterface;
+use Pagerfanta\View\Template\TemplateInterface;
+use Symfony\Bundle\TwigBundle\DependencyInjection\TwigExtension;
+use Twig_Environment;
 
 /**
  * Class SendEmailHandler.
@@ -13,31 +16,42 @@ class SendEmailHandler implements CommandHandlerInterface
      * @var \Swift_Mailer
      */
     private $mailer;
+    /**
+     * @var Twig_Environment
+     */
+    private $template;
 
     /**
      * SendEmailHandler constructor.
      *
-     * @param \Swift_Mailer $mailer
+     * @param \Swift_Mailer    $mailer
+     * @param Twig_Environment $template
      */
-    public function __construct(\Swift_Mailer $mailer)
+    public function __construct(\Swift_Mailer $mailer, Twig_Environment $template)
     {
         $this->mailer = $mailer;
+        $this->template = $template;
     }
 
     /**
      * @param SendEmailCommand $command
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function __invoke(SendEmailCommand $command)
     {
         $message = (new \Swift_Message('NoReply'))
-            ->setFrom('send@example.com')
+            ->setFrom('test@wp.pl')
             ->setTo($command->getEmail())
             ->setBody(
-              '
-              http://localhost:8080/user/token/' . $command->getToken()
-            )
-        ;
-
+                $this->template->render(
+                    'emails/registration.html.twig',
+                    ['token' => $command->getToken()]
+                ),
+                'text/html'
+            );
         $this->mailer->send($message);
     }
 }

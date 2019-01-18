@@ -15,8 +15,7 @@ class PasswordVerify
      */
     public static function verify(string $oldPassword, string $currentPassword): void
     {
-        if (
-        !password_verify(
+        if (!password_verify(
             $oldPassword,
             $currentPassword
         )

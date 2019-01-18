@@ -51,8 +51,7 @@ class CommentWasCreated extends AbstractEvent
      * @param string          $user
      */
     public function __construct(AggregateRootId $id, Content $content, ?string $parrentComment, string $post, string $user, \DateTime $createdAt
-    )
-    {
+    ) {
         $this->id = $id;
         $this->content = $content;
         $this->parrentComment = $parrentComment;

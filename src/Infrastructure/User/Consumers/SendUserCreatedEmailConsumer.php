@@ -5,7 +5,6 @@ namespace App\Infrastructure\User\Consumers;
 use App\Application\Command\User\SendEmail\SendEmailCommand;
 use App\Domain\User\Event\UserWasCreated;
 use Broadway\Domain\DomainMessage;
-use const Fpp\dump;
 use League\Tactician\CommandBus;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use PhpAmqpLib\Message\AMQPMessage;

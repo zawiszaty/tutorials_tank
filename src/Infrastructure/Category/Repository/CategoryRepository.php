@@ -5,7 +5,6 @@ namespace App\Infrastructure\Category\Repository;
 use App\Domain\Category\Category;
 use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Infrastructure\Share\Event\Producer\EventToProjectionsProducer;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
 use Broadway\EventSourcing\EventSourcingRepository;

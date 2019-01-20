@@ -65,7 +65,7 @@ change_user_password:
 
 change_user_avatar:
   path: /api/v1/user/change/avatar
-  methods: PATCH
+  methods: POST
   controller: App\UI\HTTP\Rest\Controller\UserController:changeAvatar
 
 get_all_user:

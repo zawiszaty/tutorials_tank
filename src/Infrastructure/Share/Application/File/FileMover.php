@@ -10,17 +10,19 @@ use Symfony\Component\HttpFoundation\File\File;
 class FileMover
 {
     /**
-     * @param File $file
+     * @param File   $file
+     *
+     * @param string $directory
      *
      * @return string
      *
      * @throws \Exception
      */
-    public static function move(File $file)
+    public static function move(File $file, string $directory)
     {
         $fileName = FileNameGenerator::generate($file->guessExtension());
         $file->move(
-            'thumbnails',
+            $directory,
             $fileName
         );
 

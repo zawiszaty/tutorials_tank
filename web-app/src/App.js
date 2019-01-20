@@ -16,6 +16,8 @@ import ConfirmUser from "./containers/ConfirmUser/ConfirmUser";
 import {LoggedRoute} from "./components/Routes/LoggedRoute";
 import Category from "./components/Category/Category";
 import CategoryContainer from "./containers/Category/CategoryContainer";
+import UserPanel from "./containers/UserPanel/UserPanel";
+import UserListContainer from "./containers/UserPanel/UserListContainer";
 
 const Index = () => <h2>Home</h2>;
 
@@ -45,7 +47,9 @@ class App extends Component {
                         <NotLoggedRoute path="/zaloguj" component={Login}/>
                         <NotLoggedRoute path="/zarejestruj" component={Registration}/>
                         <NotLoggedRoute path="/potwierdz/konto/:token" component={ConfirmUser}/>
+                        <LoggedRoute path="/panel/uzytkownika" component={UserPanel}/>
                         <Route path="/kategorie" component={CategoryContainer}/>
+                        <Route path="/uzytkownicy" component={UserListContainer}/>
                     </React.Fragment>
                     }
                     <FooterComponent/>

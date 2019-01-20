@@ -40,7 +40,7 @@ class EditPostHandler implements CommandHandlerInterface
         $aggregateRoot = $this->postRepository->get(AggregateRootId::fromString($command->getId()));
 
         if (null !== $command->getFile()) {
-            $fileName = FileMover::move($command->getFile());
+            $fileName = FileMover::move($command->getFile(), 'thumbnails');
         } else {
             $fileName = $aggregateRoot->getThumbnail()->toString();
         }

@@ -23,9 +23,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import {connect} from "react-redux";
 import {toast} from "react-toastify";
 import Grid from "@material-ui/core/Grid";
-import AddCategoryForm from "./AddCategoryForm";
-import EditCategoryModal from "./EditCategoryModal";
 import Button from "@material-ui/core/Button";
+import Avatar from "@material-ui/core/Avatar";
 
 const mapStateToProps = (state) => {
     return {
@@ -66,7 +65,8 @@ function getSorting(order, orderBy) {
 
 const rows = [
     {id: 'id', numeric: false, disablePadding: true, label: 'Id Kategori'},
-    {id: 'name', numeric: false, disablePadding: true, label: 'Nazwa Kategori'},
+    {id: 'name', numeric: false, disablePadding: true, label: 'Nazwa uzytkownika'},
+    {id: 'avatar', numeric: false, disablePadding: true, label: 'Avatar'},
 ];
 
 class EnhancedTableHead extends React.Component {
@@ -80,19 +80,6 @@ class EnhancedTableHead extends React.Component {
         return (
             <TableHead>
                 <TableRow>
-                    {user.length !== 0 &&
-                    <TableCell padding="checkbox">
-                        <React.Fragment>
-                            {user[0].roles.includes('ROLE_ADMIN') &&
-                            <Checkbox
-                                indeterminate={numSelected > 0 && numSelected < rowCount}
-                                checked={numSelected === rowCount}
-                                onChange={onSelectAllClick}
-                            />
-                            }
-                        </React.Fragment>
-                    </TableCell>
-                    }
                     {rows.map(
                         row => (
                             <TableCell
@@ -121,8 +108,14 @@ class EnhancedTableHead extends React.Component {
                     {this.props.user.length !== 0 &&
                     <React.Fragment>
                         {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                        <TableCell padding="default">
-                        </TableCell>
+                        <React.Fragment>
+                            <TableCell padding="default">
+
+                            </TableCell>
+                            <TableCell padding="default">
+
+                            </TableCell>
+                        </React.Fragment>
                         }
                     </React.Fragment>
                     }
@@ -177,32 +170,13 @@ let EnhancedTableToolbar = props => {
                 [classes.highlight]: numSelected > 0,
             })}
         >
-            <div className={classes.title}>
-                {numSelected > 0 ? (
-                    <Typography color="inherit" variant="subtitle1">
-                        {numSelected} selected
-                    </Typography>
-                ) : (
-                    <Typography variant="h6" id="tableTitle">
-                        Kategorie
-                    </Typography>
-                )}
-            </div>
             <div className={classes.spacer}/>
             <div className={classes.actions}>
-                {numSelected > 0 ? (
-                    <Tooltip title="Delete" onClick={deleteCategory}>
-                        <IconButton aria-label="Delete">
-                            <DeleteIcon/>
-                        </IconButton>
-                    </Tooltip>
-                ) : (
-                    <Tooltip title="Filter list">
-                        <IconButton aria-label="Filter list">
-                            <FilterListIcon/>
-                        </IconButton>
-                    </Tooltip>
-                )}
+                <Tooltip title="Filter list">
+                    <IconButton aria-label="Filter list">
+                        <FilterListIcon/>
+                    </IconButton>
+                </Tooltip>
             </div>
         </Toolbar>
     );
@@ -241,10 +215,14 @@ const styles = theme => ({
         alignItems: 'center',
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     },
+    ban: {
+        backgroundColor: theme.palette.common.black,
+        color: "white",
+    }
 });
 
 
-class Category extends Component {
+class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -263,32 +241,12 @@ class Category extends Component {
         this.getAllCategory();
     };
 
-    deleteCategory = () => {
-        this.state.selected.forEach((item, key) => {
-            axios.delete(`/api/v1/category/${item}`, {
-                headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
-            })
-                .then((response) => {
-                    toast.success(`Kategoria o id: ${item} pomyślnie usunięta`, {
-                        position: toast.POSITION.BOTTOM_RIGHT
-                    });
-                }).catch((error) => {
-                toast.error(`Coś poszło nie tak`, {
-                    position: toast.POSITION.BOTTOM_RIGHT
-                });
-            });
-        });
-        this.setState({
-            selected: []
-        });
-        this.getAllCategory();
-    };
 
     getAllCategory = () => {
         this.setState({
             loading: true,
         });
-        axios.get(`/api/v1/category?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}`)
+        axios.get(`/api/v1/user?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}`)
             .then((response) => {
                 this.setState({
                     data: response.data.data,
@@ -352,6 +310,7 @@ class Category extends Component {
         });
     };
 
+
     isSelected = id => this.state.selected.indexOf(id) !== -1;
 
     render() {
@@ -368,7 +327,7 @@ class Category extends Component {
 
         return (
             <Grid container className={classes.root} spacing={24}>
-                <Grid item xs={12} md={8} >
+                <Grid item xs={12} md={12}>
                     <Paper>
                         <EnhancedTableToolbar numSelected={selected.length} deleteCategory={this.deleteCategory}/>
                         <div className={classes.tableWrapper}>
@@ -387,39 +346,73 @@ class Category extends Component {
                                             const isSelected = this.isSelected(n.id);
                                             return (
                                                 <TableRow
-                                                    hover
-                                                    role="checkbox"
                                                     aria-checked={isSelected}
                                                     tabIndex={-1}
                                                     key={n.id}
-                                                    selected={isSelected}
+                                                    className={(n.ban ? classes.ban : '')}
                                                 >
-                                                    {this.props.user.length !== 0 &&
-                                                    <React.Fragment>
-                                                        {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                                                        <TableCell padding="checkbox" onClick={event => this.handleClick(event, n.id)}>
-                                                            <Checkbox checked={isSelected}/>
-                                                        </TableCell>
-                                                        }
-                                                    </React.Fragment>
-                                                    }
                                                     <TableCell component="th" scope="row" padding="default">
                                                         {n.id}
                                                     </TableCell>
                                                     <TableCell component="th" scope="row" padding="default">
-                                                        {n.name}
+                                                        {n.username}
                                                     </TableCell>
                                                     <TableCell component="th" scope="row" padding="default">
-                                                        {this.props.user.length !== 0 &&
+                                                        <Avatar alt="Remy Sharp"
+                                                                src={"http://localhost:9999" + n.avatar}/>
+                                                    </TableCell>
+                                                    {this.props.user.length !== 0 &&
+                                                    <React.Fragment>
+                                                        {this.props.user[0].roles.includes('ROLE_ADMIN') &&
                                                         <React.Fragment>
-                                                            {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                                                            <React.Fragment>
-                                                                <EditCategoryModal category={n} getCategory={this.getAllCategory} />
-                                                            </React.Fragment>
-                                                            }
+                                                            <TableCell component="th" scope="row" padding="default">
+                                                                {n.ban !== true &&
+                                                                <Button
+                                                                    variant="contained"
+                                                                    color="secondary"
+                                                                    type="submit"
+                                                                    onClick={() => {
+                                                                        axios.patch(`/api/v1/user/banned/${n.id}`, {}, {
+                                                                            headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                                                                        })
+                                                                            .then((response) => {
+                                                                                toast.success("Pomyślnie zbanowano", {
+                                                                                    position: toast.POSITION.BOTTOM_RIGHT
+                                                                                })
+                                                                            })
+                                                                    }
+                                                                    }
+                                                                >
+                                                                    Zbanuj
+                                                                </Button>
+                                                                }
+                                                            </TableCell>
+                                                            <TableCell component="th" scope="row" padding="default">
+                                                                {n.ban !== true &&
+                                                                <Button
+                                                                    variant="contained"
+                                                                    color="primary"
+                                                                    type="submit"
+                                                                    onClick={() => {
+                                                                        axios.patch(`/api/v1/user/role/admin/${n.id}`, {}, {
+                                                                            headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                                                                        })
+                                                                            .then((response) => {
+                                                                                toast.success("Pomyślnie nadano", {
+                                                                                    position: toast.POSITION.BOTTOM_RIGHT
+                                                                                })
+                                                                            })
+                                                                    }
+                                                                    }
+                                                                >
+                                                                    Nadaj admina
+                                                                </Button>
+                                                                }
+                                                            </TableCell>
                                                         </React.Fragment>
                                                         }
-                                                    </TableCell>
+                                                    </React.Fragment>
+                                                    }
                                                 </TableRow>
                                             );
                                         })}
@@ -448,20 +441,11 @@ class Category extends Component {
                         />
                     </Paper>
                 </Grid>
-                {this.props.user.length !== 0 &&
-                <Grid item xs={12} md={4}>
-                    {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                    <Paper className={classes.loginPaper}>
-                        <AddCategoryForm getCategory={this.getAllCategory}/>
-                    </Paper>
-                    }
-                </Grid>
-                }
             </Grid>
         );
     }
 }
 
-Category.propTypes = {};
+User.propTypes = {};
 
-export default connect(mapStateToProps)(withStyles(styles)(Category));
+export default connect(mapStateToProps)(withStyles(styles)(User));

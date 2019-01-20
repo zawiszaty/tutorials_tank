@@ -23,6 +23,7 @@ import Button from "@material-ui/core/es/Button/Button";
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import {connect} from "react-redux";
+import Avatar from "@material-ui/core/Avatar";
 
 const drawerWidth = 240;
 
@@ -81,6 +82,11 @@ const styles = theme => ({
         }),
         marginLeft: 0,
     },
+    menu__avatar: {
+        display: 'flex',
+        justifyContent: "space-between",
+        alignItems: "center"
+    }
 });
 
 class DrawerHeader extends React.Component {
@@ -123,6 +129,19 @@ class DrawerHeader extends React.Component {
                         </MenuList>
                         <MenuList>
                             <MenuItem component={Link} to="/zarejestruj">Zarejestruj się</MenuItem>
+                        </MenuList>
+                    </React.Fragment>
+                    }
+                    {this.props.user.length !== 0 &&
+                    <React.Fragment>
+                        <MenuList>
+                            <MenuItem component={Link} to="/panel/uzytkownika" className={classes.menu__avatar}>
+                                <Avatar alt="Remy Sharp" src={"http://localhost:9999" + this.props.user[0].avatar}
+                                        className={classes.avatar}/>
+                                <Typography variant="title" gutterBottom>
+                                    {this.props.user[0].name}
+                                </Typography>
+                            </MenuItem>
                         </MenuList>
                     </React.Fragment>
                     }

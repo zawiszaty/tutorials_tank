@@ -31,7 +31,7 @@ class CreatePostHandler implements CommandHandlerInterface
      */
     public function __invoke(CreatePostCommand $command): void
     {
-        $fileName = FileMover::move($command->getFile());
+        $fileName = FileMover::move($command->getFile(), 'thumbnails');
         $aggregateRoot = Post::create(
             AggregateRootId::fromString(Uuid::uuid4()),
             Title::fromString($command->getTitle()),

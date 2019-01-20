@@ -9,10 +9,6 @@ old_sound_rabbit_mq:
     events:
       connection:       default
       exchange_options: { name: 'events', type: topic }
-#    projections:
-#      class: App\Infrastructure\Share\Event\Producer\EventToProjectionsProducer
-#      connection:       default
-#      exchange_options: { name: 'events', type: topic }
 
 
   multiple_consumers:

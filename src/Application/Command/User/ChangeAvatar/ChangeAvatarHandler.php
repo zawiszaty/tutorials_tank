@@ -33,7 +33,7 @@ class ChangeAvatarHandler implements CommandHandlerInterface
     public function __invoke(ChangeAvatarCommand $command): void
     {
         $user = $this->aggregatRepository->get(AggregateRootId::fromString($command->getId()));
-        $fileName = FileMover::move($command->getFile());
+        $fileName = FileMover::move($command->getFile(), 'avatars');
         $user->changeAvatar('/avatars/' . $fileName);
         $this->aggregatRepository->store($user);
 

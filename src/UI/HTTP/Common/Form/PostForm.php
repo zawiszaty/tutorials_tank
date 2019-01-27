@@ -2,7 +2,6 @@
 
 namespace App\UI\HTTP\Common\Form;
 
-use App\Application\Command\Post\Create\CreatePostCommand;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Post\Query\Projections\PostView;
 use App\Infrastructure\Share\Validator\Constraint\UniqueValueInEntity;
@@ -17,9 +16,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 
 /**
- * Class PostForm
- *
- * @package App\UI\HTTP\Common\Form
+ * Class PostForm.
  */
 class PostForm extends AbstractType
 {

@@ -20,7 +20,6 @@ use App\UI\HTTP\Common\Form\ChangeEmailForm;
 use App\UI\HTTP\Common\Form\ChangePasswordForm;
 use App\UI\HTTP\Common\Form\ChangeUserNameForm;
 use App\UI\HTTP\Common\Form\RegistrationFormType;
-use const Fpp\dump;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -306,7 +305,7 @@ class UserController extends RestController
     {
         $page = $request->get('page') ?? 1;
         $limit = $request->get('limit') ?? 10;
-        $query = $request->get('query') ?? "*";
+        $query = $request->get('query') ?? '*';
         $command = new GetAllCommand($page, $limit, $query);
         $model = $this->queryBus->handle($command);
 

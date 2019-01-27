@@ -11,7 +11,6 @@ class FileMover
 {
     /**
      * @param File   $file
-     *
      * @param string $directory
      *
      * @return string

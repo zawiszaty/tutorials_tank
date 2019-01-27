@@ -216,7 +216,7 @@ const styles = theme => ({
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     },
     ban: {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: "#aeb3ba",
         color: "white",
     }
 });
@@ -366,47 +366,91 @@ class User extends Component {
                                                         {this.props.user[0].roles.includes('ROLE_ADMIN') &&
                                                         <React.Fragment>
                                                             <TableCell component="th" scope="row" padding="default">
-                                                                {n.ban !== true &&
-                                                                <Button
-                                                                    variant="contained"
-                                                                    color="secondary"
-                                                                    type="submit"
-                                                                    onClick={() => {
-                                                                        axios.patch(`/api/v1/user/banned/${n.id}`, {}, {
-                                                                            headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
-                                                                        })
-                                                                            .then((response) => {
-                                                                                toast.success("Pomyślnie zbanowano", {
-                                                                                    position: toast.POSITION.BOTTOM_RIGHT
-                                                                                })
+                                                                {n.ban !== true ?
+                                                                    <Button
+                                                                        variant="contained"
+                                                                        color="secondary"
+                                                                        type="submit"
+                                                                        onClick={() => {
+                                                                            axios.patch(`/api/v1/user/banned/${n.id}`, {}, {
+                                                                                headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                                                                             })
-                                                                    }
-                                                                    }
-                                                                >
-                                                                    Zbanuj
-                                                                </Button>
+                                                                                .then((response) => {
+                                                                                    toast.success("Pomyślnie zbanowano", {
+                                                                                        position: toast.POSITION.BOTTOM_RIGHT
+                                                                                    })
+                                                                                })
+                                                                        }
+                                                                        }
+                                                                    >
+                                                                        Zbanuj
+                                                                    </Button> :
+                                                                    <Button
+                                                                        variant="contained"
+                                                                        color="default"
+                                                                        type="submit"
+                                                                        onClick={() => {
+                                                                            axios.patch(`/api/v1/user/banned/${n.id}`, {}, {
+                                                                                headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                                                                            })
+                                                                                .then((response) => {
+                                                                                    toast.success("Pomyślnie odbanowano", {
+                                                                                        position: toast.POSITION.BOTTOM_RIGHT
+                                                                                    })
+                                                                                })
+                                                                        }
+                                                                        }
+                                                                    >
+                                                                        Odbanuj
+                                                                    </Button>
                                                                 }
                                                             </TableCell>
                                                             <TableCell component="th" scope="row" padding="default">
-                                                                {n.ban !== true &&
-                                                                <Button
-                                                                    variant="contained"
-                                                                    color="primary"
-                                                                    type="submit"
-                                                                    onClick={() => {
-                                                                        axios.patch(`/api/v1/user/role/admin/${n.id}`, {}, {
-                                                                            headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
-                                                                        })
-                                                                            .then((response) => {
-                                                                                toast.success("Pomyślnie nadano", {
-                                                                                    position: toast.POSITION.BOTTOM_RIGHT
+                                                                {n.roles.includes('ROLE_ADMIN') !== true ?
+                                                                    <React.Fragment>
+                                                                        {n.ban !== true &&
+                                                                        <Button
+                                                                            variant="contained"
+                                                                            color="primary"
+                                                                            type="submit"
+                                                                            onClick={() => {
+                                                                                axios.patch(`/api/v1/user/role/admin/${n.id}`, {}, {
+                                                                                    headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                                                                                 })
-                                                                            })
-                                                                    }
-                                                                    }
-                                                                >
-                                                                    Nadaj admina
-                                                                </Button>
+                                                                                    .then((response) => {
+                                                                                        toast.success("Pomyślnie nadano", {
+                                                                                            position: toast.POSITION.BOTTOM_RIGHT
+                                                                                        })
+                                                                                    })
+                                                                            }
+                                                                            }
+                                                                        >
+                                                                            Nadaj admina
+                                                                        </Button>
+                                                                        }
+                                                                    </React.Fragment> :
+                                                                    <React.Fragment>
+                                                                        {n.ban !== true &&
+                                                                        <Button
+                                                                            variant="contained"
+                                                                            color="default"
+                                                                            type="submit"
+                                                                            onClick={() => {
+                                                                                axios.patch(`/api/v1/user/role/admin/${n.id}`, {}, {
+                                                                                    headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                                                                                })
+                                                                                    .then((response) => {
+                                                                                        toast.success("Pomyślnie zabrano", {
+                                                                                            position: toast.POSITION.BOTTOM_RIGHT
+                                                                                        })
+                                                                                    })
+                                                                            }
+                                                                            }
+                                                                        >
+                                                                            Zabierz admina
+                                                                        </Button>
+                                                                        }
+                                                                    </React.Fragment>
                                                                 }
                                                             </TableCell>
                                                         </React.Fragment>

@@ -200,17 +200,19 @@ class ChangeUserAvatarForm extends Component {
                         multiple
                         type="file"
                         onChange={(files) => {
-                            const avatar = new Blob([files.target.files[0]]);
-                            let image = new FormData();
-                            image.append("file", avatar, avatar.name);
-                            this.setState({
-                                image: image
-                            });
-                            var reader = new FileReader();
-                            reader.readAsDataURL(files.target.files[0]);
-                            reader.onload = (e) => {
-                                console.log(e);
-                                this.handleImage(e.target.result);
+                            if (files.target.files[0] instanceof Blob) {
+                                const avatar = new Blob([files.target.files[0]]);
+                                let image = new FormData();
+                                image.append("file", avatar, avatar.name);
+                                this.setState({
+                                    image: image
+                                });
+                                var reader = new FileReader();
+                                reader.readAsDataURL(files.target.files[0]);
+                                reader.onload = (e) => {
+                                    console.log(e);
+                                    this.handleImage(e.target.result);
+                                }
                             }
                         }}
                     />

@@ -102,6 +102,11 @@ class UserReadProjectionFactory extends Projector
         $this->repository->apply();
     }
 
+    /**
+     * @param UserPasswordWasChanged $event
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function applyUserPasswordWasChanged(UserPasswordWasChanged $event)
     {
         /** @var UserView $userView */
@@ -110,6 +115,11 @@ class UserReadProjectionFactory extends Projector
         $this->repository->apply();
     }
 
+    /**
+     * @param UserAvatarWasChanged $event
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function applyUserAvatarWasChanged(UserAvatarWasChanged $event)
     {
         /** @var UserView $userView */

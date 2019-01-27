@@ -41,5 +41,6 @@ class GranteUserAdminRoleHandler implements CommandHandlerInterface
     {
         $user = $this->aggregatRepository->get(AggregateRootId::fromString($granteUserAdminRoleCommand->userId));
         $user->grantedAdminRole();
+        $this->aggregatRepository->store($user);
     }
 }

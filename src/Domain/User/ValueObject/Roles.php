@@ -55,6 +55,6 @@ class Roles
             throw new \Exception();
         }
 
-        array_push($this->roles, $role);
+        $this->roles[] = $role;
     }
 }

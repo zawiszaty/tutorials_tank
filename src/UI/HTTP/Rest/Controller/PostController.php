@@ -60,7 +60,7 @@ class PostController extends RestController
     public function addPostAction(Request $request): Response
     {
         $command = new CreatePostCommand();
-        $command->setUser($this->getUser()->getId());
+        $command->user = $this->getUser()->getId();
         $file = $request->files->get('file');
         $request->request->set('file', $file);
         $form = $this->createForm(PostForm::class, $command);

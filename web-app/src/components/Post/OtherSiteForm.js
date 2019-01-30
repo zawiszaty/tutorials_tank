@@ -116,6 +116,9 @@ class LoginForm extends React.Component {
                     toast.error("Coś poszło nie tak", {
                         position: toast.POSITION.BOTTOM_RIGHT
                     });
+                    this.setState({
+                        loading: false,
+                    });
                 });
             }
         }
@@ -184,7 +187,7 @@ class LoginForm extends React.Component {
                     margin="normal" fullWidth
                 />
                 <CategoryList selected={this.state.selected} handleClick={this.handleClick}/>
-                {/*<PostThumbnailForm handleChangeFile={this.handleChangeFile}/>*/}
+                <PostThumbnailForm handleChangeFile={this.handleChangeFile}/>
                 <div className={classes.wrapper}>
                     <Button
                         variant="contained"

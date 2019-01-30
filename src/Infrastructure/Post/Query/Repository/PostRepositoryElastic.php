@@ -27,7 +27,7 @@ class PostRepositoryElastic extends ElasticRepository
      *
      * @return Collection
      */
-    public function pageByCreatedAt(int $page = 1, int $limit = 50, array $queryString = []): Collection
+    public function pageByCreatedAt(int $page = 1, int $limit = 50, ?array $queryString = []): Collection
     {
         Assertion::greaterThan($page, 0, 'Pagination need to be > 0');
 

@@ -19,6 +19,8 @@ import CategoryContainer from "./containers/Category/CategoryContainer";
 import UserPanel from "./containers/UserPanel/UserPanel";
 import UserListContainer from "./containers/UserPanel/UserListContainer";
 import AddPost from "./containers/Post/Add/AddPost";
+import Home from "./containers/Home/Home";
+import SinglePost from "./containers/Post/SinglePost/SinglePost";
 
 const Index = () => <h2>Home</h2>;
 
@@ -44,7 +46,7 @@ class App extends Component {
                     {this.state.loading === true && <CheckSecurity loaded={this.loaded}/>}
                     {this.state.loading !== true &&
                     <React.Fragment>
-                        <Route path="/" exact component={Index}/>
+                        <Route path="/" exact component={Home}/>
                         <NotLoggedRoute path="/zaloguj" component={Login}/>
                         <NotLoggedRoute path="/zarejestruj" component={Registration}/>
                         <NotLoggedRoute path="/potwierdz/konto/:token" component={ConfirmUser}/>
@@ -52,6 +54,7 @@ class App extends Component {
                         <LoggedRoute path="/dodaj/post" component={AddPost}/>
                         <Route path="/kategorie" component={CategoryContainer}/>
                         <Route path="/uzytkownicy" component={UserListContainer}/>
+                        <Route path="/post/:slug" component={SinglePost}/>
                     </React.Fragment>
                     }
                     <FooterComponent/>

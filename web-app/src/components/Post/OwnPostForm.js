@@ -112,11 +112,14 @@ class OwnPostForm extends React.Component {
                         position: toast.POSITION.BOTTOM_RIGHT
                     });
                     this.setState({
-                        success: true
+                        success: true,
                     });
                 }).catch((e) => {
                     toast.error("Coś poszło nie tak", {
                         position: toast.POSITION.BOTTOM_RIGHT
+                    });
+                    this.setState({
+                        loading: false,
                     });
                 });
             }

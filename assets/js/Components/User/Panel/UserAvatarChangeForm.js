@@ -1,12 +1,6 @@
 import React from 'react'
-import {Field, reduxForm} from 'redux-form'
-import TextField from '@material-ui/core/TextField';
-import PropTypes from 'prop-types';
 import Button from "@material-ui/core/Button/Button";
-import Paper from "@material-ui/core/Paper/Paper";
 import withStyles from '@material-ui/core/styles/withStyles';
-import FormControl from '@material-ui/core/FormControl';
-import {store} from './../../../store';
 import {connect} from 'react-redux';
 import axios from "../../../axios";
 import {withSnackbar} from 'notistack';
@@ -46,7 +40,7 @@ const styles = theme => ({
 });
 
 const validate = values => {
-    const errors = {}
+    const errors = {};
     if (!values.username) {
         errors.username = 'Pole nie może być puste'
     }
@@ -55,15 +49,15 @@ const validate = values => {
     }
 
     return errors
-}
+};
 
 const warn = values => {
-    const warnings = {}
+    const warnings = {};
     if (values.username < 19) {
         warnings.age = 'Hmm, you seem a bit young...'
     }
     return warnings
-}
+};
 
 
 // hintText={label}
@@ -71,7 +65,7 @@ const warn = values => {
 // errorText={touched && error}
 class SyncValidationForm extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             onPresentSnackbar: props.onPresentSnackbar,

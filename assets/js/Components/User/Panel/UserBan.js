@@ -164,7 +164,7 @@ class UserBan extends React.Component {
             this.setState({
                 categories: response.data,
                 loaded: false,
-            })
+            });
             console.log(response.data)
         });
     }

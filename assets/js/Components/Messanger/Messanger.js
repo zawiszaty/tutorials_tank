@@ -55,7 +55,7 @@ class Messanger extends React.Component {
             this.setState({
                 messages
             })
-        }
+        };
         this.state.notif.onopen = () => {
             // var myJsonString = JSON.stringify({
             //     "userData": {

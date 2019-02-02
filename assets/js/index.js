@@ -41,7 +41,7 @@ const PublicRoute = withSnackbar(({component: Component, ...rest}) => (
             ? <Component {...props} />
             : <Redirect to='/'/>
     )}/>
-))
+));
 
 const PrivateRoute = withSnackbar(({component: Component, ...rest}) => (
     <Route {...rest} render={(props) => (

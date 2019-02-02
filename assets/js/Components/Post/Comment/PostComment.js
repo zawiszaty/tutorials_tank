@@ -30,7 +30,7 @@ class PostComment extends React.Component {
             content: '',
             loading: true,
             error: false,
-        }
+        };
         console.log(this.state.comments);
     }
 

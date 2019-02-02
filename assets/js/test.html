@@ -15,7 +15,7 @@ test
     notif.onmessage = function (event) {
         console.log(event.data);
 
-    }
+    };
 
     notif.onopen = function () {
         var token_user = '123';
@@ -27,7 +27,7 @@ test
         });
         notif.send(myJsonString);
         console.log('conected');
-    }
+    };
 
     notif.onerror = function (error) {
         console.log(error);

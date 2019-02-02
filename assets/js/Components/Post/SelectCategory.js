@@ -149,7 +149,7 @@ class SelectCategory extends React.Component {
 
     componentDidMount = () => {
         this.getAllCategory()
-    }
+    };
 
     getAllCategory = () => {
         this.setState({
@@ -159,10 +159,10 @@ class SelectCategory extends React.Component {
             this.setState({
                 categories: response.data,
                 loaded: false,
-            })
+            });
             console.log(response.data)
         });
-    }
+    };
 
     handleChangePage = (e, page) => {
         this.setState({
@@ -170,7 +170,7 @@ class SelectCategory extends React.Component {
         }, () => {
             this.getAllCategory()
         })
-    }
+    };
 
     handleChangeRowsPerPage = (e) => {
         this.setState({
@@ -178,7 +178,7 @@ class SelectCategory extends React.Component {
         }, () => {
             this.getAllCategory();
         });
-    }
+    };
 
     handleChangeQuery = (e) => {
         this.setState({

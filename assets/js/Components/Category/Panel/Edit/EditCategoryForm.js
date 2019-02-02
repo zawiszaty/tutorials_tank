@@ -1,22 +1,19 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
 import TextField from '@material-ui/core/TextField';
-import PropTypes from 'prop-types';
 import Button from "@material-ui/core/Button/Button";
-import Paper from "@material-ui/core/Paper/Paper";
 import withStyles from '@material-ui/core/styles/withStyles';
 import FormControl from '@material-ui/core/FormControl';
 import {connect} from 'react-redux';
 import {loginUser} from './../../../../actions/user-action'
 import axios from "./../../../../axios";
 import {withSnackbar} from 'notistack';
-import {client_id, client_secret} from './../../../../env';
-import {BrowserRouter} from 'react-router-dom';
-import {Route, Redirect} from 'react-router'
+import {Redirect} from 'react-router'
 import {createBrowserHistory} from 'history';
-const history = createBrowserHistory();
-import { push } from 'react-router-redux';
+import {push} from 'react-router-redux';
 import {store} from './../../../../store';
+
+const history = createBrowserHistory();
 const styles = theme => ({
     layout: {
         width: 'auto',
@@ -50,21 +47,21 @@ const styles = theme => ({
 });
 
 const validate = values => {
-    const errors = {}
+    const errors = {};
     if (!values.name) {
         errors.name = 'Pole nie może być puste'
     }
 
     return errors
-}
+};
 
 const warn = values => {
-    const warnings = {}
+    const warnings = {};
     if (values.username < 19) {
         warnings.age = 'Hmm, you seem a bit young...'
     }
     return warnings
-}
+};
 
 const renderTextField = (
     {input, label, meta, ...custom, type},
@@ -88,9 +85,9 @@ const SyncValidationForm = (props) => {
     const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar, user, onLoginUser, history, redirect, id} = props;
 
     const test = () => {
-        console.log('dziala')
+        console.log('dziala');
         return <Redirect to="/panel/kategorie"/>
-    }
+    };
     return (
         <form className={classes.form} onSubmit={handleSubmit(val => {
             axios.patch(`/api/v1/category/${id}`, val, {
@@ -134,7 +131,7 @@ const SyncValidationForm = (props) => {
             </div>
         </form>
     )
-}
+};
 const mapStateToProps = state => ({
     initialValues: {
         name: state.category.name

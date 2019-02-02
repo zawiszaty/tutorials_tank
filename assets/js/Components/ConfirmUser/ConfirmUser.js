@@ -4,13 +4,10 @@ import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import axios from './../../axios';
 import {withSnackbar} from 'notistack';
-import Avatar from "@material-ui/core/Avatar/Avatar";
-import SupervisedUserCircle from '@material-ui/icons/SupervisedUserCircle';
 import Typography from "@material-ui/core/Typography/Typography";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from "@material-ui/core/Button/Button";
 import {NavLink} from "react-router-dom";
-import Drawer from "@material-ui/core/Drawer/Drawer";
 
 const styles = theme => ({
     layout: {
@@ -64,7 +61,7 @@ class ConfirmUser extends React.Component {
     confirmUser(token) {
         axios.post('/api/v1/user/confirm/' + token)
             .then((response) => {
-                console.log(response.data)
+                console.log(response.data);
                 this.setState({
                     loaded: false,
                 })
@@ -83,8 +80,8 @@ class ConfirmUser extends React.Component {
         const classes = this.props.classes;
         let loaded = '';
         let view = '';
-        const isEnabled = <Typography variant="headline">User jest juz potwierdzony</Typography>
-        const error = <Typography variant="headline">Coś poszło nie tak</Typography>
+        const isEnabled = <Typography variant="headline">User jest juz potwierdzony</Typography>;
+        const error = <Typography variant="headline">Coś poszło nie tak</Typography>;
         if (this.state.loaded) {
             loaded = <CircularProgress className={classes.progress} color="secondary"/>
         } else {

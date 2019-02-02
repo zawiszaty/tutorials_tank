@@ -44,7 +44,7 @@ const styles = theme => ({
 });
 
 const validate = values => {
-    const errors = {}
+    const errors = {};
     if (!values.username) {
         errors.username = 'Pole nie może być puste'
     }
@@ -53,15 +53,15 @@ const validate = values => {
     }
 
     return errors
-}
+};
 
 const warn = values => {
-    const warnings = {}
+    const warnings = {};
     if (values.username < 19) {
         warnings.age = 'Hmm, you seem a bit young...'
     }
     return warnings
-}
+};
 
 const renderTextField = (
     {input, label, meta, ...custom, type},
@@ -81,7 +81,7 @@ const renderTextField = (
 // floatingLabelText={label}
 // errorText={touched && error}
 const SyncValidationForm = (props) => {
-    const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar, user, onLoginUser} = props
+    const {handleSubmit, pristine, reset, submitting, classes, onPresentSnackbar, user, onLoginUser} = props;
     return (
         <form className={classes.form} onSubmit={handleSubmit(val => {
             axios.post('/api/v1/user/change/username', {'name': val.username}, {
@@ -109,7 +109,7 @@ const SyncValidationForm = (props) => {
                 </Button>
         </form>
     )
-}
+};
 const mapStateToProps = state => ({
     initialValues: {
         username: state.user.name

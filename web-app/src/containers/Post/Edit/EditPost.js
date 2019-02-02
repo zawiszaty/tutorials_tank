@@ -9,6 +9,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import OwnPostForm from "./Form/OwnPostForm";
 import axios from "../../../axios/axios";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import OtherSiteForm from "./Form/OtherSiteForm";
 
 const styles = theme => ({
     main: {
@@ -86,10 +87,18 @@ class EditPost extends Component {
                             <Typography component="h1" variant="h5">
                                 Edytuj
                             </Typography>
-                            <OwnPostForm title={this.state.post.title} content={this.state.post.content}
-                                         category={this.state.post.category} thumbnail={this.state.post.thumbnail}
-                                         shortDescription={this.state.post.shortDescription} id={this.state.post.id}
-                            />
+                            {this.state.post.type === "own_post" ?
+                                <OwnPostForm title={this.state.post.title} content={this.state.post.content}
+                                             category={this.state.post.category} thumbnail={this.state.post.thumbnail}
+                                             shortDescription={this.state.post.shortDescription} id={this.state.post.id}
+                                /> :
+                                <OtherSiteForm title={this.state.post.title} content={this.state.post.content}
+                                               category={this.state.post.category} thumbnail={this.state.post.thumbnail}
+                                               shortDescription={this.state.post.shortDescription}
+                                               id={this.state.post.id}
+                                />
+                            }
+
                             {console.log(this.state.post.thumbnail)}
                         </Paper>
                     </React.Fragment>

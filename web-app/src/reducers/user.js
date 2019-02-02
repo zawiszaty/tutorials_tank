@@ -7,4 +7,4 @@ export const user = (state = [], action) => { // (1)
         default:
             return state
     }
-}
+};

@@ -2,8 +2,6 @@ import React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import {connect} from 'react-redux';
 import Paper from '@material-ui/core/Paper';
-import Avatar from "@material-ui/core/Avatar/Avatar";
-import LockIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import Typography from "@material-ui/core/Typography/Typography";
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -11,48 +9,37 @@ import Button from "@material-ui/core/Button/Button";
 import TextField from "@material-ui/core/TextField/TextField";
 import axios from './../../axios';
 import {withSnackbar} from "notistack";
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import UploadThumbnailForm from './UploadThumbnailForm';
 import SelectCategory from './SelectCategory';
 // The editor core
-import Editor, {Editable, createEmptyState} from 'ory-editor-core'
+import Editor, {createEmptyState, Editable} from 'ory-editor-core'
 import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
-
 // Require our ui components (optional). You can implement and use your own ui too!
-import {Trash, DisplayModeToggle, Toolbar} from 'ory-editor-ui'
+import {DisplayModeToggle, Toolbar, Trash} from 'ory-editor-ui'
 import 'ory-editor-ui/lib/index.css'
-
 // Load some exemplary plugins:
 import slate from 'ory-editor-plugins-slate' // The rich text area plugin
 import 'ory-editor-plugins-slate/lib/index.css' // Stylesheets for the rich text area plugin
 import parallax from 'ory-editor-plugins-parallax-background' // A plugin for parallax background images
 import 'ory-editor-plugins-parallax-background/lib/index.css' // Stylesheets for parallax background images
-import Checkbox from '@material-ui/core/Checkbox';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Redirect,
-    withRouter
-} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 
 // Define which plugins we want to use. We only have slate and parallax available, so load those.
 const plugins = {
     content: [slate()], // Define plugins for content cells. To import multiple plugins, use [slate(), image, spacer, divider]
     layout: [parallax({defaultPlugin: slate()})] // Define plugins for layout cells
-}
+};
 
 // Creates an empty editable
-const content = createEmptyState()
+const content = createEmptyState();
 
 // Instantiate the editor
 const editor = new Editor({
     plugins,
     // pass the content state - you can add multiple editables here
     editables: [content],
-})
+});
 
 const styles = theme => ({
     root: {

@@ -2,25 +2,24 @@ import React, {Component} from 'react';
 import Header from "./components/Header/Header";
 import './app.css';
 import FooterComponent from "./components/FooterComponent/FooterComponent";
-import {BrowserRouter as Router, Route, Link, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import Login from "./containers/Login/Login";
 import Registration from "./containers/Registtration/Registration";
-import {ToastContainer, toast} from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {NotLoggedRoute} from "./components/Routes/NotLoggedRoute";
 import CheckSecurity from "./components/Security/CheckSecurity";
 import {login} from "./actions/user";
 import {connect} from "react-redux";
-import withStyles from "./components/Login/LoginForm";
 import ConfirmUser from "./containers/ConfirmUser/ConfirmUser";
 import {LoggedRoute} from "./components/Routes/LoggedRoute";
-import Category from "./components/Category/Category";
 import CategoryContainer from "./containers/Category/CategoryContainer";
 import UserPanel from "./containers/UserPanel/UserPanel";
 import UserListContainer from "./containers/UserPanel/UserListContainer";
 import AddPost from "./containers/Post/Add/AddPost";
 import Home from "./containers/Home/Home";
 import SinglePost from "./containers/Post/SinglePost/SinglePost";
+import EditPost from "./containers/Post/Edit/EditPost";
 
 const Index = () => <h2>Home</h2>;
 
@@ -52,6 +51,7 @@ class App extends Component {
                         <NotLoggedRoute path="/potwierdz/konto/:token" component={ConfirmUser}/>
                         <LoggedRoute path="/panel/uzytkownika" component={UserPanel}/>
                         <LoggedRoute path="/dodaj/post" component={AddPost}/>
+                        <LoggedRoute path="/edytuj/post/:slug" component={EditPost}/>
                         <Route path="/kategorie" component={CategoryContainer}/>
                         <Route path="/uzytkownicy" component={UserListContainer}/>
                         <Route path="/post/:slug" component={SinglePost}/>

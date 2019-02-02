@@ -47,4 +47,28 @@ class PostRepositoryElastic extends ElasticRepository
 
         return $collection;
     }
+
+    /**
+     * @param string $slug
+     *
+     * @return array
+     */
+    public function getOneBySlug(string $slug): array
+    {
+        $query = [];
+
+        $query['index'] = $query['type'] = $this->index;
+        $query['body'] = [
+            'query' => [
+                'match' => [
+                    'slug' => $slug
+                ]
+            ]
+        ];
+
+        $response = $this->client->search($query);
+
+
+        return $response['hits']['hits'][0]['_source'];
+    }
 }

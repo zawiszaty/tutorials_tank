@@ -4,13 +4,15 @@ import {TextValidator, ValidatorForm} from 'react-material-ui-form-validator';
 import withStyles from "@material-ui/core/es/styles/withStyles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import classNames from 'classnames';
-import axios from './../../axios/axios';
 import Redirect from "react-router-dom/es/Redirect";
 import {toast} from 'react-toastify';
-import {login} from "../../actions/user";
+import {login} from "./../../../../actions/user";
 import {connect} from "react-redux";
+import {Editor} from '@tinymce/tinymce-react';
 import CategoryList from "./CategoryList";
 import PostThumbnailForm from "./PostThumbnailForm";
+import {AxiosInstance as axios} from "axios";
+
 
 const styles = theme => ({
     form: {
@@ -39,18 +41,18 @@ const styles = theme => ({
     },
 });
 
-class LoginForm extends React.Component {
+class OwnPostForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
-            link: '',
-            shortDescription: '',
+            title: props.title,
+            content: props.content,
+            shortDescription: props.shortDescription,
             loading: false,
             success: false,
             user: {},
-            selected: null,
-            file: '',
+            selected: props.category,
+            file: props.thumbnail,
         };
     }
 
@@ -68,9 +70,10 @@ class LoginForm extends React.Component {
         this.setState({title});
     };
 
-    handleChangeLink = (event) => {
-        const link = event.target.value;
-        this.setState({link});
+    handleChangeContent = (event) => {
+        const content = event.target.getContent();
+        this.setState({content});
+        console.log(this.state.content);
     };
     handleShortDescription = (event) => {
         const shortDescription = event.target.value;
@@ -78,12 +81,12 @@ class LoginForm extends React.Component {
     };
 
     handleSubmit = () => {
-        if(this.state.selected === null) {
+        if (this.state.selected === null) {
             toast.info("Wybierz jakaś kategorie", {
                 position: toast.POSITION.BOTTOM_RIGHT
             });
         } else {
-            if(this.state.file === '') {
+            if (this.state.file === '') {
                 toast.info("Dodaj miniature", {
                     position: toast.POSITION.BOTTOM_RIGHT
                 });
@@ -95,19 +98,19 @@ class LoginForm extends React.Component {
                             loading: true,
                         })
                 }
-                this.state.file.append('title', this.state.title);
-                this.state.file.append('content', this.state.link);
-                this.state.file.append('shortDescription', this.state.shortDescription);
-                this.state.file.append("type", 'oder_site');
+                this.state.file.append("content", this.state.content);
+                this.state.file.append("title", this.state.title);
+                this.state.file.append("type", 'own_post');
+                this.state.file.append("shortDescription", this.state.description);
                 this.state.file.append("category", this.state.selected);
-                axios.post('/api/v1/post', this.state.file, {
+                axios.post(`/api/v1/post/${this.props.id}`, this.state.file, {
                     headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                 }).then((response) => {
                     toast.success("Dodano post", {
                         position: toast.POSITION.BOTTOM_RIGHT
                     });
                     this.setState({
-                        success: true
+                        success: true,
                     });
                 }).catch((e) => {
                     toast.error("Coś poszło nie tak", {
@@ -164,16 +167,6 @@ class LoginForm extends React.Component {
                     margin="normal" fullWidth
                 />
                 <TextValidator
-                    label="Link"
-                    onChange={this.handleChangeLink}
-                    name="link"
-                    value={link}
-                    type="text"
-                    validators={['required']}
-                    errorMessages={['To pole jest wymagane']}
-                    margin="normal" fullWidth
-                />
-                <TextValidator
                     label="Krótki opis"
                     onChange={this.handleShortDescription}
                     name="shortDescription"
@@ -183,8 +176,17 @@ class LoginForm extends React.Component {
                     errorMessages={['To pole jest wymagane']}
                     margin="normal" fullWidth
                 />
+                <Editor
+                    apiKey="69sluxkknib3n831hobh8k54b5yjjvzaexa4hutx9liz6l2b"
+                    value={this.state.content}
+                    init={{
+                        plugins: 'link image code',
+                        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+                    }}
+                    onChange={this.handleChangeContent}
+                />
                 <CategoryList selected={this.state.selected} handleClick={this.handleClick}/>
-                <PostThumbnailForm handleChangeFile={this.handleChangeFile}/>
+                <PostThumbnailForm handleChangeFile={this.handleChangeFile} thumbnail={this.props.thumbnail}/>
                 <div className={classes.wrapper}>
                     <Button
                         variant="contained"
@@ -210,4 +212,4 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = {login};
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(LoginForm));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(OwnPostForm));

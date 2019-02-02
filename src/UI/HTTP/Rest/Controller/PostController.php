@@ -6,15 +6,17 @@ use App\Application\Command\Post\Create\CreatePostCommand;
 use App\Application\Command\Post\Delete\DeletePostCommand;
 use App\Application\Command\Post\Edit\EditPostCommand;
 use App\Application\Query\Post\GetAll\GetAllCommand;
+use App\Application\Query\Post\GetOneBySlug\GetOneBySlugCommand;
 use App\Application\Query\Post\GetSingle\GetSingleCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\UI\HTTP\Common\Controller\RestController;
+use App\UI\HTTP\Common\Form\EditPostForm;
 use App\UI\HTTP\Common\Form\PostForm;
+use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
-use Swagger\Annotations as SWG;
 
 /**
  * Class PostController.
@@ -115,14 +117,16 @@ class PostController extends RestController
     public function editPostAction(Request $request, string $id): Response
     {
         $command = new EditPostCommand();
-        $command->setUser($this->getUser()->getId());
-        $command->setId($id);
+        $command->user = $this->getUser()->getId();
+        $command->id = $id;
         $file = $request->files->get('file');
         $request->request->set('file', $file);
-        $form = $this->createForm(PostForm::class, $command);
+        $form = $this->createForm(EditPostForm::class, $command);
         $form->submit($request->request->all());
 
         if ($form->isSubmitted() && $form->isValid()) {
+            dump($command);
+            die();
             $this->commandBus->handle($command);
 
             return new JsonResponse('success', Response::HTTP_OK);
@@ -164,6 +168,39 @@ class PostController extends RestController
     public function getSingle(Request $request, string $id): Response
     {
         $command = new GetSingleCommand(AggregateRootId::fromString($id));
+        $model = $this->queryBus->handle($command);
+
+        return new JsonResponse($model, 200);
+    }
+
+    /**
+     * @param Request $request
+     * @param string  $slug
+     *
+     * @return Response
+     *
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="slug",
+     *     type="string",
+     *     in="path",
+     * )
+     *
+     * @SWG\Tag(name="Post")
+     */
+    public function getSingleBySlug(Request $request, string $slug): Response
+    {
+        $command = new GetOneBySlugCommand;
+        $command->slug = $slug;
         $model = $this->queryBus->handle($command);
 
         return new JsonResponse($model, 200);

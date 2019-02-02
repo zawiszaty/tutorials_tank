@@ -23,7 +23,7 @@ App\Infrastructure\Post\Query\Projections\PostView:
     title:
       type: string
       nullable: false
-      length: 45
+      length: 255
       options:
         fixed: false
     content:
@@ -48,9 +48,9 @@ App\Infrastructure\Post\Query\Projections\PostView:
       options:
         fixed: false
     shortDescription:
-      type: string
+      type: text
       nullable: true
-      length: 255
+      length: 65535
       options:
         fixed: false
     createdAt:

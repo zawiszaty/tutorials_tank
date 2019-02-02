@@ -3,8 +3,6 @@
 namespace App\UI\HTTP\Common\Form;
 
 use App\Infrastructure\Category\Query\Projections\CategoryView;
-use App\Infrastructure\Post\Query\Projections\PostView;
-use App\Infrastructure\Share\Validator\Constraint\UniqueValueInEntity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -17,7 +15,7 @@ use Symfony\Component\Validator\Constraints\NotNull;
 /**
  * Class PostForm.
  */
-class PostForm extends AbstractType
+class EditPostForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -55,7 +53,7 @@ class PostForm extends AbstractType
                 'required' => true,
             ])
             ->add('category', EntityType::class, [
-                'class'       => CategoryView::class,
+                'class' => CategoryView::class,
                 'constraints' => [
                     new NotNull(),
                 ],
@@ -75,12 +73,6 @@ class PostForm extends AbstractType
     {
         $resolver->setDefaults([
             'csrf_protection' => false,
-            'constraints'     => [
-                new UniqueValueInEntity([
-                    'field'       => 'title',
-                    'entityClass' => PostView::class,
-                ]),
-            ],
         ]);
     }
 }

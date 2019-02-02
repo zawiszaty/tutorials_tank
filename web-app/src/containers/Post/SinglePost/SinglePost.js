@@ -1,22 +1,14 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import SwipeableViews from 'react-swipeable-views';
-import Tab from '@material-ui/core/Tab';
 import axios from './../../../axios/axios';
+import CircularProgress from "@material-ui/core/CircularProgress";
+import renderHTML from 'react-render-html';
+import {Link as RouterLink} from "react-router-dom";
+import {connect} from "react-redux";
 
 function TabContainer({children, dir}) {
     return (
@@ -45,15 +37,28 @@ const styles = theme => ({
         alignItems: 'center',
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     },
+    paper__content: {
+        marginTop: theme.spacing.unit * 8,
+        padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+    },
+    paper__content__oder: {
+        marginTop: theme.spacing.unit * 8,
+        minHeight: "100vh",
+    },
     root: {
         backgroundColor: theme.palette.background.paper,
         width: 500,
+    },
+    body__iframe: {
+        height: "100vh",
+        width: "100%",
     },
 });
 
 class SinglePost extends Component {
     state = {
-        posts: [],
+        post: [],
+        loading: true,
     };
 
     componentDidMount = () => {
@@ -61,11 +66,14 @@ class SinglePost extends Component {
     };
 
     getAllPost = () => {
-        axios.get('/api/v1/posts').then((e) => {
+        this.setState({
+            loading: true
+        });
+        axios.get(`/api/v1/post/slug/${this.props.match.params.slug}`).then((e) => {
             this.setState({
-                posts: e.data.data
+                post: e.data,
+                loading: false
             });
-
         })
             .catch((e) => {
 
@@ -78,7 +86,60 @@ class SinglePost extends Component {
 
         return (
             <main className={classes.main}>
-                {this.props.match.params.slug}
+                {this.state.loading === true ? <Paper className={classes.paper}>
+                        <CircularProgress className={classes.progress} color="secondary"/>
+                    </Paper> :
+                    <React.Fragment>
+                        {this.props.user.length !== 0 &&
+                        <React.Fragment>
+                            {this.state.post.user === this.props.user[0].id &&
+                            <Paper className={classes.paper}>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    fullWidth
+                                    component={RouterLink} to={"/edytuj/post/" + this.state.post.slug}
+                                    className={classes.button}
+                                >
+                                    Edytuj
+                                </Button>
+                            </Paper>
+                            }
+                        </React.Fragment>
+                        }
+                        <Paper className={classes.paper}>
+                            <Typography variant="title" gutterBottom>
+                                {this.state.post.title}
+                            </Typography>
+                        </Paper>
+                        {this.state.post.type === "own_post" &&
+                        <Paper className={classes.paper__content}>
+                            <Typography variant="body1" gutterBottom>
+                                {renderHTML(this.state.post.content)}
+                            </Typography>
+                        </Paper>
+                        }
+                        {this.state.post.type === "oder_site" &&
+                        <React.Fragment>
+                            <Paper className={classes.paper}>
+                                <Button
+                                    variant="contained"
+                                    color="link"
+                                    fullWidth
+                                    className={classes.button}
+                                >
+                                    <a href={this.state.post.content} target="_blank">
+                                        Odwiedź strone
+                                    </a>
+                                </Button>
+                            </Paper>
+                            <Paper className={classes.paper__content__oder}>
+                                <iframe src={this.state.post.content} className={classes.body__iframe} frameBorder="0"/>
+                            </Paper>
+                        </React.Fragment>
+                        }
+                    </React.Fragment>
+                }
             </main>
         );
     }
@@ -88,4 +149,10 @@ SinglePost.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, {withTheme: true})(SinglePost);
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+};
+
+export default connect(mapStateToProps)(withStyles(styles, {withTheme: true})(SinglePost));

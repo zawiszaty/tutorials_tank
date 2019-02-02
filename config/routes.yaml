@@ -85,13 +85,18 @@ add_post:
 
 edit_post:
   path: /api/v1/post/{id}
-  methods: PATCH
+  methods: POST
   controller: App\UI\HTTP\Rest\Controller\PostController:editPostAction
 
 get_single_post:
   path: /api/v1/post/{id}
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\PostController:getSingle
+
+get_single_post_by_slug:
+  path: /api/v1/post/slug/{slug}
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\PostController:getSingleBySlug
 
 get_all_post:
   path: /api/v1/posts

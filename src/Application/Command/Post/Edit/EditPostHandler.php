@@ -34,25 +34,26 @@ class EditPostHandler implements CommandHandlerInterface
      * @param EditPostCommand $command
      *
      * @throws \Assert\AssertionFailedException
+     * @throws \Exception
      */
     public function __invoke(EditPostCommand $command): void
     {
-        $aggregateRoot = $this->postRepository->get(AggregateRootId::fromString($command->getId()));
+        $aggregateRoot = $this->postRepository->get(AggregateRootId::fromString($command->id));
 
-        if (null !== $command->getFile()) {
-            $fileName = FileMover::move($command->getFile(), 'thumbnails');
+        if (null !== $command->file) {
+            $fileName = FileMover::move($command->file, 'thumbnails');
         } else {
             $fileName = $aggregateRoot->getThumbnail()->toString();
         }
 
         $aggregateRoot->edit(
-            Title::fromString($command->getTitle()),
-            Content::fromString($command->getContent()),
+            Title::fromString($command->title),
+            Content::fromString($command->content),
             Thumbnail::fromString($fileName),
-            $command->getType(),
-            $command->getUser(),
-            $command->getCategory(),
-            $command->getShortDescription()
+            $command->type,
+            $command->user,
+            $command->category,
+            $command->shortDescription
         );
 
         $this->postRepository->store($aggregateRoot);

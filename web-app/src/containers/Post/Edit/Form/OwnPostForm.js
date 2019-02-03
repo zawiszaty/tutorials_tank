@@ -11,7 +11,8 @@ import {connect} from "react-redux";
 import {Editor} from '@tinymce/tinymce-react';
 import CategoryList from "./CategoryList";
 import PostThumbnailForm from "./PostThumbnailForm";
-import {AxiosInstance as axios} from "axios";
+import axios from './../../../../axios/axios'
+import green from '@material-ui/core/colors/green';
 
 
 const styles = theme => ({
@@ -52,7 +53,7 @@ class OwnPostForm extends React.Component {
             success: false,
             user: {},
             selected: props.category,
-            file: props.thumbnail,
+            file: `http://localhost:9999${props.thumbnail}`,
         };
     }
 
@@ -98,28 +99,54 @@ class OwnPostForm extends React.Component {
                             loading: true,
                         })
                 }
-                this.state.file.append("content", this.state.content);
-                this.state.file.append("title", this.state.title);
-                this.state.file.append("type", 'own_post');
-                this.state.file.append("shortDescription", this.state.description);
-                this.state.file.append("category", this.state.selected);
-                axios.post(`/api/v1/post/${this.props.id}`, this.state.file, {
-                    headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
-                }).then((response) => {
-                    toast.success("Dodano post", {
-                        position: toast.POSITION.BOTTOM_RIGHT
+                if (typeof this.state.file !== "string") {
+                    this.state.file.append("content", this.state.content);
+                    this.state.file.append("title", this.state.title);
+                    this.state.file.append("type", 'own_post');
+                    this.state.file.append("shortDescription", this.state.shortDescription);
+                    this.state.file.append("category", this.state.selected);
+                    axios.post(`/api/v1/post/edit/${this.props.id}`, this.state.file, {
+                        headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                    }).then((response) => {
+                        toast.success("Dodano post", {
+                            position: toast.POSITION.BOTTOM_RIGHT
+                        });
+                        this.setState({
+                            success: true,
+                        });
+                    }).catch((e) => {
+                        toast.error("Coś poszło nie tak", {
+                            position: toast.POSITION.BOTTOM_RIGHT
+                        });
+                        this.setState({
+                            loading: false,
+                        });
                     });
-                    this.setState({
-                        success: true,
+                } else {
+                    axios.post(`/api/v1/post/edit/${this.props.id}`, {
+                        title: this.state.title,
+                        content: this.state.content,
+                        type: 'own_post',
+                        shortDescription: this.state.shortDescription,
+                        category: this.state.selected
+                    }, {
+                        headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                    }).then((response) => {
+                        toast.success("Dodano post", {
+                            position: toast.POSITION.BOTTOM_RIGHT
+                        });
+                        this.setState({
+                            success: true,
+                        });
+                    }).catch((e) => {
+                        toast.error("Coś poszło nie tak", {
+                            position: toast.POSITION.BOTTOM_RIGHT
+                        });
+                        this.setState({
+                            loading: false,
+                        });
                     });
-                }).catch((e) => {
-                    toast.error("Coś poszło nie tak", {
-                        position: toast.POSITION.BOTTOM_RIGHT
-                    });
-                    this.setState({
-                        loading: false,
-                    });
-                });
+                }
             }
         }
 
@@ -186,7 +213,7 @@ class OwnPostForm extends React.Component {
                     onChange={this.handleChangeContent}
                 />
                 <CategoryList selected={this.state.selected} handleClick={this.handleClick}/>
-                <PostThumbnailForm handleChangeFile={this.handleChangeFile} thumbnail={this.props.thumbnail}/>
+                <PostThumbnailForm handleChangeFile={this.handleChangeFile} thumbnail={this.state.file}/>
                 <div className={classes.wrapper}>
                     <Button
                         variant="contained"

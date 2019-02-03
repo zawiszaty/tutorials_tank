@@ -9,6 +9,7 @@ import Redirect from "react-router-dom/es/Redirect";
 import {toast} from 'react-toastify';
 import CategoryList from "./CategoryList";
 import PostThumbnailForm from "./PostThumbnailForm";
+import green from '@material-ui/core/colors/green';
 
 const styles = theme => ({
     form: {

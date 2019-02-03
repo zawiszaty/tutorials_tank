@@ -98,11 +98,9 @@ class CommentReadProjectionFactory extends Projector
      * @param CommentWasDeletedEvent $commentWasDeletedEvent
      *
      * @throws \Assert\AssertionFailedException
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyCommentWasDeletedEvent(CommentWasDeletedEvent $commentWasDeletedEvent): void
     {
-        $comment = $this->modelRepository->getSingle(AggregateRootId::fromString($commentWasDeletedEvent->getId()));
-        $this->modelRepository->delete($comment);
+        $this->modelRepository->delete($commentWasDeletedEvent->getId());
     }
 }

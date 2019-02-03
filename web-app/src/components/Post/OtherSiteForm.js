@@ -11,6 +11,7 @@ import {login} from "../../actions/user";
 import {connect} from "react-redux";
 import CategoryList from "./CategoryList";
 import PostThumbnailForm from "./PostThumbnailForm";
+import green from '@material-ui/core/colors/green';
 
 const styles = theme => ({
     form: {

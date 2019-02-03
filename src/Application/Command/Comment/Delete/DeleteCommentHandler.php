@@ -59,5 +59,6 @@ class DeleteCommentHandler implements CommandHandlerInterface
     {
         $aggregateRoot = $this->commentRepository->get(AggregateRootId::fromString($deleteCommentCommand->getId()));
         $aggregateRoot->delete($deleteCommentCommand->getUser());
+        $this->commentRepository->store($aggregateRoot);
     }
 }

@@ -7,6 +7,11 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
 use App\Infrastructure\Share\Application\File\FileMover;
 
+/**
+ * Class ChangeAvatarHandler
+ *
+ * @package App\Application\Command\User\ChangeAvatar
+ */
 class ChangeAvatarHandler implements CommandHandlerInterface
 {
     /**

@@ -9,6 +9,11 @@ use App\Domain\Post\ValueObject\Content;
 use App\Infrastructure\Comment\Repository\CommentRepository;
 use Ramsey\Uuid\Uuid;
 
+/**
+ * Class CreateCommentHandler
+ *
+ * @package App\Application\Command\Comment\Create
+ */
 class CreateCommentHandler implements CommandHandlerInterface
 {
     /**
@@ -38,7 +43,7 @@ class CreateCommentHandler implements CommandHandlerInterface
             AggregateRootId::fromString(Uuid::uuid4()),
             Content::fromString($command->content),
             $command->parentComment,
-            $command->post,
+            $command->post->getId(),
             $command->user
         );
         $this->commentRepository->store($aggregateRoot);

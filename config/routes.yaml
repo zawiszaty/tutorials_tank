@@ -84,7 +84,7 @@ add_post:
   controller: App\UI\HTTP\Rest\Controller\PostController:addPostAction
 
 edit_post:
-  path: /api/v1/post/{id}
+  path: /api/v1/post/edit/{id}
   methods: POST
   controller: App\UI\HTTP\Rest\Controller\PostController:editPostAction
 
@@ -109,7 +109,7 @@ create_comment:
   controller: App\UI\HTTP\Rest\Controller\CommentController:createCommentAction
 
 get_all_post_comment:
-  path: /api/comment/{post}
+  path: /api/v1/comments/{post}
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\CommentController:getPostComment
 
@@ -143,11 +143,11 @@ app.swagger_ui:
   methods: GET
   defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
 
-dashboard:
-  path: /{react_link}
-  methods: GET
-  requirements:
-    react_link: .+
-  defaults:
-    react_link: null
-  controller: App\UI\HTTP\Rest\Controller\DashboardController:dashboard
+#dashboard:
+#  path: /{react_link}
+#  methods: GET
+#  requirements:
+#    react_link: .+
+#  defaults:
+#    react_link: null
+#  controller: App\UI\HTTP\Rest\Controller\DashboardController:dashboard

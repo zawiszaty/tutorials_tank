@@ -21,9 +21,9 @@ App\Infrastructure\Comment\Query\Projections\CommentView:
             id: true
     fields:
         content:
-            type: string
+          type: text
             nullable: false
-            length: 255
+          length: 65535
             options:
                 fixed: false
         createdAt:

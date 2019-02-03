@@ -125,8 +125,6 @@ class PostController extends RestController
         $form->submit($request->request->all());
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($command);
-            die();
             $this->commandBus->handle($command);
 
             return new JsonResponse('success', Response::HTTP_OK);

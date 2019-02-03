@@ -37,9 +37,6 @@ class EditPostForm extends AbstractType
                 'required' => true,
             ])
             ->add('file', FileType::class, [
-                'constraints' => [
-                    new NotNull(),
-                ],
                 'required' => true,
             ])
             ->add('type', TextType::class, [

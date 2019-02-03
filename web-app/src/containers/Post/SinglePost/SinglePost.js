@@ -9,6 +9,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import renderHTML from 'react-render-html';
 import {Link as RouterLink} from "react-router-dom";
 import {connect} from "react-redux";
+import Comment from "./Comment";
+import AddComment from "./AddComment";
 
 function TabContainer({children, dir}) {
     return (
@@ -138,6 +140,7 @@ class SinglePost extends Component {
                             </Paper>
                         </React.Fragment>
                         }
+                        <Comment postId={this.state.post.id}/>
                     </React.Fragment>
                 }
             </main>

@@ -39,6 +39,7 @@ App\Infrastructure\Message\MessageView:
             joinColumns:
                 sender:
                     referencedColumnName: id
+                    onDelete: CASCADE
             orphanRemoval: false
             nullable: false
         recipient:
@@ -50,6 +51,7 @@ App\Infrastructure\Message\MessageView:
             joinColumns:
                 recipient:
                     referencedColumnName: id
+                    onDelete: CASCADE
             orphanRemoval: false
             nullable: false
     lifecycleCallbacks: {  }

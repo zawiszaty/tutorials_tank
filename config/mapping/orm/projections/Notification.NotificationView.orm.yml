@@ -42,5 +42,6 @@ App\Infrastructure\Notification\NotificationView:
             joinColumns:
                 user:
                     referencedColumnName: id
+                    onDelete: CASCADE
             orphanRemoval: false
     lifecycleCallbacks: {  }

@@ -143,11 +143,3 @@ app.swagger_ui:
   methods: GET
   defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
 
-#dashboard:
-#  path: /{react_link}
-#  methods: GET
-#  requirements:
-#    react_link: .+
-#  defaults:
-#    react_link: null
-#  controller: App\UI\HTTP\Rest\Controller\DashboardController:dashboard

@@ -74,6 +74,8 @@ class Post extends EventSourcedAggregateRoot
      * @param string          $user
      * @param string          $category
      *
+     * @param string          $shortDescription
+     *
      * @return Post
      */
     public static function create(AggregateRootId $aggregateRootId, Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, string $category, string $shortDescription): self
@@ -148,10 +150,22 @@ class Post extends EventSourcedAggregateRoot
         $this->apply(new PostEventDelete($this->id, $user));
     }
 
+    /**
+     * @param PostEventDelete $eventDelete
+     */
+    /**
+     * @param PostEventDelete $eventDelete
+     */
     public function applyPostEventDelete(PostEventDelete $eventDelete)
     {
     }
 
+    /**
+     * @param PostWasEdited $event
+     */
+    /**
+     * @param PostWasEdited $event
+     */
     public function applyPostWasEdited(PostWasEdited $event)
     {
         $this->title = $event->getTitle();

@@ -107,6 +107,13 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
         exit();
     }
 
+    /**
+     * IterableDbalEventStore constructor.
+     *
+     * @param Connection     $connection
+     * @param DBALEventStore $eventStore
+     * @param string         $eventStoreTable
+     */
     public function __construct(
         Connection $connection,
         DBALEventStore $eventStore,

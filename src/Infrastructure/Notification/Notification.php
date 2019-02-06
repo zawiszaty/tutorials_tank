@@ -1,25 +1,38 @@
-<?php
+<?php /** @noinspection PhpUndefinedFieldInspection */
 
 namespace App\Infrastructure\Notification;
 
 use App\Infrastructure\User\Query\Projections\UserView;
-use const Fpp\dump;
 use Ratchet\ConnectionInterface;
 use Ratchet\Wamp\WampServerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
+/**
+ * Class Notification
+ *
+ * @package App\Infrastructure\Notification
+ */
 class Notification implements WampServerInterface
 {
     protected $subscribedTopics = [];
 
     protected $container;
 
+    /**
+     * Notification constructor.
+     *
+     * @param ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
 
+    /**
+     * @param ConnectionInterface        $conn
+     * @param \Ratchet\Wamp\Topic|string $topic
+     */
     public function onSubscribe(ConnectionInterface $conn, $topic)
     {
         $querystring = $conn->httpRequest->getUri()->getQuery();
@@ -42,30 +55,57 @@ class Notification implements WampServerInterface
         $this->subscribedTopics[$user->getId()] = $topic;
     }
 
+    /**
+     * @param ConnectionInterface        $conn
+     * @param \Ratchet\Wamp\Topic|string $topic
+     */
     public function onUnSubscribe(ConnectionInterface $conn, $topic)
     {
     }
 
+    /**
+     * @param ConnectionInterface $conn
+     */
     public function onOpen(ConnectionInterface $conn)
     {
     }
 
+    /**
+     * @param ConnectionInterface $conn
+     */
     public function onClose(ConnectionInterface $conn)
     {
     }
 
+    /**
+     * @param ConnectionInterface        $conn
+     * @param string                     $id
+     * @param \Ratchet\Wamp\Topic|string $topic
+     * @param array                      $params
+     */
     public function onCall(ConnectionInterface $conn, $id, $topic, array $params)
     {
         // In this application if clients send data it's because the user hacked around in console
         $conn->callError($id, $topic, 'You are not allowed to make calls')->close();
     }
 
+    /**
+     * @param ConnectionInterface        $conn
+     * @param \Ratchet\Wamp\Topic|string $topic
+     * @param string                     $event
+     * @param array                      $exclude
+     * @param array                      $eligible
+     */
     public function onPublish(ConnectionInterface $conn, $topic, $event, array $exclude, array $eligible)
     {
         // In this application if clients send data it's because the user hacked around in console
         $conn->close();
     }
 
+    /**
+     * @param ConnectionInterface $conn
+     * @param \Exception          $e
+     */
     public function onError(ConnectionInterface $conn, \Exception $e)
     {
     }

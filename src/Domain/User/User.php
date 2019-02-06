@@ -179,12 +179,24 @@ class User extends EventSourcedAggregateRoot
         ));
     }
 
+    /**
+     * @param UserMailWasChanged $event
+     */
+    /**
+     * @param UserMailWasChanged $event
+     */
     public function applyUserMailWasChanged(UserMailWasChanged $event)
     {
         $this->email = $event->getEmail();
         $this->enabled = false;
     }
 
+    /**
+     * @param UserNameWasChanged $event
+     */
+    /**
+     * @param UserNameWasChanged $event
+     */
     public function applyUserNameWasChanged(UserNameWasChanged $event)
     {
         $this->username = $event->getUsername();
@@ -200,6 +212,12 @@ class User extends EventSourcedAggregateRoot
         $this->apply(new UserWasBanned($this->id, true));
     }
 
+    /**
+     * @param UserWasBanned $userWasBanned
+     */
+    /**
+     * @param UserWasBanned $userWasBanned
+     */
     public function applyUserWasBanned(UserWasBanned $userWasBanned)
     {
         $this->banned = $userWasBanned->isBanned();
@@ -221,6 +239,12 @@ class User extends EventSourcedAggregateRoot
         $this->confirmationToken = $userWasCreated->getConfirmationToken();
     }
 
+    /**
+     * @param string $password
+     */
+    /**
+     * @param string $password
+     */
     public function changePassword(string $password)
     {
         $this->apply(new UserPasswordWasChanged(
@@ -229,6 +253,12 @@ class User extends EventSourcedAggregateRoot
         ));
     }
 
+    /**
+     * @param UserPasswordWasChanged $event
+     */
+    /**
+     * @param UserPasswordWasChanged $event
+     */
     public function applyUserPasswordWasChanged(UserPasswordWasChanged $event)
     {
         $this->password = $event->getPassword();
@@ -317,6 +347,12 @@ class User extends EventSourcedAggregateRoot
         return $this->banned;
     }
 
+    /**
+     * @return string
+     */
+    /**
+     * @return string
+     */
     public function getAggregateRootId(): string
     {
         return $this->id->toString();

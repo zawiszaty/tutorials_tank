@@ -11,18 +11,38 @@ use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
+/**
+ * Class UserRepository
+ *
+ * @package App\Infrastructure\User\Query\Repository
+ */
 class UserRepository extends ServiceEntityRepository implements UserLoaderInterface, UserProviderInterface
 {
+    /**
+     * UserRepository constructor.
+     *
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, UserView::class);
     }
 
+    /**
+     * @param string $username
+     *
+     * @return int|UserInterface|null
+     */
     public function loadUserByUsername($username)
     {
         return $this->fetchUser($username);
     }
 
+    /**
+     * @param UserInterface $user
+     *
+     * @return int|UserInterface
+     */
     public function refreshUser(UserInterface $user)
     {
         if (!$user instanceof UserView) {
@@ -36,11 +56,21 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         return $this->fetchUser($username);
     }
 
+    /**
+     * @param string $class
+     *
+     * @return bool
+     */
     public function supportsClass($class)
     {
         return UserView::class === $class;
     }
 
+    /**
+     * @param $username
+     *
+     * @return int
+     */
     private function fetchUser($username)
     {
         // make a call to your webservice here

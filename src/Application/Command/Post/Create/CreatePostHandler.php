@@ -12,6 +12,11 @@ use App\Infrastructure\Post\Repository\PostRepository;
 use App\Infrastructure\Share\Application\File\FileMover;
 use Ramsey\Uuid\Uuid;
 
+/**
+ * Class CreatePostHandler
+ *
+ * @package App\Application\Command\Post\Create
+ */
 class CreatePostHandler implements CommandHandlerInterface
 {
     /**

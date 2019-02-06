@@ -6,6 +6,11 @@ use App\Application\Query\Collection;
 use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 use Assert\Assertion;
 
+/**
+ * Class PostRepositoryElastic
+ *
+ * @package App\Infrastructure\Post\Query\Repository
+ */
 class PostRepositoryElastic extends ElasticRepository
 {
     private const INDEX = 'post';

@@ -15,6 +15,11 @@ class GetAllHandler implements QueryHandlerInterface
      */
     private $repositoryElastic;
 
+    /**
+     * GetAllHandler constructor.
+     *
+     * @param UserRepositoryElastic $repositoryElastic
+     */
     public function __construct(UserRepositoryElastic $repositoryElastic)
     {
         $this->repositoryElastic = $repositoryElastic;

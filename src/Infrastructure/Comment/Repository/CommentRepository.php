@@ -15,6 +15,11 @@ use Broadway\EventStore\EventStore;
  */
 class CommentRepository extends EventSourcingRepository implements CommentRepositoryInterface
 {
+    /**
+     * @param AggregateRootId $id
+     *
+     * @return Comment
+     */
     public function get(AggregateRootId $id): Comment
     {
         /** @var Comment $category */
@@ -23,6 +28,9 @@ class CommentRepository extends EventSourcingRepository implements CommentReposi
         return $category;
     }
 
+    /**
+     * @param Comment $category
+     */
     public function store(Comment $category): void
     {
         $this->save($category);

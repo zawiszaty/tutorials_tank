@@ -5,6 +5,11 @@ namespace App\Domain\Post\Event;
 use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
+/**
+ * Class PostEventDelete
+ *
+ * @package App\Domain\Post\Event
+ */
 class PostEventDelete extends AbstractEvent
 {
     /**
@@ -12,6 +17,12 @@ class PostEventDelete extends AbstractEvent
      */
     private $user;
 
+    /**
+     * PostEventDelete constructor.
+     *
+     * @param AggregateRootId $id
+     * @param string          $user
+     */
     public function __construct(AggregateRootId $id, string $user)
     {
         $this->id = $id;

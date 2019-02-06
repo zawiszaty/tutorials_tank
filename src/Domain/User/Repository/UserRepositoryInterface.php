@@ -5,9 +5,22 @@ namespace App\Domain\User\Repository;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\User;
 
+/**
+ * Interface UserRepositoryInterface
+ *
+ * @package App\Domain\User\Repository
+ */
 interface UserRepositoryInterface
 {
+    /**
+     * @param AggregateRootId $id
+     *
+     * @return User
+     */
     public function get(AggregateRootId $id): User;
 
+    /**
+     * @param User $user
+     */
     public function store(User $user): void;
 }

@@ -4,6 +4,11 @@ namespace App\Domain\User\ValueObject;
 
 use Assert\Assertion;
 
+/**
+ * Class Roles
+ *
+ * @package App\Domain\User\ValueObject
+ */
 class Roles
 {
     /**

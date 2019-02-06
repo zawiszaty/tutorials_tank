@@ -75,6 +75,9 @@ class CategoryView implements CategoryViewInterface
     {
     }
 
+    /**
+     * @param string $name
+     */
     public function changeName(string $name)
     {
         $this->name = $name;

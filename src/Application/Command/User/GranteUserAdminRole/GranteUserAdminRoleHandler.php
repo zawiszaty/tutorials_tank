@@ -7,6 +7,11 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use App\Infrastructure\User\Repository\UserRepository;
 
+/**
+ * Class GranteUserAdminRoleHandler
+ *
+ * @package App\Application\Command\User\GranteUserAdminRole
+ */
 class GranteUserAdminRoleHandler implements CommandHandlerInterface
 {
     /**

@@ -4,6 +4,11 @@ namespace App\Domain\User\ValueObject;
 
 use Assert\Assertion;
 
+/**
+ * Class Email
+ *
+ * @package App\Domain\User\ValueObject
+ */
 class Email
 {
     /**

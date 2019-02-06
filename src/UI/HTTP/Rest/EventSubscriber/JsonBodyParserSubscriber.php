@@ -10,8 +10,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
+/**
+ * Class JsonBodyParserSubscriber
+ *
+ * @package App\UI\HTTP\Rest\EventSubscriber
+ */
 class JsonBodyParserSubscriber implements EventSubscriberInterface
 {
+    /**
+     * @param GetResponseEvent $event
+     */
     public function onKernelRequest(GetResponseEvent $event): void
     {
         $request = $event->getRequest();
@@ -32,11 +40,21 @@ class JsonBodyParserSubscriber implements EventSubscriberInterface
         }
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return bool
+     */
     private function isJsonRequest(Request $request): bool
     {
         return 'json' === $request->getContentType();
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return bool
+     */
     private function transformJsonBody(Request $request): bool
     {
         $data = json_decode($request->getContent(), true);
@@ -54,6 +72,9 @@ class JsonBodyParserSubscriber implements EventSubscriberInterface
         return true;
     }
 
+    /**
+     * @return array
+     */
     public static function getSubscribedEvents()
     {
         return [

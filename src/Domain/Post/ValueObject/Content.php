@@ -22,6 +22,11 @@ class Content
         $this->content = $content;
     }
 
+    /**
+     * @param string $content
+     *
+     * @return Content
+     */
     public static function fromString(string $content)
     {
         return new self(
@@ -29,6 +34,9 @@ class Content
         );
     }
 
+    /**
+     * @return string
+     */
     public function toString()
     {
         return $this->content;

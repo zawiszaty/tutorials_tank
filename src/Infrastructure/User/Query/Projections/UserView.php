@@ -185,6 +185,12 @@ class UserView extends BaseUser
         $this->avatar = $avatar;
     }
 
+    /**
+     * @return bool
+     */
+    /**
+     * @return bool
+     */
     public function getBan()
     {
         return $this->banned;

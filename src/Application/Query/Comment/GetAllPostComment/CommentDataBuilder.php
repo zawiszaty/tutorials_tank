@@ -5,6 +5,11 @@ namespace App\Application\Query\Comment\GetAllPostComment;
 use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
 use App\Infrastructure\User\Repository\UserRepositoryElastic;
 
+/**
+ * Class CommentDataBuilder
+ *
+ * @package App\Application\Query\Comment\GetAllPostComment
+ */
 class CommentDataBuilder
 {
     /**

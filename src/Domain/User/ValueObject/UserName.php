@@ -4,6 +4,11 @@ namespace App\Domain\User\ValueObject;
 
 use Assert\Assertion;
 
+/**
+ * Class UserName
+ *
+ * @package App\Domain\User\ValueObject
+ */
 class UserName
 {
     /**

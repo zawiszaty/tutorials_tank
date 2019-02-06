@@ -5,6 +5,11 @@ namespace App\Application\Query\Message\GetAll;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Repository\UserRepositoryElastic;
 
+/**
+ * Class DataBuilder
+ *
+ * @package App\Application\Query\Message\GetAll
+ */
 class DataBuilder
 {
     /**
@@ -12,11 +17,21 @@ class DataBuilder
      */
     private $repositoryElastic;
 
+    /**
+     * DataBuilder constructor.
+     *
+     * @param UserRepositoryElastic $repositoryElastic
+     */
     public function __construct(UserRepositoryElastic $repositoryElastic)
     {
         $this->repositoryElastic = $repositoryElastic;
     }
 
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
     public function build(array $data): array
     {
         foreach ($data as $key => $item) {

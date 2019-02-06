@@ -31,7 +31,7 @@ abstract class MysqlRepository
     /**
      * @param QueryBuilder $queryBuilder
      *
-     * @throws NotFoundException
+     * @throws NotFoundHttpException
      * @throws \Doctrine\ORM\NonUniqueResultException
      *
      * @return mixed

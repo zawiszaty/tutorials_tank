@@ -8,8 +8,16 @@ use App\Application\Command\CommandHandlerInterface;
 use App\Infrastructure\Share\Event\EventStreamProcessorInterface;
 use App\Infrastructure\Share\Event\IterableAggregateEventStoreInterface;
 
+/**
+ * Class ReplayEventsHandler
+ *
+ * @package App\Application\Command\Events\Replay
+ */
 class ReplayEventsHandler implements CommandHandlerInterface
 {
+    /**
+     * @param ReplayEventsCommand $command
+     */
     public function __invoke(ReplayEventsCommand $command): void
     {
         foreach ($this->iterableDbalEventStore as $stream) {
@@ -17,6 +25,12 @@ class ReplayEventsHandler implements CommandHandlerInterface
         }
     }
 
+    /**
+     * ReplayEventsHandler constructor.
+     *
+     * @param EventStreamProcessorInterface        $eventStreamProcessor
+     * @param IterableAggregateEventStoreInterface $iterableDbalEventStore
+     */
     public function __construct(
         EventStreamProcessorInterface $eventStreamProcessor,
         IterableAggregateEventStoreInterface $iterableDbalEventStore

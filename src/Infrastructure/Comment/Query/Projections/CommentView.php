@@ -7,6 +7,11 @@ use App\Infrastructure\Post\Query\Projections\PostView;
 use App\Infrastructure\User\Query\Projections\UserView;
 use Broadway\Serializer\Serializable;
 
+/**
+ * Class CommentView
+ *
+ * @package App\Infrastructure\Comment\Query\Projections
+ */
 class CommentView implements CommentViewInterface
 {
     /**

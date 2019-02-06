@@ -22,6 +22,11 @@ class Title
         $this->title = $title;
     }
 
+    /**
+     * @param string $title
+     *
+     * @return Title
+     */
     public static function fromString(string $title)
     {
         return new self(
@@ -29,6 +34,9 @@ class Title
         );
     }
 
+    /**
+     * @return string
+     */
     public function toString()
     {
         return $this->title;

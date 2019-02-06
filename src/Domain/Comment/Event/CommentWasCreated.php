@@ -82,6 +82,9 @@ class CommentWasCreated extends AbstractEvent
         return $instance;
     }
 
+    /**
+     * @return array
+     */
     public function serialize(): array
     {
         return [

@@ -2,6 +2,11 @@
 
 namespace App\Domain\User\ValueObject;
 
+/**
+ * Class Avatar
+ *
+ * @package App\Domain\User\ValueObject
+ */
 class Avatar
 {
     /**

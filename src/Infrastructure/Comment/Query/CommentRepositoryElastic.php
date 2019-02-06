@@ -6,6 +6,11 @@ use App\Application\Query\Collection;
 use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 use Assert\Assertion;
 
+/**
+ * Class CommentRepositoryElastic
+ *
+ * @package App\Infrastructure\Comment\Query
+ */
 class CommentRepositoryElastic extends ElasticRepository
 {
     private const INDEX = 'comment';

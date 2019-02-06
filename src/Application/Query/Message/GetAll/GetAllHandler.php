@@ -6,6 +6,11 @@ use App\Application\Query\Collection;
 use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Message\Query\MessageRepositoryElastic;
 
+/**
+ * Class GetAllHandler
+ *
+ * @package App\Application\Query\Message\GetAll
+ */
 class GetAllHandler implements QueryHandlerInterface
 {
     /**
@@ -18,12 +23,23 @@ class GetAllHandler implements QueryHandlerInterface
      */
     private $dataBuilder;
 
+    /**
+     * GetAllHandler constructor.
+     *
+     * @param MessageRepositoryElastic $repositoryElastic
+     * @param DataBuilder              $dataBuilder
+     */
     public function __construct(MessageRepositoryElastic $repositoryElastic, DataBuilder $dataBuilder)
     {
         $this->repositoryElastic = $repositoryElastic;
         $this->dataBuilder = $dataBuilder;
     }
 
+    /**
+     * @param GetAllCommand $command
+     *
+     * @return Collection
+     */
     public function __invoke(GetAllCommand $command)
     {
         if ($command->getQuery()) {

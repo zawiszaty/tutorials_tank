@@ -3,7 +3,6 @@
 namespace App\Application\Command\Post\Delete;
 
 use App\Application\Command\CommandHandlerInterface;
-use App\Application\Command\Comment\Delete\DeleteCommentCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
 use App\Infrastructure\Comment\Query\MysqlCommentReadModelRepository;
@@ -35,6 +34,14 @@ class DeletePostHandler implements CommandHandlerInterface
      */
     private $commentReadModelRepository;
 
+    /**
+     * DeletePostHandler constructor.
+     *
+     * @param PostRepository                  $postRepository
+     * @param CommentRepositoryElastic        $commentRepositoryElastic
+     * @param CommandBus                      $commandBus
+     * @param MysqlCommentReadModelRepository $commentReadModelRepository
+     */
     public function __construct(PostRepository $postRepository, CommentRepositoryElastic $commentRepositoryElastic, CommandBus $commandBus, MysqlCommentReadModelRepository $commentReadModelRepository)
     {
         $this->postRepository = $postRepository;
@@ -43,6 +50,11 @@ class DeletePostHandler implements CommandHandlerInterface
         $this->commentReadModelRepository = $commentReadModelRepository;
     }
 
+    /**
+     * @param DeletePostCommand $deletePostCommand
+     *
+     * @throws \Assert\AssertionFailedException
+     */
     public function __invoke(DeletePostCommand $deletePostCommand)
     {
 //        $comments = $this->commentRepositoryElastic->search([

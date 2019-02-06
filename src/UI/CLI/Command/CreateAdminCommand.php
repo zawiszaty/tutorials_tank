@@ -10,6 +10,11 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+/**
+ * Class CreateAdminCommand
+ *
+ * @package App\UI\CLI\Command
+ */
 class CreateAdminCommand extends ContainerAwareCommand
 {
     protected static $defaultName = 'app:create-admin';
@@ -24,6 +29,12 @@ class CreateAdminCommand extends ContainerAwareCommand
             ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description');
     }
 
+    /**
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     *
+     * @return int|void|null
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $username = $input->getArgument('username');

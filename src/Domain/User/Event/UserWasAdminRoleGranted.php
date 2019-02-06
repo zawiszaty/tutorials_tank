@@ -5,6 +5,11 @@ namespace App\Domain\User\Event;
 use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
+/**
+ * Class UserWasAdminRoleGranted
+ *
+ * @package App\Domain\User\Event
+ */
 class UserWasAdminRoleGranted extends AbstractEvent
 {
     /**

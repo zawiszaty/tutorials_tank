@@ -11,6 +11,11 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class EventStoreReplayCommand
+ *
+ * @package App\UI\CLI\Command
+ */
 class EventStoreReplayCommand extends Command
 {
     protected function configure(): void
@@ -20,6 +25,12 @@ class EventStoreReplayCommand extends Command
             ->setDescription('It will replay events in the event store.');
     }
 
+    /**
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     *
+     * @return int|void|null
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $command = new ReplayEventsCommand();
@@ -27,6 +38,12 @@ class EventStoreReplayCommand extends Command
         $this->commandBus->handle($command);
     }
 
+    /**
+     * EventStoreReplayCommand constructor.
+     *
+     * @param CommandBus                           $commandBus
+     * @param IterableAggregateEventStoreInterface $iterableDbalEventStore
+     */
     public function __construct(
         CommandBus $commandBus,
         IterableAggregateEventStoreInterface $iterableDbalEventStore

@@ -5,6 +5,11 @@ namespace App\Application\Command\User\ChangeEmail;
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
+/**
+ * Class ChangeEmailHandler
+ *
+ * @package App\Application\Command\User\ChangeEmail
+ */
 class ChangeEmailHandler implements CommandHandlerInterface
 {
     /**

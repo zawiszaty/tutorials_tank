@@ -77,6 +77,12 @@ class PostWasEdited extends AbstractEvent
         $this->shortDescription = $shortDescription;
     }
 
+    /**
+     * @param array $data
+     *
+     * @return PostWasEdited|mixed
+     * @throws \Assert\AssertionFailedException
+     */
     public static function deserialize(array $data)
     {
         $post = new self(
@@ -93,6 +99,9 @@ class PostWasEdited extends AbstractEvent
         return $post;
     }
 
+    /**
+     * @return array
+     */
     public function serialize(): array
     {
         return [

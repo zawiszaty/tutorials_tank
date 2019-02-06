@@ -6,6 +6,11 @@ use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\ValueObject\Password;
 
+/**
+ * Class UserPasswordWasChanged
+ *
+ * @package App\Domain\User\Event
+ */
 class UserPasswordWasChanged extends AbstractEvent
 {
     /**

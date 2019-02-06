@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace App\Application\Query;
 
+/**
+ * Class Item
+ *
+ * @package App\Application\Query
+ */
 final class Item
 {
     /** @var string */
@@ -21,6 +26,12 @@ final class Item
     /** @var mixed */
     public $readModel;
 
+    /**
+     * Item constructor.
+     *
+     * @param       $serializableReadModel
+     * @param array $relations
+     */
     public function __construct($serializableReadModel, array $relations = [])
     {
         $this->id = $serializableReadModel->getId();
@@ -30,6 +41,11 @@ final class Item
         $this->readModel = $serializableReadModel;
     }
 
+    /**
+     * @param $model
+     *
+     * @return string
+     */
     private function type($model): string
     {
         $path = explode('\\', get_class($model));

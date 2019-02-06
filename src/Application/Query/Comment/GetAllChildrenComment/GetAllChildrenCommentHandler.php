@@ -6,6 +6,11 @@ use App\Application\Query\Collection;
 use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
 
+/**
+ * Class GetAllChildrenCommentHandler
+ *
+ * @package App\Application\Query\Comment\GetAllChildrenComment
+ */
 class GetAllChildrenCommentHandler implements QueryHandlerInterface
 {
     /**

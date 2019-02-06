@@ -6,6 +6,11 @@ use App\Application\Query\Collection;
 use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 use Assert\Assertion;
 
+/**
+ * Class MessageRepositoryElastic
+ *
+ * @package App\Infrastructure\Message\Query
+ */
 class MessageRepositoryElastic extends ElasticRepository
 {
     private const INDEX = 'message';

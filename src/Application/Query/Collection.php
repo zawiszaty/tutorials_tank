@@ -6,6 +6,11 @@ namespace App\Application\Query;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Collection
+ *
+ * @package App\Application\Query
+ */
 class Collection
 {
     /**

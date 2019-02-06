@@ -5,6 +5,11 @@ namespace App\Application\Query\Post\GetSingle;
 use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Post\Query\Repository\PostRepositoryElastic;
 
+/**
+ * Class GetSingleHandler
+ *
+ * @package App\Application\Query\Post\GetSingle
+ */
 class GetSingleHandler implements QueryHandlerInterface
 {
     /**
@@ -12,11 +17,21 @@ class GetSingleHandler implements QueryHandlerInterface
      */
     private $repositoryElastic;
 
+    /**
+     * GetSingleHandler constructor.
+     *
+     * @param PostRepositoryElastic $repositoryElastic
+     */
     public function __construct(PostRepositoryElastic $repositoryElastic)
     {
         $this->repositoryElastic = $repositoryElastic;
     }
 
+    /**
+     * @param GetSingleCommand $command
+     *
+     * @return mixed
+     */
     public function __invoke(GetSingleCommand $command)
     {
         $model = $this->repositoryElastic->get($command->getId());

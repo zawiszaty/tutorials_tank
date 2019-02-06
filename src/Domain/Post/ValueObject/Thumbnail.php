@@ -22,6 +22,11 @@ class Thumbnail
         $this->thumbnail = $thumbnail;
     }
 
+    /**
+     * @param string|null $thumbnail
+     *
+     * @return Thumbnail
+     */
     public static function fromString(?string $thumbnail)
     {
         return new self(
@@ -29,6 +34,9 @@ class Thumbnail
         );
     }
 
+    /**
+     * @return string|null
+     */
     public function toString()
     {
         return $this->thumbnail;

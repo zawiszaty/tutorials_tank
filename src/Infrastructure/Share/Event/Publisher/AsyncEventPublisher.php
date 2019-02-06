@@ -11,6 +11,11 @@ use Symfony\Component\Console\ConsoleEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 
+/**
+ * Class AsyncEventPublisher
+ *
+ * @package App\Infrastructure\Share\Event\Publisher
+ */
 class AsyncEventPublisher implements EventPublisher, EventSubscriberInterface, EventListener
 {
     public function publish(): void
@@ -23,11 +28,17 @@ class AsyncEventPublisher implements EventPublisher, EventSubscriberInterface, E
         }
     }
 
+    /**
+     * @param DomainMessage $message
+     */
     public function handle(DomainMessage $message): void
     {
         $this->events[] = $message;
     }
 
+    /**
+     * @return array
+     */
     public static function getSubscribedEvents()
     {
         return [
@@ -36,6 +47,11 @@ class AsyncEventPublisher implements EventPublisher, EventSubscriberInterface, E
         ];
     }
 
+    /**
+     * AsyncEventPublisher constructor.
+     *
+     * @param ProducerInterface $eventProducer
+     */
     public function __construct(ProducerInterface $eventProducer)
     {
         $this->eventProducer = $eventProducer;

@@ -2,6 +2,11 @@
 
 namespace App\Application\Command\User\ChangeEmail;
 
+/**
+ * Class ChangeEmailCommand
+ *
+ * @package App\Application\Command\User\ChangeEmail
+ */
 class ChangeEmailCommand
 {
     /**

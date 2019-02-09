@@ -20,7 +20,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - docker-compose -v
   - docker -v
-  - cp .env.dist .env
+  - cp ./symfony/.env.dist ./symfony/.env
   - cat .env
 before_script:
   - make dev

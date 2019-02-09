@@ -110,6 +110,7 @@ services:
       MYSQL_USERNAME: root
       MYSQL_ROOT_PASSWORD: admin
       PMA_PORT: "3307"
+      PMA_HOST: db
     restart: always
     ports:
       - 8000:80

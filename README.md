@@ -29,4 +29,4 @@ $ docker-compose exec php ./vendor/bin/behat
 - [x] RabbitMq Async Email Sender
 - [ ] React Web UI
 - [x] Nelmio API Doc
-- [ ] Makefile Runner
+- [x] Makefile Runner

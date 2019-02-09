@@ -2,407 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73639fa0-b520-4e7b-983b-bcb71df8eacb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2019-01-15T084608.401.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2019-01-16T080556.401.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php-docker-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/tutorials_tank.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Comment/Create/CreateCommentCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Post/Create/CreatePostCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.dist" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.env.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.env.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.php_cs.dist" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.php_cs.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.styleci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Category/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Category/Category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Category/Panel/Add/AddCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Category/Panel/Add/AddCategory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Category/Panel/Add/AddCategoryForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Category/Panel/Add/AddCategoryForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Category/Panel/CategoryPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Category/Panel/CategoryPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Category/Panel/CategoryPanelForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Category/Panel/CategoryPanelForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Category/Panel/Edit/EditCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Category/Panel/Edit/EditCategory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Category/Panel/Edit/EditCategoryForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Category/Panel/Edit/EditCategoryForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/ConfirmUser/ConfirmUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/ConfirmUser/ConfirmUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Footer/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Header/Drawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Header/Drawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Login/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Login/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Logout/Logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Logout/Logout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Messanger/Messanger.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Messanger/Messanger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Notification/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Notification/Notification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Post/Comment/PostComment.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Post/Comment/PostComment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Post/CommentEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Post/CommentEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Post/EditPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Post/EditPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Post/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Post/SelectCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Post/SelectCategory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Post/SinglePost.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Post/SinglePost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Post/UploadThumbnailForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Post/UploadThumbnailForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Registration/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Registration/Registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/Registration/RegistrationForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/Registration/RegistrationForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/User/Panel/CategoryPanelForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/User/Panel/CategoryPanelForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/User/Panel/UserAvatarChangeForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/User/Panel/UserAvatarChangeForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/User/Panel/UserBan.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/User/Panel/UserBan.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/User/Panel/UserEmailChangeForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/User/Panel/UserEmailChangeForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/User/Panel/UserNameChangeForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/User/Panel/UserNameChangeForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/User/Panel/UserPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/User/Panel/UserPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/User/Panel/UserPasswordChangeForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/User/Panel/UserPasswordChangeForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/User/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/User/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Components/YouMustConfirm/YouMustConfirm.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Components/YouMustConfirm/YouMustConfirm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Reducers/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Reducers/category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Reducers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/Reducers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/actions/category-action.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/actions/category-action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/actions/user-action.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/actions/user-action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/assets/js/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/behat.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/behat.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/behat.yml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/behat.yml.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/console" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/bin/console" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/phpunit" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/bin/phpunit" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mapping/orm/projections/Category.Query.Projections.CategoryView.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/mapping/orm/projections/Category.Query.Projections.CategoryView.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mapping/orm/projections/Comment.Query.Projections.CommentView.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/mapping/orm/projections/Comment.Query.Projections.CommentView.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mapping/orm/projections/Message.MessageView.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/mapping/orm/projections/Message.MessageView.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mapping/orm/projections/Notification.NotificationView.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/mapping/orm/projections/Notification.NotificationView.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mapping/orm/projections/Post.Query.Projections.PostView.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/mapping/orm/projections/Post.Query.Projections.PostView.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mapping/orm/projections/User.Query.Projections.UserView.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/mapping/orm/projections/User.Query.Projections.UserView.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/assets.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/assets.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/broadway.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/broadway.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/debug.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/dev/debug.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/easy_log_handler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/dev/easy_log_handler.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/dev/jms_serializer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/dev/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/dev/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/dev/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/dev/web_profiler.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_auth_server.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/fos_auth_server.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_elastica.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/fos_elastica.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_user.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/fos_user.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/jms_serializer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/league_tactician.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/league_tactician.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_api_doc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/nelmio_api_doc.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/nelmio_cors.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/old_sound_rabbit_mq.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/old_sound_rabbit_mq.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/prod/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/prod/jms_serializer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/prod/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/ramsey_uuid_doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/ramsey_uuid_doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/sensio_framework_extra.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/sensio_framework_extra.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/test/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/test/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/test/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/test/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/test/web_profiler.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/translation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/annotations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes/annotations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/dev/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes/dev/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/dev/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes/dev/web_profiler.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/nelmio_api_doc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes/nelmio_api_doc.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services_test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/services_test.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bootstrap/FeatureContext.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/features/bootstrap/FeatureContext.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bootstrap/UserContext.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/features/bootstrap/UserContext.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bootstrap/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/features/bootstrap/bootstrap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/user.feature" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/features/user.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/phpunit.xml.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/autoBahn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/public/autoBahn/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/avatars/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sample/sample.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/public/sample/sample.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/thumbnails/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/translations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasCreatedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/Category/Event/CategoryWasCreatedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Category/Event/CategoryWasDeletedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/Category/Event/CategoryWasDeletedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Category/Event/NameWasChangedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/Category/Event/NameWasChangedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Category/Factory/CategoryFactorySpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/Category/Factory/CategoryFactorySpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Category/ValueObject/NameSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/Category/ValueObject/NameSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/Common/ValueObject/AggregateRootIdSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/Common/ValueObject/AggregateRootIdSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/Assert/UserIsNotAdminSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/Assert/UserIsNotAdminSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/Event/UserAvatarWasChangedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/Event/UserAvatarWasChangedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/Event/UserMailWasChangedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/Event/UserMailWasChangedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/Event/UserNameWasChangedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/Event/UserNameWasChangedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/Event/UserPasswordWasChangedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/Event/UserPasswordWasChangedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/Event/UserWasAdminRoleGrantedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/Event/UserWasAdminRoleGrantedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/Event/UserWasBannedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/Event/UserWasBannedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/Event/UserWasConfirmedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/Event/UserWasConfirmedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/Event/UserWasCreatedSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/Event/UserWasCreatedSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/Factory/UserFactorySpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/Factory/UserFactorySpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/ValueObject/AvatarSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/ValueObject/AvatarSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/ValueObject/EmailSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/ValueObject/EmailSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/ValueObject/PasswordSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/ValueObject/PasswordSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/ValueObject/RolesSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/ValueObject/RolesSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/ValueObject/SteemitSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/ValueObject/SteemitSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/App/Domain/User/ValueObject/UserNameSpec.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/spec/App/Domain/User/ValueObject/UserNameSpec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/ChangeName/ChangeNameCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Category/ChangeName/ChangeNameCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/ChangeName/ChangeNameHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Category/ChangeName/ChangeNameHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Category/Create/CreateCategoryCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/Create/CreateCategoryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Category/Create/CreateCategoryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/Delete/DeleteCategoryCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Category/Delete/DeleteCategoryCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Category/Delete/DeleteCategoryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Category/Delete/DeleteCategoryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/CommandHandlerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/CommandHandlerInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Comment/Create/CreateCommentCommand.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Comment/Create/CreateCommentHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Comment/Create/CreateCommentHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Comment/Delete/DeleteCommentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Comment/Delete/DeleteCommentCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Comment/Delete/DeleteCommentHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Comment/Delete/DeleteCommentHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Events/Replay/ReplayEventsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Events/Replay/ReplayEventsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Events/Replay/ReplayEventsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Events/Replay/ReplayEventsHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Post/Create/CreatePostCommand.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Post/Create/CreatePostHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Post/Create/CreatePostHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Post/Delete/DeletePostCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Post/Delete/DeletePostCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Post/Delete/DeletePostHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Post/Delete/DeletePostHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Post/Edit/EditPostCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Post/Edit/EditPostCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/Post/Edit/EditPostHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Post/Edit/EditPostHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/BannedUser/BannedUserCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/BannedUser/BannedUserCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/BannedUser/BannedUserHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/BannedUser/BannedUserHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/ChangeAvatar/ChangeAvatarCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/ChangeAvatar/ChangeAvatarCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/ChangeAvatar/ChangeAvatarHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/ChangeAvatar/ChangeAvatarHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/ChangeEmail/ChangeEmailCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/ChangeEmail/ChangeEmailCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/ChangeEmail/ChangeEmailHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/ChangeEmail/ChangeEmailHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/ChangeName/ChangeUserNameCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/ChangeName/ChangeUserNameCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/ChangeName/ChangeUserNameHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/ChangeName/ChangeUserNameHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/ChangePassword/ChangePasswordCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/ChangePassword/ChangePasswordCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/ChangePassword/ChangePasswordHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/ChangePassword/ChangePasswordHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/ConfirmUser/ConfirmUserCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/ConfirmUser/ConfirmUserCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/ConfirmUser/ConfirmUserHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/ConfirmUser/ConfirmUserHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/Create/CreateUserCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/Create/CreateUserCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/Create/CreateUserHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/Create/CreateUserHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/SendEmail/SendEmailCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Command/User/SendEmail/SendEmailHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Category/GetAll/GetAllCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Category/GetAll/GetAllHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Category/GetSingle/GetSingleCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Category/GetSingle/GetSingleCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Category/GetSingle/GetSingleHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Category/GetSingle/GetSingleHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Collection.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Collection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Comment/GetAllChildrenComment/CommentDataBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Comment/GetAllChildrenComment/CommentDataBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Comment/GetAllChildrenComment/GetAllChildrenCommentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Comment/GetAllChildrenComment/GetAllChildrenCommentCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Comment/GetAllChildrenComment/GetAllChildrenCommentHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Comment/GetAllChildrenComment/GetAllChildrenCommentHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Comment/GetAllPostComment/CommentDataBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Comment/GetAllPostComment/CommentDataBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Comment/GetAllPostComment/GetAllPostCommentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Comment/GetAllPostComment/GetAllPostCommentCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Comment/GetAllPostComment/GetAllPostCommentHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Comment/GetAllPostComment/GetAllPostCommentHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Message/GetAll/DataBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAll/DataBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Message/GetAll/GetAllCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAll/GetAllCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Message/GetAll/GetAllHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAll/GetAllHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Post/GetAll/GetAllCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAll/GetAllCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Post/GetAll/GetAllHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAll/GetAllHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Post/GetOneBySlug/GetOneBySlugCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetOneBySlug/GetOneBySlugCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Post/GetOneBySlug/GetOneBySlugHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetOneBySlug/GetOneBySlugHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Post/GetSingle/GetSingleCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetSingle/GetSingleCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/Post/GetSingle/GetSingleHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetSingle/GetSingleHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/QueryHandlerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/QueryHandlerInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/User/GetAll/GetAllCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/User/GetAll/GetAllCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Query/User/GetAll/GetAllHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/User/GetAll/GetAllHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/Event/CategoryWasCreated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/CategoryWasDeleted.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/Event/CategoryWasDeleted.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Event/NameWasChanged.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/Event/NameWasChanged.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Exception/CategoryCreateException.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/Exception/CategoryCreateException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Exception/CategoryNameWasChangedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/Exception/CategoryNameWasChangedException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Factory/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/Factory/CategoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Query/Projections/CategoryViewInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/Query/Projections/CategoryViewInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Repository/CategoryRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/Repository/CategoryRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/Saga/CategorySaga.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/Saga/CategorySaga.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Category/ValueObject/Name.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Category/ValueObject/Name.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Comment/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Comment/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Comment/Event/CommentWasCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Comment/Event/CommentWasCreated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Comment/Event/CommentWasDeletedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Comment/Event/CommentWasDeletedEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Comment/Query/Projections/CommentViewInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Comment/Query/Projections/CommentViewInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Comment/Repository/CommentRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Comment/Repository/CommentRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Common/Event/AbstractEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Common/Event/AbstractEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Common/ValueObject/AggregateRootId.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Common/ValueObject/AggregateRootId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Post/Event/CreatePostEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Post/Event/CreatePostEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Post/Event/PostEventDelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Post/Event/PostEventDelete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Post/Event/PostWasEdited.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Post/Event/PostWasEdited.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Post/Exception/CreatePostException.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Post/Exception/CreatePostException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Post/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Post/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Post/ValueObject/Content.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Post/ValueObject/Content.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Post/ValueObject/Thumbnail.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Post/ValueObject/Thumbnail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Post/ValueObject/Title.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Post/ValueObject/Title.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Assert/UserIsBanned.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Assert/UserIsBanned.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Assert/UserIsEnabled.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Assert/UserIsEnabled.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Assert/UserIsNotAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Assert/UserIsNotAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Event/UserAvatarWasChanged.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Event/UserAvatarWasChanged.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Event/UserMailWasChanged.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Event/UserMailWasChanged.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Event/UserNameWasChanged.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Event/UserNameWasChanged.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Event/UserPasswordWasChanged.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Event/UserPasswordWasChanged.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Event/UserWasAdminRoleGranted.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Event/UserWasAdminRoleGranted.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Event/UserWasBanned.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Event/UserWasBanned.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Event/UserWasConfirmed.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Event/UserWasConfirmed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Event/UserWasCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Event/UserWasCreated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Exception/AvatarWasChanged.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Exception/AvatarWasChanged.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Exception/PasswordIsBadException.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Exception/PasswordIsBadException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Exception/UserCreateException.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Exception/UserCreateException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Exception/UserIsAdminException.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Exception/UserIsAdminException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Exception/UserIsBannedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Exception/UserIsBannedException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Exception/UserIsEnabledException.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Exception/UserIsEnabledException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Factory/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Factory/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Query/Projections/UserViewInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Query/Projections/UserViewInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Repository/UserRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Repository/UserRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Saga/UserSaga.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/Saga/UserSaga.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObject/Avatar.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/ValueObject/Avatar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObject/ConfirmationToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/ValueObject/ConfirmationToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObject/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/ValueObject/Email.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObject/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/ValueObject/Password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObject/Roles.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/ValueObject/Roles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObject/Steemit.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/ValueObject/Steemit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObject/UserName.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/User/ValueObject/UserName.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/CategoryReadProjectionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Category/CategoryReadProjectionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Mysql/MysqlCategoryReadModelRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Category/Query/Mysql/MysqlCategoryReadModelRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Query/Projections/CategoryView.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Category/Query/Projections/CategoryView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryFosElasticaRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Category/Repository/CategoryFosElasticaRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Category/Repository/CategoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Comment/CommentReadProjectionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Comment/CommentReadProjectionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Comment/Query/CommentRepositoryElastic.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Comment/Query/CommentRepositoryElastic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Comment/Query/MysqlCommentReadModelRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Comment/Query/MysqlCommentReadModelRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Comment/Query/Projections/CommentView.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Comment/Query/Projections/CommentView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Comment/Repository/CommentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Comment/Repository/CommentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Message/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Message/MessageView.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Message/MessageView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Message/Query/MessageRepositoryElastic.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Message/Query/MessageRepositoryElastic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Notification/Notification.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Notification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Notification/NotificationFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/NotificationFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Notification/NotificationView.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/NotificationView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Notification/Query/MysqlNotificationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Query/MysqlNotificationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Notification/Query/NotificationRepositoryElastic.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Query/NotificationRepositoryElastic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Notification/Strategy/NotificationAbstractFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/NotificationAbstractFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Notification/Strategy/NotificationStrategyInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/NotificationStrategyInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Notification/Strategy/Unit/CommentCreateNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/Unit/CommentCreateNotification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/OAuth/Entity/AccessToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/OAuth/Entity/AccessToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/OAuth/Entity/AuthCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/OAuth/Entity/AuthCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/OAuth/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/OAuth/Entity/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/OAuth/Entity/RefreshToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/OAuth/Entity/RefreshToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Post/PostReadProjectionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Post/PostReadProjectionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Post/Query/Projections/PostView.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Post/Query/Projections/PostView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Post/Query/Repository/MysqlPostReadModelRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Post/Query/Repository/MysqlPostReadModelRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Post/Query/Repository/PostRepositoryElastic.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Post/Query/Repository/PostRepositoryElastic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Post/Repository/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Post/Repository/PostRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Application/File/FileMover.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Application/File/FileMover.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Application/File/FileNameGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Application/File/FileNameGenerator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Application/Password/PasswordEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Application/Password/PasswordEncoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Application/Password/PasswordVerify.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Application/Password/PasswordVerify.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Consumer/DemoEventsConsumer.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Consumer/DemoEventsConsumer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Event/Consumer/SendEventsToElasticConsumer.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Event/Consumer/SendEventsToElasticConsumer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Event/EventStreamProcessorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Event/EventStreamProcessorInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Event/IterableAggregateEventStoreInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Event/IterableAggregateEventStoreInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Event/Procesor/EventStreamProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Event/Procesor/EventStreamProcessor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Event/Publisher/AsyncEventPublisher.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Event/Publisher/AsyncEventPublisher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Event/Publisher/EventPublisher.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Event/Publisher/EventPublisher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Event/Query/EventElasticRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Event/Query/EventElasticRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Event/Repository/IterableDbalEventStore.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Event/Repository/IterableDbalEventStore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Migrations/Version20180719122713.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Migrations/Version20180719122713.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/MysqlRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/MysqlRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Security/EventListener/LoginListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Security/EventListener/LoginListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntityValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntityValidator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/User/Consumers/SendUserCreatedEmailConsumer.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Consumers/SendUserCreatedEmailConsumer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/User/Query/Projections/UserView.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Query/Projections/UserView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/User/Query/Repository/MysqlUserReadModelRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Query/Repository/MysqlUserReadModelRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/User/Query/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Query/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/User/Repository/UserFosElasticaRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Repository/UserFosElasticaRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/User/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/User/Repository/UserRepositoryElastic.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Repository/UserRepositoryElastic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/User/UserReadProjectionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/User/UserReadProjectionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/CLI/Command/CreateAdminCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/CLI/Command/CreateAdminCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/CLI/Command/CreateMessageServerCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/CLI/Command/CreateMessageServerCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/CLI/Command/CreateNotificationServerCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/CLI/Command/CreateNotificationServerCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/CLI/Command/EventStoreReplayCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/CLI/Command/EventStoreReplayCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Common/Controller/RestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Controller/RestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Common/Form/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/CategoryType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Common/Form/ChangeAvatarForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeAvatarForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Common/Form/ChangeEmailForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeEmailForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Common/Form/ChangePasswordForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangePasswordForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Common/Form/ChangeUserNameForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeUserNameForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Common/Form/CommentTypeForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/CommentTypeForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Common/Form/EditPostForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/EditPostForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Common/Form/PostForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/PostForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Common/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Rest/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Rest/Controller/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Rest/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Rest/Controller/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/MessageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Rest/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Rest/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Rest/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/HTTP/Rest/EventSubscriber/JsonBodyParserSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/EventSubscriber/JsonBodyParserSubscriber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/templates/dashboard/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/emails/registration.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/templates/emails/registration.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/BlockedCommunication.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/test/BlockedCommunication.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Comment.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/test/Comment.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Message.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/test/Message.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Notification.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/test/Notification.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Post.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/test/Post.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/PostType.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/test/PostType.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/User.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/test/User.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/ApplicationTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/ApplicationTestCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/Category/CreateCategoryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Category/CreateCategoryHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/Category/DeleteCategoryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Category/DeleteCategoryHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/Category/EditCategoryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Category/EditCategoryHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/Comment/Create/CreateCommentHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Create/CreateCommentHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/Comment/Delete/DeleteCommentHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Delete/DeleteCommentHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/Post/Create/CreatePostHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Create/CreatePostHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/Post/Delete/DeletePostHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Delete/DeletePostHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/Post/Edit/EditPostHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Edit/EditPostHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/User/Banned/BannedUserHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/Banned/BannedUserHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/User/ChangeEmail/ChangeEmailHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeEmail/ChangeEmailHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/User/ChangeName/ChangeNameHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeName/ChangeNameHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/User/ChangePassword/ChangePasswordHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangePassword/ChangePasswordHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/User/ConfirmUser/ConfirmUserHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ConfirmUser/ConfirmUserHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/User/Create/CreateUserHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/Create/CreateUserHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Query/Category/GetAllHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Query/Category/GetAllHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Query/Category/GetSingleHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Query/Category/GetSingleHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application/Query/Comment/GetAllPostCommentHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Query/Comment/GetAllPostCommentHandlerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Category/CategoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Domain/Category/CategoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Comment/CommentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Domain/Comment/CommentTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Post/PostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Domain/Post/PostTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Domain/User/UserTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Infrastructure/Share/Event/EventCollectorListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Infrastructure/Share/Event/EventCollectorListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Infrastructure/Share/Event/Publisher/InMemoryProducer.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Infrastructure/Share/Event/Publisher/InMemoryProducer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/translations/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -430,80 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/symfony/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker/nginx/default.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/serviceWorker.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-414">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/package.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            <state relative-caret-position="368">
+              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -610,12 +141,12 @@
         <option value="$PROJECT_DIR$/src/Infrastructure/Comment/CommentReadProjectionFactory.php" />
         <option value="$PROJECT_DIR$/src/Application/Query/Category/GetAll/GetAllHandler.php" />
         <option value="$PROJECT_DIR$/docker/php/Dockerfile" />
-        <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/symfony/Dockerfile" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/docker/nginx/default.conf" />
         <option value="$PROJECT_DIR$/symfony/.gitignore" />
+        <option value="$PROJECT_DIR$/makefile" />
       </list>
     </option>
   </component>
@@ -974,6 +505,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -981,16 +513,10 @@
               <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1212,6 +738,7 @@
       <workItem from="1549479041967" duration="2493000" />
       <workItem from="1549566281146" duration="2999000" />
       <workItem from="1549711884621" duration="3394000" />
+      <workItem from="1549723897644" duration="715000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -1255,13 +782,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142439000" />
+    <option name="totallyTimeSpent" value="143154000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="28" width="1874" height="1029" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1069079" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.108004384" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="0" />
@@ -1608,9 +1135,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/ChangeAvatar/ChangeAvatarHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/nginx/default.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/serviceWorker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-414">
+        <state>
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -1630,48 +1185,20 @@
     <entry file="file://$PROJECT_DIR$/web-app/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/nginx/default.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/ChangeAvatar/ChangeAvatarHandler.php">
+    <entry file="file://$PROJECT_DIR$/symfony/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        <state relative-caret-position="22">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/.gitignore">
+    <entry file="file://$PROJECT_DIR$/makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        <state relative-caret-position="368">
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
         </state>
       </provider>
     </entry>

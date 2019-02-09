@@ -1,6 +1,6 @@
 parameters:
     env(DATABASE_HOST): 'db'
-    env(DATABASE_PORT): '3306'
+    env(DATABASE_PORT): '3307'
     env(DATABASE_NAME): 'tutorials_tank'
     env(DATABASE_USER): 'root'
     env(DATABASE_PASS): 'admin'

@@ -100,15 +100,16 @@ services:
       MYSQL_ROOT_PASSWORD: admin
     volumes:
       - db_data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
     ports:
-      - 3307:3306
+      - 3307:3307
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
       MYSQL_USERNAME: root
       MYSQL_ROOT_PASSWORD: admin
-      PMA_PORT: 3307
+      PMA_PORT: "3307"
     restart: always
     ports:
       - 8000:80

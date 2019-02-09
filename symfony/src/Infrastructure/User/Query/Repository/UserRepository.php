@@ -12,9 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
- * Class UserRepository
- *
- * @package App\Infrastructure\User\Query\Repository
+ * Class UserRepository.
  */
 class UserRepository extends ServiceEntityRepository implements UserLoaderInterface, UserProviderInterface
 {
@@ -77,8 +75,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         $userData = $this->createQueryBuilder('u')
             ->where('u.username = :name')
             ->setParameter('name', $username)
-            ->getFirstResult()
-            ;
+            ->getFirstResult();
         // pretend it returns an array on success, false if there is no user
 
         if ($userData) {

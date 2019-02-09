@@ -5,9 +5,7 @@ namespace App\Domain\User\Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class UserIsAdminException
- *
- * @package App\Domain\User\Exception
+ * Class UserIsAdminException.
  */
 class UserIsAdminException extends \Exception
 {

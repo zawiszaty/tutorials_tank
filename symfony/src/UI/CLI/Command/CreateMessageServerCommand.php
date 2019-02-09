@@ -14,9 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
- * Class CreateMessageServerCommand
- *
- * @package App\UI\CLI\Command
+ * Class CreateMessageServerCommand.
  */
 class CreateMessageServerCommand extends ContainerAwareCommand
 {
@@ -27,8 +25,7 @@ class CreateMessageServerCommand extends ContainerAwareCommand
         $this
             ->setDescription('Add a short description for your command')
             ->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
-        ;
+            ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description');
     }
 
     /**

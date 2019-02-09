@@ -5,9 +5,7 @@ namespace App\Application\Command\User\Create;
 use App\Application\Command\CommandHandlerInterface;
 
 /**
- * Class CreateUserCommand
- *
- * @package App\Application\Command\User\Create
+ * Class CreateUserCommand.
  */
 class CreateUserCommand implements CommandHandlerInterface
 {

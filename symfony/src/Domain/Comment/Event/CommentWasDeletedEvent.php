@@ -46,9 +46,9 @@ class CommentWasDeletedEvent extends AbstractEvent
     /**
      * @param array $data
      *
-     * @return CommentWasDeletedEvent|mixed
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return CommentWasDeletedEvent|mixed
      */
     public static function deserialize(array $data)
     {

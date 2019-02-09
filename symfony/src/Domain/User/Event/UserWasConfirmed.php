@@ -30,9 +30,9 @@ class UserWasConfirmed extends AbstractEvent
     /**
      * @param array $data
      *
-     * @return UserWasConfirmed|mixed
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return UserWasConfirmed|mixed
      */
     public static function deserialize(array $data)
     {

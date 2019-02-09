@@ -3,9 +3,7 @@
 namespace App\Domain\Post\Exception;
 
 /**
- * Class CreatePostException
- *
- * @package App\Domain\Post\Exception
+ * Class CreatePostException.
  */
 class CreatePostException extends \Exception
 {

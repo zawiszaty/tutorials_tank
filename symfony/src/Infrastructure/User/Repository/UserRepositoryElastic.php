@@ -5,9 +5,7 @@ namespace App\Infrastructure\User\Repository;
 use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 
 /**
- * Class UserRepositoryElastic
- *
- * @package App\Infrastructure\User\Repository
+ * Class UserRepositoryElastic.
  */
 class UserRepositoryElastic extends ElasticRepository
 {

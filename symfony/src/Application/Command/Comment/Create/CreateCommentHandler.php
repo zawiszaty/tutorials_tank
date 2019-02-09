@@ -10,9 +10,7 @@ use App\Infrastructure\Comment\Repository\CommentRepository;
 use Ramsey\Uuid\Uuid;
 
 /**
- * Class CreateCommentHandler
- *
- * @package App\Application\Command\Comment\Create
+ * Class CreateCommentHandler.
  */
 class CreateCommentHandler implements CommandHandlerInterface
 {

@@ -108,9 +108,9 @@ class UserWasCreated extends AbstractEvent
     /**
      * @param array $data
      *
-     * @return UserWasCreated|mixed
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return UserWasCreated|mixed
      */
     public static function deserialize(array $data)
     {

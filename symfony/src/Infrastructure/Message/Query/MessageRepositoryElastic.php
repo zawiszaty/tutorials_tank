@@ -7,9 +7,7 @@ use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 use Assert\Assertion;
 
 /**
- * Class MessageRepositoryElastic
- *
- * @package App\Infrastructure\Message\Query
+ * Class MessageRepositoryElastic.
  */
 class MessageRepositoryElastic extends ElasticRepository
 {

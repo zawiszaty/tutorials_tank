@@ -44,7 +44,7 @@ class GetAllHandler implements QueryHandlerInterface
             $query = [
                 'query' => [
                     'wildcard' => [
-                        'name' => '*' . $command->getQuery() . '*',
+                        'name' => '*'.$command->getQuery().'*',
                     ],
                 ],
             ];
@@ -55,6 +55,7 @@ class GetAllHandler implements QueryHandlerInterface
 //        $data = $this->categoryRepositoryElastic->page($command->getPage(), $command->getLimit(), $query);
 
         $data = $this->modelRepository->getAll($command->getPage(), $command->getLimit());
+
         return $data;
     }
 }

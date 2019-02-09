@@ -6,9 +6,7 @@ use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 use Broadway\Domain\DomainMessage;
 
 /**
- * Class EventElasticRepository
- *
- * @package App\Infrastructure\Share\Event\Query
+ * Class EventElasticRepository.
  */
 final class EventElasticRepository extends ElasticRepository
 {

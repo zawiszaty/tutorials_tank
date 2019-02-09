@@ -3,9 +3,7 @@
 namespace App\Infrastructure\Notification\Strategy;
 
 /**
- * Interface NotificationStrategyInterface
- *
- * @package App\Infrastructure\Notification\Strategy
+ * Interface NotificationStrategyInterface.
  */
 interface NotificationStrategyInterface
 {

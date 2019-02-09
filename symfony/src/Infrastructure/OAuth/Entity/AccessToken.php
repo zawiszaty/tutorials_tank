@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\OAuth\Entity;
 
-use FOS\OAuthServerBundle\Entity\AccessToken as BaseAccessToken;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\OAuthServerBundle\Entity\AccessToken as BaseAccessToken;
 
 /**
  * @ORM\Entity

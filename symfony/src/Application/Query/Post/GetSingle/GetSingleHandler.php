@@ -6,9 +6,7 @@ use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Post\Query\Repository\PostRepositoryElastic;
 
 /**
- * Class GetSingleHandler
- *
- * @package App\Application\Query\Post\GetSingle
+ * Class GetSingleHandler.
  */
 class GetSingleHandler implements QueryHandlerInterface
 {

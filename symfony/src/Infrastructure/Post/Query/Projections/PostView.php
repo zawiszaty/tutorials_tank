@@ -7,9 +7,7 @@ use App\Infrastructure\User\Query\Projections\UserView;
 use Broadway\Serializer\Serializable;
 
 /**
- * Class PostView
- *
- * @package App\Infrastructure\Post\Query\Projections
+ * Class PostView.
  */
 class PostView implements UserViewInterface
 {

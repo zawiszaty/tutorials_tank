@@ -7,9 +7,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\ValueObject\Password;
 
 /**
- * Class UserPasswordWasChanged
- *
- * @package App\Domain\User\Event
+ * Class UserPasswordWasChanged.
  */
 class UserPasswordWasChanged extends AbstractEvent
 {
@@ -54,9 +52,9 @@ class UserPasswordWasChanged extends AbstractEvent
     /**
      * @param array $data
      *
-     * @return UserMailWasChanged|mixed
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return UserMailWasChanged|mixed
      */
     public static function deserialize(array $data)
     {

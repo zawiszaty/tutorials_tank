@@ -11,9 +11,7 @@ use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventStore\EventStore;
 
 /**
- * Class UserRepository
- *
- * @package App\Infrastructure\User\Repository
+ * Class UserRepository.
  */
 class UserRepository extends EventSourcingRepository implements UserRepositoryInterface
 {

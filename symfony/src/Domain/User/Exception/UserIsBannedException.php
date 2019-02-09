@@ -3,9 +3,7 @@
 namespace App\Domain\User\Exception;
 
 /**
- * Class UserIsBannedException
- *
- * @package App\Domain\User\Exception
+ * Class UserIsBannedException.
  */
 class UserIsBannedException extends \InvalidArgumentException
 {

@@ -80,8 +80,9 @@ class CreatePostEvent extends AbstractEvent
     /**
      * @param array $data
      *
-     * @return CreatePostEvent|mixed
      * @throws \Assert\AssertionFailedException
+     *
+     * @return CreatePostEvent|mixed
      */
     public static function deserialize(array $data)
     {

@@ -9,9 +9,7 @@ use App\Infrastructure\Share\Event\EventStreamProcessorInterface;
 use App\Infrastructure\Share\Event\IterableAggregateEventStoreInterface;
 
 /**
- * Class ReplayEventsHandler
- *
- * @package App\Application\Command\Events\Replay
+ * Class ReplayEventsHandler.
  */
 class ReplayEventsHandler implements CommandHandlerInterface
 {

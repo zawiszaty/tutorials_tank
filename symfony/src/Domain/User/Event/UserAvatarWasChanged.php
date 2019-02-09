@@ -52,9 +52,9 @@ class UserAvatarWasChanged extends AbstractEvent
     /**
      * @param array $data
      *
-     * @return UserMailWasChanged|mixed
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return UserMailWasChanged|mixed
      */
     public static function deserialize(array $data)
     {

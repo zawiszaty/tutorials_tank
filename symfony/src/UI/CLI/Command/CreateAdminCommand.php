@@ -11,9 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
- * Class CreateAdminCommand
- *
- * @package App\UI\CLI\Command
+ * Class CreateAdminCommand.
  */
 class CreateAdminCommand extends ContainerAwareCommand
 {

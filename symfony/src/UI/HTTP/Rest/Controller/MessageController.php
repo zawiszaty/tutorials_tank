@@ -4,11 +4,11 @@ namespace App\UI\HTTP\Rest\Controller;
 
 use App\Application\Query\Message\GetAll\GetAllCommand;
 use App\UI\HTTP\Common\Controller\RestController;
+use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
-use Swagger\Annotations as SWG;
 
 /**
  * Class MessageController.

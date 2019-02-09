@@ -94,9 +94,9 @@ class Comment extends EventSourcedAggregateRoot
      * @param string          $post
      * @param string          $user
      *
-     * @return Comment
-     *
      * @throws \Exception
+     *
+     * @return Comment
      */
     public static function create(
         AggregateRootId $aggregateRootId,

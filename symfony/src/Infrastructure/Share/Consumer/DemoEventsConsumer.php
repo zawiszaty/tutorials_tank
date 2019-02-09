@@ -8,9 +8,7 @@ use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
- * Class DemoEventsConsumer
- *
- * @package App\Infrastructure\Share\Consumer
+ * Class DemoEventsConsumer.
  */
 class DemoEventsConsumer implements ConsumerInterface
 {

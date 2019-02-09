@@ -104,7 +104,7 @@ class EditPostHandlerTest extends ApplicationTestCase
      */
     private function createUser(): string
     {
-        $email = Uuid::uuid4()->toString() . '@asd.asd';
+        $email = Uuid::uuid4()->toString().'@asd.asd';
         $command = new CreateUserCommand();
         $command->setAvatar(Uuid::uuid4()->toString());
         $command->setBanned(false);

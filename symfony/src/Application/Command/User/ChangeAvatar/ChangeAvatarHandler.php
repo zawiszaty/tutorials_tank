@@ -8,9 +8,7 @@ use App\Domain\User\Exception\AvatarWasChanged;
 use App\Infrastructure\Share\Application\File\FileMover;
 
 /**
- * Class ChangeAvatarHandler
- *
- * @package App\Application\Command\User\ChangeAvatar
+ * Class ChangeAvatarHandler.
  */
 class ChangeAvatarHandler implements CommandHandlerInterface
 {
@@ -39,9 +37,9 @@ class ChangeAvatarHandler implements CommandHandlerInterface
     {
         $user = $this->aggregatRepository->get(AggregateRootId::fromString($command->getId()));
         $fileName = FileMover::move($command->getFile(), 'avatars');
-        $user->changeAvatar('/avatars/' . $fileName);
+        $user->changeAvatar('/avatars/'.$fileName);
         $this->aggregatRepository->store($user);
 
-        throw new AvatarWasChanged('/avatars/' . $fileName);
+        throw new AvatarWasChanged('/avatars/'.$fileName);
     }
 }

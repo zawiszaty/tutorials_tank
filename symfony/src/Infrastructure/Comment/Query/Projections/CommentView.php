@@ -8,9 +8,7 @@ use App\Infrastructure\User\Query\Projections\UserView;
 use Broadway\Serializer\Serializable;
 
 /**
- * Class CommentView
- *
- * @package App\Infrastructure\Comment\Query\Projections
+ * Class CommentView.
  */
 class CommentView implements CommentViewInterface
 {

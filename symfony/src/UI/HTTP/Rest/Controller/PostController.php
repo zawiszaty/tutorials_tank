@@ -137,9 +137,10 @@ class PostController extends RestController
      * @param Request $request
      * @param string  $id
      *
+     * @throws \Assert\AssertionFailedException
+     *
      * @return Response
      *
-     * @throws \Assert\AssertionFailedException
      *
      * @SWG\Response(
      *     response=200,
@@ -197,7 +198,7 @@ class PostController extends RestController
      */
     public function getSingleBySlug(Request $request, string $slug): Response
     {
-        $command = new GetOneBySlugCommand;
+        $command = new GetOneBySlugCommand();
         $command->slug = $slug;
         $model = $this->queryBus->handle($command);
 

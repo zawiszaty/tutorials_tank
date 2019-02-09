@@ -13,9 +13,7 @@ use App\Infrastructure\Share\Application\File\FileMover;
 use Ramsey\Uuid\Uuid;
 
 /**
- * Class CreatePostHandler
- *
- * @package App\Application\Command\Post\Create
+ * Class CreatePostHandler.
  */
 class CreatePostHandler implements CommandHandlerInterface
 {
@@ -47,7 +45,7 @@ class CreatePostHandler implements CommandHandlerInterface
             AggregateRootId::fromString(Uuid::uuid4()),
             Title::fromString($command->title),
             Content::fromString($command->content),
-            Thumbnail::fromString('/thumbnails/' . $fileName),
+            Thumbnail::fromString('/thumbnails/'.$fileName),
             $command->type,
             $command->user,
             $command->category->getId(),

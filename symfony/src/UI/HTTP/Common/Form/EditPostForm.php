@@ -50,7 +50,7 @@ class EditPostForm extends AbstractType
                 'required' => true,
             ])
             ->add('category', EntityType::class, [
-                'class' => CategoryView::class,
+                'class'       => CategoryView::class,
                 'constraints' => [
                     new NotNull(),
                 ],

@@ -5,9 +5,7 @@ namespace App\Domain\User\ValueObject;
 use Assert\Assertion;
 
 /**
- * Class Roles
- *
- * @package App\Domain\User\ValueObject
+ * Class Roles.
  */
 class Roles
 {
@@ -19,9 +17,9 @@ class Roles
     /**
      * @param array $roles
      *
-     * @return Roles
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return Roles
      */
     public static function fromString(array $roles): self
     {

@@ -13,9 +13,9 @@ class FileMover
      * @param File   $file
      * @param string $directory
      *
-     * @return string
-     *
      * @throws \Exception
+     *
+     * @return string
      */
     public static function move(File $file, string $directory)
     {

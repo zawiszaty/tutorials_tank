@@ -12,9 +12,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class EventStoreReplayCommand
- *
- * @package App\UI\CLI\Command
+ * Class EventStoreReplayCommand.
  */
 class EventStoreReplayCommand extends Command
 {

@@ -15,9 +15,9 @@ class NotificationFactory
      * @param UserView $user
      * @param string   $type
      *
-     * @return NotificationView
-     *
      * @throws \Exception
+     *
+     * @return NotificationView
      */
     public static function create(string $content, UserView $user, string $type): NotificationView
     {

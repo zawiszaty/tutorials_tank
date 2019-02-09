@@ -8,9 +8,7 @@ use App\Infrastructure\Share\Query\Repository\MysqlRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * Class MysqlPostReadModelRepository
- *
- * @package App\Infrastructure\Post\Query\Repository
+ * Class MysqlPostReadModelRepository.
  */
 class MysqlPostReadModelRepository extends MysqlRepository
 {

@@ -5,9 +5,7 @@ namespace App\Domain\Comment\Query\Projections;
 use Broadway\ReadModel\SerializableReadModel;
 
 /**
- * Interface CommentViewInterface
- *
- * @package App\Domain\Comment\Query\Projections
+ * Interface CommentViewInterface.
  */
 interface CommentViewInterface extends SerializableReadModel
 {

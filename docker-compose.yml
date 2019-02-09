@@ -25,7 +25,7 @@ services:
     ports:
       - "9999:80"
     volumes:
-      - ./:/var/www/project
+      - ./symfony:/var/www/project
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     links:
       - db
@@ -34,16 +34,25 @@ services:
 
 
   php:
-    build: ./docker/php
+    build: ./symfony
     working_dir: /var/www/project
     volumes:
-      - ./:/var/www/project
+      - ./symfony:/var/www/project
     links:
       - db
     ports:
       - "8123:8123"
       - "8888:8888"
       - "5555:5555"
+
+  composer:
+    restart: 'no'
+    working_dir: /var/www/project
+    command: install --ignore-platform-reqs
+    image: composer:latest
+    volumes:
+      - ./symfony:/var/www/project
+
   frontend:
     build: ./web-app
     expose:
@@ -54,7 +63,7 @@ services:
       - ./web-app:/usr/src/app
 
   workers_1:
-    build: ./docker/php
+    build: ./symfony
     working_dir: /var/www/project
     restart: always
     volumes:
@@ -72,14 +81,14 @@ services:
 
 
   workers_3:
-    build: ./docker/php
+    build: ./symfony
     working_dir: /var/www/project
     volumes:
       - ./:/var/www/project
     command: ['php','bin/console', 'app:create-message-server']
 
   workers_4:
-    build: ./docker/php
+    build: ./symfony
     working_dir: /var/www/project
     volumes:
       - ./:/var/www/project
@@ -135,5 +144,6 @@ services:
       - 1080:1080
 
 volumes:
+  php:
   db_data:
   esdata1:

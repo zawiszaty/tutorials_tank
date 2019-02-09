@@ -1,0 +1,116 @@
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+Authorization: Bearer SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+Authorization: Bearer SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+Authorization: Bearer SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+Authorization: Bearer SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+Authorization: Bearer SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+Authorization: Bearer SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+Authorization: Bearer SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg
+
+<> 2019-01-16T080556.401.json
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+
+###
+
+POST http://localhost:9999/api/v1/category?name=test
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+
+###
+
+POST http://localhost:9999/api/v1/category
+Accept: */*
+Cache-Control: no-cache
+Content-Type: json
+
+<> 2019-01-15T084608.401.json
+
+###
+

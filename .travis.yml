@@ -21,7 +21,6 @@ before_install:
   - docker-compose -v
   - docker -v
   - cp ./symfony/.env.dist ./symfony/.env
-  - cat .env
 before_script:
   - make dev
 

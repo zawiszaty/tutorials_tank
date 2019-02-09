@@ -22,6 +22,7 @@ before_install:
   - docker -v
   - cp ./symfony/.env.dist ./symfony/.env
 before_script:
+  - make composer-install
   - make dev
 
 script:

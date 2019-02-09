@@ -47,3 +47,7 @@ phpspec:
 phpunit:
 		docker-compose exec php apt-get -y install git
 		docker-compose exec php ./vendor/bin/simple-phpunit
+
+.PHONY: composer-install
+composer-install:
+		docker-compose run composer composer install --ignore-platform-reqs

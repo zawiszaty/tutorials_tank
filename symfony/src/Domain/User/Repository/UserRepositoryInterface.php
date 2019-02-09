@@ -6,9 +6,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\User;
 
 /**
- * Interface UserRepositoryInterface
- *
- * @package App\Domain\User\Repository
+ * Interface UserRepositoryInterface.
  */
 interface UserRepositoryInterface
 {

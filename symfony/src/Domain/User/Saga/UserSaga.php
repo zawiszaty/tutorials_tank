@@ -37,7 +37,6 @@ class UserSaga extends Saga implements StaticallyConfiguredSagaInterface
     {
         return [
             'App\Domain\User\Event\UserWasCreated' => function (UserWasCreated $userWasCreated) {
-                return null;
             },
         ];
     }
@@ -46,9 +45,9 @@ class UserSaga extends Saga implements StaticallyConfiguredSagaInterface
      * @param UserWasCreated $userWasCreated
      * @param State          $state
      *
-     * @return State
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return State
      */
     public function handleUserWasCreated(UserWasCreated $userWasCreated, State $state): State
     {

@@ -6,9 +6,9 @@ namespace App\UI\HTTP\Common\Controller;
 
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use League\Tactician\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Class RestController.

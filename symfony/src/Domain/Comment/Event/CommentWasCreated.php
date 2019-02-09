@@ -63,10 +63,10 @@ class CommentWasCreated extends AbstractEvent
     /**
      * @param array $data
      *
-     * @return CommentWasCreated|mixed
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
+     *
+     * @return CommentWasCreated|mixed
      */
     public static function deserialize(array $data)
     {

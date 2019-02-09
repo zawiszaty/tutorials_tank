@@ -80,8 +80,9 @@ class PostWasEdited extends AbstractEvent
     /**
      * @param array $data
      *
-     * @return PostWasEdited|mixed
      * @throws \Assert\AssertionFailedException
+     *
+     * @return PostWasEdited|mixed
      */
     public static function deserialize(array $data)
     {

@@ -5,9 +5,7 @@ namespace App\Infrastructure\User\Repository;
 use FOS\ElasticaBundle\Repository;
 
 /**
- * Class UserFosElasticaRepository
- *
- * @package App\Infrastructure\User\Repository
+ * Class UserFosElasticaRepository.
  */
 class UserFosElasticaRepository extends Repository
 {

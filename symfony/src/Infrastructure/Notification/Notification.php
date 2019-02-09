@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpUndefinedFieldInspection */
+<?php
+
+/** @noinspection PhpUndefinedFieldInspection */
 
 namespace App\Infrastructure\Notification;
 
@@ -9,9 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
- * Class Notification
- *
- * @package App\Infrastructure\Notification
+ * Class Notification.
  */
 class Notification implements WampServerInterface
 {

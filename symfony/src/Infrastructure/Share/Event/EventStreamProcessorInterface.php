@@ -5,9 +5,7 @@ namespace App\Infrastructure\Share\Event;
 use Broadway\Domain\DomainEventStream;
 
 /**
- * Interface EventStreamProcessorInterface
- *
- * @package App\Infrastructure\Share\Event
+ * Interface EventStreamProcessorInterface.
  */
 interface EventStreamProcessorInterface
 {

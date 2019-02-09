@@ -3,9 +3,7 @@
 namespace App\Domain\User\ValueObject;
 
 /**
- * Class Steemit
- *
- * @package App\Domain\User\ValueObject
+ * Class Steemit.
  */
 class Steemit
 {

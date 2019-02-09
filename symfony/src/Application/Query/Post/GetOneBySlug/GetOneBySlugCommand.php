@@ -3,9 +3,7 @@
 namespace App\Application\Query\Post\GetOneBySlug;
 
 /**
- * Class GetOneBySlugCommand
- *
- * @package App\Application\Query\Post\GetOneBySlug
+ * Class GetOneBySlugCommand.
  */
 class GetOneBySlugCommand
 {

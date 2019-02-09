@@ -6,9 +6,7 @@ use App\Domain\Comment\Comment;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Interface CommentRepositoryInterface
- *
- * @package App\Domain\Comment\Repository
+ * Interface CommentRepositoryInterface.
  */
 interface CommentRepositoryInterface
 {

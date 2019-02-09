@@ -7,9 +7,7 @@ use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 use Assert\Assertion;
 
 /**
- * Class CommentRepositoryElastic
- *
- * @package App\Infrastructure\Comment\Query
+ * Class CommentRepositoryElastic.
  */
 class CommentRepositoryElastic extends ElasticRepository
 {

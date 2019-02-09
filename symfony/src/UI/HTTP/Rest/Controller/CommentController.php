@@ -8,11 +8,11 @@ use App\Application\Query\Comment\GetAllChildrenComment\GetAllChildrenCommentCom
 use App\Application\Query\Comment\GetAllPostComment\GetAllPostCommentCommand;
 use App\UI\HTTP\Common\Controller\RestController;
 use App\UI\HTTP\Common\Form\CommentTypeForm;
+use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
-use Swagger\Annotations as SWG;
 
 /**
  * Class CommentController.

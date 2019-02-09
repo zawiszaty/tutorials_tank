@@ -1,4 +1,6 @@
-<?php /** @noinspection ALL */
+<?php
+
+/** @noinspection ALL */
 
 namespace App\Infrastructure\User\Query\Repository;
 
@@ -54,9 +56,9 @@ class MysqlUserReadModelRepository extends MysqlRepository
     /**
      * @param Email $email
      *
-     * @return mixed
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     * @return mixed
      */
     public function oneByEmail(Email $email)
     {
@@ -121,9 +123,9 @@ class MysqlUserReadModelRepository extends MysqlRepository
     /**
      * @param string $token
      *
-     * @return mixed
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     * @return mixed
      */
     public function getByToken(string $token): UserView
     {

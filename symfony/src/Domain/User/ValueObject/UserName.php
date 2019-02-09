@@ -5,9 +5,7 @@ namespace App\Domain\User\ValueObject;
 use Assert\Assertion;
 
 /**
- * Class UserName
- *
- * @package App\Domain\User\ValueObject
+ * Class UserName.
  */
 class UserName
 {
@@ -19,9 +17,9 @@ class UserName
     /**
      * @param string $userName
      *
-     * @return UserName
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return UserName
      */
     public static function fromString(string $userName): self
     {

@@ -5,9 +5,7 @@ namespace App\Domain\User\ValueObject;
 use Assert\Assertion;
 
 /**
- * Class Email
- *
- * @package App\Domain\User\ValueObject
+ * Class Email.
  */
 class Email
 {
@@ -19,9 +17,9 @@ class Email
     /**
      * @param string $email
      *
-     * @return Email
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return Email
      */
     public static function fromString(string $email): self
     {

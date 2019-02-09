@@ -2,14 +2,11 @@
 
 namespace App\Application\Query\Post\GetOneBySlug;
 
-
 use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Post\Query\Repository\PostRepositoryElastic;
 
 /**
- * Class GetOneBySlugHandler
- *
- * @package App\Application\Query\Post\GetOneBySlug
+ * Class GetOneBySlugHandler.
  */
 class GetOneBySlugHandler implements QueryHandlerInterface
 {

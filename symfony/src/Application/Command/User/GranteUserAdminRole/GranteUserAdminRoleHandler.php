@@ -8,9 +8,7 @@ use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use App\Infrastructure\User\Repository\UserRepository;
 
 /**
- * Class GranteUserAdminRoleHandler
- *
- * @package App\Application\Command\User\GranteUserAdminRole
+ * Class GranteUserAdminRoleHandler.
  */
 class GranteUserAdminRoleHandler implements CommandHandlerInterface
 {

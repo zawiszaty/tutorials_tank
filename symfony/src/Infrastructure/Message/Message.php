@@ -1,18 +1,18 @@
-<?php /** @noinspection PhpUndefinedFieldInspection */
+<?php
+
+/** @noinspection PhpUndefinedFieldInspection */
 
 namespace App\Infrastructure\Message;
 
 use App\Infrastructure\User\Query\Projections\UserView;
 use Ramsey\Uuid\Uuid;
-use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
+use Ratchet\MessageComponentInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
- * Class Message
- *
- * @package App\Infrastructure\Message
+ * Class Message.
  */
 class Message implements MessageComponentInterface
 {
@@ -77,7 +77,7 @@ class Message implements MessageComponentInterface
      */
     public function onError(ConnectionInterface $conn, \Exception $e)
     {
-        $conn->send('Error : ' . $e->getMessage());
+        $conn->send('Error : '.$e->getMessage());
         $conn->close();
     }
 

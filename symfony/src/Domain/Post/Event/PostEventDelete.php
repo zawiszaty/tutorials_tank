@@ -6,9 +6,7 @@ use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Class PostEventDelete
- *
- * @package App\Domain\Post\Event
+ * Class PostEventDelete.
  */
 class PostEventDelete extends AbstractEvent
 {
@@ -32,9 +30,9 @@ class PostEventDelete extends AbstractEvent
     /**
      * @param array $data
      *
-     * @return mixed The object instance
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return mixed The object instance
      */
     public static function deserialize(array $data)
     {

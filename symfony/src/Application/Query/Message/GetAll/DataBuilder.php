@@ -6,9 +6,7 @@ use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Repository\UserRepositoryElastic;
 
 /**
- * Class DataBuilder
- *
- * @package App\Application\Query\Message\GetAll
+ * Class DataBuilder.
  */
 class DataBuilder
 {

@@ -7,9 +7,7 @@ use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Message\Query\MessageRepositoryElastic;
 
 /**
- * Class GetAllHandler
- *
- * @package App\Application\Query\Message\GetAll
+ * Class GetAllHandler.
  */
 class GetAllHandler implements QueryHandlerInterface
 {

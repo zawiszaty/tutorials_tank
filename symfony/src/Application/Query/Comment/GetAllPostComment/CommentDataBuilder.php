@@ -6,9 +6,7 @@ use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
 use App\Infrastructure\User\Repository\UserRepositoryElastic;
 
 /**
- * Class CommentDataBuilder
- *
- * @package App\Application\Query\Comment\GetAllPostComment
+ * Class CommentDataBuilder.
  */
 class CommentDataBuilder
 {

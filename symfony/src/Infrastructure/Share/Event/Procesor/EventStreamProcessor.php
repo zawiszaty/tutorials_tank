@@ -7,9 +7,7 @@ use Broadway\Domain\DomainEventStream;
 use Broadway\EventHandling\EventBus;
 
 /**
- * Class EventStreamProcessor
- *
- * @package App\Infrastructure\Share\Event\Procesor
+ * Class EventStreamProcessor.
  */
 class EventStreamProcessor implements EventStreamProcessorInterface
 {

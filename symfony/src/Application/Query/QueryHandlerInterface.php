@@ -3,9 +3,7 @@
 namespace App\Application\Query;
 
 /**
- * Interface QueryHandlerInterface
- *
- * @package App\Application\Query
+ * Interface QueryHandlerInterface.
  */
 interface QueryHandlerInterface
 {

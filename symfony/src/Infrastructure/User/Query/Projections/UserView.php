@@ -115,9 +115,9 @@ class UserView extends BaseUser
     /**
      * @param array $data
      *
-     * @return UserView
-     *
      * @throws \Exception
+     *
+     * @return UserView
      */
     public static function deserializeProjections(array $data)
     {
@@ -188,6 +188,7 @@ class UserView extends BaseUser
     /**
      * @return bool
      */
+
     /**
      * @return bool
      */

@@ -1,10 +1,10 @@
 <?php
 
 use Behat\Behat\Context\Context;
+use Elasticsearch\ClientBuilder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Elasticsearch\ClientBuilder;
 
 /**
  * This context class contains the definitions of the steps used by the demo

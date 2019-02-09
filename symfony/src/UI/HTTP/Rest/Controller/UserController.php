@@ -20,11 +20,11 @@ use App\UI\HTTP\Common\Form\ChangeEmailForm;
 use App\UI\HTTP\Common\Form\ChangePasswordForm;
 use App\UI\HTTP\Common\Form\ChangeUserNameForm;
 use App\UI\HTTP\Common\Form\RegistrationFormType;
+use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
-use Swagger\Annotations as SWG;
 
 /**
  * Class UserController.
@@ -100,9 +100,10 @@ class UserController extends RestController
      * @param Request $request
      * @param string  $id
      *
+     * @throws \Exception
+     *
      * @return Response
      *
-     * @throws \Exception
      *
      * @SWG\Response(
      *     response=200,
@@ -172,9 +173,10 @@ class UserController extends RestController
     /**
      * @param Request $request
      *
+     * @throws \Assert\AssertionFailedException
+     *
      * @return Response
      *
-     * @throws \Assert\AssertionFailedException
      *
      * @SWG\Response(
      *     response=200,

@@ -12,13 +12,13 @@ class FileNameGenerator
     /**
      * @param string $extention
      *
-     * @return string
-     *
      * @throws \Exception
+     *
+     * @return string
      */
     public static function generate(string $extention)
     {
-        $name = Uuid::uuid4() . '-' . Uuid::uuid4() . '.' . $extention;
+        $name = Uuid::uuid4().'-'.Uuid::uuid4().'.'.$extention;
 
         return $name;
     }

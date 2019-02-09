@@ -7,9 +7,7 @@ use App\Infrastructure\Share\Query\Repository\ElasticRepository;
 use Assert\Assertion;
 
 /**
- * Class PostRepositoryElastic
- *
- * @package App\Infrastructure\Post\Query\Repository
+ * Class PostRepositoryElastic.
  */
 class PostRepositoryElastic extends ElasticRepository
 {
@@ -66,13 +64,12 @@ class PostRepositoryElastic extends ElasticRepository
         $query['body'] = [
             'query' => [
                 'match' => [
-                    'slug' => $slug
-                ]
-            ]
+                    'slug' => $slug,
+                ],
+            ],
         ];
 
         $response = $this->client->search($query);
-
 
         return $response['hits']['hits'][0]['_source'];
     }

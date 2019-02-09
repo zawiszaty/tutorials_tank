@@ -12,9 +12,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * Class AsyncEventPublisher
- *
- * @package App\Infrastructure\Share\Event\Publisher
+ * Class AsyncEventPublisher.
  */
 class AsyncEventPublisher implements EventPublisher, EventSubscriberInterface, EventListener
 {

@@ -50,13 +50,13 @@ class GetAllPostCommentHandlerTest extends ApplicationTestCase
     }
 
     /**
-     * @return string
-     *
      * @throws \Exception
+     *
+     * @return string
      */
     private function createUser(): string
     {
-        $email = Uuid::uuid4()->toString() . 'asd@asd.asd';
+        $email = Uuid::uuid4()->toString().'asd@asd.asd';
         $command = new CreateUserCommand();
         $command->setAvatar(Uuid::uuid4()->toString());
         $command->setBanned(false);
@@ -81,9 +81,9 @@ class GetAllPostCommentHandlerTest extends ApplicationTestCase
     }
 
     /**
-     * @return string
-     *
      * @throws \Exception
+     *
+     * @return string
      */
     private function createPost(): string
     {

@@ -11,10 +11,10 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 use App\UI\HTTP\Common\Controller\RestController;
 use App\UI\HTTP\Common\Form\CategoryType;
 use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Swagger\Annotations as SWG;
 
 /**
  * Class CategoryController.

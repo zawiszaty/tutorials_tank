@@ -73,7 +73,6 @@ class Post extends EventSourcedAggregateRoot
      * @param string          $type
      * @param string          $user
      * @param string          $category
-     *
      * @param string          $shortDescription
      *
      * @return Post
@@ -153,6 +152,7 @@ class Post extends EventSourcedAggregateRoot
     /**
      * @param PostEventDelete $eventDelete
      */
+
     /**
      * @param PostEventDelete $eventDelete
      */
@@ -163,6 +163,7 @@ class Post extends EventSourcedAggregateRoot
     /**
      * @param PostWasEdited $event
      */
+
     /**
      * @param PostWasEdited $event
      */

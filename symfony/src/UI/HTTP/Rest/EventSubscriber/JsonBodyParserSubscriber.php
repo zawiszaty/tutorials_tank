@@ -11,9 +11,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * Class JsonBodyParserSubscriber
- *
- * @package App\UI\HTTP\Rest\EventSubscriber
+ * Class JsonBodyParserSubscriber.
  */
 class JsonBodyParserSubscriber implements EventSubscriberInterface
 {

@@ -5,9 +5,7 @@ namespace App\Application\Command\User\ChangeAvatar;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * Class ChangeAvatarCommand
- *
- * @package App\Application\Command\User\ChangeAvatar
+ * Class ChangeAvatarCommand.
  */
 class ChangeAvatarCommand
 {

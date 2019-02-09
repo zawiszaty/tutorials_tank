@@ -97,9 +97,9 @@ class User extends EventSourcedAggregateRoot
     /**
      * @param array $params
      *
-     * @return User
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return User
      */
     public static function fromString(array $params): self
     {
@@ -182,6 +182,7 @@ class User extends EventSourcedAggregateRoot
     /**
      * @param UserMailWasChanged $event
      */
+
     /**
      * @param UserMailWasChanged $event
      */
@@ -194,6 +195,7 @@ class User extends EventSourcedAggregateRoot
     /**
      * @param UserNameWasChanged $event
      */
+
     /**
      * @param UserNameWasChanged $event
      */
@@ -215,6 +217,7 @@ class User extends EventSourcedAggregateRoot
     /**
      * @param UserWasBanned $userWasBanned
      */
+
     /**
      * @param UserWasBanned $userWasBanned
      */
@@ -242,6 +245,7 @@ class User extends EventSourcedAggregateRoot
     /**
      * @param string $password
      */
+
     /**
      * @param string $password
      */
@@ -256,6 +260,7 @@ class User extends EventSourcedAggregateRoot
     /**
      * @param UserPasswordWasChanged $event
      */
+
     /**
      * @param UserPasswordWasChanged $event
      */
@@ -350,6 +355,7 @@ class User extends EventSourcedAggregateRoot
     /**
      * @return string
      */
+
     /**
      * @return string
      */

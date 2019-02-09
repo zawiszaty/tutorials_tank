@@ -7,9 +7,7 @@ namespace App\Infrastructure\Share\Event\Publisher;
 use Broadway\Domain\DomainMessage;
 
 /**
- * Interface EventPublisher
- *
- * @package App\Infrastructure\Share\Event\Publisher
+ * Interface EventPublisher.
  */
 interface EventPublisher
 {

@@ -6,9 +6,7 @@ use App\Domain\User\Exception\UserIsAdminException;
 use App\Domain\User\ValueObject\Roles;
 
 /**
- * Class UserIsNotAdmin
- *
- * @package App\Domain\User\Assert
+ * Class UserIsNotAdmin.
  */
 class UserIsNotAdmin
 {

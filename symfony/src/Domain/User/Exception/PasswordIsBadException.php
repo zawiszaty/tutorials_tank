@@ -3,9 +3,7 @@
 namespace App\Domain\User\Exception;
 
 /**
- * Class PasswordIsBadException
- *
- * @package App\Domain\User\Exception
+ * Class PasswordIsBadException.
  */
 class PasswordIsBadException extends \InvalidArgumentException
 {

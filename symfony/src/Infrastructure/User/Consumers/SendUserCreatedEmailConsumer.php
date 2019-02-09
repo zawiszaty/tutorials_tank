@@ -22,9 +22,9 @@ class SendUserCreatedEmailConsumer implements ConsumerInterface
     /**
      * @param AMQPMessage $msg
      *
-     * @return mixed|void
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return mixed|void
      */
     public function execute(AMQPMessage $msg)
     {

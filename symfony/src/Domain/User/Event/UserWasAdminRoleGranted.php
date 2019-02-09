@@ -6,9 +6,7 @@ use App\Domain\Common\Event\AbstractEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 
 /**
- * Class UserWasAdminRoleGranted
- *
- * @package App\Domain\User\Event
+ * Class UserWasAdminRoleGranted.
  */
 class UserWasAdminRoleGranted extends AbstractEvent
 {
@@ -25,9 +23,9 @@ class UserWasAdminRoleGranted extends AbstractEvent
     /**
      * @param array $data
      *
-     * @return self
-     *
      * @throws \Assert\AssertionFailedException
+     *
+     * @return self
      */
     public static function deserialize(array $data): self
     {

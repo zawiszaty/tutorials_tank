@@ -3,16 +3,14 @@
 namespace App\UI\HTTP\Common\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\NotNull;
 
 /**
- * Class ChangeAvatarForm
- *
- * @package App\UI\HTTP\Common\Form
+ * Class ChangeAvatarForm.
  */
 class ChangeAvatarForm extends AbstractType
 {

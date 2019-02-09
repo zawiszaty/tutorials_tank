@@ -23,3 +23,27 @@ db: ## recreate database
 		docker-compose exec php php bin/console d:s:c
 		docker-compose exec php php bin/console d:m:m -n
 
+.PHONY: dev
+dev: erase up db db-test
+
+.PHONY: db-test
+db-test: ## recreate database in test env
+		docker-compose exec php php bin/console d:d:c --env=test
+		docker-compose exec php php bin/console d:s:c --env=test
+		docker-compose exec php php bin/console d:m:m -n --env=test
+
+.PHONY: test
+test: phpunit phpspec behat
+
+.PHONY: behat
+behat:
+		docker-compose exec php ./vendor/bin/behat
+
+.PHONY: phpspec
+phpspec:
+		docker-compose exec php ./vendor/bin/phpspec run
+
+.PHONY: phpunit
+phpunit:
+		docker-compose exec php apt-get -y install git
+		docker-compose exec php ./vendor/bin/simple-phpunit

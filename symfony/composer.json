@@ -40,6 +40,7 @@
         "symfony/lts": "^4@dev",
         "symfony/monolog-bundle": "^3.3",
         "symfony/orm-pack": "*",
+        "symfony/phpunit-bridge": "*@dev",
         "symfony/process": "^4.1",
         "symfony/security-bundle": "^4.1",
         "symfony/serializer-pack": "*",
@@ -48,8 +49,7 @@
         "symfony/twig-bundle": "^4.1",
         "symfony/validator": "^4.1",
         "symfony/web-link": "^4.1",
-        "symfony/webpack-encore-pack": "*",
-        "symfony/yaml": "^4.1"
+        "symfony/webpack-encore-pack": "*"
     },
     "require-dev": {
         "behat/behat": "dev-master",
@@ -61,7 +61,6 @@
         "symfony/debug-pack": "*",
         "symfony/dotenv": "^4.1",
         "symfony/maker-bundle": "^1.0",
-        "symfony/phpunit-bridge": "^4.1",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "^1.0",
         "symfony/web-server-bundle": "^4.1"
@@ -107,6 +106,12 @@
     "extra": {
         "symfony": {
             "allow-contrib": false
+        }
+    },
+    "repositories": {
+        "phpunit-bridge": {
+            "type": "path",
+            "url": "/var/www/project/vendor/symfony/phpunit-bridge"
         }
     }
 }

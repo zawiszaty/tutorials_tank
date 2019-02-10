@@ -55,11 +55,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+            <state relative-caret-position="87">
+              <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -73,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/symfony/tests/Application/ApplicationTestCase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+            <state relative-caret-position="-3482">
+              <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
               <folding>
                 <element signature="e#67#116#0#PHP" expanded="true" />
               </folding>
@@ -191,8 +191,8 @@
         <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Delete/DeletePostHandlerTest.php" />
         <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Edit/EditPostHandlerTest.php" />
         <option value="$PROJECT_DIR$/symfony/tests/Application/Query/Comment/GetAllPostCommentHandlerTest.php" />
-        <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/symfony/tests/Application/ApplicationTestCase.php" />
+        <option value="$PROJECT_DIR$/makefile" />
       </list>
     </option>
   </component>
@@ -558,48 +558,6 @@
               <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Query" type="462c0819:PsiDirectoryNode" />
-              <item name="Comment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -829,7 +787,7 @@
       <workItem from="1549723897644" duration="3339000" />
       <workItem from="1549727256843" duration="2128000" />
       <workItem from="1549784613034" duration="3126000" />
-      <workItem from="1549797911845" duration="5170000" />
+      <workItem from="1549797911845" duration="5380000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -873,13 +831,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156202000" />
+    <option name="totallyTimeSpent" value="156412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="28" width="1874" height="1029" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14254385" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14254385" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="0" />
@@ -893,7 +851,7 @@
       <window_info anchor="bottom" id="Docker" order="8" weight="0.32880846" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32735425" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4989035" visible="true" weight="0.3352018" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989035" visible="true" weight="0.5246637" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5010965" side_tool="true" weight="0.28139013" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3295964" />
       <window_info anchor="bottom" id="REST Client" order="14" sideWeight="0.4994664" weight="0.40695068" />
@@ -1286,13 +1244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/vendor/symfony/framework-bundle/Test/KernelTestCase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1302,11 +1253,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/symfony/tests/Application/ApplicationTestCase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+        <state relative-caret-position="-3482">
+          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
           <folding>
             <element signature="e#67#116#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
         </state>
       </provider>
     </entry>

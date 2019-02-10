@@ -32,7 +32,6 @@ db-test: ## recreate database in test env
 		docker-compose exec php php bin/console d:s:c --env=test
 		docker-compose exec php php bin/console d:m:m -n --env=test
 
-
 .PHONY: test
 test: phpspec behat elastica phpunit
 
@@ -56,6 +55,8 @@ composer-install:
 .PHONY: elastica
 elastica:
 		docker-compose exec php php bin/console f:e:p
+
 .PHONY: clear
 clear:
 		docker-compose rm -v -f
+		docker-compose down

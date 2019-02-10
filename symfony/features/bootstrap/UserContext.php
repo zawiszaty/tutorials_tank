@@ -25,6 +25,8 @@ class UserContext implements \Behat\Behat\Context\Context
 
     private static $confirm_token;
 
+    public static $response;
+
     /**
      * FeatureContext constructor.
      *
@@ -42,20 +44,18 @@ class UserContext implements \Behat\Behat\Context\Context
      */
     public function iHaveUserInDatabase()
     {
-        $response = $this->client->post(self::uri.'/api/v1/user/register', [
+        $response = $this->client->post(self::uri . '/api/v1/user/register', [
             GuzzleHttp\RequestOptions::JSON => [
-                'email'         => 'test@wp.pl',
-                'username'      => 'test',
+                'email' => 'test@wp.pl',
+                'username' => 'test',
                 'plainPassword' => [
-                    'first'  => 'test123',
+                    'first' => 'test123',
                     'second' => 'test123',
                 ],
             ],
         ]);
 
-        if (201 !== $response->getStatusCode()) {
-            throw new PendingException();
-        }
+        self::$response = $response->getStatusCode();
 
         /** @var \Doctrine\ORM\EntityManager $manager */
         $manager = self::$container->get('doctrine.orm.entity_manager');
@@ -69,24 +69,10 @@ class UserContext implements \Behat\Behat\Context\Context
      */
     public function iSendConfirmRequest()
     {
-        $response = $this->client->patch(self::uri.'/api/v1/user/confirm/'.self::$confirm_token);
+        $response = $this->client->patch(self::uri . '/api/v1/user/confirm/' . self::$confirm_token);
 
         if (200 !== $response->getStatusCode()) {
             throw new PendingException();
-        }
-    }
-
-    /**
-     * @Then I user was confirmed
-     */
-    public function iUserWasConfirmed()
-    {
-        /** @var \Doctrine\ORM\EntityManager $manager */
-        $manager = self::$container->get('doctrine.orm.entity_manager');
-        $user = $manager->getRepository('Projections:User\Query\Projections\UserView')->findOneBy([]);
-
-        if ($user->isEnabled()) {
-            throw new \Exception();
         }
     }
 
@@ -112,36 +98,20 @@ class UserContext implements \Behat\Behat\Context\Context
         $connection = self::$container->get('doctrine')->getConnection();
         $connection->beginTransaction();
         $connection->query('SET FOREIGN_KEY_CHECKS=0');
-        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \''.$user->getId().'\', \'SampleAdminNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
+        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \'' . $user->getId() . '\', \'SampleAdminNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
         $connection->query('INSERT INTO `client` (`id`, `random_id`, `redirect_uris`, `secret`, `allowed_grant_types`) VALUES (\'3\', \'49kosu470vacc0gso8sco8swkc444kcs0o0okow40wkc88w4w4\', \'a:1:{i:0;s:9:\"localhost\";}\', \'2rt5otttbjs448swo0sk44s8088k8kogwgw8ogsc44gk440c48\', \'a:1:{i:0;s:8:\"password\";}\')');
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
-        $this->client->patch(self::uri.'/api/v1/user/confirm/'.self::$confirm_token);
+        $this->client->patch(self::uri . '/api/v1/user/confirm/' . self::$confirm_token);
         $connection->commit();
         $confirm_token = $user->getConfirmationToken();
-        $this->client->patch(self::uri.'/api/v1/user/confirm/'.$confirm_token);
-        $response = $this->client->patch(self::uri.'/api/v1/user/banned/'.self::$userId, [
+        $this->client->patch(self::uri . '/api/v1/user/confirm/' . $confirm_token);
+        $response = $this->client->patch(self::uri . '/api/v1/user/banned/' . self::$userId, [
             'headers' => [
                 'Authorization' => 'Bearer SampleAdminNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
             ],
         ]);
 
-        if (200 !== $response->getStatusCode()) {
-            throw new PendingException();
-        }
-    }
-
-    /**
-     * @Then I have banned user
-     */
-    public function iHaveBannedUser()
-    {
-        /** @var \Doctrine\ORM\EntityManager $manager */
-        $manager = self::$container->get('doctrine.orm.entity_manager');
-        $user = $manager->getRepository('Projections:User\Query\Projections\UserView')->findOneBy([]);
-
-        if ($user->isBanned()) {
-            throw new \Exception();
-        }
+        self::$response = $response->getStatusCode();
     }
 
     /**
@@ -152,38 +122,21 @@ class UserContext implements \Behat\Behat\Context\Context
         $connection = self::$container->get('doctrine')->getConnection();
         $connection->beginTransaction();
         $connection->query('SET FOREIGN_KEY_CHECKS=0');
-        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \''.self::$userId.'\', \'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
+        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \'' . self::$userId . '\', \'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
         $connection->query('INSERT INTO `client` (`id`, `random_id`, `redirect_uris`, `secret`, `allowed_grant_types`) VALUES (\'3\', \'49kosu470vacc0gso8sco8swkc444kcs0o0okow40wkc88w4w4\', \'a:1:{i:0;s:9:\"localhost\";}\', \'2rt5otttbjs448swo0sk44s8088k8kogwgw8ogsc44gk440c48\', \'a:1:{i:0;s:8:\"password\";}\')');
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
-        $this->client->patch(self::uri.'/api/v1/user/confirm/'.self::$confirm_token);
+        $this->client->patch(self::uri . '/api/v1/user/confirm/' . self::$confirm_token);
         $connection->commit();
-        $response = $this->client->patch(self::uri.'/api/v1/user/change/email', [
+        $response = $this->client->patch(self::uri . '/api/v1/user/change/email', [
             'headers' => [
-                'Authorization' => 'Bearer '.'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
+                'Authorization' => 'Bearer ' . 'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
             ],
             GuzzleHttp\RequestOptions::JSON => [
                 'email' => 'test2w@wp.pl',
             ],
         ]);
 
-        if (200 !== $response->getStatusCode()) {
-            throw new PendingException();
-        }
-    }
-
-    /**
-     * @Then I have user with changed email
-     */
-    public function iHaveUserWithChangedEmail()
-    {
-        /** @var \Doctrine\ORM\EntityManager $manager */
-        $manager = self::$container->get('doctrine.orm.entity_manager');
-        $user = $manager->getRepository('Projections:User\Query\Projections\UserView')->find(self::$userId);
-
-        dump($user->getEmail());
-//        if ($user->getEmail() !== 'test2w@wp.pl') {
-//            throw new \Exception();
-//        }
+        self::$response = $response->getStatusCode();
     }
 
     /**
@@ -194,23 +147,21 @@ class UserContext implements \Behat\Behat\Context\Context
         $connection = self::$container->get('doctrine')->getConnection();
         $connection->beginTransaction();
         $connection->query('SET FOREIGN_KEY_CHECKS=0');
-        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \''.self::$userId.'\', \'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
+        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \'' . self::$userId . '\', \'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
         $connection->query('INSERT INTO `client` (`id`, `random_id`, `redirect_uris`, `secret`, `allowed_grant_types`) VALUES (\'3\', \'49kosu470vacc0gso8sco8swkc444kcs0o0okow40wkc88w4w4\', \'a:1:{i:0;s:9:\"localhost\";}\', \'2rt5otttbjs448swo0sk44s8088k8kogwgw8ogsc44gk440c48\', \'a:1:{i:0;s:8:\"password\";}\')');
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
-        $this->client->patch(self::uri.'/api/v1/user/confirm/'.self::$confirm_token);
+        $this->client->patch(self::uri . '/api/v1/user/confirm/' . self::$confirm_token);
         $connection->commit();
-        $response = $this->client->patch(self::uri.'/api/v1/user/change/username', [
+        $response = $this->client->patch(self::uri . '/api/v1/user/change/username', [
             'headers' => [
-                'Authorization' => 'Bearer '.'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
+                'Authorization' => 'Bearer ' . 'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
             ],
             GuzzleHttp\RequestOptions::JSON => [
                 'username' => 'username2',
             ],
         ]);
 
-        if (200 !== $response->getStatusCode()) {
-            throw new PendingException();
-        }
+        self::$response = $response->getStatusCode();
     }
 
     /**
@@ -236,35 +187,25 @@ class UserContext implements \Behat\Behat\Context\Context
         $connection = self::$container->get('doctrine')->getConnection();
         $connection->beginTransaction();
         $connection->query('SET FOREIGN_KEY_CHECKS=0');
-        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \''.self::$userId.'\', \'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
+        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \'' . self::$userId . '\', \'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
         $connection->query('INSERT INTO `client` (`id`, `random_id`, `redirect_uris`, `secret`, `allowed_grant_types`) VALUES (\'3\', \'49kosu470vacc0gso8sco8swkc444kcs0o0okow40wkc88w4w4\', \'a:1:{i:0;s:9:\"localhost\";}\', \'2rt5otttbjs448swo0sk44s8088k8kogwgw8ogsc44gk440c48\', \'a:1:{i:0;s:8:\"password\";}\')');
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
-        $this->client->patch(self::uri.'/api/v1/user/confirm/'.self::$confirm_token);
+        $this->client->patch(self::uri . '/api/v1/user/confirm/' . self::$confirm_token);
         $connection->commit();
-        $response = $this->client->patch(self::uri.'/api/v1/user/change/password', [
+        $response = $this->client->patch(self::uri . '/api/v1/user/change/password', [
             'headers' => [
-                'Authorization' => 'Bearer '.'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
+                'Authorization' => 'Bearer ' . 'SampleTokenNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
             ],
             GuzzleHttp\RequestOptions::JSON => [
                 'plainPassword' => [
-                    'first'  => 'test1234',
+                    'first' => 'test1234',
                     'second' => 'test1234',
                 ],
                 'oldPassword' => 'test123',
             ],
         ]);
 
-        if (200 !== $response->getStatusCode()) {
-            throw new \Exception();
-        }
-    }
-
-    /**
-     * @When I have user with changed password
-     */
-    public function iHaveUserWithChangedPassword()
-    {
-//        throw new PendingException();
+        self::$response = $response->getStatusCode();
     }
 
     /**
@@ -289,28 +230,30 @@ class UserContext implements \Behat\Behat\Context\Context
         $connection = self::$container->get('doctrine')->getConnection();
         $connection->beginTransaction();
         $connection->query('SET FOREIGN_KEY_CHECKS=0');
-        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \''.$user->getId().'\', \'SampleAdminNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
+        $connection->query('INSERT INTO `access_token` (`id`, `client_id`, `user_id`, `token`, `expires_at`, `scope`) VALUES (NULL, \'1\', \'' . $user->getId() . '\', \'SampleAdminNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg\', NULL, NULL);');
         $connection->query('INSERT INTO `client` (`id`, `random_id`, `redirect_uris`, `secret`, `allowed_grant_types`) VALUES (\'3\', \'49kosu470vacc0gso8sco8swkc444kcs0o0okow40wkc88w4w4\', \'a:1:{i:0;s:9:\"localhost\";}\', \'2rt5otttbjs448swo0sk44s8088k8kogwgw8ogsc44gk440c48\', \'a:1:{i:0;s:8:\"password\";}\')');
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
-        $this->client->patch(self::uri.'/api/v1/user/confirm/'.self::$confirm_token);
+        $this->client->patch(self::uri . '/api/v1/user/confirm/' . self::$confirm_token);
         $connection->commit();
         $confirm_token = $user->getConfirmationToken();
-        $this->client->patch(self::uri.'/api/v1/user/confirm/'.$confirm_token);
-        $response = $this->client->patch(self::uri.'/api/v1/user/role/admin/'.self::$userId, [
+        $this->client->patch(self::uri . '/api/v1/user/confirm/' . $confirm_token);
+        $response = $this->client->patch(self::uri . '/api/v1/user/role/admin/' . self::$userId, [
             'headers' => [
                 'Authorization' => 'Bearer SampleAdminNTE0YjkyNTI1ZTcxNTAxYjIzMWYwOWY3MDNjMTc5ZTA5NzU5MjA0MzdmZmU0OWIzOWY3Y2ZhZDY4NTM5OWQyMg',
             ],
         ]);
 
-        if (202 !== $response->getStatusCode()) {
-            throw new PendingException();
-        }
+        self::$response = $response->getStatusCode();
     }
 
     /**
-     * @Then I have other admin
+     * @Then The response is ok
      */
-    public function iHaveOtherAdmin()
+    public function theResponseIsOk()
     {
+        if (self::$response !== 200 && self::$response !== 202 && self::$response !== 201) {
+            throw new \Behat\Behat\Tester\Exception\PendingException();
+        }
     }
+
 }

@@ -21,30 +21,30 @@ Feature: User Feature
   Scenario: Confirmed new User
     When I have user in database
     And I send confirm request
-    Then I user was confirmed
+    Then The response is ok
 
   Scenario: Ban user
     When I have user in database
     And I send banned request
-    Then I have banned user
+    Then The response is ok
 
   Scenario: Change user email
     When I have user in database
     And I send change user email request
-    Then I have user with changed email
+    Then The response is ok
 
   Scenario: Change user name
     When I have user in database
     And I send change user name request
-    Then I have user with changed name
+    Then The response is ok
 
   Scenario: Change user password
     When I have user in database
     And I send change password resquest
-    And I have user with changed password
+    Then The response is ok
 
   Scenario: Granted Admin User role
     When I have user in database
     And I send granted request
-    Then I have other admin
+    Then The response is ok
 

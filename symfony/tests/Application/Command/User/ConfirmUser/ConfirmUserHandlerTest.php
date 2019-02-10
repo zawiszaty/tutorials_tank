@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Application\Command\User\ConfirmUser;
 
 use App\Application\Command\User\ConfirmUser\ConfirmUserCommand;
-use App\Application\Command\User\Create\CreateUserCommand;
 use App\Domain\User\Event\UserWasConfirmed;
 use App\Domain\User\Event\UserWasCreated;
 use App\Tests\Application\ApplicationTestCase;
@@ -14,9 +13,7 @@ use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
 
 /**
- * Class ConfirmUserHandlerTest
- *
- * @package App\Tests\Application\Command\User\ConfirmUser
+ * Class ConfirmUserHandlerTest.
  */
 class ConfirmUserHandlerTest extends ApplicationTestCase
 {

@@ -6,17 +6,16 @@ use App\Application\Command\User\Create\CreateUserCommand;
 use Ramsey\Uuid\Uuid;
 
 /**
- * Class User
- *
- * @package App\Tests\Application\Utils\User
+ * Class User.
  */
 class User
 {
     /**
      * @param string $email
      *
-     * @return CreateUserCommand
      * @throws \Exception
+     *
+     * @return CreateUserCommand
      */
     public static function create(string $email)
     {

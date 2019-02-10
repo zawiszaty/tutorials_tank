@@ -2,8 +2,6 @@
 
 namespace App\Application\Command\Post\Edit;
 
-use Symfony\Component\HttpFoundation\File\File;
-
 /**
  * Class CreatePostCommand.
  */

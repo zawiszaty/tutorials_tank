@@ -28,7 +28,7 @@ if (is_array($env = @include dirname(__DIR__).'/.env.local.php')) {
         }
 
         if (null === $env = $_SERVER['APP_ENV'] ?? $_ENV['APP_ENV'] ?? null) {
-            $dotenv->populate(array('APP_ENV' => $env = 'dev'));
+            $dotenv->populate(['APP_ENV' => $env = 'dev']);
         }
 
         if ('test' !== $env && file_exists($p = "$path.local")) {

@@ -4,23 +4,14 @@ declare(strict_types=1);
 
 namespace App\Tests\Application\Command\Post\Create;
 
-use App\Application\Command\Category\Create\CreateCategoryCommand;
-use App\Application\Command\Post\Create\CreatePostCommand;
-use App\Application\Command\User\Create\CreateUserCommand;
-use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Post\Event\CreatePostEvent;
-use App\Domain\User\Event\UserWasCreated;
 use App\Tests\Application\ApplicationTestCase;
 use App\Tests\Application\Utils\Post\Post;
 use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
-use Ramsey\Uuid\Uuid;
-use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * Class CreatePostHandlerTest
- *
- * @package App\Tests\Application\Command\Post\Create
+ * Class CreatePostHandlerTest.
  */
 class CreatePostHandlerTest extends ApplicationTestCase
 {

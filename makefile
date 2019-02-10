@@ -50,4 +50,5 @@ phpunit:
 
 .PHONY: composer-install
 composer-install:
+		docker-compose exec php apt-get -y install git
 		docker-compose run php php composer.phar install

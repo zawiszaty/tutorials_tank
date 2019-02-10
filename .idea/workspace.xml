@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/Dockerfile" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -33,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="392">
+              <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -54,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docker-compose.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="368">
@@ -204,7 +205,6 @@
         <option value="$PROJECT_DIR$/docker/php/Dockerfile" />
         <option value="$PROJECT_DIR$/docker/nginx/default.conf" />
         <option value="$PROJECT_DIR$/symfony/.gitignore" />
-        <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/symfony/behat.yml" />
         <option value="$PROJECT_DIR$/symfony/features/bootstrap/FeatureContext.php" />
         <option value="$PROJECT_DIR$/symfony/public/index_test.php" />
@@ -216,6 +216,7 @@
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/symfony/Dockerfile" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/makefile" />
       </list>
     </option>
   </component>
@@ -820,7 +821,7 @@
       <workItem from="1549711884621" duration="3394000" />
       <workItem from="1549723897644" duration="3339000" />
       <workItem from="1549727256843" duration="2128000" />
-      <workItem from="1549784613034" duration="1324000" />
+      <workItem from="1549784613034" duration="2006000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -864,13 +865,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149230000" />
+    <option name="totallyTimeSpent" value="149912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="28" width="1874" height="1029" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14089912" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14089912" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="0" />
@@ -884,7 +885,7 @@
       <window_info anchor="bottom" id="Docker" order="8" weight="0.32880846" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32735425" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4989035" visible="true" weight="0.3352018" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989035" visible="true" weight="0.3352018" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5010965" side_tool="true" weight="0.28139013" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3295964" />
       <window_info anchor="bottom" id="REST Client" order="14" sideWeight="0.4994664" weight="0.40695068" />
@@ -1235,13 +1236,6 @@
     <entry file="file://$PROJECT_DIR$/symfony/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1280,6 +1274,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1287,10 +1288,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+    <entry file="file://$PROJECT_DIR$/makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+        <state relative-caret-position="392">
+          <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
         </state>
       </provider>
     </entry>

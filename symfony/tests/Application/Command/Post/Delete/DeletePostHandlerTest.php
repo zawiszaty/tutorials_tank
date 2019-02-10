@@ -9,6 +9,7 @@ use App\Application\Command\Post\Delete\DeletePostCommand;
 use App\Domain\Post\Event\CreatePostEvent;
 use App\Domain\Post\Event\PostEventDelete;
 use App\Tests\Application\ApplicationTestCase;
+use App\Tests\Application\Utils\Post\Post;
 use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
 use Ramsey\Uuid\Uuid;
@@ -21,23 +22,14 @@ class DeletePostHandlerTest extends ApplicationTestCase
      * @test
      *
      * @group integration
+     * @throws \Exception
      */
     public function command_handler_must_fire_domain_event(): void
     {
-        $this->expectException(NotFoundHttpException::class);
-        copy('public/sample/sample.jpg', 'public/sample/sample2.jpg');
-        $file = new File('public/sample/sample2.jpg');
-        $uuid = Uuid::uuid4()->toString();
         $content = 'test';
-        $command = new CreatePostCommand();
-        $command->setContent($content);
-        $command->setUser($uuid);
-        $command->setType('oder_site');
-        $command->setTitle('test');
-        $command->setFile($file);
-        $command->setThumbnail('test');
-        $command->setCategory($uuid);
-        $command->setShortDescription('test');
+        $user = $this->createUser();
+        $category = $this->createCategory();
+        $command = Post::create($content, $user, $category);
         $this
             ->handle($command);
         /** @var EventCollectorListener $collector */
@@ -54,9 +46,9 @@ class DeletePostHandlerTest extends ApplicationTestCase
         $collector = $this->service(EventCollectorListener::class);
         /** @var DomainMessage[] $events */
         $events = $collector->popEvents();
-        self::assertCount(2, $events);
+        self::assertCount(1, $events);
         /** @var PostEventDelete $postEventDelete */
-        $postEventDelete = $events[1]->getPayload();
+        $postEventDelete = $events[0]->getPayload();
         self::assertInstanceOf(PostEventDelete::class, $postEventDelete);
     }
 }

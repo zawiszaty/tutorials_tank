@@ -2,11 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73639fa0-b520-4e7b-983b-bcb71df8eacb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/symfony/tests/Application/Utils/Category/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/tests/Application/Utils/Post/Post.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/tests/Application/Utils/User/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.env.test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/phpunit.xml.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Application/Command/Post/Edit/EditPostCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Post/Edit/EditPostCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/ApplicationTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/ApplicationTestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/Category/CreateCategoryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Category/CreateCategoryHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/Category/DeleteCategoryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Category/DeleteCategoryHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/Category/EditCategoryHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Category/EditCategoryHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Create/CreateCommentHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Create/CreateCommentHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Delete/DeleteCommentHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Delete/DeleteCommentHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Create/CreatePostHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Create/CreatePostHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Delete/DeletePostHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Delete/DeletePostHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Edit/EditPostHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Edit/EditPostHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/User/Banned/BannedUserHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/Banned/BannedUserHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeEmail/ChangeEmailHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeEmail/ChangeEmailHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeName/ChangeNameHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeName/ChangeNameHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangePassword/ChangePasswordHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangePassword/ChangePasswordHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ConfirmUser/ConfirmUserHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ConfirmUser/ConfirmUserHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/User/Create/CreateUserHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/Create/CreateUserHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleHandlerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Query/Comment/GetAllPostCommentHandlerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/tests/Application/Query/Comment/GetAllPostCommentHandlerTest.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,74 +58,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="25" column="11" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="11" />
+            <state relative-caret-position="41">
+              <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="667">
-                <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+        <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Query/Comment/GetAllPostCommentHandlerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Wire/IO/StreamIO.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="184">
+              <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.travis.yml">
+        <entry file="file://$PROJECT_DIR$/symfony/tests/Application/ApplicationTestCase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/config/packages/doctrine.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/config/packages/test/doctrine.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+            <state relative-caret-position="230">
+              <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+              <folding>
+                <element signature="e#67#116#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,7 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>deleteCategory</find>
       <find>sele</find>
       <find>EnhancedTableHead</find>
       <find>Kategorie</find>
@@ -148,8 +123,9 @@
       <find>getSchemeAndHttpHost</find>
       <find>symfony/php</find>
       <find>composer require</find>
-      <find>phpunit</find>
       <find>SOCKET_EAGAIN</find>
+      <find>phpunit</find>
+      <find>getI</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -166,28 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web-app/src/components/Post/PostThumbnailForm.js" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Post/Edit/EditPost.js" />
-        <option value="$PROJECT_DIR$/config/packages/old_sound_rabbit_mq.yaml" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/OtherSiteForm.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Post/OtherSiteForm.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Post/OwnPostForm.js" />
-        <option value="$PROJECT_DIR$/src/UI/HTTP/Rest/Controller/PostController.php" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/PostThumbnailForm.js" />
-        <option value="$PROJECT_DIR$/src/UI/HTTP/Common/Form/EditPostForm.php" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/OwnPostForm.js" />
-        <option value="$PROJECT_DIR$/src/Application/Command/Post/Edit/EditPostHandler.php" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/SinglePost.js" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/AddComment.js" />
-        <option value="$PROJECT_DIR$/src/Application/Command/User/ChangeAvatar/ChangeAvatarHandler.php" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/DeleteCommentModal.js" />
-        <option value="$PROJECT_DIR$/src/Application/Command/Comment/Delete/DeleteCommentHandler.php" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/Comment.js" />
-        <option value="$PROJECT_DIR$/src/Application/Command/Comment/Create/CreateCommentHandler.php" />
-        <option value="$PROJECT_DIR$/config/routes.yaml" />
-        <option value="$PROJECT_DIR$/config/mapping/orm/projections/Post.Query.Projections.PostView.orm.yml" />
-        <option value="$PROJECT_DIR$/config/mapping/orm/projections/Comment.Query.Projections.CommentView.orm.yml" />
-        <option value="$PROJECT_DIR$/config/mapping/orm/projections/Message.MessageView.orm.yml" />
         <option value="$PROJECT_DIR$/config/mapping/orm/projections/Notification.NotificationView.orm.yml" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Share/Query/Repository/MysqlRepository.php" />
         <option value="$PROJECT_DIR$/src/Domain/Post/Post.php" />
@@ -215,8 +169,30 @@
         <option value="$PROJECT_DIR$/symfony/config/packages/test/doctrine.yaml" />
         <option value="$PROJECT_DIR$/symfony/Dockerfile" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/symfony/composer.json" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Utils/Category/Category.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Category/CreateCategoryHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Category/DeleteCategoryHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Category/EditCategoryHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/User/Create/CreateUserHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/User/Banned/BannedUserHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeEmail/ChangeEmailHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeName/ChangeNameHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangePassword/ChangePasswordHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/User/ConfirmUser/ConfirmUserHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Create/CreatePostHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Delete/DeleteCommentHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Utils/User/User.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Utils/Post/Post.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Create/CreateCommentHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Command/Post/Edit/EditPostCommand.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Delete/DeletePostHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Post/Edit/EditPostHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Query/Comment/GetAllPostCommentHandlerTest.php" />
+        <option value="$PROJECT_DIR$/makefile" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/ApplicationTestCase.php" />
       </list>
     </option>
   </component>
@@ -591,7 +567,38 @@
               <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
               <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Query" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Query" type="462c0819:PsiDirectoryNode" />
+              <item name="Comment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -821,7 +828,8 @@
       <workItem from="1549711884621" duration="3394000" />
       <workItem from="1549723897644" duration="3339000" />
       <workItem from="1549727256843" duration="2128000" />
-      <workItem from="1549784613034" duration="2242000" />
+      <workItem from="1549784613034" duration="3126000" />
+      <workItem from="1549797911845" duration="5170000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -865,13 +873,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150148000" />
+    <option name="totallyTimeSpent" value="156202000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="28" width="1874" height="1029" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14089912" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14254385" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="0" />
@@ -890,11 +898,11 @@
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3295964" />
       <window_info anchor="bottom" id="REST Client" order="14" sideWeight="0.4994664" weight="0.40695068" />
       <window_info anchor="bottom" id="Messages" order="15" sideWeight="0.49945176" weight="0.3295964" />
-      <window_info anchor="right" id="make" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.32967034" />
+      <window_info anchor="right" id="make" order="4" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21655701" />
@@ -951,212 +959,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Query/Category/GetAllHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-348" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/ApplicationTestCase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1153" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/templates/emails/registration.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="28" column="395" selection-start-line="28" selection-start-column="395" selection-end-line="28" selection-end-column="395" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="e#219#225#0" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Comment/Create/CreateCommentCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="76" column="40" selection-start-line="76" selection-start-column="40" selection-end-line="76" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Post/Create/CreatePostCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Post/Create/CreatePostHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="52" column="30" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Create/CreateCommentHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-530">
-          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Category/EditCategoryHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="47" column="45" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Category/CreateCategoryHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-233" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Category/DeleteCategoryHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-552" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Post/Create/CreatePostHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-552" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Post/Edit/EditPostHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-322">
-          <caret line="79" column="44" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Post/Delete/DeletePostHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="59" column="46" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/features/user.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/config/packages/nelmio_cors.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="55" lean-forward="true" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/var/log/dev.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
-          <caret line="33" column="273" lean-forward="true" selection-start-line="33" selection-start-column="273" selection-end-line="33" selection-end-column="273" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Comment/CommentReadProjectionFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="93" column="11" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Query/Comment/GetAllPostComment/GetAllPostCommentHandler.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Category/Delete/DeleteCategoryHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="68" column="55" lean-forward="true" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Query/Category/GetAll/GetAllHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="56" column="90" selection-start-line="56" selection-start-column="90" selection-end-line="56" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/ChangeAvatar/ChangeAvatarHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/nginx/default.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/serviceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -1182,13 +984,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="11" column="65" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="57" column="23" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1246,6 +1041,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Wire/IO/StreamIO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1817">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/config/packages/doctrine.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -1260,38 +1083,230 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Wire/IO/StreamIO.php">
+    <entry file="file://$PROJECT_DIR$/symfony/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="345">
+          <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Domain/Category/CategoryTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1565" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Domain/Comment/CommentTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-483" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Domain/Post/PostTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1449" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Utils/Category/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Category/DeleteCategoryHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding>
+            <element signature="e#84#150#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Category/EditCategoryHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="26" column="42" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/Create/CreateUserHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="25" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/Banned/BannedUserHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeEmail/ChangeEmailHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeName/ChangeNameHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/ConfirmUser/ConfirmUserHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-460">
+          <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="37" column="52" lean-forward="true" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangePassword/ChangePasswordHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Category/CreateCategoryHandlerTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
-          <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+          <caret line="30" column="53" lean-forward="true" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Query/Category/GetAllHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Query/Category/GetSingleHandlerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        <state relative-caret-position="-461" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Delete/DeleteCommentHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="897">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Post/Create/CreatePostCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3382">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Utils/User/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#52#110#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Post/Create/CreatePostHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-437">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Comment/Create/CreateCommentHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="42" column="36" lean-forward="true" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Utils/Post/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding>
+            <element signature="e#136#194#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Create/CreateCommentHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Post/Edit/EditPostCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Post/Create/CreatePostHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="38" column="31" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="38" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Post/Delete/DeletePostHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+          <folding>
+            <element signature="e#87#145#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/Post/Edit/EditPostHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Query/Comment/GetAllPostCommentHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="25" column="11" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="11" />
+        <state relative-caret-position="41">
+          <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
+    <entry file="file://$PROJECT_DIR$/symfony/vendor/symfony/framework-bundle/Test/KernelTestCase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        <state relative-caret-position="176">
+          <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/ApplicationTestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+          <folding>
+            <element signature="e#67#116#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

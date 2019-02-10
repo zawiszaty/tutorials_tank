@@ -9,6 +9,7 @@ use App\Application\Command\Category\Delete\DeleteCategoryCommand;
 use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Category\Event\CategoryWasDeleted;
 use App\Tests\Application\ApplicationTestCase;
+use App\Tests\Application\Utils\Category\Category;
 use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
 
@@ -23,11 +24,8 @@ class DeleteCategoryHandlerTest extends ApplicationTestCase
      */
     public function command_handler_must_fire_domain_event(): void
     {
-        $name = 'test';
-        $command = new CreateCategoryCommand();
-        $command->name = $name;
-        $this
-            ->handle($command);
+        $command = Category::create('test');
+        $this->handle($command);
         $collector = $this->service(EventCollectorListener::class);
         /** @var DomainMessage[] $events */
         $events = $collector->popEvents();

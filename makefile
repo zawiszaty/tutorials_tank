@@ -32,8 +32,9 @@ db-test: ## recreate database in test env
 		docker-compose exec php php bin/console d:s:c --env=test
 		docker-compose exec php php bin/console d:m:m -n --env=test
 
+
 .PHONY: test
-test: phpunit phpspec behat
+test: phpspec behat elastica phpunit
 
 .PHONY: behat
 behat:
@@ -45,10 +46,13 @@ phpspec:
 
 .PHONY: phpunit
 phpunit:
-		docker-compose exec php apt-get -y install git
-		docker-compose exec php ./vendor/bin/simple-phpunit
+		docker-compose exec php ./vendor/bin/phpunit
 
 .PHONY: composer-install
 composer-install:
 		docker-compose exec php apt-get -y install git
 		docker-compose exec php php composer.phar install
+
+.PHONY: elastica
+elastica:
+		docker-compose exec php php bin/console f:e:p

@@ -40,7 +40,7 @@
         "symfony/lts": "^4@dev",
         "symfony/monolog-bundle": "^3.3",
         "symfony/orm-pack": "*",
-        "symfony/phpunit-bridge": "*@dev",
+        "symfony/phpunit-bridge": "^4.1",
         "symfony/process": "^4.1",
         "symfony/security-bundle": "^4.1",
         "symfony/serializer-pack": "*",
@@ -58,6 +58,7 @@
         "behat/symfony2-extension": "^2.1",
         "behatch/contexts": "^3.1",
         "doctrine/doctrine-fixtures-bundle": "^3.1",
+        "phpunit/phpunit": "7.3.*",
         "symfony/debug-pack": "*",
         "symfony/dotenv": "^4.1",
         "symfony/maker-bundle": "^1.0",
@@ -106,12 +107,6 @@
     "extra": {
         "symfony": {
             "allow-contrib": false
-        }
-    },
-    "repositories": {
-        "phpunit-bridge": {
-            "type": "path",
-            "url": "/var/www/project/vendor/symfony/phpunit-bridge"
         }
     }
 }

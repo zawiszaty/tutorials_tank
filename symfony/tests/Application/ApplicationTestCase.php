@@ -25,9 +25,7 @@ use Symfony\Component\HttpKernel\Event\PostResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * Class ApplicationTestCase
- *
- * @package App\Tests\Application
+ * Class ApplicationTestCase.
  */
 abstract class ApplicationTestCase extends KernelTestCase
 {
@@ -73,9 +71,6 @@ abstract class ApplicationTestCase extends KernelTestCase
         );
     }
 
-    /**
-     *
-     */
     protected function setUp(): void
     {
         static::bootKernel();
@@ -96,9 +91,6 @@ abstract class ApplicationTestCase extends KernelTestCase
         $connection->commit();
     }
 
-    /**
-     *
-     */
     protected function tearDown(): void
     {
         $this->commandBus = null;
@@ -114,12 +106,13 @@ abstract class ApplicationTestCase extends KernelTestCase
     private $queryBus;
 
     /**
-     * @return string
      * @throws \Exception
+     *
+     * @return string
      */
     protected function createCategory(): CategoryView
     {
-        $name = 'test' . Uuid::uuid4()->toString();
+        $name = 'test'.Uuid::uuid4()->toString();
         $command = Category::create($name);
         $this
             ->handle($command);
@@ -139,12 +132,13 @@ abstract class ApplicationTestCase extends KernelTestCase
     }
 
     /**
-     * @return string
      * @throws \Exception
+     *
+     * @return string
      */
     protected function createUser(): string
     {
-        $email = 'asd@asd.asd' . Uuid::uuid4()->toString();
+        $email = 'asd@asd.asd'.Uuid::uuid4()->toString();
         $command = User::create($email);
         $this
             ->handle($command);

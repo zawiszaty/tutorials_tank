@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Application\Command\User\ChangePassword;
 
 use App\Application\Command\User\ChangePassword\ChangePasswordCommand;
-use App\Application\Command\User\Create\CreateUserCommand;
 use App\Domain\User\Event\UserPasswordWasChanged;
 use App\Domain\User\Event\UserWasCreated;
 use App\Infrastructure\Share\Application\Password\PasswordEncoder;

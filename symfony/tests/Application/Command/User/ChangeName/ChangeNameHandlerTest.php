@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Application\Command\User\ChangeName;
 
 use App\Application\Command\User\ChangeName\ChangeUserNameCommand;
-use App\Application\Command\User\Create\CreateUserCommand;
 use App\Domain\User\Event\UserNameWasChanged;
 use App\Domain\User\Event\UserWasCreated;
 use App\Tests\Application\ApplicationTestCase;

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: zawiszaty
  * Date: 10.02.19
- * Time: 13:08
+ * Time: 13:08.
  */
 
 namespace App\Tests\Application\Utils\Post;
@@ -13,9 +13,7 @@ use App\Infrastructure\Category\Query\Projections\CategoryView;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * Class Post
- *
- * @package App\Tests\Application\Utils\Post
+ * Class Post.
  */
 class Post
 {

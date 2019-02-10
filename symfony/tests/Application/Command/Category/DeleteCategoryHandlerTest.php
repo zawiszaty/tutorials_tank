@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Application\Command\Category;
 
-use App\Application\Command\Category\Create\CreateCategoryCommand;
 use App\Application\Command\Category\Delete\DeleteCategoryCommand;
 use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Category\Event\CategoryWasDeleted;

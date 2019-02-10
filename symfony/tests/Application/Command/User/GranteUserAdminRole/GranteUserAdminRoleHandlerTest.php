@@ -8,7 +8,6 @@
 
 namespace App\Tests\Application\Command\User\GranteUserAdminRole;
 
-use App\Application\Command\User\Create\CreateUserCommand;
 use App\Application\Command\User\GranteUserAdminRole\GranteUserAdminRoleCommand;
 use App\Domain\User\Event\UserWasAdminRoleGranted;
 use App\Domain\User\Event\UserWasCreated;

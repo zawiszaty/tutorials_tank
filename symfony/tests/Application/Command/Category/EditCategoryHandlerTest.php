@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Application\Command\Category;
 
 use App\Application\Command\Category\ChangeName\ChangeNameCommand;
-use App\Application\Command\Category\Create\CreateCategoryCommand;
 use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Category\Event\NameWasChanged;
 use App\Tests\Application\ApplicationTestCase;

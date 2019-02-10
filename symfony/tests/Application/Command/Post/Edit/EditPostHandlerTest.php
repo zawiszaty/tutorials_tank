@@ -4,14 +4,9 @@ declare(strict_types=1);
 
 namespace App\Tests\Application\Command\Post\Edit;
 
-use App\Application\Command\Category\Create\CreateCategoryCommand;
-use App\Application\Command\Post\Create\CreatePostCommand;
 use App\Application\Command\Post\Edit\EditPostCommand;
-use App\Application\Command\User\Create\CreateUserCommand;
-use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Post\Event\CreatePostEvent;
 use App\Domain\Post\Event\PostWasEdited;
-use App\Domain\User\Event\UserWasCreated;
 use App\Tests\Application\ApplicationTestCase;
 use App\Tests\Application\Utils\Post\Post;
 use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
@@ -25,6 +20,7 @@ class EditPostHandlerTest extends ApplicationTestCase
      * @test
      *
      * @group integration
+     *
      * @throws \Exception
      */
     public function command_handler_must_fire_domain_event(): void

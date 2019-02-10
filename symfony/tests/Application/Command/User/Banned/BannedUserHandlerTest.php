@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Application\Command\User\Banned;
 
 use App\Application\Command\User\BannedUser\BannedUserCommand;
-use App\Application\Command\User\Create\CreateUserCommand;
 use App\Domain\User\Event\UserWasBanned;
 use App\Domain\User\Event\UserWasCreated;
 use App\Tests\Application\ApplicationTestCase;

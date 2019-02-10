@@ -4,20 +4,12 @@ declare(strict_types=1);
 
 namespace App\Tests\Application\Command\Comment\Delete;
 
-use App\Application\Command\Category\Create\CreateCategoryCommand;
 use App\Application\Command\Comment\Create\CreateCommentCommand;
 use App\Application\Command\Comment\Delete\DeleteCommentCommand;
-use App\Application\Command\Post\Create\CreatePostCommand;
-use App\Application\Command\User\Create\CreateUserCommand;
-use App\Domain\Category\Event\CategoryWasCreated;
 use App\Domain\Comment\Event\CommentWasCreated;
-use App\Domain\Post\Event\CreatePostEvent;
-use App\Domain\User\Event\UserWasCreated;
 use App\Tests\Application\ApplicationTestCase;
 use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
-use Ramsey\Uuid\Uuid;
-use Symfony\Component\HttpFoundation\File\File;
 
 class DeleteCommentHandlerTest extends ApplicationTestCase
 {

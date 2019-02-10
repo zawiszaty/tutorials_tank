@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: zawiszaty
  * Date: 10.02.19
- * Time: 12:53
+ * Time: 12:53.
  */
 
 namespace App\Tests\Application\Utils\Category;
@@ -11,9 +11,7 @@ namespace App\Tests\Application\Utils\Category;
 use App\Application\Command\Category\Create\CreateCategoryCommand;
 
 /**
- * Class Category
- *
- * @package App\Tests\Application\Utils\Category
+ * Class Category.
  */
 class Category
 {

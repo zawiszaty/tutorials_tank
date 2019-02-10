@@ -19,9 +19,9 @@ up: ## spin up environment
 
 .PHONY: db
 db: ## recreate database
-		docker-compose exec php php bin/console d:d:c
-		docker-compose exec php php bin/console d:s:c
-		docker-compose exec php php bin/console d:m:m -n
+		docker-compose exec php php bin/console d:d:c --env=dev
+		docker-compose exec php php bin/console d:s:c --env=dev
+		docker-compose exec php php bin/console d:m:m -n --env=dev
 
 .PHONY: dev
 dev: erase up composer-install db db-test

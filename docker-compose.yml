@@ -48,7 +48,6 @@ services:
   composer:
     restart: 'no'
     working_dir: /var/www/project
-    command: install --ignore-platform-reqs
     image: composer:latest
     volumes:
       - ./symfony:/var/www/project

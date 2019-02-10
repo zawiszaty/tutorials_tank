@@ -24,7 +24,7 @@ db: ## recreate database
 		docker-compose exec php php bin/console d:m:m -n
 
 .PHONY: dev
-dev: erase up db db-test
+dev: erase up composer-install db db-test
 
 .PHONY: db-test
 db-test: ## recreate database in test env
@@ -51,4 +51,4 @@ phpunit:
 .PHONY: composer-install
 composer-install:
 		docker-compose exec php apt-get -y install git
-		docker-compose run php php composer.phar install
+		docker-compose exec php php composer.phar install

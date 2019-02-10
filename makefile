@@ -50,4 +50,4 @@ phpunit:
 
 .PHONY: composer-install
 composer-install:
-		docker-compose run composer composer install --ignore-platform-reqs
+		docker-compose run php php composer.phar install

@@ -46,7 +46,7 @@ phpspec:
 .PHONY: phpunit
 phpunit:
 		docker-compose exec php apt-get -y install git
-		docker-compose exec php ./vendor/bin/simple-phpunit
+		docker-compose exec php php ./bin/phpunit
 
 .PHONY: composer-install
 composer-install:

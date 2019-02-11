@@ -19,18 +19,12 @@ use Doctrine\ORM\EntityManager;
 use League\Tactician\CommandBus;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\PostResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * Class ApplicationTestCase.
  */
 abstract class ApplicationTestCase extends KernelTestCase
 {
-
     /** @var CommandBus|null */
     private $commandBus;
 
@@ -64,7 +58,6 @@ abstract class ApplicationTestCase extends KernelTestCase
     {
         return self::$container->get($serviceId);
     }
-
 
     protected function setUp(): void
     {

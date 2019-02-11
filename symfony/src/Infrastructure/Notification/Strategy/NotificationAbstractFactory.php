@@ -7,8 +7,6 @@ use App\Infrastructure\Notification\NotificationFactory;
 use App\Infrastructure\Notification\Query\MysqlNotificationRepository;
 use App\Infrastructure\Notification\Strategy\Unit\CommentCreateNotification;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
-use App\Kernel;
-use const Fpp\dump;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\DependencyInjection\Container;
 
@@ -55,8 +53,7 @@ class NotificationAbstractFactory
      */
     public function create(string $type, array $data)
     {
-        if ($this->container->getParameter('APP_ENV') !== 'test')
-        {
+        if ($this->container->getParameter('APP_ENV') !== 'test') {
             switch ($type) {
                 case 'comment':
                     CommentCreateNotification::notify($data);

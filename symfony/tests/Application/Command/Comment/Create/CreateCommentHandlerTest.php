@@ -10,7 +10,6 @@ use App\Tests\Application\ApplicationTestCase;
 use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
 use Ramsey\Uuid\Uuid;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CreateCommentHandlerTest extends ApplicationTestCase
 {

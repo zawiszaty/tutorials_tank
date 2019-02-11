@@ -79,12 +79,12 @@ services:
 #    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'projections']
 
 
-  workers_3:
-    build: ./symfony
-    working_dir: /var/www/project
-    volumes:
-      - ./:/var/www/project
-    command: ['php','bin/console', 'app:create-message-server']
+#  workers_3:
+#    build: ./symfony
+#    working_dir: /var/www/project
+#    volumes:
+#      - ./:/var/www/project
+#    command: ['php','bin/console', 'app:create-message-server']
 
   workers_4:
     build: ./symfony

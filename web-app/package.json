@@ -9,6 +9,7 @@
     "@tinymce/tinymce-react": "^2.5.0",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
+    "lodash.debounce": "^4.0.8",
     "react": "^16.7.0",
     "react-avatar-editor": "^11.0.4",
     "react-cropper-image-editor": "^1.0.0",

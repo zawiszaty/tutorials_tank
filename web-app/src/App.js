@@ -20,6 +20,7 @@ import AddPost from "./containers/Post/Add/AddPost";
 import Home from "./containers/Home/Home";
 import SinglePost from "./containers/Post/SinglePost/SinglePost";
 import EditPost from "./containers/Post/Edit/EditPost";
+import PostListContainer from "./containers/Post/PostContainer/PostListContainer";
 
 const Index = () => <h2>Home</h2>;
 
@@ -55,6 +56,7 @@ class App extends Component {
                         <Route path="/kategorie" component={CategoryContainer}/>
                         <Route path="/uzytkownicy" component={UserListContainer}/>
                         <Route path="/post/:slug" component={SinglePost}/>
+                        <Route path="/posty" component={PostListContainer}/>
                     </React.Fragment>
                     }
                     <FooterComponent/>

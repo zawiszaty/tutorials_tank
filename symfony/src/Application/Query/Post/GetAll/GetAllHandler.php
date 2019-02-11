@@ -43,7 +43,7 @@ class GetAllHandler implements QueryHandlerInterface
         } else {
             $query = [];
         }
-        $data = $this->repositoryElastic->pageByCreatedAt($command->getPage(), $command->getLimit(), $command->getQuery());
+        $data = $this->repositoryElastic->pageByCreatedAt($command->getPage(), $command->getLimit(), $query);
 
         return $data;
     }

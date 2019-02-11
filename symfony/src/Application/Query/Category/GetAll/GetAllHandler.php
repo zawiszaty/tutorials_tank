@@ -5,6 +5,7 @@ namespace App\Application\Query\Category\GetAll;
 use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Category\Query\Mysql\MysqlCategoryReadModelRepository;
 use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
+use const Fpp\dump;
 
 /**
  * Class GetAllHandler.
@@ -52,9 +53,9 @@ class GetAllHandler implements QueryHandlerInterface
             $query = [];
         }
 
-//        $data = $this->categoryRepositoryElastic->page($command->getPage(), $command->getLimit(), $query);
+        $data = $this->categoryRepositoryElastic->page($command->getPage(), $command->getLimit(), $query);
 
-        $data = $this->modelRepository->getAll($command->getPage(), $command->getLimit());
+//        $data = $this->modelRepository->getAll($command->getPage(), $command->getLimit());
 
         return $data;
     }

@@ -124,6 +124,9 @@ class DrawerHeader extends React.Component {
                     <MenuList>
                         <MenuItem component={Link} to="/uzytkownicy">Lista Uzytkowników</MenuItem>
                     </MenuList>
+                    <MenuList>
+                        <MenuItem component={Link} to="/posty">Lista Postów</MenuItem>
+                    </MenuList>
                     <Divider/>
                     {this.props.user.length === 0 &&
                     <React.Fragment>

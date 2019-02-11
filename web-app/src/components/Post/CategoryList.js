@@ -24,6 +24,9 @@ import {connect} from "react-redux";
 import {toast} from "react-toastify";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Redirect from "react-router-dom/es/Redirect";
+import {withRouter} from "react-router-dom";
+import SearchBox from "../SearchBox/SearchBox";
 
 const mapStateToProps = (state) => {
     return {
@@ -64,7 +67,8 @@ function getSorting(order, orderBy) {
 
 const rows = [
     {id: 'id', numeric: false, disablePadding: true, label: 'Id Kategori'},
-    {id: 'name', numeric: false, disablePadding: true, label: 'Nazwa Kategori'},
+    {id: 'tittle', numeric: false, disablePadding: true, label: 'Tytuł Postu'},
+    {id: 'descryption', numeric: false, disablePadding: true, label: 'Krótki opis'},
 ];
 
 class EnhancedTableHead extends React.Component {
@@ -167,34 +171,31 @@ const toolbarStyles = theme => ({
 });
 
 let EnhancedTableToolbar = props => {
-    const {numSelected, classes, deleteCategory} = props;
+    const {numSelected, classes, query, handleChangeQuery, getAll} = props;
 
     return (
-        <Toolbar
-            className={classNames(classes.root, {
-                [classes.highlight]: numSelected > 0,
-            })}
-        >
-            <div className={classes.title}>
-                {numSelected > 0 ? (
-                    <Typography color="inherit" variant="subtitle1">
-                        {numSelected} selected
-                    </Typography>
-                ) : (
+        <React.Fragment>
+            <Toolbar
+                className={classNames(classes.root, {
+                    [classes.highlight]: numSelected > 0,
+                })}
+            >
+                <div className={classes.title}>
                     <Typography variant="h6" id="tableTitle">
-                        Kategorie
+                        Posty
                     </Typography>
-                )}
-            </div>
-            <div className={classes.spacer}/>
-            <div className={classes.actions}>
-                <Tooltip title="Filter list">
-                    <IconButton aria-label="Filter list">
-                        <FilterListIcon/>
-                    </IconButton>
-                </Tooltip>
-            </div>
-        </Toolbar>
+                </div>
+                <div className={classes.spacer}/>
+                <div className={classes.actions}>
+                    <Tooltip title="Filter list">
+                        <IconButton aria-label="Filter list">
+                            <FilterListIcon/>
+                        </IconButton>
+                    </Tooltip>
+                </div>
+            </Toolbar>
+            <SearchBox query={query} handleChangeQuery={handleChangeQuery} getAll={getAll}/>
+        </React.Fragment>
     );
 };
 
@@ -250,6 +251,7 @@ class CategoryList extends Component {
             rowsPerPage: 5,
             loading: true,
             count: 0,
+            query: '',
         };
     }
 
@@ -262,7 +264,7 @@ class CategoryList extends Component {
         this.setState({
             loading: true,
         });
-        axios.get(`/api/v1/category?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}`)
+        axios.get(`/api/v1/posts?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}&query=${this.state.query}`)
             .then((response) => {
                 this.setState({
                     data: response.data.data,
@@ -270,7 +272,12 @@ class CategoryList extends Component {
                     count: response.data.total
                 });
                 console.log(response.data.data);
-            })
+            }).catch((e) => {
+            this.setState({
+                data: [],
+                loading: false,
+            });
+        })
     };
 
     handleRequestSort = (event, property) => {
@@ -282,6 +289,11 @@ class CategoryList extends Component {
         }
 
         this.setState({order, orderBy});
+    };
+
+    handleChangeQuery = (e) => {
+        const query = e.target.value;
+        this.setState({query});
     };
 
     handleSelectAllClick = event => {
@@ -323,7 +335,10 @@ class CategoryList extends Component {
             <Grid container className={classes.root} spacing={24}>
                 <Grid item xs={12} md={12}>
                     <Paper>
-                        <EnhancedTableToolbar deleteCategory={this.deleteCategory}/>
+                        <EnhancedTableToolbar
+                                              query={this.state.query} handleChangeQuery={this.handleChangeQuery}
+                                              getAll={this.getAllCategory}
+                        />
                         <div className={classes.tableWrapper}>
                             <Table className={classes.table} aria-labelledby="tableTitle">
                                 <EnhancedTableHead
@@ -341,6 +356,10 @@ class CategoryList extends Component {
                                                     role="checkbox"
                                                     tabIndex={-1}
                                                     key={n.id}
+                                                    onClick={() => {
+                                                        console.log('dzial;a');
+                                                        this.props.history.push("/post/" + n.slug)
+                                                    }}
                                                 >
                                                     {this.props.user.length !== 0 &&
                                                     <React.Fragment>
@@ -354,7 +373,10 @@ class CategoryList extends Component {
                                                         {n.id}
                                                     </TableCell>
                                                     <TableCell component="th" scope="row" padding="default">
-                                                        {n.name}
+                                                        {n.title}
+                                                    </TableCell>
+                                                    <TableCell component="th" scope="row" padding="default">
+                                                        {n.shortDescription}
                                                     </TableCell>
                                                 </TableRow>
                                             );
@@ -391,4 +413,4 @@ class CategoryList extends Component {
 
 CategoryList.propTypes = {};
 
-export default connect(mapStateToProps)(withStyles(styles)(CategoryList));
+export default withRouter(connect(mapStateToProps)(withStyles(styles)(CategoryList)));

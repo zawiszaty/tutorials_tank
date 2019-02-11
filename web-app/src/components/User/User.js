@@ -25,6 +25,7 @@ import {toast} from "react-toastify";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Avatar from "@material-ui/core/Avatar";
+import SearchBox from "../SearchBox/SearchBox";
 
 const mapStateToProps = (state) => {
     return {
@@ -162,23 +163,26 @@ const toolbarStyles = theme => ({
 });
 
 let EnhancedTableToolbar = props => {
-    const {numSelected, classes, deleteCategory} = props;
+    const {numSelected, classes, query, handleChangeQuery, getAll} = props;
 
     return (
-        <Toolbar
-            className={classNames(classes.root, {
-                [classes.highlight]: numSelected > 0,
-            })}
-        >
-            <div className={classes.spacer}/>
-            <div className={classes.actions}>
-                <Tooltip title="Filter list">
-                    <IconButton aria-label="Filter list">
-                        <FilterListIcon/>
-                    </IconButton>
-                </Tooltip>
-            </div>
-        </Toolbar>
+        <React.Fragment>
+            <Toolbar
+                className={classNames(classes.root, {
+                    [classes.highlight]: numSelected > 0,
+                })}
+            >
+                <div className={classes.spacer}/>
+                <div className={classes.actions}>
+                    <Tooltip title="Filter list">
+                        <IconButton aria-label="Filter list">
+                            <FilterListIcon/>
+                        </IconButton>
+                    </Tooltip>
+                </div>
+            </Toolbar>
+            <SearchBox query={query} handleChangeQuery={handleChangeQuery} getAll={getAll}/>
+        </React.Fragment>
     );
 };
 
@@ -234,6 +238,7 @@ class User extends Component {
             rowsPerPage: 5,
             loading: true,
             count: 0,
+            query: '',
         };
     }
 
@@ -246,7 +251,7 @@ class User extends Component {
         this.setState({
             loading: true,
         });
-        axios.get(`/api/v1/user?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}`)
+        axios.get(`/api/v1/user?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}&query=${this.state.query}`)
             .then((response) => {
                 this.setState({
                     data: response.data.data,
@@ -310,6 +315,10 @@ class User extends Component {
         });
     };
 
+    handleChangeQuery = (e) => {
+        const query = e.target.value;
+        this.setState({query});
+    };
 
     isSelected = id => this.state.selected.indexOf(id) !== -1;
 
@@ -329,7 +338,10 @@ class User extends Component {
             <Grid container className={classes.root} spacing={24}>
                 <Grid item xs={12} md={12}>
                     <Paper>
-                        <EnhancedTableToolbar numSelected={selected.length} deleteCategory={this.deleteCategory}/>
+                        <EnhancedTableToolbar numSelected={selected.length} deleteCategory={this.deleteCategory}
+                                              query={this.state.query} handleChangeQuery={this.handleChangeQuery}
+                                              getAll={this.getAllCategory}
+                        />
                         <div className={classes.tableWrapper}>
                             <Table className={classes.table} aria-labelledby="tableTitle">
                                 <EnhancedTableHead

@@ -26,6 +26,8 @@ import Grid from "@material-ui/core/Grid";
 import AddCategoryForm from "./AddCategoryForm";
 import EditCategoryModal from "./EditCategoryModal";
 import Button from "@material-ui/core/Button";
+import SearchBox from "../SearchBox/SearchBox";
+import debounce from 'lodash.debounce';
 
 const mapStateToProps = (state) => {
     return {
@@ -169,42 +171,45 @@ const toolbarStyles = theme => ({
 });
 
 let EnhancedTableToolbar = props => {
-    const {numSelected, classes, deleteCategory} = props;
+    const {numSelected, classes, deleteCategory, query, handleChangeQuery, getAll} = props;
 
     return (
-        <Toolbar
-            className={classNames(classes.root, {
-                [classes.highlight]: numSelected > 0,
-            })}
-        >
-            <div className={classes.title}>
-                {numSelected > 0 ? (
-                    <Typography color="inherit" variant="subtitle1">
-                        {numSelected} selected
-                    </Typography>
-                ) : (
-                    <Typography variant="h6" id="tableTitle">
-                        Kategorie
-                    </Typography>
-                )}
-            </div>
-            <div className={classes.spacer}/>
-            <div className={classes.actions}>
-                {numSelected > 0 ? (
-                    <Tooltip title="Delete" onClick={deleteCategory}>
-                        <IconButton aria-label="Delete">
-                            <DeleteIcon/>
-                        </IconButton>
-                    </Tooltip>
-                ) : (
-                    <Tooltip title="Filter list">
-                        <IconButton aria-label="Filter list">
-                            <FilterListIcon/>
-                        </IconButton>
-                    </Tooltip>
-                )}
-            </div>
-        </Toolbar>
+        <React.Fragment>
+            <Toolbar
+                className={classNames(classes.root, {
+                    [classes.highlight]: numSelected > 0,
+                })}
+            >
+                <div className={classes.title}>
+                    {numSelected > 0 ? (
+                        <Typography color="inherit" variant="subtitle1">
+                            {numSelected} selected
+                        </Typography>
+                    ) : (
+                        <Typography variant="h6" id="tableTitle">
+                            Kategorie
+                        </Typography>
+                    )}
+                </div>
+                <div className={classes.spacer}/>
+                <div className={classes.actions}>
+                    {numSelected > 0 ? (
+                        <Tooltip title="Delete" onClick={deleteCategory}>
+                            <IconButton aria-label="Delete">
+                                <DeleteIcon/>
+                            </IconButton>
+                        </Tooltip>
+                    ) : (
+                        <Tooltip title="Filter list">
+                            <IconButton aria-label="Filter list">
+                                <FilterListIcon/>
+                            </IconButton>
+                        </Tooltip>
+                    )}
+                </div>
+            </Toolbar>
+            <SearchBox query={query} handleChangeQuery={handleChangeQuery} getAll={getAll}/>
+        </React.Fragment>
     );
 };
 
@@ -256,11 +261,17 @@ class Category extends Component {
             rowsPerPage: 5,
             loading: true,
             count: 0,
+            query: ''
         };
     }
 
     componentDidMount = () => {
         this.getAllCategory();
+    };
+
+    handleChangeQuery = (e) => {
+        const query = e.target.value;
+        this.setState({query});
     };
 
     deleteCategory = () => {
@@ -288,7 +299,7 @@ class Category extends Component {
         this.setState({
             loading: true,
         });
-        axios.get(`/api/v1/category?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}`)
+        axios.get(`/api/v1/category?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}&query=${this.state.query}`)
             .then((response) => {
                 this.setState({
                     data: response.data.data,
@@ -296,7 +307,12 @@ class Category extends Component {
                     count: response.data.total
                 });
                 console.log(response.data.data);
-            })
+            }).catch((e) => {
+            this.setState({
+                data: [],
+                loading: false,
+            });
+        })
     };
 
     handleRequestSort = (event, property) => {
@@ -368,9 +384,12 @@ class Category extends Component {
 
         return (
             <Grid container className={classes.root} spacing={24}>
-                <Grid item xs={12} md={8} >
+                <Grid item xs={12} md={8}>
                     <Paper>
-                        <EnhancedTableToolbar numSelected={selected.length} deleteCategory={this.deleteCategory}/>
+                        <EnhancedTableToolbar numSelected={selected.length} deleteCategory={this.deleteCategory}
+                                              query={this.state.query} handleChangeQuery={this.handleChangeQuery}
+                                              getAll={this.getAllCategory}
+                        />
                         <div className={classes.tableWrapper}>
                             <Table className={classes.table} aria-labelledby="tableTitle">
                                 <EnhancedTableHead
@@ -397,7 +416,8 @@ class Category extends Component {
                                                     {this.props.user.length !== 0 &&
                                                     <React.Fragment>
                                                         {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                                                        <TableCell padding="checkbox" onClick={event => this.handleClick(event, n.id)}>
+                                                        <TableCell padding="checkbox"
+                                                                   onClick={event => this.handleClick(event, n.id)}>
                                                             <Checkbox checked={isSelected}/>
                                                         </TableCell>
                                                         }
@@ -414,7 +434,8 @@ class Category extends Component {
                                                         <React.Fragment>
                                                             {this.props.user[0].roles.includes('ROLE_ADMIN') &&
                                                             <React.Fragment>
-                                                                <EditCategoryModal category={n} getCategory={this.getAllCategory} />
+                                                                <EditCategoryModal category={n}
+                                                                                   getCategory={this.getAllCategory}/>
                                                             </React.Fragment>
                                                             }
                                                         </React.Fragment>

@@ -3,9 +3,8 @@
 use Symfony\Component\Dotenv\Dotenv;
 
 require dirname(__DIR__).'/vendor/autoload.php';
-define ('PHPUNIT_RUNNING', 1);
-if(! @PHPUNIT_RUNNING === 1 )
-{
+define('PHPUNIT_RUNNING', 1);
+if (!@PHPUNIT_RUNNING === 1) {
     exit;
 }
 // Load cached env vars if the .env.local.php file exists

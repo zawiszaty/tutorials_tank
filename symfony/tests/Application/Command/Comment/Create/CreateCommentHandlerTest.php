@@ -23,7 +23,6 @@ class CreateCommentHandlerTest extends ApplicationTestCase
      */
     public function command_handler_must_fire_domain_event(): void
     {
-//        $this->expectException(NotFoundHttpException::class);
         $uuid = Uuid::uuid4()->toString();
         $content = 'test';
         $command = new CreateCommentCommand();
@@ -38,9 +37,8 @@ class CreateCommentHandlerTest extends ApplicationTestCase
         /** @var DomainMessage[] $events */
         $events = $collector->popEvents();
         self::assertCount(1, $events);
-        /** @var CommentWasCreated $commentWasCreated */
-        $commentWasCreated = $events[0]->getPayload();
-        self::assertSame($content, $commentWasCreated->getContent()->toString());
-        self::assertInstanceOf(CommentWasCreated::class, $commentWasCreated);
+        /** @var CommentWasCreated $userCreatedEvent */
+        $userCreatedEvent = $events[0]->getPayload();
+        self::assertInstanceOf(CommentWasCreated::class, $userCreatedEvent);
     }
 }

@@ -7,6 +7,7 @@ namespace App\Tests\Application\Command\Comment\Delete;
 use App\Application\Command\Comment\Create\CreateCommentCommand;
 use App\Application\Command\Comment\Delete\DeleteCommentCommand;
 use App\Domain\Comment\Event\CommentWasCreated;
+use App\Domain\Comment\Event\CommentWasDeletedEvent;
 use App\Tests\Application\ApplicationTestCase;
 use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
@@ -42,5 +43,13 @@ class DeleteCommentHandlerTest extends ApplicationTestCase
         );
         $this
             ->handle($command);
+        /** @var EventCollectorListener $collector */
+        $collector = $this->service(EventCollectorListener::class);
+        /** @var DomainMessage[] $events */
+        $events = $collector->popEvents();
+        self::assertCount(1, $events);
+        /** @var CommentWasDeletedEvent $userCreatedEvent */
+        $userCreatedEvent = $events[0]->getPayload();
+        self::assertInstanceOf(CommentWasDeletedEvent::class, $userCreatedEvent);
     }
 }

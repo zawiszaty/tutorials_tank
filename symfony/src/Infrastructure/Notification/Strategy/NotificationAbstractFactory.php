@@ -7,6 +7,10 @@ use App\Infrastructure\Notification\NotificationFactory;
 use App\Infrastructure\Notification\Query\MysqlNotificationRepository;
 use App\Infrastructure\Notification\Strategy\Unit\CommentCreateNotification;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
+use App\Kernel;
+use const Fpp\dump;
+use Psr\Container\ContainerInterface;
+use Symfony\Component\DependencyInjection\Container;
 
 /**
  * Class NotificationAbstractFactory.
@@ -24,15 +28,21 @@ class NotificationAbstractFactory
     private $mysqlUserReadModelRepository;
 
     /**
+     * @var Container
+     */
+    private $container;
+
+    /**
      * NotificationAbstractFactory constructor.
      *
      * @param MysqlNotificationRepository  $mysqlNotificationRepository
      * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
      */
-    public function __construct(MysqlNotificationRepository $mysqlNotificationRepository, MysqlUserReadModelRepository $mysqlUserReadModelRepository)
+    public function __construct(MysqlNotificationRepository $mysqlNotificationRepository, MysqlUserReadModelRepository $mysqlUserReadModelRepository, ContainerInterface $container)
     {
         $this->mysqlNotificationRepository = $mysqlNotificationRepository;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
+        $this->container = $container;
     }
 
     /**
@@ -45,11 +55,14 @@ class NotificationAbstractFactory
      */
     public function create(string $type, array $data)
     {
-        switch ($type) {
-            case 'comment':
-                CommentCreateNotification::notify($data);
+        if ($this->container->getParameter('APP_ENV') !== 'test')
+        {
+            switch ($type) {
+                case 'comment':
+                    CommentCreateNotification::notify($data);
 
-                break;
+                    break;
+            }
         }
         $user = $this->mysqlUserReadModelRepository->getSingle(AggregateRootId::fromString($data['user']));
         $notification = NotificationFactory::create(json_encode($data['content']), $user->readModel, $data['type']);

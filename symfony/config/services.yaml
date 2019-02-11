@@ -12,6 +12,7 @@ parameters:
     env(ELASTIC_HOST): 'elasticsearch:9200'
     events_table: '%env(EVENTS_TABLE)%'
     env(EVENTS_TABLE): 'events'
+    APP_ENV: '%env(APP_ENV)%'
 
 
 services:
@@ -65,7 +66,7 @@ services:
     App\UI\HTTP\Rest\EventSubscriber\JsonBodyParserSubscriber:
         tags:
         - { name: 'kernel.event_listener', event: 'kernel.request', method: 'onKernelRequest', priority: 100 }
-        
+
     App\Infrastructure\Share\Security\EventListener\LoginListener:
         tags:
             - { name: 'kernel.event_listener', event: 'security.interactive_login' }

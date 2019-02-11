@@ -21,13 +21,14 @@ use App\Domain\User\ValueObject\Roles;
 use App\Domain\User\ValueObject\Steemit;
 use App\Domain\User\ValueObject\UserName;
 use Broadway\Domain\DomainMessage;
+use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Class UserTest.
  */
-class UserTest extends TestCase
+class UserTest extends WebTestCase
 {
     /**
      * @test

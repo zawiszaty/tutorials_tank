@@ -14,6 +14,7 @@ use App\Tests\Application\Utils\Post\Post;
 use App\Tests\Application\Utils\User\User;
 use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
+use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
 use League\Tactician\CommandBus;
 use Ramsey\Uuid\Uuid;
@@ -29,6 +30,13 @@ use Symfony\Component\HttpKernel\KernelEvents;
  */
 abstract class ApplicationTestCase extends KernelTestCase
 {
+
+    /** @var CommandBus|null */
+    private $commandBus;
+
+    /** @var CommandBus|null */
+    private $queryBus;
+
     /**
      * @param $query
      *
@@ -57,19 +65,6 @@ abstract class ApplicationTestCase extends KernelTestCase
         return self::$container->get($serviceId);
     }
 
-    protected function fireTerminateEvent(): void
-    {
-        /** @var EventDispatcherInterface $dispatcher */
-        $dispatcher = $this->service('event_dispatcher');
-        $dispatcher->dispatch(
-            KernelEvents::TERMINATE,
-            new PostResponseEvent(
-                static::$kernel,
-                Request::create('/'),
-                Response::create()
-            )
-        );
-    }
 
     protected function setUp(): void
     {
@@ -77,6 +72,7 @@ abstract class ApplicationTestCase extends KernelTestCase
         $this->service('doctrine.orm.entity_manager')->getConnection()->beginTransaction();
         $this->commandBus = $this->service('tactician.commandbus.command');
         $this->queryBus = $this->service('tactician.commandbus.query');
+        /** @var Connection $connection */
         $connection = self::$container->get('doctrine')->getConnection();
         $connection->beginTransaction();
         $connection->query('SET FOREIGN_KEY_CHECKS=0');
@@ -96,14 +92,11 @@ abstract class ApplicationTestCase extends KernelTestCase
         $this->commandBus = null;
         $this->queryBus = null;
         $this->service('doctrine.orm.entity_manager')->getConnection()->rollback();
+        /** @var Connection $connection */
+        $connection = self::$container->get('doctrine')->getConnection();
+        $connection->close();
         parent::tearDown();
     }
-
-    /** @var CommandBus|null */
-    private $commandBus;
-
-    /** @var CommandBus|null */
-    private $queryBus;
 
     /**
      * @throws \Exception

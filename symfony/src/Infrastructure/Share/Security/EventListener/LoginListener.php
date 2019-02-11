@@ -14,7 +14,7 @@ class LoginListener
     /**
      * @param InteractiveLoginEvent $event
      */
-    public function onSecurityInteractiveLogin(InteractiveLoginEvent $event)
+    public function onSecurityInteractiveLogin(InteractiveLoginEvent $event): void
     {
         /** @var UserView $user */
         $user = $event->getAuthenticationToken()->getUser();

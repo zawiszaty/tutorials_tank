@@ -40,10 +40,6 @@ services:
       - ./symfony:/var/www/project
     links:
       - db
-    ports:
-      - "8123:8123"
-      - "8888:8888"
-      - "5555:5555"
 
   composer:
     restart: 'no'
@@ -62,37 +58,33 @@ services:
       - ./web-app:/usr/src/app
     command: ['npm','start']
 
-#  workers_1:
-#    build: ./symfony
-#    working_dir: /var/www/project
-#    restart: always
-#    volumes:
-#      - ./:/var/www/project
-#    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
+  workers_1:
+    image: zawiszaty/tutorials_tank_php:latest
+    restart: always
+    working_dir: /var/www/project
+    volumes:
+      - ./symfony:/var/www/project
+    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
 
 
-#  workers_2:
-#    build: ./docker/php
-#    working_dir: /var/www/project
-#    restart: always
-#    volumes:
-#      - ./:/var/www/project
-#    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'projections']
+  workers_2:
+    image: zawiszaty/tutorials_tank_php:latest
+    working_dir: /var/www/project
+    volumes:
+      - ./symfony:/var/www/project
+    command: ['php','bin/console', 'app:create-message-server']
+    ports:
+      - "8123:8123"
 
-
-#  workers_3:
-#    build: ./symfony
-#    working_dir: /var/www/project
-#    volumes:
-#      - ./:/var/www/project
-#    command: ['php','bin/console', 'app:create-message-server']
-
-#  workers_4:
-#    build: ./symfony
-#    working_dir: /var/www/project
-#    volumes:
-#      - ./:/var/www/project
-#    command: ['php','bin/console', 'app:create-notification-server']
+  workers_3:
+    image: zawiszaty/tutorials_tank_php:latest
+    working_dir: /var/www/project
+    volumes:
+      - ./symfony:/var/www/project
+    command: ['php','bin/console', 'app:create-notification-server']
+    ports:
+      - "8888:8888"
+      - "5555:5555"
 
   db:
     image: mysql:5.7

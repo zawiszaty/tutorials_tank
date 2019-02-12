@@ -53,13 +53,14 @@ services:
       - ./symfony:/var/www/project
 
   frontend:
-    build: ./web-app
+    image: zawiszaty/tutorials_tank_node:1.0.0
     expose:
       - 80
     ports:
       - 80:3000
     volumes:
       - ./web-app:/usr/src/app
+    command: ['npm','start']
 
 #  workers_1:
 #    build: ./symfony

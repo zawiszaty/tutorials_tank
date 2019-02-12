@@ -34,9 +34,7 @@ services:
 
 
   php:
-    build:
-      context: ./symfony
-      dockerfile: zawiszaty/tutorials_tank_php:latest
+    image: zawiszaty/tutorials_tank_php:latest
     working_dir: /var/www/project
     volumes:
       - ./symfony:/var/www/project

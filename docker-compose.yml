@@ -34,7 +34,9 @@ services:
 
 
   php:
-    build: ./symfony
+    build:
+      context: ./symfony
+      dockerfile: zawiszaty/tutorials_tank_php:latest
     working_dir: /var/www/project
     volumes:
       - ./symfony:/var/www/project
@@ -61,13 +63,13 @@ services:
     volumes:
       - ./web-app:/usr/src/app
 
-  workers_1:
-    build: ./symfony
-    working_dir: /var/www/project
-    restart: always
-    volumes:
-      - ./:/var/www/project
-    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
+#  workers_1:
+#    build: ./symfony
+#    working_dir: /var/www/project
+#    restart: always
+#    volumes:
+#      - ./:/var/www/project
+#    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
 
 
 #  workers_2:
@@ -86,12 +88,12 @@ services:
 #      - ./:/var/www/project
 #    command: ['php','bin/console', 'app:create-message-server']
 
-  workers_4:
-    build: ./symfony
-    working_dir: /var/www/project
-    volumes:
-      - ./:/var/www/project
-    command: ['php','bin/console', 'app:create-notification-server']
+#  workers_4:
+#    build: ./symfony
+#    working_dir: /var/www/project
+#    volumes:
+#      - ./:/var/www/project
+#    command: ['php','bin/console', 'app:create-notification-server']
 
   db:
     image: mysql:5.7

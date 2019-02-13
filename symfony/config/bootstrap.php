@@ -2,20 +2,20 @@
 
 use Symfony\Component\Dotenv\Dotenv;
 
-require dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 define('PHPUNIT_RUNNING', 1);
-if (!@PHPUNIT_RUNNING === 1) {
+if (1 === !@PHPUNIT_RUNNING) {
     exit;
 }
 // Load cached env vars if the .env.local.php file exists
 // Run "composer dump-env prod" to create it (requires symfony/flex >=1.2)
-if (is_array($env = @include dirname(__DIR__).'/.env.local.php')) {
+if (is_array($env = @include dirname(__DIR__) . '/.env.local.php')) {
     $_SERVER += $env;
     $_ENV += $env;
 } elseif (!class_exists(Dotenv::class)) {
     throw new RuntimeException('Please run "composer require symfony/dotenv" to load the ".env" files configuring the application.');
 } else {
-    $path = dirname(__DIR__).'/.env';
+    $path = dirname(__DIR__) . '/.env';
     $dotenv = new Dotenv();
 
     // load all the .env files

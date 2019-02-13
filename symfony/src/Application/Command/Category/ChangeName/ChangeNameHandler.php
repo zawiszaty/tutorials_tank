@@ -26,7 +26,7 @@ class ChangeNameHandler implements CommandHandlerInterface
     }
 
     /**
-     * @throws  \Assert\AssertionFailedException
+     * @throws \Assert\AssertionFailedException
      */
     public function __invoke(ChangeNameCommand $command): void
     {

@@ -76,3 +76,8 @@ php: ## connect to php container
 .PHONY: style
 style: ## executes php analizers
 		docker-compose exec php ./vendor/bin/phpstan analyse -l 6 -c phpstan.neon src
+
+.PHONY: commit
+commit: cs
+		- git add .
+		- git commit -m "$(m)"

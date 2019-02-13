@@ -1,18 +1,14 @@
 parameters:
-    env(DATABASE_HOST): 'db'
-    env(DATABASE_PORT): '3307'
-    env(DATABASE_NAME): 'tutorials_tank'
-    env(DATABASE_USER): 'root'
-    env(DATABASE_PASS): 'admin'
+# Adds a fallback DATABASE_URL if the env var is not set.
+# This allows you to run cache:warmup even if your
+# environment variables are not available yet.
+# You should not need to change this value.
+    env(DATABASE_URL): ''
 
 doctrine:
     dbal:
         driver:   pdo_mysql
-        host:     "%env(DATABASE_HOST)%"
-        port:     "%env(DATABASE_PORT)%"
-        dbname:   "%env(DATABASE_NAME)%"
-        user:     "%env(DATABASE_USER)%"
-        password: "%env(DATABASE_PASS)%"
+        url: '%env(resolve:DATABASE_URL)%'
         charset:  UTF8
         server_version: '5.7'
         types:

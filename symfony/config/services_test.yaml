@@ -1,6 +1,16 @@
+parameters:
+  locale: 'en'
+  elastic:
+    hosts:
+      - '%env(ELASTIC_HOST)%'
+  events_table: '%env(EVENTS_TABLE)%'
+  APP_ENV: '%env(APP_ENV)%'
+  ZMQ_PARAMS: '%env(ZMQ_PARAMS)%'
+
 services:
   _defaults:
     public: true
+
 
   App\Tests\Infrastructure\Share\Event\EventCollectorListener:
     public: true

@@ -7,14 +7,10 @@ parameters:
     locale: 'en'
     elastic:
         hosts:
-          - '%env(ELASTIC_HOST)%'
-
-    env(ELASTIC_HOST): 'elasticsearch:9200'
+            - '%env(ELASTIC_HOST)%'
     events_table: '%env(EVENTS_TABLE)%'
-    env(EVENTS_TABLE): 'events'
     APP_ENV: '%env(APP_ENV)%'
     ZMQ_PARAMS: '%env(ZMQ_PARAMS)%'
-
 
 services:
 

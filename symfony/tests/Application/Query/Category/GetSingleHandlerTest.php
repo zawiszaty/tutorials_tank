@@ -36,6 +36,7 @@ class GetSingleHandlerTest extends ApplicationTestCase
             $userCreatedEvent->getId()
         );
         $result = $this->ask($query);
+
         self::assertSame($userCreatedEvent->getId()->toString(), $result['id']);
         self::assertNotEmpty($result);
     }

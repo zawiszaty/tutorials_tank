@@ -6,18 +6,27 @@ layers:
     collectors:
       - type: className
         regex: App\\Domain\\.*
-  - name: Application
+  - name: Command
     collectors:
       - type: className
-        regex: App\\Application\\.*
+        regex: App\\Application\\Command\\.*
+  - name: Query
+    collectors:
+      - type: className
+        regex: App\\Application\\Query\\.*
   - name: Infrastructure
     collectors:
       - type: className
         regex: App\\Infrastructure\\.*
 ruleset:
   Domain:
-  Application:
+  Query:
     - Domain
+    - Infrastructure
+  Command:
+    - Domain
+    - Infrastructure
   Infrastructure:
     - Domain
-    - Application
+    - Command
+    - Query

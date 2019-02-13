@@ -13,6 +13,7 @@ use App\Domain\User\ValueObject\Password;
 use App\Domain\User\ValueObject\Roles;
 use App\Domain\User\ValueObject\Steemit;
 use App\Domain\User\ValueObject\UserName;
+use App\Infrastructure\Share\Application\Password\PasswordEncoder;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use App\Infrastructure\User\Repository\UserRepository;
 use League\Tactician\CommandBus;
@@ -66,7 +67,7 @@ class CreateUserHandler implements CommandHandlerInterface
             Avatar::fromString($command->getAvatar()),
             Steemit::fromString($command->getSteemit()),
             $command->getBanned(),
-            Password::fromString($command->getPlainPassword())
+            Password::fromString(PasswordEncoder::encode($command->getPlainPassword()))
         );
         $this->repository->store($user);
         $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getConfirmationToken()->toString());

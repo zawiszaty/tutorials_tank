@@ -21,10 +21,12 @@ class NotificationAbstractFactory
      * @var NotificationStrategyInterface
      */
     private $strategy;
+
     /**
      * @var NotificationManager
      */
     private $notificationManager;
+
     /**
      * @var CommentCreateNotification
      */

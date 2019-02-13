@@ -19,7 +19,7 @@
         <env name="EVENTS_TABLE" value="events" />
         <env name="ZMQ_PARAMS" value="tcp://workers_3:5555" />
         <env name="RABBITMQ_URL" value="amqp://admin:admin@rabbit:5672" />
-        <env name="DATABASE_URL" value="mysql://root:admin@db:3307/tutorials_tank_test" />
+        <env name="TEST_DATABASE_URL" value="mysql://root:admin@db:3307/tutorials_tank_test" />
     </php>
 
     <testsuites>

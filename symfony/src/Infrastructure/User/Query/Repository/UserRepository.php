@@ -60,12 +60,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         return UserView::class === $class;
     }
 
-    /**
-     * @param $username
-     *
-     * @return int
-     */
-    private function fetchUser($username)
+    private function fetchUser(string $username): array
     {
         // make a call to your webservice here
         $userData = $this->createQueryBuilder('u')

@@ -33,7 +33,7 @@ db-test: ## recreate database in test env
 		docker-compose exec php php bin/console d:m:m -n --env=test
 
 .PHONY: test
-test: phpspec behat elastica phpunit
+test: phpspec behat elastica phpunit layer style
 
 .PHONY: behat
 behat:
@@ -75,7 +75,7 @@ php: ## connect to php container
 
 .PHONY: style
 style: ## executes php analizers
-		docker-compose exec php ./vendor/bin/phpstan analyse -l 6 -c phpstan.neon src
+		docker-compose exec php ./vendor/bin/phpstan analyse -l 1 -c phpstan.neon src
 
 .PHONY: commit
 commit: cs

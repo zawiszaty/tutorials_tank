@@ -16,6 +16,7 @@ use App\Tests\Infrastructure\Share\Event\EventCollectorListener;
 use Broadway\Domain\DomainMessage;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
+use Elasticsearch\ClientBuilder;
 use League\Tactician\CommandBus;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -74,6 +75,9 @@ abstract class ApplicationTestCase extends KernelTestCase
         $connection->query('DELETE FROM client');
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
         $connection->commit();
+        $client = ClientBuilder::fromConfig(['hosts' => ['elasticsearch:9200']], true);
+//        $params = ['index' => '*'];
+//        $response = $client->indices()->delete($params);
     }
 
     protected function tearDown(): void

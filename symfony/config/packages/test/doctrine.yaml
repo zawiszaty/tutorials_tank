@@ -8,7 +8,7 @@ parameters:
 doctrine:
     dbal:
         driver:   pdo_mysql
-        url: 'mysql://root:admin@db:3307/tutorials_tank_test'
+        url: '%env(TEST_DATABASE_URL)%'
         charset:  UTF8
         server_version: '5.7'
         types:

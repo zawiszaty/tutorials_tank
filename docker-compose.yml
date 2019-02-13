@@ -41,13 +41,6 @@ services:
     links:
       - db
 
-  composer:
-    restart: 'no'
-    working_dir: /var/www/project
-    image: composer:latest
-    volumes:
-      - ./symfony:/var/www/project
-
   frontend:
     image: zawiszaty/tutorials_tank_node:1.0.0
     expose:

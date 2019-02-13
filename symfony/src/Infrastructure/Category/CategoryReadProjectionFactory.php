@@ -25,9 +25,6 @@ class CategoryReadProjectionFactory extends Projector
      */
     private $categoryRepositoryElastic;
 
-    /**
-     * @param CategoryWasCreated $categoryWasCreated
-     */
     public function applyCategoryWasCreated(CategoryWasCreated $categoryWasCreated)
     {
         $categoryView = CategoryView::fromSerializable($categoryWasCreated);
@@ -35,8 +32,6 @@ class CategoryReadProjectionFactory extends Projector
     }
 
     /**
-     * @param NameWasChanged $nameWasChanged
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyNameWasChanged(NameWasChanged $nameWasChanged): void
@@ -48,8 +43,6 @@ class CategoryReadProjectionFactory extends Projector
     }
 
     /**
-     * @param CategoryWasDeleted $categoryWasDeleted
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyCategoryWasDeleted(CategoryWasDeleted $categoryWasDeleted): void
@@ -62,9 +55,6 @@ class CategoryReadProjectionFactory extends Projector
 
     /**
      * CategoryReadProjectionFactory constructor.
-     *
-     * @param MysqlCategoryReadModelRepository $repository
-     * @param CategoryRepositoryElastic        $categoryRepositoryElastic
      */
     public function __construct(MysqlCategoryReadModelRepository $repository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {

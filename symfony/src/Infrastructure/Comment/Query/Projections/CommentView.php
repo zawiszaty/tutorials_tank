@@ -43,8 +43,6 @@ class CommentView implements CommentViewInterface
     private $createdAt;
 
     /**
-     * @param array $data
-     *
      * @return CommentView|mixed
      */
     public static function deserialize(array $data)
@@ -60,9 +58,6 @@ class CommentView implements CommentViewInterface
         return $instance;
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -76,8 +71,6 @@ class CommentView implements CommentViewInterface
     }
 
     /**
-     * @param Serializable $event
-     *
      * @return CommentView
      */
     public static function fromSerializable(Serializable $event): self
@@ -85,61 +78,40 @@ class CommentView implements CommentViewInterface
         return self::deserialize($event->serialize());
     }
 
-    /**
-     * @return string
-     */
     public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getContent(): string
     {
         return $this->content;
     }
 
-    /**
-     * @return string|null
-     */
     public function getParrentComment(): ?string
     {
         if ($this->parrentComment) {
             return $this->parrentComment->getId();
-        } else {
-            return null;
         }
+
+        return null;
     }
 
-    /**
-     * @return string
-     */
     public function getPost(): string
     {
         return $this->post->getId();
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user->getId();
     }
 
-    /**
-     * @return UserView
-     */
     public function getFullUser(): UserView
     {
         return $this->user;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getCreatedAt(): \DateTime
     {
         return $this->createdAt;

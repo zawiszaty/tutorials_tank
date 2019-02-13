@@ -24,10 +24,6 @@ class GetAllChildrenCommentCommand
 
     /**
      * GetAllCommand constructor.
-     *
-     * @param int         $page
-     * @param int         $limit
-     * @param string|null $parrentComment
      */
     public function __construct(int $page, int $limit, ?string $parrentComment = null)
     {
@@ -36,25 +32,16 @@ class GetAllChildrenCommentCommand
         $this->parrentComment = $parrentComment;
     }
 
-    /**
-     * @return int
-     */
     public function getPage(): int
     {
         return $this->page;
     }
 
-    /**
-     * @return int
-     */
     public function getLimit(): int
     {
         return $this->limit;
     }
 
-    /**
-     * @return string
-     */
     public function getParrentComment(): string
     {
         return $this->parrentComment;

@@ -23,9 +23,6 @@ class UserMailWasChanged extends AbstractEvent
 
     /**
      * UserMailWasChanged constructor.
-     *
-     * @param AggregateRootId $id
-     * @param Email           $email
      */
     public function __construct(AggregateRootId $id, Email $email)
     {
@@ -33,25 +30,17 @@ class UserMailWasChanged extends AbstractEvent
         $this->email = $email;
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return Email
-     */
     public function getEmail(): Email
     {
         return $this->email;
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return UserMailWasChanged|mixed
@@ -64,9 +53,6 @@ class UserMailWasChanged extends AbstractEvent
         );
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [

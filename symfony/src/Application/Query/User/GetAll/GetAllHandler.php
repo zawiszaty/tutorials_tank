@@ -17,8 +17,6 @@ class GetAllHandler implements QueryHandlerInterface
 
     /**
      * GetAllHandler constructor.
-     *
-     * @param UserRepositoryElastic $repositoryElastic
      */
     public function __construct(UserRepositoryElastic $repositoryElastic)
     {
@@ -26,8 +24,6 @@ class GetAllHandler implements QueryHandlerInterface
     }
 
     /**
-     * @param GetAllCommand $command
-     *
      * @return \App\Application\Query\Collection
      */
     public function __invoke(GetAllCommand $command)
@@ -39,12 +35,12 @@ class GetAllHandler implements QueryHandlerInterface
                         'should' => [
                             [
                                 'wildcard' => [
-                                    'username' => '*'.$command->getQuery().'*',
+                                    'username' => '*' . $command->getQuery() . '*',
                                 ],
                             ],
                             [
                                 'wildcard' => [
-                                    'email' => '*'.$command->getQuery().'*',
+                                    'email' => '*' . $command->getQuery() . '*',
                                 ],
                             ],
                         ],

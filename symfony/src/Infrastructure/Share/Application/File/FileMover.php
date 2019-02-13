@@ -10,9 +10,6 @@ use Symfony\Component\HttpFoundation\File\File;
 class FileMover
 {
     /**
-     * @param File   $file
-     * @param string $directory
-     *
      * @throws \Exception
      *
      * @return string

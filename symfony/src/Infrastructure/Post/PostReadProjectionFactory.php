@@ -28,8 +28,6 @@ class PostReadProjectionFactory extends Projector
     private $categoryReadModelRepository;
 
     /**
-     * @param CreatePostEvent $event
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
@@ -46,8 +44,6 @@ class PostReadProjectionFactory extends Projector
     }
 
     /**
-     * @param PostWasEdited $event
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
@@ -67,9 +63,6 @@ class PostReadProjectionFactory extends Projector
         $this->modelRepository->apply();
     }
 
-    /**
-     * @param PostEventDelete $eventDelete
-     */
     public function applyPostEventDelete(PostEventDelete $eventDelete)
     {
         $this->modelRepository->delete($eventDelete->getId());
@@ -82,10 +75,6 @@ class PostReadProjectionFactory extends Projector
 
     /**
      * PostReadProjectionFactory constructor.
-     *
-     * @param MysqlPostReadModelRepository     $modelRepository
-     * @param MysqlUserReadModelRepository     $mysqlUserReadModelRepository
-     * @param MysqlCategoryReadModelRepository $categoryReadModelRepository
      */
     public function __construct(
         MysqlPostReadModelRepository $modelRepository,

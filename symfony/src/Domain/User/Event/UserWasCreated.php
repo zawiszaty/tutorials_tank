@@ -69,17 +69,6 @@ class UserWasCreated extends AbstractEvent
 
     /**
      * User constructor.
-     *
-     * @param AggregateRootId   $id
-     * @param UserName          $username
-     * @param Email             $email
-     * @param Roles             $roles
-     * @param Avatar            $avatar
-     * @param Steemit           $steemit
-     * @param bool              $banned
-     * @param Password          $password
-     * @param bool              $enabled
-     * @param ConfirmationToken $confirmationToken
      */
     public function __construct(
         AggregateRootId $id,
@@ -106,8 +95,6 @@ class UserWasCreated extends AbstractEvent
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return UserWasCreated|mixed
@@ -128,9 +115,6 @@ class UserWasCreated extends AbstractEvent
         );
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -147,73 +131,46 @@ class UserWasCreated extends AbstractEvent
         ];
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return UserName
-     */
     public function getUsername(): UserName
     {
         return $this->username;
     }
 
-    /**
-     * @return Email
-     */
     public function getEmail(): Email
     {
         return $this->email;
     }
 
-    /**
-     * @return Roles
-     */
     public function getRoles(): Roles
     {
         return $this->roles;
     }
 
-    /**
-     * @return Avatar
-     */
     public function getAvatar(): Avatar
     {
         return $this->avatar;
     }
 
-    /**
-     * @return Steemit
-     */
     public function getSteemit(): Steemit
     {
         return $this->steemit;
     }
 
-    /**
-     * @return bool
-     */
     public function isBanned(): bool
     {
         return $this->banned;
     }
 
-    /**
-     * @return bool
-     */
     public function isEnabled(): bool
     {
         return $this->enabled;
     }
 
-    /**
-     * @return ConfirmationToken
-     */
     public function getConfirmationToken(): ConfirmationToken
     {
         return $this->confirmationToken;

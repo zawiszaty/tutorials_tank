@@ -15,11 +15,6 @@ use Broadway\EventStore\EventStore;
  */
 class UserRepository extends EventSourcingRepository implements UserRepositoryInterface
 {
-    /**
-     * @param AggregateRootId $id
-     *
-     * @return User
-     */
     public function get(AggregateRootId $id): User
     {
         /** @var User $user */
@@ -28,9 +23,6 @@ class UserRepository extends EventSourcingRepository implements UserRepositoryIn
         return $user;
     }
 
-    /**
-     * @param User $user
-     */
     public function store(User $user): void
     {
         $this->save($user);
@@ -38,10 +30,6 @@ class UserRepository extends EventSourcingRepository implements UserRepositoryIn
 
     /**
      * CategoryRepository constructor.
-     *
-     * @param EventStore $eventStore
-     * @param EventBus   $eventBus
-     * @param array      $eventStreamDecorators
      */
     public function __construct(
         EventStore $eventStore,

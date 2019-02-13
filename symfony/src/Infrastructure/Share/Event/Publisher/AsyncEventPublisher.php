@@ -26,9 +26,6 @@ class AsyncEventPublisher implements EventPublisher, EventSubscriberInterface, E
         }
     }
 
-    /**
-     * @param DomainMessage $message
-     */
     public function handle(DomainMessage $message): void
     {
         $this->events[] = $message;
@@ -47,8 +44,6 @@ class AsyncEventPublisher implements EventPublisher, EventSubscriberInterface, E
 
     /**
      * AsyncEventPublisher constructor.
-     *
-     * @param ProducerInterface $eventProducer
      */
     public function __construct(ProducerInterface $eventProducer)
     {

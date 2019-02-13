@@ -24,10 +24,6 @@ class GetAllPostCommentCommand
 
     /**
      * GetAllCommand constructor.
-     *
-     * @param int         $page
-     * @param int         $limit
-     * @param string|null $post
      */
     public function __construct(int $page, int $limit, ?string $post = null)
     {
@@ -36,17 +32,11 @@ class GetAllPostCommentCommand
         $this->post = $post;
     }
 
-    /**
-     * @return int
-     */
     public function getPage(): int
     {
         return $this->page;
     }
 
-    /**
-     * @return int
-     */
     public function getLimit(): int
     {
         return $this->limit;

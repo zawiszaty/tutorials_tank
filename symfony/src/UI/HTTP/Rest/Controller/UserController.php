@@ -32,10 +32,6 @@ use Symfony\Component\HttpFoundation\Response;
 class UserController extends RestController
 {
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -72,11 +68,6 @@ class UserController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $token
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -97,12 +88,8 @@ class UserController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $id
-     *
      * @throws \Exception
      *
-     * @return Response
      *
      *
      * @SWG\Response(
@@ -128,10 +115,6 @@ class UserController extends RestController
     }
 
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -171,11 +154,8 @@ class UserController extends RestController
     }
 
     /**
-     * @param Request $request
-     *
      * @throws \Assert\AssertionFailedException
      *
-     * @return Response
      *
      *
      * @SWG\Response(
@@ -220,10 +200,6 @@ class UserController extends RestController
     }
 
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -266,8 +242,6 @@ class UserController extends RestController
     }
 
     /**
-     * @param Request $request
-     *
      * @return JsonResponse
      *
      * @SWG\Response(
@@ -315,10 +289,6 @@ class UserController extends RestController
     }
 
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -366,9 +336,6 @@ class UserController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $user
-     *
      * @return JsonResponse
      *
      * @SWG\Response(

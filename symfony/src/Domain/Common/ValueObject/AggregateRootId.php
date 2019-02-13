@@ -15,8 +15,6 @@ class AggregateRootId
     private $aggregateRootId;
 
     /**
-     * @param string $id
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return AggregateRootId
@@ -31,17 +29,11 @@ class AggregateRootId
         return $aggregateRootId;
     }
 
-    /**
-     * @return string
-     */
     public function toString(): string
     {
         return $this->aggregateRootId;
     }
 
-    /**
-     * @return string
-     */
     public function __toString(): string
     {
         return $this->aggregateRootId;

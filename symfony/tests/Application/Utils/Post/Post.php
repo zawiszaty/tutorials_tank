@@ -17,13 +17,6 @@ use Symfony\Component\HttpFoundation\File\File;
  */
 class Post
 {
-    /**
-     * @param string       $content
-     * @param string       $user
-     * @param CategoryView $category
-     *
-     * @return CreatePostCommand
-     */
     public static function create(string $content, string $user, CategoryView $category): CreatePostCommand
     {
         copy('public/sample/sample.jpg', 'public/sample/sample2.jpg');

@@ -22,8 +22,6 @@ class SendEmailCommand
     /**
      * SendEmailCommand constructor.
      *
-     * @param string $email
-     * @param string $token
      *
      * @throws \Assert\AssertionFailedException
      */
@@ -34,17 +32,11 @@ class SendEmailCommand
         $this->token = $token;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @return string
-     */
     public function getToken(): string
     {
         return $this->token;

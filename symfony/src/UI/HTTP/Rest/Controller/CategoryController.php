@@ -22,10 +22,6 @@ use Symfony\Component\HttpFoundation\Response;
 class CategoryController extends RestController
 {
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -66,11 +62,6 @@ class CategoryController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $id
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success edit"
@@ -118,12 +109,8 @@ class CategoryController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $id
-     *
      * @throws \Assert\AssertionFailedException
      *
-     * @return Response
      * @SWG\Response(
      *     response=200,
      *     description="success edit"
@@ -154,10 +141,6 @@ class CategoryController extends RestController
     }
 
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="All Category in Database"
@@ -180,12 +163,8 @@ class CategoryController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $id
-     *
      * @throws \Assert\AssertionFailedException
      *
-     * @return Response
      *
      * @SWG\Response(
      *     response=200,

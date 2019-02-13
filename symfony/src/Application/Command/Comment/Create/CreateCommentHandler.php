@@ -21,8 +21,6 @@ class CreateCommentHandler implements CommandHandlerInterface
 
     /**
      * CreateCommentHandler constructor.
-     *
-     * @param CommentRepository $commentRepository
      */
     public function __construct(CommentRepository $commentRepository)
     {
@@ -30,8 +28,6 @@ class CreateCommentHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param CreateCommentCommand $command
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
      */

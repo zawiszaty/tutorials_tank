@@ -39,11 +39,6 @@ class CommentReadProjectionFactory extends Projector
 
     /**
      * CommentReadProjectionFactory constructor.
-     *
-     * @param MysqlCommentReadModelRepository $modelRepository
-     * @param MysqlPostReadModelRepository    $mysqlPostReadModelRepository
-     * @param MysqlUserReadModelRepository    $mysqlUserReadModelRepository
-     * @param NotificationAbstractFactory     $notificationAbstractFactory
      */
     public function __construct(
         MysqlCommentReadModelRepository $modelRepository,
@@ -58,8 +53,6 @@ class CommentReadProjectionFactory extends Projector
     }
 
     /**
-     * @param CommentWasCreated $event
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\ORM\NonUniqueResultException
      * @throws \ZMQSocketException
@@ -95,8 +88,6 @@ class CommentReadProjectionFactory extends Projector
     }
 
     /**
-     * @param CommentWasDeletedEvent $commentWasDeletedEvent
-     *
      * @throws \Assert\AssertionFailedException
      */
     public function applyCommentWasDeletedEvent(CommentWasDeletedEvent $commentWasDeletedEvent): void

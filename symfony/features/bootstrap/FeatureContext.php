@@ -36,8 +36,6 @@ class FeatureContext implements Context
 
     /**
      * FeatureContext constructor.
-     *
-     * @param KernelInterface $kernel
      */
     public function __construct(KernelInterface $kernel)
     {

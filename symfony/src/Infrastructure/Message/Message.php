@@ -22,17 +22,12 @@ class Message implements MessageComponentInterface
 
     /**
      * Message constructor.
-     *
-     * @param ContainerInterface $container
      */
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
 
-    /**
-     * @param ConnectionInterface $conn
-     */
     public function onOpen(ConnectionInterface $conn)
     {
         $querystring = $conn->httpRequest->getUri()->getQuery();
@@ -57,9 +52,6 @@ class Message implements MessageComponentInterface
         echo "New connection \n";
     }
 
-    /**
-     * @param ConnectionInterface $conn
-     */
     public function onClose(ConnectionInterface $conn)
     {
         foreach ($this->connections as $key => $conn_element) {
@@ -71,19 +63,14 @@ class Message implements MessageComponentInterface
         }
     }
 
-    /**
-     * @param ConnectionInterface $conn
-     * @param \Exception          $e
-     */
     public function onError(ConnectionInterface $conn, \Exception $e)
     {
-        $conn->send('Error : '.$e->getMessage());
+        $conn->send('Error : ' . $e->getMessage());
         $conn->close();
     }
 
     /**
-     * @param ConnectionInterface $from
-     * @param                     $msg
+     * @param $msg
      *
      * @throws \Exception
      */

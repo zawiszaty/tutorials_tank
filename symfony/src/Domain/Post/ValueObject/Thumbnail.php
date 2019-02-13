@@ -23,8 +23,6 @@ class Thumbnail
     }
 
     /**
-     * @param string|null $thumbnail
-     *
      * @return Thumbnail
      */
     public static function fromString(?string $thumbnail)

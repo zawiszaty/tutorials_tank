@@ -34,12 +34,6 @@ class GetAllCommand
 
     /**
      * GetAllCommand constructor.
-     *
-     * @param int         $page
-     * @param int         $limit
-     * @param string|null $query
-     * @param string      $recipient
-     * @param string      $user
      */
     public function __construct(int $page, int $limit, ?string $query, string $recipient, string $user)
     {
@@ -50,17 +44,11 @@ class GetAllCommand
         $this->user = $user;
     }
 
-    /**
-     * @return int
-     */
     public function getPage(): int
     {
         return $this->page;
     }
 
-    /**
-     * @return int
-     */
     public function getLimit(): int
     {
         return $this->limit;
@@ -74,17 +62,11 @@ class GetAllCommand
         return $this->query;
     }
 
-    /**
-     * @return string
-     */
     public function getRecipient(): string
     {
         return $this->recipient;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user;

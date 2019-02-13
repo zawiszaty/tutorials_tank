@@ -24,8 +24,6 @@ class CreatePostHandler implements CommandHandlerInterface
 
     /**
      * CreatePostHandler constructor.
-     *
-     * @param PostRepository $postRepository
      */
     public function __construct(PostRepository $postRepository)
     {
@@ -33,8 +31,6 @@ class CreatePostHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param CreatePostCommand $command
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
      */
@@ -45,7 +41,7 @@ class CreatePostHandler implements CommandHandlerInterface
             AggregateRootId::fromString(Uuid::uuid4()),
             Title::fromString($command->title),
             Content::fromString($command->content),
-            Thumbnail::fromString('/thumbnails/'.$fileName),
+            Thumbnail::fromString('/thumbnails/' . $fileName),
             $command->type,
             $command->user,
             $command->category->getId(),

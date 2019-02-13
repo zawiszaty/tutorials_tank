@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Notification\Strategy\Unit;
 
 use App\Infrastructure\Notification\Strategy\NotificationStrategyInterface;
+use App\Infrastructure\Notification\ZMQ\ZMQConnectionFactory;
 
 /**
  * Class CommentCreateNotification.
@@ -10,15 +11,21 @@ use App\Infrastructure\Notification\Strategy\NotificationStrategyInterface;
 class CommentCreateNotification implements NotificationStrategyInterface
 {
     /**
-     * @param array $data
-     *
+     * @var ZMQConnectionFactory
+     */
+    private $ZMQConnectionFactory;
+
+    public function __construct(ZMQConnectionFactory $ZMQConnectionFactory)
+    {
+        $this->ZMQConnectionFactory = $ZMQConnectionFactory;
+    }
+
+    /**
      * @throws \ZMQSocketException
      */
-    public static function notify(array $data)
+    public function notify(array $data): void
     {
-        $context = new \ZMQContext();
-        $socket = $context->getSocket(\ZMQ::SOCKET_PUSH, 'my pusher');
-        $socket->connect('tcp://localhost:5555');
+        $socket = $this->ZMQConnectionFactory->create();
         $socket->send(json_encode(['user' => $data['user'], 'content' => $data['content'], 'type' => $data['type']]));
     }
 }

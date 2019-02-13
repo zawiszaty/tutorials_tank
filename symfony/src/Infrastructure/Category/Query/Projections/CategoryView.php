@@ -21,8 +21,6 @@ class CategoryView implements CategoryViewInterface
     private $name;
 
     /**
-     * @param Serializable $event
-     *
      * @return CategoryView
      */
     public static function fromSerializable(Serializable $event): self
@@ -31,8 +29,6 @@ class CategoryView implements CategoryViewInterface
     }
 
     /**
-     * @param array $data
-     *
      * @return CategoryView
      */
     public static function deserialize(array $data): self
@@ -44,9 +40,6 @@ class CategoryView implements CategoryViewInterface
         return $instance;
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -55,17 +48,11 @@ class CategoryView implements CategoryViewInterface
         ];
     }
 
-    /**
-     * @return string
-     */
     public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
@@ -75,9 +62,6 @@ class CategoryView implements CategoryViewInterface
     {
     }
 
-    /**
-     * @param string $name
-     */
     public function changeName(string $name)
     {
         $this->name = $name;

@@ -15,11 +15,6 @@ use App\Application\Command\Category\Create\CreateCategoryCommand;
  */
 class Category
 {
-    /**
-     * @param string $name
-     *
-     * @return CreateCategoryCommand
-     */
     public static function create(string $name): CreateCategoryCommand
     {
         $command = new CreateCategoryCommand();

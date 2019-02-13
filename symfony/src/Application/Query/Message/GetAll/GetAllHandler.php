@@ -23,9 +23,6 @@ class GetAllHandler implements QueryHandlerInterface
 
     /**
      * GetAllHandler constructor.
-     *
-     * @param MessageRepositoryElastic $repositoryElastic
-     * @param DataBuilder              $dataBuilder
      */
     public function __construct(MessageRepositoryElastic $repositoryElastic, DataBuilder $dataBuilder)
     {
@@ -34,8 +31,6 @@ class GetAllHandler implements QueryHandlerInterface
     }
 
     /**
-     * @param GetAllCommand $command
-     *
      * @return Collection
      */
     public function __invoke(GetAllCommand $command)

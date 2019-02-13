@@ -15,8 +15,6 @@ class Password
     private $password;
 
     /**
-     * @param string $password
-     *
      * @return password
      */
     public static function fromString(string $password): self
@@ -28,8 +26,6 @@ class Password
     }
 
     /**
-     * @param string $password
-     *
      * @return Password
      */
     public static function formHash(string $password): self
@@ -40,17 +36,11 @@ class Password
         return $instance;
     }
 
-    /**
-     * @return string
-     */
     public function toString(): string
     {
         return $this->password;
     }
 
-    /**
-     * @return string
-     */
     public function __toString(): string
     {
         return $this->password;

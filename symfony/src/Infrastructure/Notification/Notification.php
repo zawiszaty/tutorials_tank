@@ -9,6 +9,7 @@ use Ratchet\ConnectionInterface;
 use Ratchet\Wamp\WampServerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
+use const Fpp\dump;
 
 /**
  * Class Notification.
@@ -21,8 +22,6 @@ class Notification implements WampServerInterface
 
     /**
      * Notification constructor.
-     *
-     * @param ContainerInterface $container
      */
     public function __construct(ContainerInterface $container)
     {
@@ -30,7 +29,6 @@ class Notification implements WampServerInterface
     }
 
     /**
-     * @param ConnectionInterface        $conn
      * @param \Ratchet\Wamp\Topic|string $topic
      */
     public function onSubscribe(ConnectionInterface $conn, $topic)
@@ -56,32 +54,23 @@ class Notification implements WampServerInterface
     }
 
     /**
-     * @param ConnectionInterface        $conn
      * @param \Ratchet\Wamp\Topic|string $topic
      */
     public function onUnSubscribe(ConnectionInterface $conn, $topic)
     {
     }
 
-    /**
-     * @param ConnectionInterface $conn
-     */
     public function onOpen(ConnectionInterface $conn)
     {
     }
 
-    /**
-     * @param ConnectionInterface $conn
-     */
     public function onClose(ConnectionInterface $conn)
     {
     }
 
     /**
-     * @param ConnectionInterface        $conn
      * @param string                     $id
      * @param \Ratchet\Wamp\Topic|string $topic
-     * @param array                      $params
      */
     public function onCall(ConnectionInterface $conn, $id, $topic, array $params)
     {
@@ -90,11 +79,8 @@ class Notification implements WampServerInterface
     }
 
     /**
-     * @param ConnectionInterface        $conn
      * @param \Ratchet\Wamp\Topic|string $topic
      * @param string                     $event
-     * @param array                      $exclude
-     * @param array                      $eligible
      */
     public function onPublish(ConnectionInterface $conn, $topic, $event, array $exclude, array $eligible)
     {
@@ -102,10 +88,6 @@ class Notification implements WampServerInterface
         $conn->close();
     }
 
-    /**
-     * @param ConnectionInterface $conn
-     * @param \Exception          $e
-     */
     public function onError(ConnectionInterface $conn, \Exception $e)
     {
     }

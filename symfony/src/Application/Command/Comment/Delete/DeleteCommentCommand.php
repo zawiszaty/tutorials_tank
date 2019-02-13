@@ -19,9 +19,6 @@ class DeleteCommentCommand
 
     /**
      * DeleteCommentCommand constructor.
-     *
-     * @param string $id
-     * @param string $user
      */
     public function __construct(string $id, string $user)
     {
@@ -29,17 +26,11 @@ class DeleteCommentCommand
         $this->user = $user;
     }
 
-    /**
-     * @return string
-     */
     public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user;

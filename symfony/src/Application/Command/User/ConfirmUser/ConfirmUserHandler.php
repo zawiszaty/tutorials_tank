@@ -26,9 +26,6 @@ class ConfirmUserHandler implements CommandHandlerInterface
 
     /**
      * ConfirmUserHandler constructor.
-     *
-     * @param MysqlUserReadModelRepository                       $repository
-     * @param \App\Infrastructure\User\Repository\UserRepository $aggregatRepository
      */
     public function __construct(MysqlUserReadModelRepository $repository, \App\Infrastructure\User\Repository\UserRepository $aggregatRepository)
     {
@@ -37,8 +34,6 @@ class ConfirmUserHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param ConfirmUserCommand $command
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      * @throws \Exception
      * @throws \Assert\AssertionFailedException

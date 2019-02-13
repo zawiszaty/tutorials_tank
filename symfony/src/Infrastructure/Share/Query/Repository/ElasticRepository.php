@@ -15,19 +15,11 @@ use Elasticsearch\ClientBuilder;
  */
 abstract class ElasticRepository
 {
-    /**
-     * @param AbstractEvent $message
-     */
     public function store(AbstractEvent $message): void
     {
         $this->add($message->serialize());
     }
 
-    /**
-     * @param array $query
-     *
-     * @return array
-     */
     public function search(array $query): array
     {
         $finalQuery = [];
@@ -59,11 +51,6 @@ abstract class ElasticRepository
         }
     }
 
-    /**
-     * @param array $document
-     *
-     * @return array
-     */
     protected function add(array $document): array
     {
         $query['index'] = $query['type'] = $this->index;
@@ -74,11 +61,7 @@ abstract class ElasticRepository
     }
 
     /**
-     * @param int    $page
-     * @param int    $limit
      * @param string $queryString
-     *
-     * @return Collection
      */
     public function page(int $page = 1, int $limit = 50, array $queryString = []): Collection
     {
@@ -100,9 +83,6 @@ abstract class ElasticRepository
         return $collection;
     }
 
-    /**
-     * @param string $id
-     */
     public function deleteRow(string $id): void
     {
         $query['index'] = $query['type'] = $this->index;
@@ -112,9 +92,6 @@ abstract class ElasticRepository
 
     /**
      * ElasticRepository constructor.
-     *
-     * @param array  $config
-     * @param string $index
      */
     public function __construct(array $config, string $index)
     {
@@ -123,8 +100,6 @@ abstract class ElasticRepository
     }
 
     /**
-     * @param string $id
-     *
      * @return array
      */
     public function get(string $id)

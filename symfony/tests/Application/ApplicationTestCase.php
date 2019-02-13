@@ -33,8 +33,6 @@ abstract class ApplicationTestCase extends KernelTestCase
 
     /**
      * @param $query
-     *
-     * @return mixed
      */
     protected function ask($query)
     {
@@ -50,8 +48,6 @@ abstract class ApplicationTestCase extends KernelTestCase
     }
 
     /**
-     * @param string $serviceId
-     *
      * @return object
      */
     protected function service(string $serviceId)
@@ -98,7 +94,7 @@ abstract class ApplicationTestCase extends KernelTestCase
      */
     protected function createCategory(): CategoryView
     {
-        $name = 'test'.Uuid::uuid4()->toString();
+        $name = 'test' . Uuid::uuid4()->toString();
         $command = Category::create($name);
         $this
             ->handle($command);
@@ -119,12 +115,10 @@ abstract class ApplicationTestCase extends KernelTestCase
 
     /**
      * @throws \Exception
-     *
-     * @return string
      */
     protected function createUser(): string
     {
-        $email = 'asd@asd.asd'.Uuid::uuid4()->toString();
+        $email = 'asd@asd.asd' . Uuid::uuid4()->toString();
         $command = User::create($email);
         $this
             ->handle($command);

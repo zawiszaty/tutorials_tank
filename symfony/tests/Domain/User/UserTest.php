@@ -267,7 +267,7 @@ class UserTest extends WebTestCase
             ConfirmationToken::fromString('12313')
         );
         $user->grantedAdminRole();
-        self::assertSame(true, in_array('ROLE_ADMIN', $user->getRoles()->toArray()), 'Array should be Role Admin');
+        self::assertTrue(\in_array('ROLE_ADMIN', $user->getRoles()->toArray()), 'Array should be Role Admin');
         $events = $user->getUncommittedEvents();
         self::assertCount(2, $events->getIterator(), '2 event should be in the buffer');
         /** @var DomainMessage $event */

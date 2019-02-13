@@ -44,13 +44,15 @@ class CommentWasCreated extends AbstractEvent
     /**
      * CommentWasCreated constructor.
      *
-     * @param AggregateRootId $id
-     * @param Content         $content
-     * @param string          $parrentComment
-     * @param string          $post
-     * @param string          $user
+     * @param string $parrentComment
      */
-    public function __construct(AggregateRootId $id, Content $content, ?string $parrentComment, string $post, string $user, \DateTime $createdAt
+    public function __construct(
+        AggregateRootId $id,
+        Content $content,
+        ?string $parrentComment,
+        string $post,
+        string $user,
+        \DateTime $createdAt
     ) {
         $this->id = $id;
         $this->content = $content;
@@ -61,8 +63,6 @@ class CommentWasCreated extends AbstractEvent
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
      *
@@ -82,9 +82,6 @@ class CommentWasCreated extends AbstractEvent
         return $instance;
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -97,17 +94,11 @@ class CommentWasCreated extends AbstractEvent
         ];
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return Content
-     */
     public function getContent(): Content
     {
         return $this->content;
@@ -121,25 +112,16 @@ class CommentWasCreated extends AbstractEvent
         return $this->parrentComment;
     }
 
-    /**
-     * @return string
-     */
     public function getPost(): string
     {
         return $this->post;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getCreatedAt(): \DateTime
     {
         return $this->createdAt;

@@ -7,6 +7,7 @@
     "@material-ui/icons": "^3.0.1",
     "@material-ui/styles": "^3.0.0-alpha.6",
     "@tinymce/tinymce-react": "^2.5.0",
+    "autobahn": "^18.10.2",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "lodash.debounce": "^4.0.8",

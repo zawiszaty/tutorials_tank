@@ -19,8 +19,6 @@ class ChangeAvatarHandler implements CommandHandlerInterface
 
     /**
      * ConfirmUserHandler constructor.
-     *
-     * @param \App\Infrastructure\User\Repository\UserRepository $aggregatRepository
      */
     public function __construct(\App\Infrastructure\User\Repository\UserRepository $aggregatRepository)
     {
@@ -28,8 +26,6 @@ class ChangeAvatarHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param ChangeAvatarCommand $command
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
      */
@@ -37,9 +33,9 @@ class ChangeAvatarHandler implements CommandHandlerInterface
     {
         $user = $this->aggregatRepository->get(AggregateRootId::fromString($command->getId()));
         $fileName = FileMover::move($command->getFile(), 'avatars');
-        $user->changeAvatar('/avatars/'.$fileName);
+        $user->changeAvatar('/avatars/' . $fileName);
         $this->aggregatRepository->store($user);
 
-        throw new AvatarWasChanged('/avatars/'.$fileName);
+        throw new AvatarWasChanged('/avatars/' . $fileName);
     }
 }

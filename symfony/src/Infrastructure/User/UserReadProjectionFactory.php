@@ -28,8 +28,6 @@ class UserReadProjectionFactory extends Projector
 
     /**
      * UserReadProjectionFactory constructor.
-     *
-     * @param MysqlUserReadModelRepository $repository
      */
     public function __construct(MysqlUserReadModelRepository $repository)
     {
@@ -37,8 +35,6 @@ class UserReadProjectionFactory extends Projector
     }
 
     /**
-     * @param UserWasCreated $userWasCreated
-     *
      * @throws \Exception
      */
     public function applyUserWasCreated(UserWasCreated $userWasCreated)
@@ -51,8 +47,6 @@ class UserReadProjectionFactory extends Projector
     }
 
     /**
-     * @param UserWasConfirmed $userWasConfirmed
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserWasConfirmed(UserWasConfirmed $userWasConfirmed)
@@ -64,8 +58,6 @@ class UserReadProjectionFactory extends Projector
     }
 
     /**
-     * @param UserWasBanned $userWasBanned
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserWasBanned(UserWasBanned $userWasBanned)
@@ -77,8 +69,6 @@ class UserReadProjectionFactory extends Projector
     }
 
     /**
-     * @param UserNameWasChanged $event
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserNameWasChanged(UserNameWasChanged $event)
@@ -90,8 +80,6 @@ class UserReadProjectionFactory extends Projector
     }
 
     /**
-     * @param UserMailWasChanged $event
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserMailWasChanged(UserMailWasChanged $event)
@@ -103,8 +91,6 @@ class UserReadProjectionFactory extends Projector
     }
 
     /**
-     * @param UserPasswordWasChanged $event
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserPasswordWasChanged(UserPasswordWasChanged $event)
@@ -116,8 +102,6 @@ class UserReadProjectionFactory extends Projector
     }
 
     /**
-     * @param UserAvatarWasChanged $event
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserAvatarWasChanged(UserAvatarWasChanged $event)
@@ -129,8 +113,6 @@ class UserReadProjectionFactory extends Projector
     }
 
     /**
-     * @param UserWasAdminRoleGranted $adminRoleGranted
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function applyUserWasAdminRoleGranted(UserWasAdminRoleGranted $adminRoleGranted): void

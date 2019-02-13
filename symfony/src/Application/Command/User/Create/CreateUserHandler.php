@@ -40,10 +40,6 @@ class CreateUserHandler implements CommandHandlerInterface
 
     /**
      * CreateUserHandler constructor.
-     *
-     * @param UserRepository               $repository
-     * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
-     * @param CommandBus                   $commandBus
      */
     public function __construct(
         UserRepository $repository,
@@ -56,8 +52,6 @@ class CreateUserHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param CreateUserCommand $command
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
      */

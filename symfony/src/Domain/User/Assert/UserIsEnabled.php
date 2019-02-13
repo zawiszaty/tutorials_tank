@@ -10,9 +10,6 @@ use App\Domain\User\User;
  */
 class UserIsEnabled
 {
-    /**
-     * @param User $user
-     */
     public static function check(User $user)
     {
         if ($user->isEnabled()) {

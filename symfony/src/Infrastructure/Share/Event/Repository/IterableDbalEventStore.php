@@ -71,9 +71,6 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
         $this->next();
     }
 
-    /**
-     * @return bool
-     */
     private function isStatementPrepared(): bool
     {
         return $this->statement instanceof Statement;
@@ -85,7 +82,7 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
     private function prepareStatement()
     {
         $this->statement = $this->connection->prepare(
-            'SELECT DISTINCT `uuid` FROM '.$this->eventStoreTable
+            'SELECT DISTINCT `uuid` FROM ' . $this->eventStoreTable
         );
         $this->statement->execute();
     }
@@ -95,13 +92,10 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
         $this->index = -1;
     }
 
-    /**
-     * @return UuidInterface
-     */
     private function fetchNextAggregateId(): UuidInterface
     {
         $nextAggregate = $this->statement->fetch();
-        if (is_array($nextAggregate) && array_key_exists('uuid', $nextAggregate)) {
+        if (\is_array($nextAggregate) && array_key_exists('uuid', $nextAggregate)) {
             return Uuid::fromBytes($nextAggregate['uuid']);
         }
         exit();
@@ -109,10 +103,6 @@ class IterableDbalEventStore implements IterableAggregateEventStoreInterface
 
     /**
      * IterableDbalEventStore constructor.
-     *
-     * @param Connection     $connection
-     * @param DBALEventStore $eventStore
-     * @param string         $eventStoreTable
      */
     public function __construct(
         Connection $connection,

@@ -14,8 +14,6 @@ class Content
 
     /**
      * content constructor.
-     *
-     * @param string $content
      */
     public function __construct(string $content)
     {
@@ -23,8 +21,6 @@ class Content
     }
 
     /**
-     * @param string $content
-     *
      * @return Content
      */
     public static function fromString(string $content)

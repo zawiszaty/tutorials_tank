@@ -55,15 +55,6 @@ class CreatePostEvent extends AbstractEvent
 
     /**
      * CreatePostEvent constructor.
-     *
-     * @param AggregateRootId $id
-     * @param Title           $title
-     * @param Content         $content
-     * @param Thumbnail       $thumbnail
-     * @param string          $type
-     * @param string          $user
-     * @param null|string     $category
-     * @param string          $shortDescription
      */
     public function __construct(AggregateRootId $id, Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, ?string $category, string $shortDescription)
     {
@@ -78,8 +69,6 @@ class CreatePostEvent extends AbstractEvent
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return CreatePostEvent|mixed
@@ -100,9 +89,6 @@ class CreatePostEvent extends AbstractEvent
         return $post;
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -117,65 +103,41 @@ class CreatePostEvent extends AbstractEvent
         ];
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return Title
-     */
     public function getTitle(): Title
     {
         return $this->title;
     }
 
-    /**
-     * @return Content
-     */
     public function getContent(): Content
     {
         return $this->content;
     }
 
-    /**
-     * @return Thumbnail
-     */
     public function getThumbnail(): Thumbnail
     {
         return $this->thumbnail;
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user;
     }
 
-    /**
-     * @return null|string
-     */
     public function getCategory(): ?string
     {
         return $this->category;
     }
 
-    /**
-     * @return string
-     */
     public function getShortDescription(): string
     {
         return $this->shortDescription;

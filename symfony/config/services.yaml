@@ -13,6 +13,7 @@ parameters:
     events_table: '%env(EVENTS_TABLE)%'
     env(EVENTS_TABLE): 'events'
     APP_ENV: '%env(APP_ENV)%'
+    ZMQ_PARAMS: '%env(ZMQ_PARAMS)%'
 
 
 services:
@@ -33,6 +34,7 @@ services:
           $eventProducer: '@old_sound_rabbit_mq.events_producer'
 
           $eventStoreTable: '%events_table%'
+          $zmqConfig: '%ZMQ_PARAMS%'
 
     _instanceof:
 

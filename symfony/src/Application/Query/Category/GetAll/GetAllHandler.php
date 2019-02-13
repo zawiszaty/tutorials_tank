@@ -23,9 +23,6 @@ class GetAllHandler implements QueryHandlerInterface
 
     /**
      * GetAllHandler constructor.
-     *
-     * @param MysqlCategoryReadModelRepository $modelRepository
-     * @param CategoryRepositoryElastic        $categoryRepositoryElastic
      */
     public function __construct(MysqlCategoryReadModelRepository $modelRepository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {
@@ -34,8 +31,6 @@ class GetAllHandler implements QueryHandlerInterface
     }
 
     /**
-     * @param GetAllCommand $command
-     *
      * @return \App\Application\Query\Collection
      */
     public function __invoke(GetAllCommand $command)
@@ -44,7 +39,7 @@ class GetAllHandler implements QueryHandlerInterface
             $query = [
                 'query' => [
                     'wildcard' => [
-                        'name' => '*'.$command->getQuery().'*',
+                        'name' => '*' . $command->getQuery() . '*',
                     ],
                 ],
             ];

@@ -2,11 +2,8 @@
 
 namespace App\Infrastructure\Notification\Strategy;
 
-use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Infrastructure\Notification\NotificationFactory;
-use App\Infrastructure\Notification\Query\MysqlNotificationRepository;
+use App\Infrastructure\Notification\NotificationManager;
 use App\Infrastructure\Notification\Strategy\Unit\CommentCreateNotification;
-use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\DependencyInjection\Container;
 
@@ -16,53 +13,47 @@ use Symfony\Component\DependencyInjection\Container;
 class NotificationAbstractFactory
 {
     /**
-     * @var MysqlNotificationRepository
-     */
-    private $mysqlNotificationRepository;
-
-    /**
-     * @var MysqlUserReadModelRepository
-     */
-    private $mysqlUserReadModelRepository;
-
-    /**
      * @var Container
      */
     private $container;
 
     /**
-     * NotificationAbstractFactory constructor.
-     *
-     * @param MysqlNotificationRepository  $mysqlNotificationRepository
-     * @param MysqlUserReadModelRepository $mysqlUserReadModelRepository
+     * @var NotificationStrategyInterface
      */
-    public function __construct(MysqlNotificationRepository $mysqlNotificationRepository, MysqlUserReadModelRepository $mysqlUserReadModelRepository, ContainerInterface $container)
+    private $strategy;
+    /**
+     * @var NotificationManager
+     */
+    private $notificationManager;
+    /**
+     * @var CommentCreateNotification
+     */
+    private $commentCreateNotification;
+
+    /**
+     * NotificationAbstractFactory constructor.
+     */
+    public function __construct(ContainerInterface $container, NotificationManager $notificationManager, CommentCreateNotification $commentCreateNotification)
     {
-        $this->mysqlNotificationRepository = $mysqlNotificationRepository;
-        $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
         $this->container = $container;
+        $this->notificationManager = $notificationManager;
+        $this->commentCreateNotification = $commentCreateNotification;
     }
 
     /**
-     * @param string $type
-     * @param array  $data
-     *
-     * @throws \ZMQSocketException
      * @throws \Exception
      * @throws \Assert\AssertionFailedException
      */
-    public function create(string $type, array $data)
+    public function create(string $type, array $data): void
     {
-        if ($this->container->getParameter('APP_ENV') !== 'test') {
+        if ('test' !== $this->container->getParameter('APP_ENV')) {
             switch ($type) {
                 case 'comment':
-                    CommentCreateNotification::notify($data);
+                    $this->commentCreateNotification->notify($data);
 
                     break;
             }
         }
-        $user = $this->mysqlUserReadModelRepository->getSingle(AggregateRootId::fromString($data['user']));
-        $notification = NotificationFactory::create(json_encode($data['content']), $user->readModel, $data['type']);
-        $this->mysqlNotificationRepository->add($notification);
+        $this->notificationManager->create($data);
     }
 }

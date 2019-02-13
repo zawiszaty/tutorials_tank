@@ -34,9 +34,6 @@ class Collection
     /**
      * Collection constructor.
      *
-     * @param int   $page
-     * @param int   $limit
-     * @param int   $total
      * @param array $data
      */
     public function __construct(int $page, int $limit, int $total, ?array $data)
@@ -48,11 +45,6 @@ class Collection
         $this->data = $data;
     }
 
-    /**
-     * @param int $page
-     * @param int $limit
-     * @param int $total
-     */
     private function exists(int $page, int $limit, int $total): void
     {
         if (($limit * ($page - 1)) >= $total) {

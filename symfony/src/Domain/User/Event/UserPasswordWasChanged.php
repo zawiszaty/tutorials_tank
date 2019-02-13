@@ -23,9 +23,6 @@ class UserPasswordWasChanged extends AbstractEvent
 
     /**
      * UserMailWasChanged constructor.
-     *
-     * @param AggregateRootId $id
-     * @param password        $password
      */
     public function __construct(AggregateRootId $id, Password $password)
     {
@@ -33,25 +30,17 @@ class UserPasswordWasChanged extends AbstractEvent
         $this->password = $password;
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return Password
-     */
     public function getPassword(): Password
     {
         return $this->password;
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return UserMailWasChanged|mixed
@@ -64,9 +53,6 @@ class UserPasswordWasChanged extends AbstractEvent
         );
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [

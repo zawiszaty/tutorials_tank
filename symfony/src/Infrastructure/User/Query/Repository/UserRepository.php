@@ -18,8 +18,6 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
 {
     /**
      * UserRepository constructor.
-     *
-     * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -37,15 +35,13 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     }
 
     /**
-     * @param UserInterface $user
-     *
      * @return int|UserInterface
      */
     public function refreshUser(UserInterface $user)
     {
         if (!$user instanceof UserView) {
             throw new UnsupportedUserException(
-                sprintf('Instances of "%s" are not supported.', get_class($user))
+                sprintf('Instances of "%s" are not supported.', \get_class($user))
             );
         }
 

@@ -11,9 +11,6 @@ use Doctrine\ORM\EntityManagerInterface;
  */
 class MysqlNotificationRepository extends MysqlRepository
 {
-    /**
-     * @param NotificationView $notificationView
-     */
     public function add(NotificationView $notificationView): void
     {
         $this->register($notificationView);
@@ -21,8 +18,6 @@ class MysqlNotificationRepository extends MysqlRepository
 
     /**
      * MysqlCategoryReadModelRepository constructor.
-     *
-     * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
     {

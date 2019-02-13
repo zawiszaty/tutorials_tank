@@ -23,9 +23,6 @@ class UserAvatarWasChanged extends AbstractEvent
 
     /**
      * UserMailWasChanged constructor.
-     *
-     * @param AggregateRootId $id
-     * @param Avatar          $avatar
      */
     public function __construct(AggregateRootId $id, Avatar $avatar)
     {
@@ -33,25 +30,17 @@ class UserAvatarWasChanged extends AbstractEvent
         $this->avatar = $avatar;
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return Avatar
-     */
     public function getAvatar(): Avatar
     {
         return $this->avatar;
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return UserMailWasChanged|mixed
@@ -64,9 +53,6 @@ class UserAvatarWasChanged extends AbstractEvent
         );
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [

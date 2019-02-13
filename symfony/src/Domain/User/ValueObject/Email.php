@@ -15,8 +15,6 @@ class Email
     private $email;
 
     /**
-     * @param string $email
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return Email
@@ -31,17 +29,11 @@ class Email
         return $instance;
     }
 
-    /**
-     * @return string
-     */
     public function toString(): string
     {
         return $this->email;
     }
 
-    /**
-     * @return string
-     */
     public function __toString(): string
     {
         return $this->email;

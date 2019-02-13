@@ -66,17 +66,12 @@ class PostView implements UserViewInterface
      */
     private $comment;
 
-    /**
-     * @return \DateTime
-     */
     public function getCreatedAt(): \DateTime
     {
         return $this->createdAt;
     }
 
     /**
-     * @param Serializable $event
-     *
      * @return PostView
      */
     public static function fromSerializable(Serializable $event): self
@@ -85,8 +80,6 @@ class PostView implements UserViewInterface
     }
 
     /**
-     * @param array $data
-     *
      * @return PostView|mixed
      */
     public static function deserialize(array $data)
@@ -106,9 +99,6 @@ class PostView implements UserViewInterface
         return $userView;
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -125,25 +115,16 @@ class PostView implements UserViewInterface
         ];
     }
 
-    /**
-     * @return string
-     */
     public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @return string
-     */
     public function getContent(): string
     {
         return $this->content;
@@ -157,25 +138,16 @@ class PostView implements UserViewInterface
         return $this->thumbnail;
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user->getId();
     }
 
-    /**
-     * @return string
-     */
     public function getSlug(): string
     {
         return $this->slug;
@@ -188,22 +160,16 @@ class PostView implements UserViewInterface
     {
         if ($this->category) {
             return $this->category->getId();
-        } else {
-            return null;
         }
+
+        return null;
     }
 
-    /**
-     * @return string
-     */
     public function getShortDescription(): string
     {
         return $this->shortDescription;
     }
 
-    /**
-     * @param array $data
-     */
     public function edit(array $data)
     {
         $this->title = $data['title'];
@@ -224,9 +190,6 @@ class PostView implements UserViewInterface
         return $this->comment;
     }
 
-    /**
-     * @return UserView
-     */
     public function getFullUser(): UserView
     {
         return $this->user;

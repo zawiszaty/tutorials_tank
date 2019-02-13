@@ -11,13 +11,11 @@ use App\Domain\User\ValueObject\Roles;
 class UserIsNotAdmin
 {
     /**
-     * @param Roles $roles
-     *
      * @throws UserIsAdminException
      */
     public static function check(Roles $roles)
     {
-        if (in_array('ROLE_ADMIN', $roles->toArray())) {
+        if (\in_array('ROLE_ADMIN', $roles->toArray())) {
             throw new UserIsAdminException();
         }
     }

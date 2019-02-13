@@ -57,24 +57,12 @@ class Post extends EventSourcedAggregateRoot
      */
     private $shortDescription;
 
-    /**
-     * @return string
-     */
     public function getAggregateRootId(): string
     {
         return $this->id->toString();
     }
 
     /**
-     * @param AggregateRootId $aggregateRootId
-     * @param Title           $title
-     * @param Content         $content
-     * @param Thumbnail       $thumbnail
-     * @param string          $type
-     * @param string          $user
-     * @param string          $category
-     * @param string          $shortDescription
-     *
      * @return Post
      */
     public static function create(AggregateRootId $aggregateRootId, Title $title, Content $content, Thumbnail $thumbnail, string $type, string $user, string $category, string $shortDescription): self
@@ -95,9 +83,6 @@ class Post extends EventSourcedAggregateRoot
         return $post;
     }
 
-    /**
-     * @param CreatePostEvent $event
-     */
     public function applyCreatePostEvent(CreatePostEvent $event)
     {
         $this->id = $event->getId();
@@ -111,13 +96,7 @@ class Post extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param Title     $title
-     * @param Content   $content
-     * @param Thumbnail $thumbnail
-     * @param string    $type
-     * @param string    $user
-     * @param string    $category
-     * @param string    $shortDescription
+     * @param string $category
      *
      * @return Post
      */
@@ -137,9 +116,6 @@ class Post extends EventSourcedAggregateRoot
         return $this;
     }
 
-    /**
-     * @param string $user
-     */
     public function delete(string $user)
     {
         if ($user != $this->getUser()) {
@@ -149,24 +125,10 @@ class Post extends EventSourcedAggregateRoot
         $this->apply(new PostEventDelete($this->id, $user));
     }
 
-    /**
-     * @param PostEventDelete $eventDelete
-     */
-
-    /**
-     * @param PostEventDelete $eventDelete
-     */
     public function applyPostEventDelete(PostEventDelete $eventDelete)
     {
     }
 
-    /**
-     * @param PostWasEdited $event
-     */
-
-    /**
-     * @param PostWasEdited $event
-     */
     public function applyPostWasEdited(PostWasEdited $event)
     {
         $this->title = $event->getTitle();
@@ -178,65 +140,41 @@ class Post extends EventSourcedAggregateRoot
         $this->category = $event->getCategory();
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return Title
-     */
     public function getTitle(): Title
     {
         return $this->title;
     }
 
-    /**
-     * @return Content
-     */
     public function getContent(): Content
     {
         return $this->content;
     }
 
-    /**
-     * @return Thumbnail
-     */
     public function getThumbnail(): Thumbnail
     {
         return $this->thumbnail;
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user;
     }
 
-    /**
-     * @return string
-     */
     public function getCategory(): string
     {
         return $this->category;
     }
 
-    /**
-     * @return string
-     */
     public function getShortDescription(): string
     {
         return $this->shortDescription;

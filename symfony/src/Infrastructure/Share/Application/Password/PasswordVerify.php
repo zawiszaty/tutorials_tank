@@ -9,10 +9,6 @@ use App\Domain\User\Exception\PasswordIsBadException;
  */
 class PasswordVerify
 {
-    /**
-     * @param string $oldPassword
-     * @param string $currentPassword
-     */
     public static function verify(string $oldPassword, string $currentPassword): void
     {
         if (!password_verify(

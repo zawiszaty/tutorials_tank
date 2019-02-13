@@ -24,9 +24,6 @@ class EventStoreReplayCommand extends Command
     }
 
     /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     *
      * @return int|void|null
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -38,9 +35,6 @@ class EventStoreReplayCommand extends Command
 
     /**
      * EventStoreReplayCommand constructor.
-     *
-     * @param CommandBus                           $commandBus
-     * @param IterableAggregateEventStoreInterface $iterableDbalEventStore
      */
     public function __construct(
         CommandBus $commandBus,

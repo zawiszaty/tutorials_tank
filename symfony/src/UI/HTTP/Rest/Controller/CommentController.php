@@ -20,10 +20,6 @@ use Symfony\Component\HttpFoundation\Response;
 class CommentController extends RestController
 {
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -68,11 +64,6 @@ class CommentController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $post
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -122,11 +113,6 @@ class CommentController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $parrentComment
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -177,11 +163,6 @@ class CommentController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $id
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"

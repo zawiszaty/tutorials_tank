@@ -15,8 +15,6 @@ class Roles
     private $roles;
 
     /**
-     * @param array $roles
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return Roles
@@ -31,30 +29,22 @@ class Roles
         return $instance;
     }
 
-    /**
-     * @return array
-     */
     public function toArray(): array
     {
         return $this->roles;
     }
 
-    /**
-     * @return array
-     */
     public function __toArray(): array
     {
         return $this->roles;
     }
 
     /**
-     * @param string $role
-     *
      * @throws \Exception
      */
     public function appendRole(string $role)
     {
-        if (in_array($role, $this->roles)) {
+        if (\in_array($role, $this->roles)) {
             throw new \Exception();
         }
 

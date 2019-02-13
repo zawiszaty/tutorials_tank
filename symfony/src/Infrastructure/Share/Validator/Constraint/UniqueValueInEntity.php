@@ -28,9 +28,6 @@ class UniqueValueInEntity extends Constraint
         return ['entityClass', 'field'];
     }
 
-    /**
-     * @return mixed
-     */
     public function getTargets()
     {
         return self::PROPERTY_CONSTRAINT;
@@ -41,6 +38,6 @@ class UniqueValueInEntity extends Constraint
      */
     public function validatedBy()
     {
-        return get_class($this).'Validator';
+        return \get_class($this) . 'Validator';
     }
 }

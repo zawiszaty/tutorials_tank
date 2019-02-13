@@ -12,8 +12,6 @@ use Broadway\EventHandling\EventBus;
 class EventStreamProcessor implements EventStreamProcessorInterface
 {
     /**
-     * @param DomainEventStream $stream
-     *
      * @return mixed|void
      */
     public function process(DomainEventStream $stream)
@@ -27,8 +25,6 @@ class EventStreamProcessor implements EventStreamProcessorInterface
 
     /**
      * EventStreamProcessor constructor.
-     *
-     * @param EventBus $eventBus
      */
     public function __construct(EventBus $eventBus)
     {

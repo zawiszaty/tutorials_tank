@@ -36,13 +36,12 @@ class DeleteCommentHandler implements CommandHandlerInterface
 
     /**
      * DeleteCommentHandler constructor.
-     *
-     * @param CommentRepository               $commentRepository
-     * @param CommandBus                      $commandBus
-     * @param CommentRepositoryElastic        $commentRepositoryElastic
-     * @param MysqlCommentReadModelRepository $commentReadModelRepository
      */
-    public function __construct(CommentRepository $commentRepository, CommandBus $commandBus, CommentRepositoryElastic $commentRepositoryElastic, MysqlCommentReadModelRepository $commentReadModelRepository
+    public function __construct(
+        CommentRepository $commentRepository,
+        CommandBus $commandBus,
+        CommentRepositoryElastic $commentRepositoryElastic,
+        MysqlCommentReadModelRepository $commentReadModelRepository
     ) {
         $this->commandBus = $commandBus;
         $this->commentRepository = $commentRepository;
@@ -51,8 +50,6 @@ class DeleteCommentHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param DeleteCommentCommand $deleteCommentCommand
-     *
      * @throws \Assert\AssertionFailedException
      */
     public function __invoke(DeleteCommentCommand $deleteCommentCommand)

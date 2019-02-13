@@ -17,19 +17,12 @@ class DataBuilder
 
     /**
      * DataBuilder constructor.
-     *
-     * @param UserRepositoryElastic $repositoryElastic
      */
     public function __construct(UserRepositoryElastic $repositoryElastic)
     {
         $this->repositoryElastic = $repositoryElastic;
     }
 
-    /**
-     * @param array $data
-     *
-     * @return array
-     */
     public function build(array $data): array
     {
         foreach ($data as $key => $item) {

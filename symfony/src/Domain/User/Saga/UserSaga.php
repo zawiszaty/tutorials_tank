@@ -21,8 +21,6 @@ class UserSaga extends Saga implements StaticallyConfiguredSagaInterface
 
     /**
      * UserSaga constructor.
-     *
-     * @param CommandBus $commandBus
      */
     public function __construct(
         CommandBus $commandBus
@@ -42,12 +40,7 @@ class UserSaga extends Saga implements StaticallyConfiguredSagaInterface
     }
 
     /**
-     * @param UserWasCreated $userWasCreated
-     * @param State          $state
-     *
      * @throws \Assert\AssertionFailedException
-     *
-     * @return State
      */
     public function handleUserWasCreated(UserWasCreated $userWasCreated, State $state): State
     {

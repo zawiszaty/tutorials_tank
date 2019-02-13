@@ -29,12 +29,8 @@ abstract class MysqlRepository
     }
 
     /**
-     * @param QueryBuilder $queryBuilder
-     *
      * @throws NotFoundHttpException
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
-     * @return mixed
      */
     protected function oneOrException(QueryBuilder $queryBuilder)
     {
@@ -49,9 +45,6 @@ abstract class MysqlRepository
         return $model;
     }
 
-    /**
-     * @param string $model
-     */
     private function setRepository(string $model): void
     {
         /** @var EntityRepository $objectRepository */
@@ -61,8 +54,6 @@ abstract class MysqlRepository
 
     /**
      * MysqlRepository constructor.
-     *
-     * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
     {

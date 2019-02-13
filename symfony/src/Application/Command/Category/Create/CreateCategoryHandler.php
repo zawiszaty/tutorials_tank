@@ -19,8 +19,6 @@ class CreateCategoryHandler implements CommandHandlerInterface
 
     /**
      * CreateCategoryHandler constructor.
-     *
-     * @param CategoryRepositoryInterface $categoryRepository
      */
     public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
@@ -28,8 +26,6 @@ class CreateCategoryHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param CreateCategoryCommand $categoryCommand
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
      */

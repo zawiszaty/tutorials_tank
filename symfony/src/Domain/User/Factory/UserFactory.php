@@ -19,22 +19,11 @@ use Ramsey\Uuid\Uuid;
 class UserFactory
 {
     /**
-     * @param AggregateRootId $id
-     * @param UserName        $username
-     * @param Email           $email
-     * @param Roles           $roles
-     * @param Avatar          $avatar
-     * @param Steemit         $steemit
-     * @param bool            $banned
-     * @param Password        $password
-     *
      * @throws \Exception
-     *
-     * @return mixed
      */
     public static function create(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, Password $password)
     {
-        $token = ConfirmationToken::fromString(Uuid::uuid4().'-'.Uuid::uuid4());
+        $token = ConfirmationToken::fromString(Uuid::uuid4() . '-' . Uuid::uuid4());
         $user = User::create($id, $username, $email, $roles, $avatar, $steemit, $banned, $password, $token);
 
         return $user;

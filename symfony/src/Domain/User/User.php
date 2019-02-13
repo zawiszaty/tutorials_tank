@@ -95,8 +95,6 @@ class User extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return User
@@ -117,19 +115,6 @@ class User extends EventSourcedAggregateRoot
         return $self;
     }
 
-    /**
-     * @param AggregateRootId   $id
-     * @param UserName          $username
-     * @param Email             $email
-     * @param Roles             $roles
-     * @param Avatar            $avatar
-     * @param Steemit           $steemit
-     * @param bool              $banned
-     * @param Password          $password
-     * @param ConfirmationToken $confirmationToken
-     *
-     * @return mixed
-     */
     public static function create(
         AggregateRootId $id,
         UserName $username,
@@ -148,8 +133,6 @@ class User extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param string $name
-     *
      * @throws \Assert\AssertionFailedException
      */
     public function changeName(string $name)
@@ -167,8 +150,6 @@ class User extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param string $email
-     *
      * @throws \Assert\AssertionFailedException
      */
     public function changeEmail(string $email)
@@ -179,26 +160,12 @@ class User extends EventSourcedAggregateRoot
         ));
     }
 
-    /**
-     * @param UserMailWasChanged $event
-     */
-
-    /**
-     * @param UserMailWasChanged $event
-     */
     public function applyUserMailWasChanged(UserMailWasChanged $event)
     {
         $this->email = $event->getEmail();
         $this->enabled = false;
     }
 
-    /**
-     * @param UserNameWasChanged $event
-     */
-
-    /**
-     * @param UserNameWasChanged $event
-     */
     public function applyUserNameWasChanged(UserNameWasChanged $event)
     {
         $this->username = $event->getUsername();
@@ -214,21 +181,11 @@ class User extends EventSourcedAggregateRoot
         $this->apply(new UserWasBanned($this->id, true));
     }
 
-    /**
-     * @param UserWasBanned $userWasBanned
-     */
-
-    /**
-     * @param UserWasBanned $userWasBanned
-     */
     public function applyUserWasBanned(UserWasBanned $userWasBanned)
     {
         $this->banned = $userWasBanned->isBanned();
     }
 
-    /**
-     * @param UserWasCreated $userWasCreated
-     */
     public function applyUserWasCreated(UserWasCreated $userWasCreated): void
     {
         $this->id = $userWasCreated->getId();
@@ -242,13 +199,6 @@ class User extends EventSourcedAggregateRoot
         $this->confirmationToken = $userWasCreated->getConfirmationToken();
     }
 
-    /**
-     * @param string $password
-     */
-
-    /**
-     * @param string $password
-     */
     public function changePassword(string $password)
     {
         $this->apply(new UserPasswordWasChanged(
@@ -257,29 +207,16 @@ class User extends EventSourcedAggregateRoot
         ));
     }
 
-    /**
-     * @param UserPasswordWasChanged $event
-     */
-
-    /**
-     * @param UserPasswordWasChanged $event
-     */
     public function applyUserPasswordWasChanged(UserPasswordWasChanged $event)
     {
         $this->password = $event->getPassword();
     }
 
-    /**
-     * @param UserWasConfirmed $userWasConfirmed
-     */
     public function applyUserWasConfirmed(UserWasConfirmed $userWasConfirmed): void
     {
         $this->enabled = $userWasConfirmed->isEnabled();
     }
 
-    /**
-     * @param string $avatar
-     */
     public function changeAvatar(string $avatar)
     {
         $this->apply(new UserAvatarWasChanged(
@@ -288,101 +225,61 @@ class User extends EventSourcedAggregateRoot
         ));
     }
 
-    /**
-     * @param UserAvatarWasChanged $event
-     */
     public function applyUserAvatarWasChanged(UserAvatarWasChanged $event)
     {
         $this->avatar = $event->getAvatar();
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return UserName
-     */
     public function getUsername(): UserName
     {
         return $this->username;
     }
 
-    /**
-     * @return Email
-     */
     public function getEmail(): Email
     {
         return $this->email;
     }
 
-    /**
-     * @return Roles
-     */
     public function getRoles(): Roles
     {
         return $this->roles;
     }
 
-    /**
-     * @return Avatar
-     */
     public function getAvatar(): Avatar
     {
         return $this->avatar;
     }
 
-    /**
-     * @return Steemit
-     */
     public function getSteemit(): Steemit
     {
         return $this->steemit;
     }
 
-    /**
-     * @return bool
-     */
     public function isBanned(): bool
     {
         return $this->banned;
     }
 
-    /**
-     * @return string
-     */
-
-    /**
-     * @return string
-     */
     public function getAggregateRootId(): string
     {
         return $this->id->toString();
     }
 
-    /**
-     * @return bool
-     */
     public function isEnabled(): bool
     {
         return $this->enabled;
     }
 
-    /**
-     * @return Password
-     */
     public function getPassword(): Password
     {
         return $this->password;
     }
 
-    /**
-     * @return ConfirmationToken
-     */
     public function getConfirmationToken(): ConfirmationToken
     {
         return $this->confirmationToken;
@@ -398,8 +295,6 @@ class User extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param UserWasAdminRoleGranted $adminRoleGranted
-     *
      * @throws \Exception
      */
     public function applyUserWasAdminRoleGranted(UserWasAdminRoleGranted $adminRoleGranted): void

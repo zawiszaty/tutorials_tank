@@ -17,8 +17,6 @@ class ChangeUserNameHandler implements CommandHandlerInterface
 
     /**
      * ConfirmUserHandler constructor.
-     *
-     * @param \App\Infrastructure\User\Repository\UserRepository $aggregatRepository
      */
     public function __construct(\App\Infrastructure\User\Repository\UserRepository $aggregatRepository)
     {
@@ -26,8 +24,6 @@ class ChangeUserNameHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param ChangeUserNameCommand $command
-     *
      * @throws \Assert\AssertionFailedException
      */
     public function __invoke(ChangeUserNameCommand $command): void

@@ -17,19 +17,12 @@ class GetSingleHandler implements QueryHandlerInterface
 
     /**
      * GetSingleHandler constructor.
-     *
-     * @param PostRepositoryElastic $repositoryElastic
      */
     public function __construct(PostRepositoryElastic $repositoryElastic)
     {
         $this->repositoryElastic = $repositoryElastic;
     }
 
-    /**
-     * @param GetSingleCommand $command
-     *
-     * @return mixed
-     */
     public function __invoke(GetSingleCommand $command)
     {
         $model = $this->repositoryElastic->get($command->getId());

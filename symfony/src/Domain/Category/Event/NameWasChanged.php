@@ -19,9 +19,6 @@ class NameWasChanged extends AbstractEvent
 
     /**
      * NameWasChanged constructor.
-     *
-     * @param AggregateRootId $id
-     * @param Name            $name
      */
     public function __construct(AggregateRootId $id, Name $name)
     {
@@ -30,8 +27,6 @@ class NameWasChanged extends AbstractEvent
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return NameWasChanged
@@ -47,9 +42,6 @@ class NameWasChanged extends AbstractEvent
         );
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -58,9 +50,6 @@ class NameWasChanged extends AbstractEvent
         ];
     }
 
-    /**
-     * @return Name
-     */
     public function getName(): Name
     {
         return $this->name;

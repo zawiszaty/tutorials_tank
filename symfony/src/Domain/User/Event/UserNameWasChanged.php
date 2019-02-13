@@ -63,16 +63,6 @@ class UserNameWasChanged extends AbstractEvent
 
     /**
      * User constructor.
-     *
-     * @param AggregateRootId $id
-     * @param UserName        $username
-     * @param Email           $email
-     * @param Roles           $roles
-     * @param Avatar          $avatar
-     * @param Steemit         $steemit
-     * @param bool            $banned
-     * @param Password        $password
-     * @param bool            $enabled
      */
     public function __construct(AggregateRootId $id, UserName $username, Email $email, Roles $roles, Avatar $avatar, Steemit $steemit, bool $banned, bool $enabled)
     {
@@ -87,8 +77,6 @@ class UserNameWasChanged extends AbstractEvent
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return UserWasCreated|mixed
@@ -107,9 +95,6 @@ class UserNameWasChanged extends AbstractEvent
         );
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -124,65 +109,41 @@ class UserNameWasChanged extends AbstractEvent
         ];
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return UserName
-     */
     public function getUsername(): UserName
     {
         return $this->username;
     }
 
-    /**
-     * @return Email
-     */
     public function getEmail(): Email
     {
         return $this->email;
     }
 
-    /**
-     * @return Roles
-     */
     public function getRoles(): Roles
     {
         return $this->roles;
     }
 
-    /**
-     * @return Avatar
-     */
     public function getAvatar(): Avatar
     {
         return $this->avatar;
     }
 
-    /**
-     * @return Steemit
-     */
     public function getSteemit(): Steemit
     {
         return $this->steemit;
     }
 
-    /**
-     * @return bool
-     */
     public function isBanned(): bool
     {
         return $this->banned;
     }
 
-    /**
-     * @return bool
-     */
     public function isEnabled(): bool
     {
         return $this->enabled;

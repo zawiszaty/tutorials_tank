@@ -1,0 +1,7 @@
+parameters:
+	autoload_files:
+		- vendor/autoload.php
+	excludes_analyse:
+		- /src/Infrastructure/Share/Migrations/*
+	ignoreErrors:
+	    - '#PHPDoc tag @throws with type Assert\AssertionFailedException is not subtype of Throwable#'

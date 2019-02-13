@@ -17,9 +17,6 @@ class CommentWasDeletedEvent extends AbstractEvent
 
     /**
      * CommentWasDeletedEvent constructor.
-     *
-     * @param AggregateRootId $id
-     * @param string          $user
      */
     public function __construct(AggregateRootId $id, string $user)
     {
@@ -27,25 +24,17 @@ class CommentWasDeletedEvent extends AbstractEvent
         $this->user = $user;
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user;
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return CommentWasDeletedEvent|mixed
@@ -60,9 +49,6 @@ class CommentWasDeletedEvent extends AbstractEvent
         return $comment;
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [

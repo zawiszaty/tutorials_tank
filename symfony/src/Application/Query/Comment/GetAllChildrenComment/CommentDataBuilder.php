@@ -24,9 +24,6 @@ class CommentDataBuilder
 
     /**
      * CommentDataBuilder constructor.
-     *
-     * @param UserRepositoryElastic    $repositoryElastic
-     * @param CommentRepositoryElastic $commentRepositoryElastic
      */
     public function __construct(
         UserRepositoryElastic $repositoryElastic,
@@ -37,8 +34,6 @@ class CommentDataBuilder
     }
 
     /**
-     * @param array $data
-     *
      * @return array
      */
     public function build(array $data)

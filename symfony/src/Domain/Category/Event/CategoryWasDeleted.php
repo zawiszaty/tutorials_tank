@@ -13,8 +13,6 @@ class CategoryWasDeleted extends AbstractEvent
 {
     /**
      * CategoryWasDeleted constructor.
-     *
-     * @param AggregateRootId $id
      */
     public function __construct(AggregateRootId $id)
     {
@@ -22,8 +20,6 @@ class CategoryWasDeleted extends AbstractEvent
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return CategoryWasDeleted
@@ -37,9 +33,6 @@ class CategoryWasDeleted extends AbstractEvent
         );
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [

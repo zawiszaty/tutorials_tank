@@ -18,8 +18,6 @@ class ChangePasswordHandler implements CommandHandlerInterface
 
     /**
      * ConfirmUserHandler constructor.
-     *
-     * @param \App\Infrastructure\User\Repository\UserRepository $aggregatRepository
      */
     public function __construct(\App\Infrastructure\User\Repository\UserRepository $aggregatRepository)
     {
@@ -27,8 +25,6 @@ class ChangePasswordHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param ChangePasswordCommand $command
-     *
      * @throws \Assert\AssertionFailedException
      */
     public function __invoke(ChangePasswordCommand $command): void

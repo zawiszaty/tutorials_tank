@@ -10,15 +10,7 @@ use App\Domain\User\User;
  */
 interface UserRepositoryInterface
 {
-    /**
-     * @param AggregateRootId $id
-     *
-     * @return User
-     */
     public function get(AggregateRootId $id): User;
 
-    /**
-     * @param User $user
-     */
     public function store(User $user): void;
 }

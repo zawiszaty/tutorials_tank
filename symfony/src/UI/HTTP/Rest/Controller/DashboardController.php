@@ -10,9 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class DashboardController extends Controller
 {
-    /**
-     * @return Response
-     */
     public function dashboard(): Response
     {
         return $this->render('dashboard/index.html.twig');

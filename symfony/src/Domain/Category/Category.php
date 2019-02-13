@@ -29,8 +29,6 @@ class Category extends EventSourcedAggregateRoot
     private $name;
 
     /**
-     * @param array $params
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return Category
@@ -55,18 +53,12 @@ class Category extends EventSourcedAggregateRoot
         ];
     }
 
-    /**
-     * @return string
-     */
     public function getAggregateRootId(): string
     {
         return $this->id->toString();
     }
 
     /**
-     * @param AggregateRootId $id
-     * @param Name            $name
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return Category
@@ -79,9 +71,6 @@ class Category extends EventSourcedAggregateRoot
         return $category;
     }
 
-    /**
-     * @param CategoryWasCreated $event
-     */
     protected function applyCategoryWasCreated(CategoryWasCreated $event): void
     {
         $this->id = $event->getId();
@@ -89,8 +78,6 @@ class Category extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param Name $name
-     *
      * @throws \Assert\AssertionFailedException
      */
     public function changeName(Name $name): void
@@ -99,9 +86,6 @@ class Category extends EventSourcedAggregateRoot
         $this->apply(new NameWasChanged($this->id, $name));
     }
 
-    /**
-     * @param NameWasChanged $event
-     */
     public function applyNameWasChanged(NameWasChanged $event): void
     {
         $this->name = $event->getName();
@@ -116,17 +100,11 @@ class Category extends EventSourcedAggregateRoot
     {
     }
 
-    /**
-     * @return string
-     */
     public function getId(): string
     {
         return $this->id->toString();
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name->toString();

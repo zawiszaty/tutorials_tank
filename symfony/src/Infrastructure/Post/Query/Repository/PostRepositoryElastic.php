@@ -15,8 +15,6 @@ class PostRepositoryElastic extends ElasticRepository
 
     /**
      * CategoryRepositoryElastic constructor.
-     *
-     * @param array $elasticConfig
      */
     public function __construct(array $elasticConfig)
     {
@@ -24,11 +22,7 @@ class PostRepositoryElastic extends ElasticRepository
     }
 
     /**
-     * @param int    $page
-     * @param int    $limit
      * @param string $queryString
-     *
-     * @return Collection
      */
     public function pageByCreatedAt(int $page = 1, int $limit = 50, ?array $queryString = []): Collection
     {
@@ -51,11 +45,6 @@ class PostRepositoryElastic extends ElasticRepository
         return $collection;
     }
 
-    /**
-     * @param string $slug
-     *
-     * @return array
-     */
     public function getOneBySlug(string $slug): array
     {
         $query = [];

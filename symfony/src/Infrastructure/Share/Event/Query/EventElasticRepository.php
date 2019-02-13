@@ -12,9 +12,6 @@ final class EventElasticRepository extends ElasticRepository
 {
     private const INDEX = 'events';
 
-    /**
-     * @param DomainMessage $message
-     */
     public function storeEvent(DomainMessage $message): void
     {
         $document = [
@@ -27,8 +24,6 @@ final class EventElasticRepository extends ElasticRepository
 
     /**
      * EventElasticRepository constructor.
-     *
-     * @param array $elasticConfig
      */
     public function __construct(array $elasticConfig)
     {

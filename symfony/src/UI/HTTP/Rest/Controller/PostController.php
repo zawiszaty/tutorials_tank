@@ -24,10 +24,6 @@ use Symfony\Component\HttpFoundation\Response;
 class PostController extends RestController
 {
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -78,11 +74,6 @@ class PostController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $id
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -134,12 +125,8 @@ class PostController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $id
-     *
      * @throws \Assert\AssertionFailedException
      *
-     * @return Response
      *
      *
      * @SWG\Response(
@@ -173,12 +160,6 @@ class PostController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $slug
-     *
-     * @return Response
-     *
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -206,10 +187,6 @@ class PostController extends RestController
     }
 
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"
@@ -256,11 +233,6 @@ class PostController extends RestController
     }
 
     /**
-     * @param Request $request
-     * @param string  $id
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"

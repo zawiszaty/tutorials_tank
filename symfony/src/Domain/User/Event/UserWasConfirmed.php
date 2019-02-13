@@ -17,9 +17,6 @@ class UserWasConfirmed extends AbstractEvent
 
     /**
      * UserWasConfirmed constructor.
-     *
-     * @param AggregateRootId $aggregateRootId
-     * @param bool            $enabled
      */
     public function __construct(AggregateRootId $aggregateRootId, bool $enabled)
     {
@@ -28,8 +25,6 @@ class UserWasConfirmed extends AbstractEvent
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return UserWasConfirmed|mixed
@@ -44,9 +39,6 @@ class UserWasConfirmed extends AbstractEvent
         return $event;
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -55,9 +47,6 @@ class UserWasConfirmed extends AbstractEvent
         ];
     }
 
-    /**
-     * @return bool
-     */
     public function isEnabled(): bool
     {
         return $this->enabled;

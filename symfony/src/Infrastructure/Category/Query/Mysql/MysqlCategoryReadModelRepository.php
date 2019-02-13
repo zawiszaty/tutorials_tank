@@ -15,17 +15,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class MysqlCategoryReadModelRepository extends MysqlRepository
 {
-    /**
-     * @param CategoryView $categoryView
-     */
     public function add(CategoryView $categoryView): void
     {
         $this->register($categoryView);
     }
 
-    /**
-     * @param string $id
-     */
     public function delete(string $id)
     {
         $category = $this->repository->find($id);
@@ -34,11 +28,7 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
     }
 
     /**
-     * @param AggregateRootId $id
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
-     * @return mixed
      */
     public function oneByUuid(AggregateRootId $id)
     {
@@ -51,9 +41,6 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
     }
 
     /**
-     * @param int $page
-     * @param int $limit
-     *
      * @return Collection
      */
     public function getAll(int $page, int $limit)
@@ -79,8 +66,6 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
     }
 
     /**
-     * @param AggregateRootId $id
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      *
      * @return Item
@@ -102,8 +87,6 @@ class MysqlCategoryReadModelRepository extends MysqlRepository
 
     /**
      * MysqlCategoryReadModelRepository constructor.
-     *
-     * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
     {

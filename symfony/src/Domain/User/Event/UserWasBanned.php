@@ -17,9 +17,6 @@ class UserWasBanned extends AbstractEvent
 
     /**
      * UserWasConfirmed constructor.
-     *
-     * @param AggregateRootId $aggregateRootId
-     * @param bool            $banned
      */
     public function __construct(AggregateRootId $aggregateRootId, bool $banned)
     {
@@ -28,8 +25,6 @@ class UserWasBanned extends AbstractEvent
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return UserWasConfirmed|mixed
@@ -44,9 +39,6 @@ class UserWasBanned extends AbstractEvent
         return $event;
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -55,9 +47,6 @@ class UserWasBanned extends AbstractEvent
         ];
     }
 
-    /**
-     * @return bool
-     */
     public function isBanned(): bool
     {
         return $this->banned;

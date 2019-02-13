@@ -39,60 +39,38 @@ class Comment extends EventSourcedAggregateRoot
      */
     private $user;
 
-    /**
-     * @return string
-     */
     public function getAggregateRootId(): string
     {
         return $this->id->toString();
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;
     }
 
-    /**
-     * @return Content
-     */
     public function getContent(): Content
     {
         return $this->content;
     }
 
-    /**
-     * @return string|null
-     */
     public function getParrentComment(): ?string
     {
         return $this->parrentComment;
     }
 
-    /**
-     * @return string
-     */
     public function getPost(): string
     {
         return $this->post;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user;
     }
 
     /**
-     * @param AggregateRootId $aggregateRootId
-     * @param Content         $content
-     * @param string          $parrentComment
-     * @param string          $post
-     * @param string          $user
+     * @param string $parrentComment
      *
      * @throws \Exception
      *
@@ -130,9 +108,6 @@ class Comment extends EventSourcedAggregateRoot
         return $comment;
     }
 
-    /**
-     * @param CommentWasCreated $event
-     */
     public function applyCommentWasCreated(CommentWasCreated $event)
     {
         $this->id = $event->getId();
@@ -142,9 +117,6 @@ class Comment extends EventSourcedAggregateRoot
         $this->user = $event->getUser();
     }
 
-    /**
-     * @param string $user
-     */
     public function delete(string $user): void
     {
         if ($this->user !== $user) {
@@ -153,9 +125,6 @@ class Comment extends EventSourcedAggregateRoot
         $this->apply(new CommentWasDeletedEvent($this->id, $user));
     }
 
-    /**
-     * @param CommentWasDeletedEvent $commentWasDeletedEvent
-     */
     public function applyCommentWasDeletedEvent(CommentWasDeletedEvent $commentWasDeletedEvent): void
     {
     }

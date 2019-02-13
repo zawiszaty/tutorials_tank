@@ -15,8 +15,6 @@ class ConfirmationToken
     private $token;
 
     /**
-     * @param string $token
-     *
      * @return ConfirmationToken
      */
     public static function fromString(string $token): self
@@ -27,17 +25,11 @@ class ConfirmationToken
         return $instance;
     }
 
-    /**
-     * @return string
-     */
     public function toString(): string
     {
         return $this->token;
     }
 
-    /**
-     * @return string
-     */
     public function __toString(): string
     {
         return $this->token;

@@ -41,11 +41,6 @@ class NotificationView
 
     /**
      * NotificationView constructor.
-     *
-     * @param string   $id
-     * @param string   $content
-     * @param string   $displayed
-     * @param UserView $user
      */
     public function __construct(string $id, string $content, string $displayed, UserView $user, string $type, \DateTime $createdAt)
     {
@@ -57,49 +52,31 @@ class NotificationView
         $this->createdAt = $createdAt;
     }
 
-    /**
-     * @return string
-     */
     public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getContent(): string
     {
         return $this->content;
     }
 
-    /**
-     * @return string
-     */
     public function getDisplayed(): string
     {
         return $this->displayed;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user->getId();
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getCreatedAt(): \DateTime
     {
         return $this->createdAt;

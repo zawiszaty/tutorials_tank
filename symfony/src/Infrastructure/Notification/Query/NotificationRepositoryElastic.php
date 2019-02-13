@@ -15,21 +15,12 @@ class NotificationRepositoryElastic extends ElasticRepository
 
     /**
      * CategoryRepositoryElastic constructor.
-     *
-     * @param array $elasticConfig
      */
     public function __construct(array $elasticConfig)
     {
         parent::__construct($elasticConfig, self::INDEX);
     }
 
-    /**
-     * @param int   $page
-     * @param int   $limit
-     * @param array $queryString
-     *
-     * @return Collection
-     */
     public function messageByCreatedAt(int $page = 1, int $limit = 50, array $queryString = []): Collection
     {
         Assertion::greaterThan($page, 0, 'Pagination need to be > 0');

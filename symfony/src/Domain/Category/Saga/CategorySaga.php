@@ -20,8 +20,6 @@ class CategorySaga extends Saga implements StaticallyConfiguredSagaInterface
 
     /**
      * CategorySaga constructor.
-     *
-     * @param CommandBus $commandBus
      */
     public function __construct(
         CommandBus $commandBus

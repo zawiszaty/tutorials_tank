@@ -60,3 +60,19 @@ elastica:
 clear:
 		docker-compose rm -v -f
 		docker-compose down
+
+.PHONY: cs
+cs: ## executes php cs fixer
+		docker-compose exec php ./vendor/bin/php-cs-fixer --no-interaction --diff -v fix
+
+.PHONY: layer
+layer: ## Check issues with layers
+		docker-compose exec php php bin/deptrac.phar analyze --formatter-graphviz=0
+
+.PHONY: php
+php: ## connect to php container
+		docker-compose exec php /bin/bash
+
+.PHONY: style
+style: ## executes php analizers
+		docker-compose exec php  ./vendor/bin/phpstan analyse -l 6 -c phpstan.neon src

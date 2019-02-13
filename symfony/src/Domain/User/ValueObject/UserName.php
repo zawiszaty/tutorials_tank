@@ -15,8 +15,6 @@ class UserName
     private $userName;
 
     /**
-     * @param string $userName
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return UserName
@@ -31,17 +29,11 @@ class UserName
         return $instance;
     }
 
-    /**
-     * @return string
-     */
     public function toString(): string
     {
         return $this->userName;
     }
 
-    /**
-     * @return string
-     */
     public function __toString(): string
     {
         return $this->userName;

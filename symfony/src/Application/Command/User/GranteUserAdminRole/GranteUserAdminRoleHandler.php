@@ -24,9 +24,6 @@ class GranteUserAdminRoleHandler implements CommandHandlerInterface
 
     /**
      * ConfirmUserHandler constructor.
-     *
-     * @param MysqlUserReadModelRepository $repository
-     * @param UserRepository               $aggregatRepository
      */
     public function __construct(MysqlUserReadModelRepository $repository, UserRepository $aggregatRepository)
     {
@@ -35,8 +32,6 @@ class GranteUserAdminRoleHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param GranteUserAdminRoleCommand $granteUserAdminRoleCommand
-     *
      * @throws \App\Domain\User\Exception\UserIsAdminException
      * @throws \Assert\AssertionFailedException
      */

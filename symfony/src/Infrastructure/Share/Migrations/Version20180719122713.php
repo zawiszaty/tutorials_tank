@@ -17,8 +17,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class Version20180719122713 extends AbstractMigration implements ContainerAwareInterface
 {
     /**
-     * @param Schema $schema
-     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -29,8 +27,6 @@ class Version20180719122713 extends AbstractMigration implements ContainerAwareI
     }
 
     /**
-     * @param Schema $schema
-     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -40,9 +36,6 @@ class Version20180719122713 extends AbstractMigration implements ContainerAwareI
         $this->em->flush();
     }
 
-    /**
-     * @param ContainerInterface|null $container
-     */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->eventStore = $container->get(DBALEventStore::class);

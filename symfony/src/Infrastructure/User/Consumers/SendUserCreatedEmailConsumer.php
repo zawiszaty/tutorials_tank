@@ -20,8 +20,6 @@ class SendUserCreatedEmailConsumer implements ConsumerInterface
     private $commandBus;
 
     /**
-     * @param AMQPMessage $msg
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return mixed|void
@@ -38,8 +36,6 @@ class SendUserCreatedEmailConsumer implements ConsumerInterface
 
     /**
      * SendUserCreatedEmailConsumer constructor.
-     *
-     * @param CommandBus $commandBus
      */
     public function __construct(CommandBus $commandBus)
     {

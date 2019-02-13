@@ -10,15 +10,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
  */
 interface CategoryRepositoryInterface
 {
-    /**
-     * @param AggregateRootId $id
-     *
-     * @return Category
-     */
     public function get(AggregateRootId $id): Category;
 
-    /**
-     * @param Category $category
-     */
     public function store(Category $category): void;
 }

@@ -9,10 +9,5 @@ use Broadway\Domain\DomainEventStream;
  */
 interface EventStreamProcessorInterface
 {
-    /**
-     * @param DomainEventStream $stream
-     *
-     * @return mixed
-     */
     public function process(DomainEventStream $stream);
 }

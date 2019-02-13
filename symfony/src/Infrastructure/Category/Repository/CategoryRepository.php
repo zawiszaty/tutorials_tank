@@ -15,11 +15,6 @@ use Broadway\EventStore\EventStore;
  */
 class CategoryRepository extends EventSourcingRepository implements CategoryRepositoryInterface
 {
-    /**
-     * @param AggregateRootId $id
-     *
-     * @return Category
-     */
     public function get(AggregateRootId $id): Category
     {
         /** @var Category $category */
@@ -28,9 +23,6 @@ class CategoryRepository extends EventSourcingRepository implements CategoryRepo
         return $category;
     }
 
-    /**
-     * @param Category $category
-     */
     public function store(Category $category): void
     {
         $this->save($category);
@@ -38,10 +30,6 @@ class CategoryRepository extends EventSourcingRepository implements CategoryRepo
 
     /**
      * CategoryRepository constructor.
-     *
-     * @param EventStore $eventStore
-     * @param EventBus   $eventBus
-     * @param array      $eventStreamDecorators
      */
     public function __construct(
         EventStore $eventStore,

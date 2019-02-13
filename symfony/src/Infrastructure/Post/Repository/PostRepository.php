@@ -20,11 +20,6 @@ class PostRepository extends EventSourcingRepository
      */
     private $eventToProjectionsProducer;
 
-    /**
-     * @param AggregateRootId $id
-     *
-     * @return Post
-     */
     public function get(AggregateRootId $id): Post
     {
         /** @var Post $postType */
@@ -33,9 +28,6 @@ class PostRepository extends EventSourcingRepository
         return $postType;
     }
 
-    /**
-     * @param Post $postType
-     */
     public function store(Post $postType): void
     {
         $this->save($postType);
@@ -43,10 +35,6 @@ class PostRepository extends EventSourcingRepository
 
     /**
      * CategoryRepository constructor.
-     *
-     * @param EventStore $eventStore
-     * @param EventBus   $eventBus
-     * @param array      $eventStreamDecorators
      */
     public function __construct(
         EventStore $eventStore,

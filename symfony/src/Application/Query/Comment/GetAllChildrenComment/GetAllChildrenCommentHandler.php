@@ -23,9 +23,6 @@ class GetAllChildrenCommentHandler implements QueryHandlerInterface
 
     /**
      * GetAllPostCommentHandler constructor.
-     *
-     * @param CommentRepositoryElastic $repositoryElastic
-     * @param CommentDataBuilder       $builder
      */
     public function __construct(CommentRepositoryElastic $repositoryElastic, CommentDataBuilder $builder)
     {
@@ -34,8 +31,6 @@ class GetAllChildrenCommentHandler implements QueryHandlerInterface
     }
 
     /**
-     * @param GetAllChildrenCommentCommand $command
-     *
      * @return \App\Application\Query\Collection
      */
     public function __invoke(GetAllChildrenCommentCommand $command)

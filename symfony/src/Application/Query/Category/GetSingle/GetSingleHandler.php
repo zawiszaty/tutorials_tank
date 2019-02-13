@@ -23,9 +23,6 @@ class GetSingleHandler implements QueryHandlerInterface
 
     /**
      * GetAllHandler constructor.
-     *
-     * @param MysqlCategoryReadModelRepository $modelRepository
-     * @param CategoryRepositoryElastic        $categoryRepositoryElastic
      */
     public function __construct(MysqlCategoryReadModelRepository $modelRepository, CategoryRepositoryElastic $categoryRepositoryElastic)
     {
@@ -33,11 +30,6 @@ class GetSingleHandler implements QueryHandlerInterface
         $this->categoryRepositoryElastic = $categoryRepositoryElastic;
     }
 
-    /**
-     * @param GetSingleCommand $command
-     *
-     * @return mixed
-     */
     public function __invoke(GetSingleCommand $command)
     {
         $model = $this->categoryRepositoryElastic->get($command->getId());

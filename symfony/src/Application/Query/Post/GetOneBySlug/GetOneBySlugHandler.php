@@ -17,8 +17,6 @@ class GetOneBySlugHandler implements QueryHandlerInterface
 
     /**
      * GetOneBySlugHandler constructor.
-     *
-     * @param PostRepositoryElastic $repositoryElastic
      */
     public function __construct(PostRepositoryElastic $repositoryElastic)
     {
@@ -27,8 +25,6 @@ class GetOneBySlugHandler implements QueryHandlerInterface
 
     /**
      * @param GetOneBySlugHandler $command
-     *
-     * @return mixed
      */
     public function __invoke(GetOneBySlugCommand $command)
     {

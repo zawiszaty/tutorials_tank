@@ -13,8 +13,6 @@ use Assert\Assertion;
 class CategoryWasCreated extends AbstractEvent
 {
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return CategoryWasCreated
@@ -30,9 +28,6 @@ class CategoryWasCreated extends AbstractEvent
         );
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [
@@ -43,9 +38,6 @@ class CategoryWasCreated extends AbstractEvent
 
     /**
      * CategoryWasCreated constructor.
-     *
-     * @param AggregateRootId $id
-     * @param Name            $name
      */
     public function __construct(AggregateRootId $id, Name $name)
     {
@@ -58,9 +50,6 @@ class CategoryWasCreated extends AbstractEvent
      */
     private $name;
 
-    /**
-     * @return Name
-     */
     public function getName(): Name
     {
         return $this->name;

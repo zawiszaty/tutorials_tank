@@ -36,11 +36,6 @@ class DeletePostHandler implements CommandHandlerInterface
 
     /**
      * DeletePostHandler constructor.
-     *
-     * @param PostRepository                  $postRepository
-     * @param CommentRepositoryElastic        $commentRepositoryElastic
-     * @param CommandBus                      $commandBus
-     * @param MysqlCommentReadModelRepository $commentReadModelRepository
      */
     public function __construct(PostRepository $postRepository, CommentRepositoryElastic $commentRepositoryElastic, CommandBus $commandBus, MysqlCommentReadModelRepository $commentReadModelRepository)
     {
@@ -51,8 +46,6 @@ class DeletePostHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param DeletePostCommand $deletePostCommand
-     *
      * @throws \Assert\AssertionFailedException
      */
     public function __invoke(DeletePostCommand $deletePostCommand)

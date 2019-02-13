@@ -9,6 +9,7 @@ use Broadway\EventStore\Dbal\DBALEventStore;
 use League\Tactician\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Form\FormInterface;
 
 /**
  * Class RestController.
@@ -42,12 +43,6 @@ class RestController extends Controller
 
     /**
      * RestController constructor.
-     *
-     * @param CommandBus               $queryBus
-     * @param CommandBus               $commandBus
-     * @param EventBus                 $eventBus
-     * @param DBALEventStore           $eventStore
-     * @param EventDispatcherInterface $eventDispatcher
      */
     public function __construct(
         CommandBus $queryBus,
@@ -64,11 +59,9 @@ class RestController extends Controller
     }
 
     /**
-     * @param \Symfony\Component\Form\Form $form
-     *
      * @return array
      */
-    protected function getErrorMessages(\Symfony\Component\Form\Form $form)
+    protected function getErrorMessages(FormInterface $form)
     {
         $errors = [];
 

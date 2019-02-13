@@ -14,8 +14,6 @@ class Title
 
     /**
      * Title constructor.
-     *
-     * @param string $title
      */
     public function __construct(string $title)
     {
@@ -23,8 +21,6 @@ class Title
     }
 
     /**
-     * @param string $title
-     *
      * @return Title
      */
     public static function fromString(string $title)

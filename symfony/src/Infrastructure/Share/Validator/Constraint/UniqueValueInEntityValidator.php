@@ -23,18 +23,12 @@ class UniqueValueInEntityValidator extends ConstraintValidator
 
     /**
      * UniqueValueInEntityValidator constructor.
-     *
-     * @param EntityManagerInterface $em
      */
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
     }
 
-    /**
-     * @param mixed      $value
-     * @param Constraint $constraint
-     */
     public function validate($value, Constraint $constraint)
     {
         $entityRepository = $this->em->getRepository($constraint->entityClass);
@@ -47,8 +41,8 @@ class UniqueValueInEntityValidator extends ConstraintValidator
             $constraint->field => $value->{$constraint->field},
         ]);
 
-        if (count($searchResults) > 0) {
-            $constraint->message = 'Value '.$constraint->field.' is already used.';
+        if (\count($searchResults) > 0) {
+            $constraint->message = 'Value ' . $constraint->field . ' is already used.';
             $this->context->buildViolation($constraint->message)
                 ->addViolation();
         }

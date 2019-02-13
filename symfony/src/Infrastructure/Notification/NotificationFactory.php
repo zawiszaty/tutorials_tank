@@ -11,13 +11,7 @@ use Ramsey\Uuid\Uuid;
 class NotificationFactory
 {
     /**
-     * @param string   $content
-     * @param UserView $user
-     * @param string   $type
-     *
      * @throws \Exception
-     *
-     * @return NotificationView
      */
     public static function create(string $content, UserView $user, string $type): NotificationView
     {

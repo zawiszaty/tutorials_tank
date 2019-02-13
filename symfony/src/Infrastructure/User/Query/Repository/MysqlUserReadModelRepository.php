@@ -18,17 +18,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class MysqlUserReadModelRepository extends MysqlRepository
 {
-    /**
-     * @param UserView $userView
-     */
     public function add(UserView $userView): void
     {
         $this->register($userView);
     }
 
-    /**
-     * @param string $id
-     */
     public function delete(string $id)
     {
         $user = $this->repository->find($id);
@@ -37,11 +31,7 @@ class MysqlUserReadModelRepository extends MysqlRepository
     }
 
     /**
-     * @param AggregateRootId $id
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
-     * @return mixed
      */
     public function oneByUuid(AggregateRootId $id)
     {
@@ -54,11 +44,7 @@ class MysqlUserReadModelRepository extends MysqlRepository
     }
 
     /**
-     * @param Email $email
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
-     * @return mixed
      */
     public function oneByEmail(Email $email)
     {
@@ -71,9 +57,6 @@ class MysqlUserReadModelRepository extends MysqlRepository
     }
 
     /**
-     * @param int $page
-     * @param int $limit
-     *
      * @return Collection
      */
     public function getAll(int $page, int $limit)
@@ -99,8 +82,6 @@ class MysqlUserReadModelRepository extends MysqlRepository
     }
 
     /**
-     * @param AggregateRootId $id
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      *
      * @return Item
@@ -121,8 +102,6 @@ class MysqlUserReadModelRepository extends MysqlRepository
     }
 
     /**
-     * @param string $token
-     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      *
      * @return mixed
@@ -144,8 +123,6 @@ class MysqlUserReadModelRepository extends MysqlRepository
 
     /**
      * MysqlUserReadModelRepository constructor.
-     *
-     * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
     {

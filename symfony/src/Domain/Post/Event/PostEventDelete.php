@@ -17,9 +17,6 @@ class PostEventDelete extends AbstractEvent
 
     /**
      * PostEventDelete constructor.
-     *
-     * @param AggregateRootId $id
-     * @param string          $user
      */
     public function __construct(AggregateRootId $id, string $user)
     {
@@ -28,8 +25,6 @@ class PostEventDelete extends AbstractEvent
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return mixed The object instance
@@ -44,9 +39,6 @@ class PostEventDelete extends AbstractEvent
         return $self;
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [

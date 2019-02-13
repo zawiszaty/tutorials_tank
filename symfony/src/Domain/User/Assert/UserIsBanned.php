@@ -10,9 +10,6 @@ use App\Domain\User\User;
  */
 class UserIsBanned
 {
-    /**
-     * @param User $user
-     */
     public static function check(User $user)
     {
         if ($user->isBanned()) {

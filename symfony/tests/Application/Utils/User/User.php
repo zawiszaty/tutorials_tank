@@ -11,8 +11,6 @@ use Ramsey\Uuid\Uuid;
 class User
 {
     /**
-     * @param string $email
-     *
      * @throws \Exception
      *
      * @return CreateUserCommand
@@ -20,11 +18,11 @@ class User
     public static function create(string $email)
     {
         $command = new CreateUserCommand();
-        $command->setAvatar('test'.Uuid::uuid4()->toString());
+        $command->setAvatar('test' . Uuid::uuid4()->toString());
         $command->setBanned(false);
         $command->setEmail($email);
         $command->setPlainPassword('test');
-        $command->setUsername('test'.Uuid::uuid4()->toString());
+        $command->setUsername('test' . Uuid::uuid4()->toString());
         $command->setRoles(['ROLE_USER']);
         $command->setSteemit('test');
 

@@ -31,10 +31,6 @@ class DeleteCategoryHandler implements CommandHandlerInterface
 
     /**
      * DeleteCategoryHandler constructor.
-     *
-     * @param CategoryRepositoryInterface $categoryRepository
-     * @param CommandBus                  $commandBus
-     * @param PostRepositoryElastic       $postRepositoryElastic
      */
     public function __construct(CategoryRepositoryInterface $categoryRepository, CommandBus $commandBus, PostRepositoryElastic $postRepositoryElastic)
     {
@@ -43,9 +39,6 @@ class DeleteCategoryHandler implements CommandHandlerInterface
         $this->postRepositoryElastic = $postRepositoryElastic;
     }
 
-    /**
-     * @param DeleteCategoryCommand $categoryCommand
-     */
     public function __invoke(DeleteCategoryCommand $categoryCommand): void
     {
         $posts = $this->postRepositoryElastic->search([

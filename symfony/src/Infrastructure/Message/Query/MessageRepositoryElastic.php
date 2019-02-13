@@ -15,8 +15,6 @@ class MessageRepositoryElastic extends ElasticRepository
 
     /**
      * CategoryRepositoryElastic constructor.
-     *
-     * @param array $elasticConfig
      */
     public function __construct(array $elasticConfig)
     {
@@ -24,11 +22,7 @@ class MessageRepositoryElastic extends ElasticRepository
     }
 
     /**
-     * @param int    $page
-     * @param int    $limit
      * @param string $queryString
-     *
-     * @return Collection
      */
     public function messageByCreatedAt(int $page = 1, int $limit = 50, array $queryString = []): Collection
     {

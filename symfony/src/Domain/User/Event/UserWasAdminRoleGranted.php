@@ -12,8 +12,6 @@ class UserWasAdminRoleGranted extends AbstractEvent
 {
     /**
      * UserWasAdminRoleGranted constructor.
-     *
-     * @param AggregateRootId $id
      */
     public function __construct(AggregateRootId $id)
     {
@@ -21,11 +19,7 @@ class UserWasAdminRoleGranted extends AbstractEvent
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Assert\AssertionFailedException
-     *
-     * @return self
      */
     public static function deserialize(array $data): self
     {
@@ -34,9 +28,6 @@ class UserWasAdminRoleGranted extends AbstractEvent
         return $instance;
     }
 
-    /**
-     * @return array
-     */
     public function serialize(): array
     {
         return [

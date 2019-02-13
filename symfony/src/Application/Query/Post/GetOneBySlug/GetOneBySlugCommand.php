@@ -8,7 +8,7 @@ namespace App\Application\Query\Post\GetOneBySlug;
 class GetOneBySlugCommand
 {
     /**
-     * @var int
+     * @var mixed
      */
     public $slug;
 }

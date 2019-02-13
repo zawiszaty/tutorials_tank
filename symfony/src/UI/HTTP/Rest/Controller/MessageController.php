@@ -16,10 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 class MessageController extends RestController
 {
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @SWG\Response(
      *     response=200,
      *     description="success create"

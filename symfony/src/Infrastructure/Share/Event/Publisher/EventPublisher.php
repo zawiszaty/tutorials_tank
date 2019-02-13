@@ -11,9 +11,6 @@ use Broadway\Domain\DomainMessage;
  */
 interface EventPublisher
 {
-    /**
-     * @param DomainMessage $message
-     */
     public function handle(DomainMessage $message): void;
 
     public function publish(): void;

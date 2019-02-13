@@ -13,8 +13,6 @@ class CategoryRepositoryElastic extends ElasticRepository
 
     /**
      * CategoryRepositoryElastic constructor.
-     *
-     * @param array $elasticConfig
      */
     public function __construct(array $elasticConfig)
     {

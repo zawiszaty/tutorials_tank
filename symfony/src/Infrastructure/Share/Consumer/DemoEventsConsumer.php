@@ -12,9 +12,6 @@ use PhpAmqpLib\Message\AMQPMessage;
  */
 class DemoEventsConsumer implements ConsumerInterface
 {
-    /**
-     * @param AMQPMessage $msg
-     */
     public function execute(AMQPMessage $msg): void
     {
         var_dump(unserialize($msg->body));

@@ -15,9 +15,6 @@ abstract class AbstractEvent implements Serializable
      */
     protected $id;
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;

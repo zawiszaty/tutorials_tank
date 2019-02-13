@@ -88,9 +88,6 @@ class UserView extends BaseUser
         return $this->steemit;
     }
 
-    /**
-     * @param string $steemit
-     */
     public function setSteemit(string $steemit): void
     {
         $this->steemit = $steemit;
@@ -113,8 +110,6 @@ class UserView extends BaseUser
     }
 
     /**
-     * @param array $data
-     *
      * @throws \Exception
      *
      * @return UserView
@@ -152,34 +147,22 @@ class UserView extends BaseUser
         $this->banned = false;
     }
 
-    /**
-     * @param string $name
-     */
     public function changeName(string $name): void
     {
         $this->username = $name;
     }
 
-    /**
-     * @param string $mail
-     */
     public function changeMail(string $mail): void
     {
         $this->email = $mail;
         $this->enabled = false;
     }
 
-    /**
-     * @param string $password
-     */
     public function changePassword(string $password): void
     {
         $this->password = $password;
     }
 
-    /**
-     * @param string $avatar
-     */
     public function changeAvatar(string $avatar): void
     {
         $this->avatar = $avatar;
@@ -197,9 +180,6 @@ class UserView extends BaseUser
         return $this->banned;
     }
 
-    /**
-     * @param string $role
-     */
     public function appendRole(string $role): void
     {
         array_push($this->roles, $role);

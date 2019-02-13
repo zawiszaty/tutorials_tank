@@ -32,9 +32,6 @@ class CreateNotificationServerCommand extends ContainerAwareCommand
     }
 
     /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     *
      * @return int|void|null
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -52,7 +49,7 @@ class CreateNotificationServerCommand extends ContainerAwareCommand
         // Listen for the web server to make a ZeroMQ push after an ajax request
         $context = new Context($loop);
         $pull = $context->getSocket(\ZMQ::SOCKET_PULL);
-        $pull->bind('tcp://127.0.0.1:5555'); // Binding to 127.0.0.1 means the only client that can connect is itself
+        $pull->bind('tcp://0.0.0.0:5555'); // Binding to 127.0.0.1 means the only client that can connect is itself
         $pull->on('message', [$pusher, 'onNotify']);
 
         // Set up our WebSocket server for clients wanting real-time updates

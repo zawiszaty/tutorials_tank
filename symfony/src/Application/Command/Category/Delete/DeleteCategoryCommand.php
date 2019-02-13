@@ -17,7 +17,6 @@ class DeleteCategoryCommand
     /**
      * DeleteCategoryCommand constructor.
      *
-     * @param string $id
      *
      * @throws \Assert\AssertionFailedException
      */
@@ -26,9 +25,6 @@ class DeleteCategoryCommand
         $this->id = AggregateRootId::fromString($id);
     }
 
-    /**
-     * @return AggregateRootId
-     */
     public function getId(): AggregateRootId
     {
         return $this->id;

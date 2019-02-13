@@ -13,12 +13,8 @@ use Ramsey\Uuid\Uuid;
 class CategoryFactory
 {
     /**
-     * @param Name $name
-     *
      * @throws \Assert\AssertionFailedException
      * @throws \Exception
-     *
-     * @return Category
      */
     public static function create(Name $name): Category
     {

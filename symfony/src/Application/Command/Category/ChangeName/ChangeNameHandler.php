@@ -19,8 +19,6 @@ class ChangeNameHandler implements CommandHandlerInterface
 
     /**
      * ChangeNameHandler constructor.
-     *
-     * @param CategoryRepositoryInterface $categoryRepository
      */
     public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
@@ -28,9 +26,7 @@ class ChangeNameHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param ChangeNameCommand $command
-     *
-     * @throws \Assert\AssertionFailedException
+     * @throws  \Assert\AssertionFailedException
      */
     public function __invoke(ChangeNameCommand $command): void
     {

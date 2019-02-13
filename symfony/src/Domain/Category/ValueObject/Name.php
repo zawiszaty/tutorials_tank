@@ -15,8 +15,6 @@ class Name
     private $name;
 
     /**
-     * @param string $name
-     *
      * @throws \Assert\AssertionFailedException
      *
      * @return Name
@@ -31,17 +29,11 @@ class Name
         return $instance;
     }
 
-    /**
-     * @return string
-     */
     public function toString(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
     public function __toString(): string
     {
         return $this->name;

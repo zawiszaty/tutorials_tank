@@ -60,6 +60,16 @@ abstract class ElasticRepository
         return $this->client->index($query);
     }
 
+    public function edit(array $document): array
+    {
+        $this->deleteRow($document['id']);
+        $query['index'] = $query['type'] = $this->index;
+        $query['id'] = $document['id'] ?? null;
+        $query['body'] = $document;
+
+        return $this->client->index($query);
+    }
+
     /**
      * @param string $queryString
      */
@@ -106,8 +116,8 @@ abstract class ElasticRepository
     {
         $params = [
             'index' => $this->index,
-            'type'  => $this->index,
-            'id'    => $id,
+            'type' => $this->index,
+            'id' => $id,
         ];
 
         return $this->client->get($params);

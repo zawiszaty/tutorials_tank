@@ -13,7 +13,7 @@ use Broadway\ReadModel\Projector;
 /**
  * Class CategoryReadProjectionFactory.
  */
-class CategoryReadProjectionFactory extends Projector
+final class CategoryReadProjectionFactory extends Projector
 {
     /**
      * @var MysqlCategoryReadModelRepository
@@ -25,10 +25,11 @@ class CategoryReadProjectionFactory extends Projector
      */
     private $categoryRepositoryElastic;
 
-    public function applyCategoryWasCreated(CategoryWasCreated $categoryWasCreated)
+    public function applyCategoryWasCreated(CategoryWasCreated $categoryWasCreated): void
     {
         $categoryView = CategoryView::fromSerializable($categoryWasCreated);
         $this->repository->add($categoryView);
+        $this->categoryRepositoryElastic->store($categoryWasCreated);
     }
 
     /**
@@ -40,6 +41,7 @@ class CategoryReadProjectionFactory extends Projector
         $aggregateParams = $this->repository->oneByUuid($nameWasChanged->getId());
         $aggregateParams->changeName($nameWasChanged->getName()->toString());
         $this->repository->apply();
+        $this->categoryRepositoryElastic->edit($aggregateParams->serialize());
     }
 
     /**
@@ -51,6 +53,7 @@ class CategoryReadProjectionFactory extends Projector
         $aggregateParams = $this->repository->oneByUuid($categoryWasDeleted->getId());
         $aggregateParams->delete();
         $this->repository->delete($categoryWasDeleted->getId());
+        $this->categoryRepositoryElastic->deleteRow($aggregateParams->getId());
     }
 
     /**

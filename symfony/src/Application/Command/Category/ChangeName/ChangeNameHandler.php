@@ -10,7 +10,7 @@ use App\Domain\Common\ValueObject\AggregateRootId;
 /**
  * Class ChangeNameHandler.
  */
-class ChangeNameHandler implements CommandHandlerInterface
+final class ChangeNameHandler implements CommandHandlerInterface
 {
     /**
      * @var CategoryRepositoryInterface

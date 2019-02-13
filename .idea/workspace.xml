@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73639fa0-b520-4e7b-983b-bcb71df8eacb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/.env.dist" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/.env.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/.env.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/packages/test/doctrine.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/services_test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/services_test.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/phpunit.xml.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/config/packages/fos_elastica.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/fos_elastica.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Application/Command/Category/ChangeName/ChangeNameHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Category/ChangeName/ChangeNameHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Category/CategoryReadProjectionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Category/CategoryReadProjectionFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/symfony.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,70 +37,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/makefile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/config/services.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="35" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/config/packages/doctrine.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/config/packages/test/framework.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/config/packages/test/monolog.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/config/packages/prod/doctrine.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-347" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/phpunit.xml.dist">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -111,8 +48,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>preventDefault</find>
-      <find>kiba</find>
       <find>/api/v1/user</find>
       <find>EditCategoryModal</find>
       <find>ROLE_</find>
@@ -141,6 +76,8 @@
       <find>with</find>
       <find>sta</find>
       <find>ELASTIC_HOST</find>
+      <find>sn</find>
+      <find>cate</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -157,11 +94,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/symfony/tests/Domain/User/UserTest.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Application/Command/Comment/Create/CreateCommentHandler.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Comment/CommentReadProjectionFactory.php" />
-        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Create/CreateCommentHandlerTest.php" />
-        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/Comment/Delete/DeleteCommentHandlerTest.php" />
         <option value="$PROJECT_DIR$/web-app/src/containers/Category/CategoryContainer.js" />
         <option value="$PROJECT_DIR$/web-app/src/components/SearchBox/SearchBox.js" />
         <option value="$PROJECT_DIR$/web-app/src/components/Category/Category.js" />
@@ -195,7 +127,6 @@
         <option value="$PROJECT_DIR$/.styleci.yml" />
         <option value="$PROJECT_DIR$/symfony/.php_cs" />
         <option value="$PROJECT_DIR$/symfony/depfile.yml" />
-        <option value="$PROJECT_DIR$/symfony/src/Application/Command/Category/ChangeName/ChangeNameHandler.php" />
         <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/EventSubscriber/JsonBodyParserSubscriber.php" />
         <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Controller/RestController.php" />
         <option value="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetOneBySlug/GetOneBySlugCommand.php" />
@@ -205,9 +136,15 @@
         <option value="$PROJECT_DIR$/symfony/.env.test" />
         <option value="$PROJECT_DIR$/symfony/config/services_test.yaml" />
         <option value="$PROJECT_DIR$/symfony/config/packages/doctrine.yaml" />
-        <option value="$PROJECT_DIR$/symfony/.env" />
         <option value="$PROJECT_DIR$/symfony/phpunit.xml.dist" />
         <option value="$PROJECT_DIR$/makefile" />
+        <option value="$PROJECT_DIR$/symfony/composer.json" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Command/Category/ChangeName/ChangeNameHandler.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/ElasticRepository.php" />
+        <option value="$PROJECT_DIR$/symfony/config/packages/fos_elastica.yaml" />
+        <option value="$PROJECT_DIR$/symfony/.env" />
+        <option value="$PROJECT_DIR$/web-app/src/axios/env.js" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Category/CategoryReadProjectionFactory.php" />
       </list>
     </option>
   </component>
@@ -577,13 +514,20 @@
             <path>
               <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="axios" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -634,7 +578,7 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="ReadonlyStatusHandler">
@@ -867,7 +811,7 @@
       <workItem from="1550045683125" duration="2406000" />
       <workItem from="1550058980211" duration="2000000" />
       <workItem from="1550061004044" duration="1862000" />
-      <workItem from="1550073200342" duration="1439000" />
+      <workItem from="1550073200342" duration="3709000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -911,11 +855,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195623000" />
+    <option name="totallyTimeSpent" value="197893000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="3" width="1922" height="1078" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27908218" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -998,57 +941,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web-app/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/nginx/default.conf">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/public/avatars/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/public/thumbnails/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Messanger/MessangerComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="199" selection-start-line="199" selection-end-line="204" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Post/OtherSiteForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="106" column="17" selection-start-line="106" selection-start-column="17" selection-end-line="108" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/templates/dashboard/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1197,13 +1089,6 @@
     <entry file="file://$PROJECT_DIR$/symfony/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Category/ChangeName/ChangeNameHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/phpstan.neon">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1222,13 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1403">
           <caret line="66" selection-start-line="66" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1472">
-          <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1301,13 +1179,6 @@
     <entry file="file://$PROJECT_DIR$/symfony/config/packages/test/swiftmailer.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/config/packages/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/config/packages/test/framework.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1317,13 +1188,6 @@
     <entry file="file://$PROJECT_DIR$/symfony/config/packages/prod/doctrine.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-347" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/symfony/phpunit.xml.dist">
@@ -1337,6 +1201,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/config/packages/doctrine.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Category/Repository/CategoryRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-483" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Category/Repository/CategoryFosElasticaRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Category/Repository/CategoryRepositoryElastic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="9" column="50" lean-forward="true" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/axios/env.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="78" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/ElasticRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Category/CategoryReadProjectionFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="51" column="49" lean-forward="true" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/config/packages/fos_elastica.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1173">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Category/ChangeName/ChangeNameHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>

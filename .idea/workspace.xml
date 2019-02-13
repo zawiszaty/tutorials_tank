@@ -225,11 +225,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="59" column="6" lean-forward="true" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
+            <state relative-caret-position="611">
+              <caret line="77" column="85" lean-forward="true" selection-start-line="77" selection-start-column="85" selection-end-line="77" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -243,11 +243,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/symfony/phpstan.neon">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
-              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+              <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -417,12 +417,12 @@
         <option value="$PROJECT_DIR$/.styleci.yml" />
         <option value="$PROJECT_DIR$/symfony/.php_cs" />
         <option value="$PROJECT_DIR$/symfony/depfile.yml" />
-        <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/symfony/src/Application/Command/Category/ChangeName/ChangeNameHandler.php" />
         <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/EventSubscriber/JsonBodyParserSubscriber.php" />
         <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Controller/RestController.php" />
         <option value="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetOneBySlug/GetOneBySlugCommand.php" />
         <option value="$PROJECT_DIR$/symfony/phpstan.neon" />
+        <option value="$PROJECT_DIR$/makefile" />
       </list>
     </option>
   </component>
@@ -1075,7 +1075,7 @@
       <workItem from="1549986570273" duration="1750000" />
       <workItem from="1550045683125" duration="2406000" />
       <workItem from="1550058980211" duration="2000000" />
-      <workItem from="1550061004044" duration="1437000" />
+      <workItem from="1550061004044" duration="1584000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -1119,7 +1119,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193759000" />
+    <option name="totallyTimeSpent" value="193906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="3" width="1922" height="925" extended-state="0" />
@@ -1538,13 +1538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="59" column="6" lean-forward="true" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Category/ChangeName/ChangeNameHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
@@ -1576,7 +1569,14 @@
     <entry file="file://$PROJECT_DIR$/symfony/phpstan.neon">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="77" column="85" lean-forward="true" selection-start-line="77" selection-start-column="85" selection-end-line="77" selection-end-column="85" />
         </state>
       </provider>
     </entry>

@@ -8,7 +8,7 @@ import axios from "../../../axios/axios";
 import Typography from "@material-ui/core/Typography";
 import {login} from "../../../actions/user";
 import {connect} from "react-redux";
-import CategoryList from "../../../components/Post/CategoryList";
+import PostList from "../../../components/Post/PostList";
 
 const styles = theme => ({
     progress: {
@@ -73,7 +73,7 @@ class PostListContainer extends Component {
                 } else {
                     const error = true;
                     this.setState({
-                        error
+                        loading: false
                     });
                 }
             })
@@ -89,21 +89,8 @@ class PostListContainer extends Component {
         if (this.state.loading === false) {
             return (
                 <React.Fragment>
-                    <CategoryList/>
+                    <PostList/>
                 </React.Fragment>
-            );
-        }
-
-        if (this.state.error === true) {
-            return (
-                <main className={classes.main}>
-                    <CssBaseline/>
-                    <Paper className={classes.paper}>
-                        <Typography component="h2" variant="h3" gutterBottom>
-                            Coś poszło nie tak ;(
-                        </Typography>
-                    </Paper>
-                </main>
             );
         }
 

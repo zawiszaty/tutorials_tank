@@ -50,7 +50,7 @@ final class UserReadProjectionFactory extends Projector
 //            $userView->unBan();
 //        }
         $this->repository->add($userView);
-        $this->userRepositoryElastic->store($userWasCreated);
+        $this->userRepositoryElastic->store($userView->serializeProjections());
     }
 
     /**

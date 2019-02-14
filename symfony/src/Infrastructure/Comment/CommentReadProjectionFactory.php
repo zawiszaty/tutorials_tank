@@ -75,7 +75,7 @@ final class CommentReadProjectionFactory extends Projector
 
         $comment = CommentView::deserialize($data);
         $this->modelRepository->add($comment);
-        $this->commentRepositoryElastic->store($event);
+        $this->commentRepositoryElastic->store($comment->serialize());
 
         $this->notificationAbstractFactory->create('comment', [
             'user'    => $comment->getFullPost()->getUser(),

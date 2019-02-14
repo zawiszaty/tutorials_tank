@@ -80,6 +80,8 @@ class PostView implements UserViewInterface
     }
 
     /**
+     * @throws \Exception
+     *
      * @return PostView|mixed
      */
     public static function deserialize(array $data)
@@ -107,10 +109,10 @@ class PostView implements UserViewInterface
             'content'          => $this->content,
             'thumbnail'        => $this->thumbnail,
             'type'             => $this->type,
-            'user'             => $this->user,
+            'user'             => $this->user->getId(),
             'slug'             => $this->slug,
-            'createdAt'        => $this->createdAt,
-            'category'         => $this->category,
+            'createdAt'        => $this->createdAt->getTimestamp(),
+            'category'         => $this->category->getId(),
             'shortDescription' => $this->shortDescription,
         ];
     }

@@ -118,6 +118,7 @@ class SinglePost extends Component {
                         <Paper className={classes.paper__content}>
                             <Typography variant="body1" gutterBottom>
                                 {renderHTML(this.state.post.content)}
+                                {console.log(this.state.post)}
                             </Typography>
                         </Paper>
                         }

@@ -29,7 +29,7 @@ final class CategoryReadProjectionFactory extends Projector
     {
         $categoryView = CategoryView::fromSerializable($categoryWasCreated);
         $this->repository->add($categoryView);
-        $this->categoryRepositoryElastic->store($categoryWasCreated);
+        $this->categoryRepositoryElastic->store($categoryView->serialize());
     }
 
     /**

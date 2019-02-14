@@ -43,10 +43,9 @@ class PostReadProjectionFactory extends Projector
         $data['category'] = $this->categoryReadModelRepository->oneByUuid(AggregateRootId::fromString($data['category']));
         $data['slug'] = implode('-', explode(' ', $data['title']));
         $data['createdAt'] = new \DateTime();
-
         $postView = PostView::deserialize($data);
         $this->modelRepository->add($postView);
-        $this->postRepositoryElastic->store($event);
+        $this->postRepositoryElastic->store($postView->serialize());
     }
 
     /**
@@ -68,12 +67,6 @@ class PostReadProjectionFactory extends Projector
         $postView->edit($data);
         $this->modelRepository->apply();
         $postView = $postView->serialize();
-        $user = $postView['user'];
-        $category = $postView['category']->getId();
-        unset($postView['user'], $postView['category']);
-
-        $postView['category'] = $category;
-        $postView['fos_user'] = $user;
         $this->postRepositoryElastic->edit($postView);
     }
 

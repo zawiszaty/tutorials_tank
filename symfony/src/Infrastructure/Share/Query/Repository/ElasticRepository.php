@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Infrastructure\Share\Query\Repository;
 
 use App\Application\Query\Collection;
-use App\Domain\Common\Event\AbstractEvent;
 use Assert\Assertion;
 use Elasticsearch\Client;
 use Elasticsearch\ClientBuilder;
@@ -15,9 +14,9 @@ use Elasticsearch\ClientBuilder;
  */
 abstract class ElasticRepository
 {
-    public function store(AbstractEvent $message): void
+    public function store(array $message): void
     {
-        $this->add($message->serialize());
+        $this->add($message);
     }
 
     public function search(array $query): array

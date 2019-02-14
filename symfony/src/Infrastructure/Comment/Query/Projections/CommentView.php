@@ -66,7 +66,7 @@ class CommentView implements CommentViewInterface
             'parrentComment' => $this->getParrentComment(),
             'post'           => $this->getPost(),
             'user'           => $this->getUser(),
-            'createdAt'      => $this->getCreatedAt(),
+            'createdAt'      => $this->getCreatedAt()->getTimestamp(),
         ];
     }
 

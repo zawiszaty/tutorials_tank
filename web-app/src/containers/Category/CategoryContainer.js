@@ -66,16 +66,9 @@ class CategoryContainer extends Component {
                 });
             })
             .catch((e) => {
-                if (e.response.status === 404) {
                     this.setState({
                         loading: false
                     });
-                } else {
-                    const error = true;
-                    this.setState({
-                        error
-                    });
-                }
             })
     };
 

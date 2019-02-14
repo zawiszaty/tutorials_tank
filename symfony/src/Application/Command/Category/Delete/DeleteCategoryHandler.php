@@ -7,6 +7,7 @@ use App\Application\Command\Post\Edit\EditPostCommand;
 use App\Domain\Category\Repository\CategoryRepositoryInterface;
 use App\Domain\Post\Exception\CreatePostException;
 use App\Infrastructure\Post\Query\Repository\PostRepositoryElastic;
+use Elasticsearch\Common\Exceptions\Missing404Exception;
 use League\Tactician\CommandBus;
 
 /**
@@ -41,30 +42,33 @@ class DeleteCategoryHandler implements CommandHandlerInterface
 
     public function __invoke(DeleteCategoryCommand $categoryCommand): void
     {
-        $posts = $this->postRepositoryElastic->search([
-            'query' => [
-                'match' => [
-                    'category' => $categoryCommand->getId()->toString(),
+        try {
+            $posts = $this->postRepositoryElastic->search([
+                'query' => [
+                    'match' => [
+                        'category' => $categoryCommand->getId()->toString(),
+                    ],
                 ],
-            ],
-        ]);
+            ]);
 
-        foreach ($posts['hits']['hits'] as $post) {
-            $post = $post['_source'];
-            $editPostCommand = new EditPostCommand();
-            $editPostCommand->setUser($post['user']);
-            $editPostCommand->setCategory(null);
-            $editPostCommand->setContent($post['content']);
-            $editPostCommand->setId($post['id']);
-            $editPostCommand->setThumbnail($post['thumbnail']);
-            $editPostCommand->setShortDescription($post['shortDescription']);
-            $editPostCommand->setType($post['type']);
-            $editPostCommand->setTitle($post['title']);
+            foreach ($posts['hits']['hits'] as $post) {
+                $post = $post['_source'];
+                $editPostCommand = new EditPostCommand();
+                $editPostCommand->setUser($post['user']);
+                $editPostCommand->setCategory(null);
+                $editPostCommand->setContent($post['content']);
+                $editPostCommand->setId($post['id']);
+                $editPostCommand->setThumbnail($post['thumbnail']);
+                $editPostCommand->setShortDescription($post['shortDescription']);
+                $editPostCommand->setType($post['type']);
+                $editPostCommand->setTitle($post['title']);
 
-            try {
-                $this->commandBus->handle($editPostCommand);
-            } catch (CreatePostException $exception) {
+                try {
+                    $this->commandBus->handle($editPostCommand);
+                } catch (CreatePostException $exception) {
+                }
             }
+        } catch (Missing404Exception $exception) {
         }
         $category = $this->categoryRepository->get($categoryCommand->getId());
         $category->delete();

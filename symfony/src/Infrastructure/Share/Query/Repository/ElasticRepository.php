@@ -56,6 +56,7 @@ abstract class ElasticRepository
         $query['index'] = $query['type'] = $this->index;
         $query['id'] = $document['id'] ?? null;
         $query['body'] = $document;
+        $query['refresh'] = true;
 
         return $this->client->index($query);
     }
@@ -66,6 +67,7 @@ abstract class ElasticRepository
         $query['index'] = $query['type'] = $this->index;
         $query['id'] = $document['id'] ?? null;
         $query['body'] = $document;
+        $query['refresh'] = true;
 
         return $this->client->index($query);
     }
@@ -97,6 +99,7 @@ abstract class ElasticRepository
     {
         $query['index'] = $query['type'] = $this->index;
         $query['id'] = $id;
+        $query['refresh'] = true;
         $this->client->delete($query);
     }
 

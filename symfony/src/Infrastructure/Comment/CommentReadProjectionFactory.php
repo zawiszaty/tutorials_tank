@@ -5,6 +5,7 @@ namespace App\Infrastructure\Comment;
 use App\Domain\Comment\Event\CommentWasCreated;
 use App\Domain\Comment\Event\CommentWasDeletedEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
+use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
 use App\Infrastructure\Comment\Query\MysqlCommentReadModelRepository;
 use App\Infrastructure\Comment\Query\Projections\CommentView;
 use App\Infrastructure\Notification\Strategy\NotificationAbstractFactory;
@@ -15,7 +16,7 @@ use Broadway\ReadModel\Projector;
 /**
  * Class CommentReadProjectionFactory.
  */
-class CommentReadProjectionFactory extends Projector
+final class CommentReadProjectionFactory extends Projector
 {
     /**
      * @var MysqlCommentReadModelRepository
@@ -36,6 +37,10 @@ class CommentReadProjectionFactory extends Projector
      * @var NotificationAbstractFactory
      */
     private $notificationAbstractFactory;
+    /**
+     * @var CommentRepositoryElastic
+     */
+    private $commentRepositoryElastic;
 
     /**
      * CommentReadProjectionFactory constructor.
@@ -44,20 +49,21 @@ class CommentReadProjectionFactory extends Projector
         MysqlCommentReadModelRepository $modelRepository,
         MysqlPostReadModelRepository $mysqlPostReadModelRepository,
         MysqlUserReadModelRepository $mysqlUserReadModelRepository,
-        NotificationAbstractFactory $notificationAbstractFactory
+        NotificationAbstractFactory $notificationAbstractFactory,
+        CommentRepositoryElastic $commentRepositoryElastic
     ) {
         $this->modelRepository = $modelRepository;
         $this->mysqlPostReadModelRepository = $mysqlPostReadModelRepository;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
         $this->notificationAbstractFactory = $notificationAbstractFactory;
+        $this->commentRepositoryElastic = $commentRepositoryElastic;
     }
 
     /**
      * @throws \Assert\AssertionFailedException
      * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \ZMQSocketException
      */
-    public function applyCommentWasCreated(CommentWasCreated $event)
+    public function applyCommentWasCreated(CommentWasCreated $event): void
     {
         $data = $event->serialize();
         $data['user'] = $this->mysqlUserReadModelRepository->oneByUuid(AggregateRootId::fromString($data['user']));
@@ -69,6 +75,7 @@ class CommentReadProjectionFactory extends Projector
 
         $comment = CommentView::deserialize($data);
         $this->modelRepository->add($comment);
+        $this->commentRepositoryElastic->store($event);
 
         $this->notificationAbstractFactory->create('comment', [
             'user'    => $comment->getFullPost()->getUser(),
@@ -93,5 +100,6 @@ class CommentReadProjectionFactory extends Projector
     public function applyCommentWasDeletedEvent(CommentWasDeletedEvent $commentWasDeletedEvent): void
     {
         $this->modelRepository->delete($commentWasDeletedEvent->getId());
+        $this->commentRepositoryElastic->deleteRow($commentWasDeletedEvent->getId());
     }
 }

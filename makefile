@@ -33,7 +33,7 @@ db-test: ## recreate database in test env
 		docker-compose exec php php bin/console d:m:m -n --env=test
 
 .PHONY: test
-test: phpspec behat elastica phpunit layer style
+test: phpspec behat phpunit layer style
 
 .PHONY: behat
 behat:

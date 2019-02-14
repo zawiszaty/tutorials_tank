@@ -185,17 +185,15 @@ class UserView extends BaseUser
         array_push($this->roles, $role);
     }
 
-//    /**
-//     * @return array
-//     */
-//    public static function serializeProjections(): array
-//    {
-//        return [
-//            'id' => $this->id,
-//            'username' => $this->username,
-//            'avatar' => $this->avatar,
-//            'steemit' => $this->steemit,
-//            'banned' => $this->banned,
-//        ];
-//    }
+    public function serializeProjections(): array
+    {
+        return [
+            'id'       => $this->id,
+            'username' => $this->username,
+            'avatar'   => $this->avatar,
+            'steemit'  => $this->steemit,
+            'banned'   => $this->banned,
+            'enabled'  => $this->enabled,
+        ];
+    }
 }

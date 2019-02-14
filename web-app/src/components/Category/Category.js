@@ -275,6 +275,7 @@ class Category extends Component {
     };
 
     deleteCategory = () => {
+        let data = this.state.data;
         this.state.selected.forEach((item, key) => {
             axios.delete(`/api/v1/category/${item}`, {
                 headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
@@ -288,11 +289,14 @@ class Category extends Component {
                     position: toast.POSITION.BOTTOM_RIGHT
                 });
             });
+            data.splice(key, 1);
         });
+
+
         this.setState({
-            selected: []
+            selected: [],
+            data
         });
-        this.getAllCategory();
     };
 
     getAllCategory = () => {

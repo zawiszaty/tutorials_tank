@@ -62,6 +62,7 @@ class EditPostHandlerTest extends ApplicationTestCase
         self::assertCount(1, $events);
         /** @var PostWasEdited $editPostEvent */
         $editPostEvent = $events[0]->getPayload();
+
         self::assertSame('test2', $editPostEvent->getTitle()->toString());
         self::assertSame('test2', $editPostEvent->getShortDescription());
         self::assertSame('test2', $editPostEvent->getContent()->toString());

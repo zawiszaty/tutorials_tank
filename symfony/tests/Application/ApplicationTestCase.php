@@ -76,8 +76,8 @@ abstract class ApplicationTestCase extends KernelTestCase
         $connection->query('SET FOREIGN_KEY_CHECKS=1');
         $connection->commit();
         $client = ClientBuilder::fromConfig(['hosts' => ['elasticsearch:9200']], true);
-//        $params = ['index' => '*'];
-//        $response = $client->indices()->delete($params);
+        $params = ['index' => '*'];
+        $response = $client->indices()->delete($params);
     }
 
     protected function tearDown(): void
@@ -88,6 +88,9 @@ abstract class ApplicationTestCase extends KernelTestCase
         /** @var Connection $connection */
         $connection = self::$container->get('doctrine')->getConnection();
         $connection->close();
+        $client = ClientBuilder::fromConfig(['hosts' => ['elasticsearch:9200']], true);
+        $params = ['index' => '*'];
+        $response = $client->indices()->delete($params);
         parent::tearDown();
     }
 

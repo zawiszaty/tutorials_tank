@@ -182,15 +182,6 @@
             "ref": "81dee417d2cc60cd1c9d6208dff2ec22a1103e93"
         }
     },
-    "friendsofsymfony/elastica-bundle": {
-        "version": "5.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "5.0",
-            "ref": "3f73f240ee0c3719e89f1c994ce66904e2ef84f6"
-        }
-    },
     "friendsofsymfony/oauth-server-bundle": {
         "version": "2.0-dev"
     },
@@ -310,9 +301,6 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.1.1"
-    },
-    "pagerfanta/pagerfanta": {
-        "version": "v1.1.0"
     },
     "paragonie/random_compat": {
         "version": "v2.0.17"
@@ -451,9 +439,6 @@
     },
     "react/zmq": {
         "version": "v0.4.0"
-    },
-    "ruflin/elastica": {
-        "version": "6.0.2"
     },
     "sebastian/code-unit-reverse-lookup": {
         "version": "1.0.1"

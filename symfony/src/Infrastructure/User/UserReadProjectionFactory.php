@@ -14,24 +14,30 @@ use App\Domain\User\Event\UserWasConfirmed;
 use App\Domain\User\Event\UserWasCreated;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
+use App\Infrastructure\User\Repository\UserRepositoryElastic;
 use Broadway\ReadModel\Projector;
 
 /**
  * Class UserReadProjectionFactory.
  */
-class UserReadProjectionFactory extends Projector
+final class UserReadProjectionFactory extends Projector
 {
     /**
      * @var MysqlUserReadModelRepository
      */
     private $repository;
+    /**
+     * @var UserRepositoryElastic
+     */
+    private $userRepositoryElastic;
 
     /**
      * UserReadProjectionFactory constructor.
      */
-    public function __construct(MysqlUserReadModelRepository $repository)
+    public function __construct(MysqlUserReadModelRepository $repository, UserRepositoryElastic $userRepositoryElastic)
     {
         $this->repository = $repository;
+        $this->userRepositoryElastic = $userRepositoryElastic;
     }
 
     /**
@@ -44,6 +50,7 @@ class UserReadProjectionFactory extends Projector
 //            $userView->unBan();
 //        }
         $this->repository->add($userView);
+        $this->userRepositoryElastic->store($userWasCreated);
     }
 
     /**
@@ -55,6 +62,7 @@ class UserReadProjectionFactory extends Projector
         $userView = $this->repository->oneByUuid($userWasConfirmed->getId());
         $userView->confirmed();
         $this->repository->apply();
+        $this->userRepositoryElastic->edit($userView->serializeProjections());
     }
 
     /**
@@ -66,6 +74,7 @@ class UserReadProjectionFactory extends Projector
         $userView = $this->repository->oneByUuid($userWasBanned->getId());
         $userView->banned();
         $this->repository->apply();
+        $this->userRepositoryElastic->edit($userView->serializeProjections());
     }
 
     /**
@@ -77,6 +86,7 @@ class UserReadProjectionFactory extends Projector
         $userView = $this->repository->oneByUuid($event->getId());
         $userView->changeName($event->getUsername()->toString());
         $this->repository->apply();
+        $this->userRepositoryElastic->edit($userView->serializeProjections());
     }
 
     /**
@@ -88,6 +98,7 @@ class UserReadProjectionFactory extends Projector
         $userView = $this->repository->oneByUuid($event->getId());
         $userView->changeMail($event->getEmail()->toString());
         $this->repository->apply();
+        $this->userRepositoryElastic->edit($userView->serializeProjections());
     }
 
     /**
@@ -99,6 +110,7 @@ class UserReadProjectionFactory extends Projector
         $userView = $this->repository->oneByUuid($event->getId());
         $userView->changePassword($event->getPassword()->toString());
         $this->repository->apply();
+        $this->userRepositoryElastic->edit($userView->serializeProjections());
     }
 
     /**
@@ -110,6 +122,7 @@ class UserReadProjectionFactory extends Projector
         $userView = $this->repository->oneByUuid($event->getId());
         $userView->changeAvatar($event->getAvatar()->toString());
         $this->repository->apply();
+        $this->userRepositoryElastic->edit($userView->serializeProjections());
     }
 
     /**
@@ -121,5 +134,6 @@ class UserReadProjectionFactory extends Projector
         $userView = $this->repository->oneByUuid($adminRoleGranted->getId());
         $userView->appendRole('ROLE_ADMIN');
         $this->repository->apply();
+        $this->userRepositoryElastic->edit($userView->serializeProjections());
     }
 }

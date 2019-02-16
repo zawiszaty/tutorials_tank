@@ -81,4 +81,16 @@ class NotificationView
     {
         return $this->createdAt;
     }
+
+    public function serialize(): array
+    {
+        return [
+            'id'        => $this->id,
+            'content'   => $this->content,
+            'displayed' => $this->displayed,
+            'user'      => $this->user,
+            'type'      => $this->type,
+            'createdAt' => $this->createdAt,
+        ];
+    }
 }

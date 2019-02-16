@@ -21,7 +21,7 @@ class NotificationRepositoryElastic extends ElasticRepository
         parent::__construct($elasticConfig, self::INDEX);
     }
 
-    public function messageByCreatedAt(int $page = 1, int $limit = 50, array $queryString = []): Collection
+    public function getByDynamicBody(int $page = 1, int $limit = 50, array $queryString = [], string $sort = 'desc'): Collection
     {
         Assertion::greaterThan($page, 0, 'Pagination need to be > 0');
 
@@ -31,7 +31,7 @@ class NotificationRepositoryElastic extends ElasticRepository
         $query['from'] = ($page - 1) * $limit;
         $query['size'] = $limit;
         $query['body'] = $queryString;
-        $query['sort'] = ['createdAt:desc'];
+        $query['sort'] = ['createdAt:' . $sort];
 
         $response = $this->client->search($query);
 

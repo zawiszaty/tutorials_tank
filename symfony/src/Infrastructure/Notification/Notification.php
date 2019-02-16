@@ -6,9 +6,11 @@ namespace App\Infrastructure\Notification;
 
 use App\Infrastructure\User\Query\Projections\UserView;
 use Ratchet\ConnectionInterface;
+use Ratchet\Wamp\Topic;
 use Ratchet\Wamp\WampServerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
+use const Fpp\dump;
 
 /**
  * Class Notification.
@@ -96,10 +98,13 @@ class Notification implements WampServerInterface
      */
     public function onNotify($entry)
     {
+        dump(array_keys($this->subscribedTopics));
         $entryData = json_decode($entry, true);
 
         try {
+            /** @var Topic $topic */
             $topic = $this->subscribedTopics[$entryData['user']];
+            dump($topic->count());
             // re-send the data to all the clients subscribed to that category
             $topic->broadcast($entryData);
         } catch (\Exception $exception) {

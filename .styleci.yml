@@ -7,3 +7,7 @@ enabled:
 disabled:
   - concat_without_spaces
   - unalign_double_arrow
+
+finder:
+  path:
+    - "symfony/src"

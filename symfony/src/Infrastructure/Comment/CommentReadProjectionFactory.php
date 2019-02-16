@@ -78,21 +78,23 @@ final class CommentReadProjectionFactory extends Projector
         $this->modelRepository->add($comment);
         $this->commentRepositoryElastic->store($comment->serialize());
 
-        $this->notificationAbstractFactory->create('comment', [
-            'user'    => $comment->getFullPost()->getUser(),
-            'content' => [
-                'post' => [
-                    'id'    => $comment->getFullPost()->getId(),
-                    'title' => $comment->getFullPost()->getTitle(),
+        if ($comment->getFullPost()->getUser() !== $comment->getFullUser()->getId()) {
+            $this->notificationAbstractFactory->create('comment', [
+                'user'    => $comment->getFullPost()->getUser(),
+                'content' => [
+                    'post' => [
+                        'id'    => $comment->getFullPost()->getId(),
+                        'title' => $comment->getFullPost()->getTitle(),
+                    ],
+                    'sender' => [
+                        'id'       => $comment->getFullUser()->getId(),
+                        'username' => $comment->getFullUser()->getUsername(),
+                        'avatar'   => $comment->getFullUser()->getAvatar(),
+                    ],
                 ],
-                'sender' => [
-                    'id'       => $comment->getFullUser()->getId(),
-                    'username' => $comment->getFullUser()->getUsername(),
-                    'avatar'   => $comment->getFullUser()->getAvatar(),
-                ],
-            ],
-            'type' => 'comment',
-        ]);
+                'type' => 'comment',
+            ]);
+        }
     }
 
     /**

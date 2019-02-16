@@ -28,7 +28,7 @@ class Notification extends React.Component {
         var conn = new ab.Session(`ws://localhost:8888?token=${localStorage.getItem('token')}`,
             function () {
                 console.log('dziala');
-                conn.subscribe('1', function (topic, data) {
+                conn.subscribe(then.props.user[0].id, function (topic, data) {
                     console.log('dziala');
                     // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
                     toast.success("Masz nowe powiadomienie", {

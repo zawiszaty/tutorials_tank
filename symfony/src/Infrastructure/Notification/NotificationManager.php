@@ -4,6 +4,7 @@ namespace App\Infrastructure\Notification;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Infrastructure\Notification\Query\MysqlNotificationRepository;
+use App\Infrastructure\Notification\Query\NotificationRepositoryElastic;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
 
 /**
@@ -20,14 +21,19 @@ class NotificationManager
      * @var MysqlUserReadModelRepository
      */
     private $mysqlUserReadModelRepository;
+    /**
+     * @var NotificationRepositoryElastic
+     */
+    private $notificationRepositoryElastic;
 
     /**
      * NotificationManager constructor.
      */
-    public function __construct(MysqlNotificationRepository $mysqlNotificationRepository, MysqlUserReadModelRepository $mysqlUserReadModelRepository)
+    public function __construct(MysqlNotificationRepository $mysqlNotificationRepository, MysqlUserReadModelRepository $mysqlUserReadModelRepository, NotificationRepositoryElastic $notificationRepositoryElastic)
     {
         $this->mysqlNotificationRepository = $mysqlNotificationRepository;
         $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
+        $this->notificationRepositoryElastic = $notificationRepositoryElastic;
     }
 
     /**
@@ -40,5 +46,6 @@ class NotificationManager
         $user = $this->mysqlUserReadModelRepository->getSingle(AggregateRootId::fromString($data['user']));
         $notification = NotificationFactory::create(json_encode($data['content']), $user->readModel, $data['type']);
         $this->mysqlNotificationRepository->add($notification);
+        $this->notificationRepositoryElastic->store($notification->serialize());
     }
 }

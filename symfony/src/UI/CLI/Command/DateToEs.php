@@ -2,7 +2,6 @@
 
 namespace App\UI\CLI\Command;
 
-use App\Domain\Post\Post;
 use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use App\Infrastructure\Comment\Query\CommentRepositoryElastic;

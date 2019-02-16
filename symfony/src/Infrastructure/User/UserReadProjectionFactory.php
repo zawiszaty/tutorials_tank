@@ -28,6 +28,7 @@ final class UserReadProjectionFactory extends Projector
      * @var MysqlUserReadModelRepository
      */
     private $repository;
+
     /**
      * @var UserRepositoryElastic
      */

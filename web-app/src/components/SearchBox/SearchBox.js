@@ -26,21 +26,23 @@ class SearchBox extends React.Component {
 
         return (
             <React.Fragment>
-                <TextField
-                    id="standard-name"
-                    label="Szukaj"
-                    className={classes.textField}
-                    value={this.props.query}
-                    onChange={this.props.handleChangeQuery}
-                    variant="outlined"
-                    margin="normal"
-                />
-                <Button variant="contained" fullWidth onClick={() => {
+                <form onSubmit={() => {
                     console.log('zdiala');
                     this.props.getAll();
                 }}>
-                    Szukaj
-                </Button>
+                    <TextField
+                        id="standard-name"
+                        label="Szukaj"
+                        className={classes.textField}
+                        value={this.props.query}
+                        onChange={this.props.handleChangeQuery}
+                        variant="outlined"
+                        margin="normal"
+                    />
+                    <Button variant="contained" fullWidth type="submit">
+                        Szukaj
+                    </Button>
+                </form>
             </React.Fragment>
         )
     }

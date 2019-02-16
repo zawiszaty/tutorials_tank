@@ -3,12 +3,15 @@
 namespace App\Domain\User;
 
 use App\Domain\Common\ValueObject\AggregateRootId;
+use App\Domain\User\Assert\UserIsAdmin;
 use App\Domain\User\Assert\UserIsNotAdmin;
 use App\Domain\User\Event\UserAvatarWasChanged;
 use App\Domain\User\Event\UserMailWasChanged;
 use App\Domain\User\Event\UserNameWasChanged;
 use App\Domain\User\Event\UserPasswordWasChanged;
+use App\Domain\User\Event\UserUnBann;
 use App\Domain\User\Event\UserWasAdminRoleGranted;
+use App\Domain\User\Event\UserWasAdminUnGranted;
 use App\Domain\User\Event\UserWasBanned;
 use App\Domain\User\Event\UserWasConfirmed;
 use App\Domain\User\Event\UserWasCreated;
@@ -300,5 +303,30 @@ class User extends EventSourcedAggregateRoot
     public function applyUserWasAdminRoleGranted(UserWasAdminRoleGranted $adminRoleGranted): void
     {
         $this->roles->appendRole('ROLE_ADMIN');
+    }
+
+    /**
+     * @throws Exception\UserIsAdminException
+     * @throws Exception\UserNotIsAdminException
+     */
+    public function unGrantedAdminRole(): void
+    {
+        UserIsAdmin::check($this->roles);
+        $this->apply(new UserWasAdminUnGranted($this->id));
+    }
+
+    public function applyUserWasAdminUnGranted(UserWasAdminUnGranted $userWasAdminUnGranted): void
+    {
+        $this->roles->unAppendRole('ROLE_ADMIN');
+    }
+
+    public function unBann()
+    {
+        $this->apply(new UserUnBann($this->id, false));
+    }
+
+    public function applyUserUnBann(UserUnBann $userUnBann)
+    {
+        $this->banned = false;
     }
 }

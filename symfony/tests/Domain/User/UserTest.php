@@ -9,6 +9,7 @@ use App\Domain\User\Event\UserAvatarWasChanged;
 use App\Domain\User\Event\UserMailWasChanged;
 use App\Domain\User\Event\UserNameWasChanged;
 use App\Domain\User\Event\UserWasAdminRoleGranted;
+use App\Domain\User\Event\UserWasAdminUnGranted;
 use App\Domain\User\Event\UserWasBanned;
 use App\Domain\User\Event\UserWasConfirmed;
 use App\Domain\User\Event\UserWasCreated;
@@ -273,5 +274,46 @@ class UserTest extends WebTestCase
         /** @var DomainMessage $event */
         $event = $events->getIterator()->offsetGet(1);
         self::assertInstanceOf(UserWasAdminRoleGranted::class, $event->getPayload(), 'Second event should be UserWasConfirmed');
+    }
+
+    /**
+     * @test
+     *
+     * @group unit
+     *
+     * @throws \Assert\AssertionFailedException
+     * @throws \Exception
+     */
+    public function granted_un_admin_user_role_test()
+    {
+        $emailString = 'lol@aso.maximo';
+        /** @var User $user */
+        $user = User::create(
+            AggregateRootId::fromString(Uuid::uuid4()->toString()),
+            UserName::fromString('test'),
+            Email::fromString($emailString),
+            Roles::fromString([
+                'ROLE_USER',
+            ]),
+            Avatar::fromString('test.jpg'),
+            Steemit::fromString('test'),
+            false,
+            Password::formHash('12312313'),
+            ConfirmationToken::fromString('12313')
+        );
+        $user->grantedAdminRole();
+        self::assertTrue(\in_array('ROLE_ADMIN', $user->getRoles()->toArray()), 'Array should be Role Admin');
+        $events = $user->getUncommittedEvents();
+        self::assertCount(2, $events->getIterator(), '2 event should be in the buffer');
+        /** @var DomainMessage $event */
+        $event = $events->getIterator()->offsetGet(1);
+        self::assertInstanceOf(UserWasAdminRoleGranted::class, $event->getPayload(), 'Second event should be UserWasConfirmed');
+        $user->unGrantedAdminRole();
+        self::assertTrue(!\in_array('ROLE_ADMIN', $user->getRoles()->toArray()), 'Array should be Role Admin');
+        $events = $user->getUncommittedEvents();
+        self::assertCount(1, $events->getIterator(), '2 event should be in the buffer');
+        /** @var DomainMessage $event */
+        $event = $events->getIterator()->offsetGet(0);
+        self::assertInstanceOf(UserWasAdminUnGranted::class, $event->getPayload(), 'Second event should be UserWasConfirmed');
     }
 }

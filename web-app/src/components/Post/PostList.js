@@ -82,19 +82,6 @@ class EnhancedTableHead extends React.Component {
         return (
             <TableHead>
                 <TableRow>
-                    {user.length !== 0 &&
-                    <TableCell padding="checkbox">
-                        <React.Fragment>
-                            {user[0].roles.includes('ROLE_ADMIN') &&
-                            <Checkbox
-                                indeterminate={numSelected > 0 && numSelected < rowCount}
-                                checked={numSelected === rowCount}
-                                onChange={onSelectAllClick}
-                            />
-                            }
-                        </React.Fragment>
-                    </TableCell>
-                    }
                     {rows.map(
                         row => (
                             <TableCell
@@ -361,14 +348,6 @@ class PostList extends Component {
                                                         this.props.history.push("/post/" + n.slug)
                                                     }}
                                                 >
-                                                    {this.props.user.length !== 0 &&
-                                                    <React.Fragment>
-                                                        <TableCell padding="checkbox"
-                                                                   onClick={event => this.props.handleClick(event, n.id)}>
-                                                            <Checkbox checked={n.id === this.props.selected}/>
-                                                        </TableCell>
-                                                    </React.Fragment>
-                                                    }
                                                     <TableCell component="th" scope="row" padding="default">
                                                         {n.id}
                                                     </TableCell>

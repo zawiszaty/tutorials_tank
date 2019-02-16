@@ -95,28 +95,38 @@ class Comment extends Component {
         this.setState({
             loading: true,
         });
-        axios.post('/api/v1/comment', {
-            content: this.state.content,
-            post: this.props.postId
-        }, {
-            headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
-        }).then((response) => {
-            toast.success("Dodano komentarz", {
-                position: toast.POSITION.BOTTOM_RIGHT
-            });
+        if (this.state.content !== '') {
+            axios.post('/api/v1/comment', {
+                content: this.state.content,
+                post: this.props.postId
+            }, {
+                headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+            }).then((response) => {
+                toast.success("Dodano komentarz", {
+                    position: toast.POSITION.BOTTOM_RIGHT
+                });
+                this.setState({
+                    loading: false,
+                    content: '',
+                });
+                this.props.getAllComments();
+            }).catch((e) => {
+                toast.error("Coś poszło nie tak", {
+                    position: toast.POSITION.BOTTOM_RIGHT
+                });
+                this.setState({
+                    loading: false,
+                });
+            })
+        } else {
             this.setState({
                 loading: false,
-                content: '',
             });
-            this.props.getAllComments();
-        }).catch((e) => {
-            toast.error("Coś poszło nie tak", {
+            toast.info("Pole jest puste", {
                 position: toast.POSITION.BOTTOM_RIGHT
             });
-            this.setState({
-                loading: false,
-            });
-        })
+        }
+
     };
 
     handleChangeContent = (event) => {
@@ -140,6 +150,7 @@ class Comment extends Component {
                     >
                         <Editor
                             apiKey="69sluxkknib3n831hobh8k54b5yjjvzaexa4hutx9liz6l2b"
+                            value={this.state.content}
                             init={{
                                 plugins: 'link code',
                                 toolbar: 'undo redo | bold italic | code'

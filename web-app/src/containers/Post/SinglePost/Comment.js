@@ -13,6 +13,7 @@ import Avatar from "@material-ui/core/es/Avatar/Avatar";
 import Grid from "@material-ui/core/Grid";
 import AddComment from "./AddComment";
 import DeleteCommentModal from "./DeleteCommentModal";
+import {toast} from "react-toastify";
 
 function TabContainer({children, dir}) {
     return (
@@ -75,6 +76,9 @@ const styles = theme => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
+    button: {
+        marginTop: '3em',
+    }
 });
 
 class Comment extends Component {
@@ -84,6 +88,8 @@ class Comment extends Component {
             comments: [],
             loading: true,
             error: false,
+            count: 0,
+            limit: 10,
         };
     }
 
@@ -96,9 +102,10 @@ class Comment extends Component {
         this.setState({
             loading: true
         });
-        axios.get(`/api/v1/comments/${this.props.postId}`).then((e) => {
+        axios.get(`/api/v1/comments/${this.props.postId}?limit=${this.state.limit}`).then((e) => {
             this.setState({
                 comments: e.data.data,
+                count: e.data.total,
                 loading: false
             });
         })
@@ -158,6 +165,27 @@ class Comment extends Component {
                             </React.Fragment> :
                             <React.Fragment>{}</React.Fragment>
                         }
+                        <Button
+                            variant="outlined"
+                            color="primary"
+                            fullWidth
+                            className={classes.button}
+                            onClick={() => {
+                                console.log(this.state.count, this.state.comments.length);
+                                if (this.state.count === this.state.comments.length) {
+                                    toast.info("Nie ma wiecej komentarzy", {
+                                        position: toast.POSITION.BOTTOM_RIGHT
+                                    });
+                                } else {
+                                    let limit = this.state.limit + 10;
+                                    this.setState({limit}, () => {
+                                        this.getAllComments();
+                                    });
+                                }
+                            }}
+                        >
+                            Wiecej
+                        </Button>
                     </React.Fragment>
                 }
             </main>

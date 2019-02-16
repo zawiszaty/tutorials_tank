@@ -185,6 +185,22 @@ class UserView extends BaseUser
         array_push($this->roles, $role);
     }
 
+    /**
+     * @throws \Exception
+     */
+    public function unAppendRole(string $role)
+    {
+        if (!\in_array($role, $this->roles)) {
+            throw new \Exception();
+        }
+
+        foreach ($this->roles as $key => $item) {
+            if ($item === $role) {
+                unset($this->roles[$key]);
+            }
+        }
+    }
+
     public function serializeProjections(): array
     {
         return [
@@ -194,6 +210,7 @@ class UserView extends BaseUser
             'steemit'  => $this->steemit,
             'banned'   => $this->banned,
             'enabled'  => $this->enabled,
+            'roles'    => serialize($this->roles),
         ];
     }
 }

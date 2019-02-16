@@ -50,4 +50,16 @@ class Roles
 
         $this->roles[] = $role;
     }
+
+    /**
+     * @throws \Exception
+     */
+    public function unAppendRole(string $role)
+    {
+        foreach ($this->roles as $key => $item) {
+            if ($item === $role) {
+                unset($this->roles[$key]);
+            }
+        }
+    }
 }

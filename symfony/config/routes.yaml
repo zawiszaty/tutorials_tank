@@ -48,6 +48,11 @@ banned_user:
   methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\UserController:bannedUserAction
 
+un_banned_user:
+  path: /api/v1/user/banned/{id}/un
+  methods: PATCH
+  controller: App\UI\HTTP\Rest\Controller\UserController:unBannedUserAction
+
 change_user_name:
   path: /api/v1/user/change/username
   methods: PATCH
@@ -137,6 +142,11 @@ granted_user_admin_role:
   path: /api/v1/user/role/admin/{user}
   methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\UserController:grantedAdminUserRole
+
+un_granted_user_admin_role:
+  path: /api/v1/user/role/admin/{user}/un
+  methods: PATCH
+  controller: App\UI\HTTP\Rest\Controller\UserController:unGrantedAdminUserRole
 
 app.swagger_ui:
   path: /api/doc

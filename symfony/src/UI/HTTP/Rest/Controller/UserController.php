@@ -11,6 +11,8 @@ use App\Application\Command\User\ConfirmUser\ConfirmUserCommand;
 use App\Application\Command\User\Create\CreateUserCommand;
 use App\Application\Command\User\GranteUserAdminRole\GranteUserAdminRoleCommand;
 use App\Application\Command\User\SendEmail\SendEmailCommand;
+use App\Application\Command\User\UnBannedUser\UnBannedUserCommand;
+use App\Application\Command\User\UnGranteUserAdminRole\UnGranteUserAdminRoleCommand;
 use App\Application\Query\User\GetAll\GetAllCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
@@ -367,5 +369,66 @@ class UserController extends RestController
         $this->commandBus->handle($command);
 
         return new JsonResponse('success', Response::HTTP_ACCEPTED);
+    }
+
+    /**
+     * @return JsonResponse
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="user",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Tag(name="User")
+     * @NelmioSecurity(name="BearerUser")
+     */
+    public function unGrantedAdminUserRole(Request $request, string $user): Response
+    {
+        $command = new UnGranteUserAdminRoleCommand();
+        $command->userId = $user;
+        $this->commandBus->handle($command);
+
+        return new JsonResponse('success', Response::HTTP_ACCEPTED);
+    }
+
+    /**
+     * @throws \Exception
+     *
+     *
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     * @SWG\Tag(name="User")
+     * @NelmioSecurity(name="BearerAdmin")
+     */
+    public function unBannedUserAction(Request $request, string $id): Response
+    {
+        if ($this->getUser()->getId() === $id) {
+            throw new \Exception('Nie mozesz odbanować sam siebie');
+        }
+        $command = new UnBannedUserCommand($id);
+        $this->commandBus->handle($command);
+
+        return new JsonResponse('success', Response::HTTP_OK);
     }
 }

@@ -18,6 +18,9 @@ import SwipeableViews from 'react-swipeable-views';
 import Tab from '@material-ui/core/Tab';
 import axios from './../../axios/axios';
 import PostComponent from "../../components/Home/PostComponent";
+import {Link as RouterLink} from "react-router-dom";
+import {toast} from "react-toastify";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function TabContainer({children, dir}) {
     return (
@@ -50,11 +53,21 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.paper,
         width: 500,
     },
+    button: {
+        marginTop: '5em',
+    },
+    facebook: {
+        margin: theme.spacing.unit * 2,
+        position: 'relative',
+    },
 });
 
 class AddPost extends Component {
     state = {
         posts: [],
+        limit: 10,
+        count: '',
+        loading: true,
     };
 
     componentDidMount = () => {
@@ -62,14 +75,20 @@ class AddPost extends Component {
     };
 
     getAllPost = () => {
-        axios.get('/api/v1/posts').then((e) => {
+        this.setState({
+            loading: true,
+        });
+        axios.get(`/api/v1/posts?limit=${this.state.limit}`).then((e) => {
             this.setState({
-                posts: e.data.data
+                posts: e.data.data,
+                count: e.data.total,
+                loading: false,
             });
-
         })
             .catch((e) => {
-
+                this.setState({
+                    loading: false,
+                });
             })
     };
 
@@ -79,11 +98,48 @@ class AddPost extends Component {
 
         return (
             <main className={classes.main}>
-            {this.state.posts.map((post) => {
-                    return (
-                        <PostComponent thumbnail={post.thumbnail} title={post.title} shortDescription={post.shortDescription} slug={post.slug}/>
-                    )
-                })}
+                {this.state.loading === true ?
+                    <div className={classes.paper}>
+                        <CssBaseline/>
+                        <div className={classes.facebook}>
+                            <CircularProgress
+                                variant="indeterminate"
+                                disableShrink
+                                size={50}
+                                thickness={4}
+                            />
+                        </div>
+                    </div> :
+                    <React.Fragment>
+                        {this.state.posts.map((post) => {
+                            return (
+                                <PostComponent thumbnail={post.thumbnail} title={post.title}
+                                               shortDescription={post.shortDescription} slug={post.slug}/>
+                            )
+                        })}
+                    </React.Fragment>
+                }
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    fullWidth
+                    className={classes.button}
+                    onClick={() => {
+                        console.log(this.state.count, this.state.posts.length);
+                        if (this.state.count === this.state.posts.length) {
+                            toast.info("Nie ma wiecej postów", {
+                                position: toast.POSITION.BOTTOM_RIGHT
+                            });
+                        } else {
+                            let limit = this.state.limit + 10;
+                            this.setState({limit}, () => {
+                                this.getAllPost();
+                            });
+                        }
+                    }}
+                >
+                    Wiecej
+                </Button>
             </main>
         );
     }

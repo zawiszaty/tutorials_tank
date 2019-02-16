@@ -45,7 +45,7 @@ const styles = theme => ({
 
 class AddPost extends Component {
     state = {
-        value: 0,
+        value: 'one',
     };
 
     handleChange = (event, value) => {

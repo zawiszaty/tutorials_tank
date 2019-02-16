@@ -37,6 +37,7 @@ final class CommentReadProjectionFactory extends Projector
      * @var NotificationAbstractFactory
      */
     private $notificationAbstractFactory;
+
     /**
      * @var CommentRepositoryElastic
      */

@@ -21,6 +21,7 @@ class NotificationManager
      * @var MysqlUserReadModelRepository
      */
     private $mysqlUserReadModelRepository;
+
     /**
      * @var NotificationRepositoryElastic
      */

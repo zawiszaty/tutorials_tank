@@ -15,6 +15,7 @@ class ViewNotificationHandler implements CommandHandlerInterface
      * @var MysqlNotificationRepository
      */
     private $mysqlNotificationRepository;
+
     /**
      * @var NotificationRepositoryElastic
      */

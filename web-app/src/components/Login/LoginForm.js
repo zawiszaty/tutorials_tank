@@ -12,6 +12,7 @@ import {ToastContainer, toast} from 'react-toastify';
 import {client_id, client_secret} from "./../../axios/env";
 import {login} from "../../actions/user";
 import {connect} from "react-redux";
+import {getNotification} from "../../actions/notification";
 
 const styles = theme => ({
     form: {
@@ -91,10 +92,16 @@ class LoginForm extends React.Component {
                     position: toast.POSITION.BOTTOM_RIGHT
                 });
                 this.props.login(response.data);
+                console.log('tu jestem');
+                axios.get(`/api/v1/notification?query=${response.data.id}&&limit=1`)
+                    .then((e) => {
+                        this.props.getNotification(e.data.total);
+                    }).catch((e) => { this.props.getNotification(0);});
                 this.setState({
                     success: true,
                     loading: false,
                 })
+                console.log('tu jestem');
             }).catch((e) => {
                 if (e.response.data.error_description === 'User account is disabled.') {
                     toast.error("Potwierdz konto", {
@@ -191,6 +198,6 @@ const mapStateToProps = (state) => {
         user: state.user
     }
 };
-const mapDispatchToProps = {login};
+const mapDispatchToProps = {login, getNotification};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(LoginForm));

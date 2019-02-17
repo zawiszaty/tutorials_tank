@@ -28,6 +28,16 @@ get_all_category:
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\CategoryController:getAllCategoryAction
 
+get_all_by_user:
+  path: /api/v1/notification
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\NotificationController:getAllByUser
+
+view_notification:
+  path: /api/v1/notifications
+  methods: PATCH
+  controller: App\UI\HTTP\Rest\Controller\NotificationController:viewNotifications
+
 get_single_category:
   path: /api/v1/category/{id}
   methods: GET

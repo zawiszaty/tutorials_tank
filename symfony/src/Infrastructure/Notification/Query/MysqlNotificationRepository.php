@@ -17,6 +17,19 @@ class MysqlNotificationRepository extends MysqlRepository
     }
 
     /**
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function oneByUuid(string $id)
+    {
+        $qb = $this->repository
+            ->createQueryBuilder('comment')
+            ->where('comment.id = :id')
+            ->setParameter('id', $id);
+
+        return $this->oneOrException($qb);
+    }
+
+    /**
      * MysqlCategoryReadModelRepository constructor.
      */
     public function __construct(EntityManagerInterface $entityManager)

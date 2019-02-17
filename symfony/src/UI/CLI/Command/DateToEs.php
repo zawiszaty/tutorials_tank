@@ -6,6 +6,8 @@ use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
 use App\Infrastructure\Comment\Query\Projections\CommentView;
+use App\Infrastructure\Notification\NotificationView;
+use App\Infrastructure\Notification\Query\NotificationRepositoryElastic;
 use App\Infrastructure\Post\Query\Projections\PostView;
 use App\Infrastructure\Post\Query\Repository\PostRepositoryElastic;
 use App\Infrastructure\User\Query\Projections\UserView;
@@ -61,6 +63,12 @@ class DateToEs extends ContainerAwareCommand
         $posts = $manager->getRepository(CommentView::class)->findAll();
         $postes = $this->getContainer()->get(CommentRepositoryElastic::class);
         /** @var CommentView $post */
+        foreach ($posts as $post) {
+            $postes->store($post->serialize());
+        }
+        $posts = $manager->getRepository(NotificationView::class)->findAll();
+        $postes = $this->getContainer()->get(NotificationRepositoryElastic::class);
+        /** @var NotificationView $post */
         foreach ($posts as $post) {
             $postes->store($post->serialize());
         }

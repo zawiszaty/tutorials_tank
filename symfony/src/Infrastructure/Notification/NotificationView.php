@@ -88,9 +88,14 @@ class NotificationView
             'id'        => $this->id,
             'content'   => $this->content,
             'displayed' => $this->displayed,
-            'user'      => $this->user,
+            'user'      => $this->user->getId(),
             'type'      => $this->type,
-            'createdAt' => $this->createdAt,
+            'createdAt' => $this->createdAt->getTimestamp(),
         ];
+    }
+
+    public function view()
+    {
+        $this->displayed = true;
     }
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {withStyles} from '@material-ui/core/styles';
 import {login} from "../../actions/user";
+import {getNotification} from "../../actions/notification";
 import {connect} from "react-redux";
 import axios from "../../axios/axios";
 import {toast} from "react-toastify";
@@ -60,10 +61,18 @@ class CheckSecurity extends Component {
         }).then((response) => {
             localStorage.setItem('token', token);
             this.props.login(response.data);
+            this.getAllNotification();
             this.props.loaded();
         }).catch((e) => {
             this.props.loaded();
         });
+    };
+
+    getAllNotification = () => {
+            axios.get(`/api/v1/notification?query=${this.props.user[0].id}&&limit=1`)
+                .then((e) => {
+                    this.props.getNotification(e.data.total);
+                }).catch((e) => { this.props.getNotification(0);});
     };
 
     render() {
@@ -87,9 +96,10 @@ CheckSecurity.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user
+        user: state.user,
+        notification: state.notification
     }
 };
-const mapDispatchToProps = {login};
+const mapDispatchToProps = {login, getNotification};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(CheckSecurity));

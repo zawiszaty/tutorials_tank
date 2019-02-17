@@ -10,6 +10,13 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import DrawerHeader from "./Drawer/DrawerHeader";
 import classNames from 'classnames';
+import Badge from "@material-ui/core/Badge";
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import {login} from "../../actions/user";
+import {connect} from "react-redux";
+import DrawerNotification from "./Drawer/DrawerNotification";
+import axios from "../../axios/axios";
+import {REMOVE_NOTIFICATION} from "../../actions/notification";
 
 const drawerWidth = 240;
 
@@ -47,6 +54,10 @@ class Header extends Component {
             auth: true,
             anchorEl: null,
             open: false,
+            openRight: false,
+            notification: [],
+            notificationTotal: 0,
+            limit: 10,
         }
     }
 
@@ -65,6 +76,44 @@ class Header extends Component {
 
     handleDrawerClose = () => {
         this.setState({open: false});
+    };
+
+    handleDrawerRightClose = () => {
+        this.setState({openRight: false});
+    };
+
+    handleUpLimit = () => {
+        this.setState({
+            limit: this.state.limit + 10
+        }, () => {
+            this.getAllNotification();
+        })
+    };
+
+    getAllNotification = () => {
+        if (this.props.user.length !== 0) {
+            axios.get(`/api/v1/notification?query=${this.props.user[0].id}&&limit=${this.state.limit}`)
+                .then((e) => {
+                    this.setState({
+                        notification: e.data.data,
+                        notificationTotal: e.data.total
+                    });
+                    let data = [];
+                    e.data.data.map((item) => {
+                        if (item.displayed !== true) {
+                            data.push(item.id)
+                        }
+                    });
+
+                    if (data.length !== 0) {
+                        axios.patch('/api/v1/notifications', {'notifications': data}, {
+                            headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                        }).then((e) => {
+                            this.props.REMOVE_NOTIFICATION(this.props.notification);
+                        });
+                    }
+                })
+        }
     };
 
     render() {
@@ -88,12 +137,41 @@ class Header extends Component {
                         <Typography variant="h6" color="inherit" className={classes.grow}>
                             Tutorials Tank
                         </Typography>
+                        {this.props.user.length !== 0 &&
+                        <IconButton color="inherit" onClick={() => {
+                            this.getAllNotification();
+                            this.setState({
+                                openRight: true
+                            })
+                        }
+                        }>
+                            <Badge badgeContent={this.props.notification} color="secondary">
+                                <NotificationsIcon/>
+                            </Badge>
+                        </IconButton>
+                        }
                     </Toolbar>
                 </AppBar>
                 <DrawerHeader open={this.state.open} handleDrawerClose={this.handleDrawerClose}/>
+                {this.props.user.length !== 0 &&
+                <DrawerNotification open={this.state.openRight} handleDrawerClose={this.handleDrawerRightClose}
+                                    user={this.props.user[0]}
+                                    notification={this.state.notification}
+                                    notificationTotal={this.state.notificationTotal}
+                                    handleUpLimit={this.handleUpLimit}
+                />
+                }
             </div>
         );
     }
 }
 
-export default withStyles(styles, {withTheme: true})(Header);
+const mapStateToProps = (state) => {
+    return {
+        user: state.user,
+        notification: state.notification[0],
+    }
+};
+const mapDispatchToProps = {login, REMOVE_NOTIFICATION};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, {withTheme: true})(Header));

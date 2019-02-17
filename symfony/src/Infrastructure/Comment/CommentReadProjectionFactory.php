@@ -85,6 +85,7 @@ final class CommentReadProjectionFactory extends Projector
                     'post' => [
                         'id'    => $comment->getFullPost()->getId(),
                         'title' => $comment->getFullPost()->getTitle(),
+                        'slug'  => $comment->getFullPost()->getSlug(),
                     ],
                     'sender' => [
                         'id'       => $comment->getFullUser()->getId(),

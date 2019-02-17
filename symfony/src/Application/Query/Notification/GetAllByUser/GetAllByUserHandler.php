@@ -3,12 +3,13 @@
 namespace App\Application\Query\Notification\GetAllByUser;
 
 use App\Application\Query\Collection;
+use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Notification\Query\NotificationRepositoryElastic;
 
 /**
  * Class GetAllByUserHandler.
  */
-class GetAllByUserHandler
+class GetAllByUserHandler implements QueryHandlerInterface
 {
     /**
      * @var NotificationRepositoryElastic
@@ -36,7 +37,7 @@ class GetAllByUserHandler
             ],
         ];
 
-        $data = $this->notificationRepositoryElastic->getByDynamicBody($command->getPage(), $command->getLimit(), $query);
+        $data = $this->notificationRepositoryElastic->getByDynamicBody($command->getPage(), $command->getLimit(), $query, $command->getSort());
 
         return $data;
     }

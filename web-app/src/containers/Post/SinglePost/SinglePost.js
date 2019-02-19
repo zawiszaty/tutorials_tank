@@ -67,6 +67,10 @@ class SinglePost extends Component {
         this.getAllPost();
     };
 
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.getAllPost();
+    }
+
     getAllPost = () => {
         this.setState({
             loading: true
@@ -95,17 +99,15 @@ class SinglePost extends Component {
                         {this.props.user.length !== 0 &&
                         <React.Fragment>
                             {this.state.post.user === this.props.user[0].id &&
-                            <Paper className={classes.paper}>
                                 <Button
-                                    variant="contained"
+                                    variant="outlined"
                                     color="primary"
                                     fullWidth
                                     component={RouterLink} to={"/edytuj/post/" + this.state.post.slug}
-                                    className={classes.button}
+                                    className={classes.paper}
                                 >
                                     Edytuj
                                 </Button>
-                            </Paper>
                             }
                         </React.Fragment>
                         }

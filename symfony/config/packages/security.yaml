@@ -48,5 +48,6 @@ security:
     - { path: ^/api/v1/post, roles: IS_AUTHENTICATED_FULLY, methods: [POST,PATCH,DELETE] }
     - { path: ^/api/v1/comment, roles: IS_AUTHENTICATED_FULLY, methods: [POST,PATCH,DELETE] }
     - { path: ^/api/v1/message, roles: IS_AUTHENTICATED_FULLY }
+    - { path: ^/api/v1/notifications, roles: IS_AUTHENTICATED_FULLY }
     - { path: ^/api/v1/category, roles: ROLE_ADMIN, methods: [POST,PATCH,DELETE]}
   # - { path: ^/profile, roles: ROLE_USER }

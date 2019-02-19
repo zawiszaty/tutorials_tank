@@ -14,7 +14,7 @@ class Comment extends Component {
     render() {
         return (
             <div onClick={() => {
-                this.props.history.push("/post/" + this.state.content.post.slug)
+                this.props.history.push(`/post/${this.state.content.post.slug}`)
             }}>
                Uzytkownik {this.state.content.sender.username} <br/>
                 skomentował twój post <br/>

@@ -16,7 +16,7 @@ import {login} from "../../actions/user";
 import {connect} from "react-redux";
 import DrawerNotification from "./Drawer/DrawerNotification";
 import axios from "../../axios/axios";
-import {REMOVE_NOTIFICATION} from "../../actions/notification";
+import {getNotification, REMOVE_NOTIFICATION} from "../../actions/notification";
 
 const drawerWidth = 240;
 
@@ -92,7 +92,9 @@ class Header extends Component {
 
     getAllNotification = () => {
         if (this.props.user.length !== 0) {
-            axios.get(`/api/v1/notification?query=${this.props.user[0].id}&&limit=${this.state.limit}`)
+            axios.get(`/api/v1/notification?query=${this.props.user[0].id}&&limit=${this.state.limit}`, {
+                headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+            })
                 .then((e) => {
                     this.setState({
                         notification: e.data.data,
@@ -104,12 +106,16 @@ class Header extends Component {
                             data.push(item.id)
                         }
                     });
-
                     if (data.length !== 0) {
                         axios.patch('/api/v1/notifications', {'notifications': data}, {
                             headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                         }).then((e) => {
-                            this.props.REMOVE_NOTIFICATION(this.props.notification);
+                            let total = parseInt(this.props.notification);
+                            if (total < 10) {
+                                this.props.getNotification(0);
+                            } else {
+                                this.props.getNotification(total - 10);
+                            }
                         });
                     }
                 })
@@ -172,6 +178,6 @@ const mapStateToProps = (state) => {
         notification: state.notification[0],
     }
 };
-const mapDispatchToProps = {login, REMOVE_NOTIFICATION};
+const mapDispatchToProps = {login, getNotification};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, {withTheme: true})(Header));

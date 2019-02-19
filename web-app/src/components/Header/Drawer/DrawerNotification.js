@@ -129,8 +129,8 @@ class DrawerNotification extends React.Component {
                         return (
                             <MenuList>
                                 {item.displayed === true ?
-                                    <Button variant="outlined" component="span"
-                                            className={classes.button} disabled>
+                                    <Button variant="contained" component="span"
+                                            className={classes.button} >
                                         <NotificationSwitch notification={item}/>
                                     </Button> :
                                     <Button variant="outlined" component="span"

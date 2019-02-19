@@ -86,4 +86,16 @@ class MessageView
     {
         $this->sender = $sender;
     }
+
+    public function serialize(): array
+    {
+        return [
+            'id'        => $this->id,
+            'content'   => $this->content,
+            'displayed' => $this->displayed,
+            'sender'    => $this->sender->getId(),
+            'recipient' => $this->recipient->getId(),
+            'createdAt' => $this->createdAt->getTimestamp(),
+        ];
+    }
 }

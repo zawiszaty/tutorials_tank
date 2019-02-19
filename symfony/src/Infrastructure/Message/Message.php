@@ -4,6 +4,7 @@
 
 namespace App\Infrastructure\Message;
 
+use App\Infrastructure\Message\Query\MessageRepositoryElastic;
 use App\Infrastructure\User\Query\Projections\UserView;
 use Ramsey\Uuid\Uuid;
 use Ratchet\ConnectionInterface;
@@ -46,7 +47,6 @@ class Message implements MessageComponentInterface
         }
         /** @var UserView $sender */
         $sender = $token->getUser();
-
         $this->connections[$sender->getId()] = $conn;
         $conn->send('..:: Hello from the Notification Center ::..');
         echo "New connection \n";
@@ -100,6 +100,9 @@ class Message implements MessageComponentInterface
             $em = $this->container->get('doctrine')->getManager();
             $em->persist($message);
             $em->flush();
+            /** @var MessageRepositoryElastic $messageRepositoryElastic */
+            $messageRepositoryElastic = $this->container->get(MessageRepositoryElastic::class);
+            $messageRepositoryElastic->store($message->serialize());
 
             try {
                 $this->connections[$recipient->getId()]->send(json_encode([

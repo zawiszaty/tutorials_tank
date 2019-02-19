@@ -54,7 +54,7 @@ composer-install:
 
 .PHONY: elastica
 elastica:
-		docker-compose exec php php bin/console f:e:p
+		docker-compose exec php php bin/console app:es
 
 .PHONY: clear
 clear:

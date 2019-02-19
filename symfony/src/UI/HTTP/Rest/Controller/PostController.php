@@ -6,6 +6,7 @@ use App\Application\Command\Post\Create\CreatePostCommand;
 use App\Application\Command\Post\Delete\DeletePostCommand;
 use App\Application\Command\Post\Edit\EditPostCommand;
 use App\Application\Query\Post\GetAll\GetAllCommand;
+use App\Application\Query\Post\GetAllByUser\GetAllByUserCommand;
 use App\Application\Query\Post\GetOneBySlug\GetOneBySlugCommand;
 use App\Application\Query\Post\GetSingle\GetSingleCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
@@ -227,6 +228,51 @@ class PostController extends RestController
         $query = $request->get('query') ?? null;
 
         $command = new GetAllCommand($page, $limit, $query);
+        $model = $this->queryBus->handle($command);
+
+        return new JsonResponse($model, 200);
+    }
+
+    /**
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Bad request"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="page",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="limit",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="query",
+     *     type="string",
+     *     in="query",
+     * )
+     *
+     * @SWG\Tag(name="Post")
+     */
+    public function getAllByUserAction(Request $request, string $user): Response
+    {
+        $page = $request->get('page') ?? 1;
+        $limit = $request->get('limit') ?? 10;
+        $query = $request->get('query') ?? null;
+        $command = new GetAllByUserCommand($page, $limit, $query, $user);
         $model = $this->queryBus->handle($command);
 
         return new JsonResponse($model, 200);

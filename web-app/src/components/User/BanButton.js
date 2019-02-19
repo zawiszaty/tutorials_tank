@@ -61,7 +61,8 @@ class BanButton extends React.Component {
                             variant="contained"
                             color="secondary"
                             type="submit"
-                            onClick={() => {
+                            onClick={(event) => {
+                                event.stopPropagation();
                                 axios.patch(`/api/v1/user/banned/${n.id}`, {}, {
                                     headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                                 })
@@ -82,7 +83,8 @@ class BanButton extends React.Component {
                             variant="contained"
                             color="default"
                             type="submit"
-                            onClick={() => {
+                            onClick={(event) => {
+                                event.stopPropagation();
                                 axios.patch(`/api/v1/user/banned/${n.id}/un`, {}, {
                                     headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                                 })
@@ -109,7 +111,8 @@ class BanButton extends React.Component {
                                 variant="contained"
                                 color="primary"
                                 type="submit"
-                                onClick={() => {
+                                onClick={(event) => {
+                                    event.stopPropagation();
                                     axios.patch(`/api/v1/user/role/admin/${n.id}`, {}, {
                                         headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                                     })
@@ -133,7 +136,8 @@ class BanButton extends React.Component {
                                 variant="contained"
                                 color="default"
                                 type="submit"
-                                onClick={() => {
+                                onClick={(event) => {
+                                    event.stopPropagation();
                                     axios.patch(`/api/v1/user/role/admin/${n.id}/un`, {}, {
                                         headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                                     })

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Header from "./components/Header/Header";
 import './app.css';
 import FooterComponent from "./components/FooterComponent/FooterComponent";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Login from "./containers/Login/Login";
 import Registration from "./containers/Registtration/Registration";
 import {ToastContainer} from 'react-toastify';
@@ -23,6 +23,9 @@ import EditPost from "./containers/Post/Edit/EditPost";
 import PostListContainer from "./containers/Post/PostContainer/PostListContainer";
 import Messanger from "./containers/Messanger/Messanger";
 import Notification from "./components/Notification/Notification";
+import SingleUser from "./containers/SingleUser/SingleUser";
+import UserPostList from "./components/Post/UserPostList";
+import Fade from "@material-ui/core/es/Fade/Fade";
 
 const Index = () => <h2>Home</h2>;
 
@@ -43,31 +46,39 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <React.Fragment>
-                    <Header/>
-                    {this.state.loading === true && <CheckSecurity loaded={this.loaded}/>}
-                    {this.state.loading !== true &&
-                    <React.Fragment>
-                        <Route path="/" exact component={Home}/>
-                        <NotLoggedRoute path="/zaloguj" component={Login}/>
-                        <NotLoggedRoute path="/zarejestruj" component={Registration}/>
-                        <NotLoggedRoute path="/potwierdz/konto/:token" component={ConfirmUser}/>
-                        <LoggedRoute path="/panel/uzytkownika" component={UserPanel}/>
-                        <LoggedRoute path="/dodaj/post" component={AddPost}/>
-                        <LoggedRoute path="/edytuj/post/:slug" component={EditPost}/>
-                        <LoggedRoute path="/wiadomosci/:id" component={Messanger}/>
-                        <Route path="/kategorie" component={CategoryContainer}/>
-                        <Route path="/uzytkownicy" component={UserListContainer}/>
-                        <Route path="/post/:slug" component={SinglePost}/>
-                        <Route path="/posty" component={PostListContainer}/>
-                        <Notification/>
-                    </React.Fragment>
-                    }
-                    <FooterComponent/>
-                    <ToastContainer/>
-                </React.Fragment>
+                <Fade>
+                    <Switch>
+                        <React.Fragment>
+                            <Header/>
+                            {this.state.loading === true && <CheckSecurity loaded={this.loaded}/>}
+                            {this.state.loading !== true &&
+                            <React.Fragment>
+                                <Route path="/" exact component={Home}/>
+                                <Route path="/posty/uzytkownika/:id" exact component={UserPostList}/>
+                                <NotLoggedRoute path="/zaloguj" exact component={Login}/>
+                                <NotLoggedRoute path="/zarejestruj" exact component={Registration}/>
+                                <NotLoggedRoute path="/potwierdz/konto/:token" exact component={ConfirmUser}/>
+                                <LoggedRoute path="/panel/uzytkownika" exact component={UserPanel}/>
+                                <LoggedRoute path="/dodaj/post" exact component={AddPost}/>
+                                <LoggedRoute path="/edytuj/post/:slug" exact component={EditPost}/>
+                                <LoggedRoute path="/wiadomosci/:id" exact component={Messanger}/>
+                                <Route path="/kategorie" exact component={CategoryContainer}/>
+                                <Route path="/uzytkownicy" exact component={UserListContainer}/>
+                                <Route path="/post/:slug" exact component={SinglePost}/>
+                                <Route path="/uzytkownik/:username" exact component={SingleUser}/>
+                                <Route path="/posty" exact component={PostListContainer}/>
+                                <Notification/>
+                            </React.Fragment>
+                            }
+                            <FooterComponent/>
+                            <ToastContainer/>
+                        </React.Fragment>
+                    </Switch>
+                </Fade>
             </Router>
-        );
+
+        )
+            ;
     }
 }
 

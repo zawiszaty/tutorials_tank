@@ -24,10 +24,9 @@ import {connect} from "react-redux";
 import {toast} from "react-toastify";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import Avatar from "@material-ui/core/Avatar";
-import SearchBox from "../SearchBox/SearchBox";
-import BanButton from "./BanButton";
+import Redirect from "react-router-dom/es/Redirect";
 import {withRouter} from "react-router-dom";
+import SearchBox from "../SearchBox/SearchBox";
 
 const mapStateToProps = (state) => {
     return {
@@ -68,8 +67,8 @@ function getSorting(order, orderBy) {
 
 const rows = [
     {id: 'id', numeric: false, disablePadding: true, label: 'Id Kategori'},
-    {id: 'name', numeric: false, disablePadding: true, label: 'Nazwa uzytkownika'},
-    {id: 'avatar', numeric: false, disablePadding: true, label: 'Avatar'},
+    {id: 'tittle', numeric: false, disablePadding: true, label: 'Tytuł Postu'},
+    {id: 'descryption', numeric: false, disablePadding: true, label: 'Krótki opis'},
 ];
 
 class EnhancedTableHead extends React.Component {
@@ -108,20 +107,6 @@ class EnhancedTableHead extends React.Component {
                         ),
                         this,
                     )}
-                    {this.props.user.length !== 0 &&
-                    <React.Fragment>
-                        {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                        <React.Fragment>
-                            <TableCell padding="default">
-
-                            </TableCell>
-                            <TableCell padding="default">
-
-                            </TableCell>
-                        </React.Fragment>
-                        }
-                    </React.Fragment>
-                    }
                 </TableRow>
             </TableHead>
         );
@@ -174,6 +159,11 @@ let EnhancedTableToolbar = props => {
                     [classes.highlight]: numSelected > 0,
                 })}
             >
+                <div className={classes.title}>
+                    <Typography variant="h6" id="tableTitle">
+                        Posty
+                    </Typography>
+                </div>
                 <div className={classes.spacer}/>
                 <div className={classes.actions}>
                     <Tooltip title="Filter list">
@@ -200,12 +190,15 @@ const styles = theme => ({
         width: '100%',
         marginTop: theme.spacing.unit * 3,
         margin: 'auto',
+        overflow: "auto",
     },
     table: {
         minWidth: 1020,
+        overflow: "auto",
     },
     tableWrapper: {
         overflowX: 'auto',
+        overflow: "auto",
     },
     paper: {
         margin: theme.spacing.unit * 8,
@@ -213,6 +206,7 @@ const styles = theme => ({
         flexDirection: 'column',
         alignItems: 'center',
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+        overflow: "auto",
     },
     loginPaper: {
         marginTop: theme.spacing.unit * 8,
@@ -221,20 +215,16 @@ const styles = theme => ({
         alignItems: 'center',
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     },
-    ban: {
-        backgroundColor: "#aeb3ba",
-        color: "white",
-    }
 });
 
 
-class User extends Component {
+class UserPostList extends Component {
     constructor(props) {
         super(props);
         this.state = {
             order: 'asc',
             orderBy: 'calories',
-            selected: [],
+            selected: null,
             data: {},
             page: 0,
             rowsPerPage: 5,
@@ -253,7 +243,7 @@ class User extends Component {
         this.setState({
             loading: true,
         });
-        axios.get(`/api/v1/user?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}&query=${this.state.query}`)
+        axios.get(`/api/v1/posts/${this.props.match.params.id}?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}&query=${this.state.query}`)
             .then((response) => {
                 this.setState({
                     data: response.data.data,
@@ -263,8 +253,8 @@ class User extends Component {
                 console.log(response.data.data);
             }).catch((e) => {
             this.setState({
+                data: [],
                 loading: false,
-                data: []
             });
         })
     };
@@ -280,33 +270,17 @@ class User extends Component {
         this.setState({order, orderBy});
     };
 
+    handleChangeQuery = (e) => {
+        const query = e.target.value;
+        this.setState({query});
+    };
+
     handleSelectAllClick = event => {
         if (event.target.checked) {
             this.setState(state => ({selected: state.data.map(n => n.id)}));
             return;
         }
         this.setState({selected: []});
-    };
-
-    handleClick = (event, id) => {
-        const {selected} = this.state;
-        const selectedIndex = selected.indexOf(id);
-        let newSelected = [];
-
-        if (selectedIndex === -1) {
-            newSelected = newSelected.concat(selected, id);
-        } else if (selectedIndex === 0) {
-            newSelected = newSelected.concat(selected.slice(1));
-        } else if (selectedIndex === selected.length - 1) {
-            newSelected = newSelected.concat(selected.slice(0, -1));
-        } else if (selectedIndex > 0) {
-            newSelected = newSelected.concat(
-                selected.slice(0, selectedIndex),
-                selected.slice(selectedIndex + 1),
-            );
-        }
-
-        this.setState({selected: newSelected});
     };
 
     handleChangePage = (event, page) => {
@@ -322,16 +296,11 @@ class User extends Component {
         });
     };
 
-    handleChangeQuery = (e) => {
-        const query = e.target.value;
-        this.setState({query});
-    };
-
-    isSelected = id => this.state.selected.indexOf(id) !== -1;
+    isSelected = id => this.state.selected !== null;
 
     render() {
         const {classes} = this.props;
-        const {data, order, orderBy, selected, rowsPerPage, page, count} = this.state;
+        const {data, order, orderBy, rowsPerPage, page, count} = this.state;
         const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
         if (this.state.loading === true) {
             return (
@@ -345,53 +314,40 @@ class User extends Component {
             <Grid container className={classes.root} spacing={24}>
                 <Grid item xs={12} md={12}>
                     <Paper>
-                        <EnhancedTableToolbar numSelected={selected.length} deleteCategory={this.deleteCategory}
+                        <EnhancedTableToolbar
                                               query={this.state.query} handleChangeQuery={this.handleChangeQuery}
                                               getAll={this.getAllCategory}
                         />
                         <div className={classes.tableWrapper}>
                             <Table className={classes.table} aria-labelledby="tableTitle">
                                 <EnhancedTableHead
-                                    numSelected={selected.length}
                                     order={order}
                                     orderBy={orderBy}
-                                    onSelectAllClick={this.handleSelectAllClick}
                                     onRequestSort={this.handleRequestSort}
                                     rowCount={data.length}
                                 />
                                 <TableBody>
                                     {this.state.data
                                         .map(n => {
-                                            const isSelected = this.isSelected(n.id);
                                             return (
                                                 <TableRow
-                                                    aria-checked={isSelected}
+                                                    hover
+                                                    role="checkbox"
                                                     tabIndex={-1}
                                                     key={n.id}
-                                                    className={(n.banned ? classes.ban : '')}
                                                     onClick={() => {
-                                                        this.props.history.push(`/uzytkownik/${n.username}`)
+                                                        this.props.history.push("/post/" + n.slug)
                                                     }}
                                                 >
                                                     <TableCell component="th" scope="row" padding="default">
                                                         {n.id}
                                                     </TableCell>
                                                     <TableCell component="th" scope="row" padding="default">
-                                                        {n.username}
+                                                        {n.title}
                                                     </TableCell>
                                                     <TableCell component="th" scope="row" padding="default">
-                                                        <Avatar alt="Remy Sharp"
-                                                                src={"http://localhost:9999" + n.avatar}/>
+                                                        {n.shortDescription}
                                                     </TableCell>
-                                                    {this.props.user.length !== 0 &&
-                                                    <React.Fragment>
-                                                        {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                                                        <React.Fragment>
-                                                            <BanButton n={n}/>
-                                                        </React.Fragment>
-                                                        }
-                                                    </React.Fragment>
-                                                    }
                                                 </TableRow>
                                             );
                                         })}
@@ -425,6 +381,6 @@ class User extends Component {
     }
 }
 
-User.propTypes = {};
+UserPostList.propTypes = {};
 
-export default withRouter(connect(mapStateToProps)(withStyles(styles)(User)));
+export default withRouter(connect(mapStateToProps)(withStyles(styles)(UserPostList)));

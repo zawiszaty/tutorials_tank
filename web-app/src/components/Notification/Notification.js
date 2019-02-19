@@ -2,19 +2,17 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { connect } from 'react-redux';
-import { login } from "../../actions/user";
-import { toast } from "react-toastify";
+import {connect} from 'react-redux';
+import {login} from "../../actions/user";
+import {toast} from "react-toastify";
+import {getNotification} from "../../actions/notification";
 
-const styles = theme => ({
-
-});
+const styles = theme => ({});
 
 class Notification extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-        };
+        this.state = {};
     }
 
     notify = () => {
@@ -30,6 +28,8 @@ class Notification extends React.Component {
                 console.log('dziala');
                 conn.subscribe(then.props.user[0].id, function (topic, data) {
                     console.log('dziala');
+                    let total = parseInt(then.props.notification);
+                    then.props.getNotification(total + 1);
                     // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
                     toast.success("Masz nowe powiadomienie", {
                         position: toast.POSITION.BOTTOM_RIGHT
@@ -40,14 +40,15 @@ class Notification extends React.Component {
             function () {
                 console.warn('WebSocket connection closed');
             },
-            { 'skipSubprotocolCheck': true }
+            {'skipSubprotocolCheck': true}
         );
     };
+
     render() {
         const classes = this.props.classes;
         return (
             <React.Fragment>
-                <CssBaseline />
+                <CssBaseline/>
                 {this.props.user.length !== 0 && <React.Fragment>
                     {this.notify()}
                 </React.Fragment>}
@@ -58,9 +59,10 @@ class Notification extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user
+        user: state.user,
+        notification: state.notification
     }
 };
-const mapDispatchToProps = { login };
+const mapDispatchToProps = {login, getNotification};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Notification));

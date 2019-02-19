@@ -92,15 +92,19 @@ class LoginForm extends React.Component {
                     position: toast.POSITION.BOTTOM_RIGHT
                 });
                 this.props.login(response.data);
-                console.log('tu jestem');
-                axios.get(`/api/v1/notification?query=${response.data.id}&&limit=1`)
-                    .then((e) => {
-                        this.props.getNotification(e.data.total);
-                    }).catch((e) => { this.props.getNotification(0);});
+                axios.get(`/api/v1/notifications/total`, {
+                    headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                }).then((e) => {
+                    console.log('tu jestem');
+                    this.props.getNotification(e.data);
+                }).catch((e) => {
+                    this.props.getNotification(0);
+                });
+
                 this.setState({
                     success: true,
                     loading: false,
-                })
+                });
                 console.log('tu jestem');
             }).catch((e) => {
                 if (e.response.data.error_description === 'User account is disabled.') {
@@ -163,17 +167,17 @@ class LoginForm extends React.Component {
                     type="text"
                     validators={['required']}
                     errorMessages={['To pole jest wymagane']}
-                    margin="normal" required fullWidth
+                    margin="normal"  fullWidth
                 />
                 <TextValidator
-                    label="Password"
+                    label="Hasło"
                     onChange={this.handleChangePassword}
                     name="password"
                     type="password"
                     validators={['required']}
-                    errorMessages={['this field is required']}
+                    errorMessages={['Hasło jest wymagane']}
                     value={this.state.password}
-                    margin="normal" required fullWidth
+                    margin="normal"  fullWidth
                 />
                 <div className={classes.wrapper}>
                     <Button

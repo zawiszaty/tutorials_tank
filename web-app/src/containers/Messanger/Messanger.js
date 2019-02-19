@@ -51,13 +51,15 @@ class Messanger extends Component {
         super(props);
         this.state = {
             loading: true,
-            messages: {},
+            messages: [],
             error: false,
+            totalMessages: 0,
+            limit: 10,
         }
     }
 
     getAllMessages = () => {
-        axios.get(`/api/v1/message?recipient=${this.props.match.params.id}`,{
+        axios.get(`/api/v1/message?recipient=${this.props.match.params.id}&&limit=${this.state.limit}`, {
             headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
         })
             .then((response) => {
@@ -65,7 +67,8 @@ class Messanger extends Component {
                 const loading = false;
                 this.setState({
                     messages,
-                    loading
+                    loading,
+                    totalMessages: response.data.total
                 });
             })
             .catch((e) => {
@@ -85,6 +88,14 @@ class Messanger extends Component {
             })
     };
 
+    upLimit = (up) => {
+        this.setState({
+            limit: this.state.limit + up,
+        }, () => {
+            this.getAllMessages();
+        })
+    };
+
     componentDidMount = () => {
         this.getAllMessages();
     };
@@ -95,7 +106,9 @@ class Messanger extends Component {
         if (this.state.loading === false) {
             return (
                 <React.Fragment>
-                    <MessangerComponent messages={this.state.messages} id={this.props.match.params.id}/>
+                    <MessangerComponent messages={this.state.messages} totalMessages={this.state.totalMessages}
+                                        id={this.props.match.params.id} upLimit={this.upLimit}
+                    />
                 </React.Fragment>
             );
         }

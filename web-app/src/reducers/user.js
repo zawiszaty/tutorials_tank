@@ -4,6 +4,8 @@ export const user = (state = [], action) => { // (1)
             return [
                 state.user = action.user
             ];
+        case  'userClear':
+            return [];
         default:
             return state
     }

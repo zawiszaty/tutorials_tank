@@ -18,12 +18,15 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import Button from "@material-ui/core/es/Button/Button";
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import {connect} from "react-redux";
 import Avatar from "@material-ui/core/Avatar";
+import {login, userClear} from "../../../actions/user";
+import {getNotification} from "../../../actions/notification";
+import {toast} from "react-toastify";
 
 const drawerWidth = 240;
 
@@ -128,16 +131,6 @@ class DrawerHeader extends React.Component {
                         <MenuItem component={Link} to="/posty">Lista Postów</MenuItem>
                     </MenuList>
                     <Divider/>
-                    {this.props.user.length === 0 &&
-                    <React.Fragment>
-                        <MenuList>
-                            <MenuItem component={Link} to="/zaloguj">Zaloguj się</MenuItem>
-                        </MenuList>
-                        <MenuList>
-                            <MenuItem component={Link} to="/zarejestruj">Zarejestruj się</MenuItem>
-                        </MenuList>
-                    </React.Fragment>
-                    }
                     {this.props.user.length !== 0 &&
                     <React.Fragment>
                         <MenuList>
@@ -154,6 +147,30 @@ class DrawerHeader extends React.Component {
                         </MenuList>
                     </React.Fragment>
                     }
+                    {this.props.user.length === 0 ?
+                        <React.Fragment>
+                            <Divider/>
+                            <MenuList>
+                                <MenuItem component={Link} to="/zaloguj">Zaloguj się</MenuItem>
+                            </MenuList>
+                            <MenuList>
+                                <MenuItem component={Link} to="/zarejestruj">Zarejestruj się</MenuItem>
+                            </MenuList>
+                        </React.Fragment> :
+                        <React.Fragment>
+                            <Divider/>
+                            <MenuList onClick={() => {
+                                localStorage.removeItem('token');
+                                this.props.userClear();
+                                toast.info("Wylogowales sie", {
+                                    position: toast.POSITION.BOTTOM_RIGHT
+                                });
+                                this.props.history.push('/');
+                            }}>
+                                <MenuItem>Wyloguj</MenuItem>
+                            </MenuList>
+                        </React.Fragment>
+                    }
                 </Drawer>
             </div>
         );
@@ -167,5 +184,5 @@ const mapStateToProps = (state) => {
         user: state.user
     }
 };
-
-export default connect(mapStateToProps)(withStyles(styles, {withTheme: true})(DrawerHeader));
+const mapDispatchToProps = {login, userClear};
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, {withTheme: true})(DrawerHeader)));

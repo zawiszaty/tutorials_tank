@@ -38,6 +38,11 @@ view_notification:
   methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\NotificationController:viewNotifications
 
+view_notification_total:
+  path: /api/v1/notifications/total
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\NotificationController:getNotificationTotal
+
 get_single_category:
   path: /api/v1/category/{id}
   methods: GET
@@ -88,6 +93,11 @@ get_all_user:
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\UserController:getAllAction
 
+get_single_user_by_usernme:
+  path: /api/v1/user/{username}
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\UserController:getOneByUsername
+
 seciurity:
   path: /api/v1/seciurity
   methods: POST
@@ -117,6 +127,11 @@ get_all_post:
   path: /api/v1/posts
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\PostController:getAllAction
+
+get_all_post_by_user:
+  path: /api/v1/posts/{user}
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\PostController:getAllByUserAction
 
 create_comment:
   path: /api/v1/comment

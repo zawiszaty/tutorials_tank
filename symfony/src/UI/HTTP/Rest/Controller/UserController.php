@@ -14,6 +14,7 @@ use App\Application\Command\User\SendEmail\SendEmailCommand;
 use App\Application\Command\User\UnBannedUser\UnBannedUserCommand;
 use App\Application\Command\User\UnGranteUserAdminRole\UnGranteUserAdminRoleCommand;
 use App\Application\Query\User\GetAll\GetAllCommand;
+use App\Application\Query\User\GetSingleByUserName\GetSingleByUsernameCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
 use App\UI\HTTP\Common\Controller\RestController;
@@ -430,5 +431,14 @@ class UserController extends RestController
         $this->commandBus->handle($command);
 
         return new JsonResponse('success', Response::HTTP_OK);
+    }
+
+    public function getOneByUsername(Request $request, string $username): Response
+    {
+        $command = new GetSingleByUsernameCommand();
+        $command->username = $username;
+        $user = $this->queryBus->handle($command);
+
+        return new JsonResponse($user, Response::HTTP_OK);
     }
 }

@@ -69,10 +69,14 @@ class CheckSecurity extends Component {
     };
 
     getAllNotification = () => {
-            axios.get(`/api/v1/notification?query=${this.props.user[0].id}&&limit=1`)
-                .then((e) => {
-                    this.props.getNotification(e.data.total);
-                }).catch((e) => { this.props.getNotification(0);});
+        axios.get(`/api/v1/notifications/total`, {
+            headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+        })
+            .then((e) => {
+                this.props.getNotification(e.data);
+            }).catch((e) => {
+            this.props.getNotification(0);
+        });
     };
 
     render() {

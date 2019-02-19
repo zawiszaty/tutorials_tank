@@ -13,6 +13,7 @@ import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Avatar from "@material-ui/core/Avatar";
+import {toast} from "react-toastify";
 
 const styles = theme => ({
     progress: {
@@ -58,19 +59,34 @@ const styles = theme => ({
         width: '80%'
     },
     card: {
-        width: '80%',
+        width: '40%',
         display: "flex",
         marginTop: "3em",
-        zIndex: "10000",
-        textAlign: "center",
+        margin: 'auto',
     },
     card__sender: {
-        marginLeft: "auto"
+        marginRight: "0"
+    },
+    card__recipent: {
+        marginLeft: '0',
     },
     card__avatar: {
-        marginRight: "2em",
         height: '4em',
         width: '4em',
+        margin: "auto",
+    },
+    avatar_bar: {
+        width: '40%',
+        display: 'flex',
+        flexDirection: "column",
+        justifyContent: "center",
+        textAlign: "center",
+    },
+    bar_config: {
+        width: '60%',
+    },
+    text_form: {
+        width: '80%',
     }
 });
 
@@ -89,7 +105,8 @@ class MessangerComponent extends Component {
             messages.splice(0, 0, message);
             this.setState({
                 messages
-            })
+            });
+            props.upLimit(1);
         };
         this.state.notif.onopen = () => {
             console.log('conected');
@@ -98,6 +115,12 @@ class MessangerComponent extends Component {
         this.state.notif.onerror = function (error) {
             console.log(error);
         }
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.setState({
+            messages: this.props.messages
+        })
     }
 
     sendMessage = (e) => {
@@ -142,35 +165,58 @@ class MessangerComponent extends Component {
                 <main className={classes.main}>
                     <CssBaseline/>
                     <Paper className={classes.paper}>
+                        <Button variant="outlined" color="primary" fullWidth
+                                onClick={() => {
+                                    if (this.state.messages.length < this.props.totalMessages) {
+                                        this.props.upLimit(10);
+                                    } else {
+                                        toast.info("Nie ma wiecej wiadomosci", {
+                                            position: toast.POSITION.BOTTOM_RIGHT
+                                        });
+                                    }
+                                }}
+                        >
+                            Wczytaj wiecej wiadomości
+                        </Button>
                         {this.state.messages.length > 0 && <React.Fragment>
                             {this.state.messages.slice(0).reverse().map((message) => {
                                 return (
                                     <React.Fragment>
                                         {message.sender.id === this.props.user[0].id &&
-                                        <Card className={classes.card + " " + classes.card__sender}>
-                                            <Typography variant="subtitle1" gutterBottom>
+                                        <Button variant="outlined"
+                                                className={classes.card + " " + classes.card__sender}>
+                                            <div className={classes.avatar_bar}>
                                                 <Avatar className={classes.card__avatar}
                                                         src={'http://localhost:9999/' + message.sender.avatar}/>
-                                                {message.sender.username}
-                                            </Typography>
-                                            {message.content}
-                                        </Card>
+                                                <Typography variant="subtitle1" gutterBottom>
+                                                    {message.sender.username}
+                                                </Typography>
+                                            </div>
+                                            <div className={classes.bar_config}>
+                                                {message.content}
+                                            </div>
+                                        </Button>
                                         }
                                         {message.sender.id !== this.props.user[0].id &&
-                                        <Card className={classes.card + " "}>
-                                            <Typography variant="subtitle1" gutterBottom>
+                                        <Button variant="outlined"
+                                                className={classes.card + ' ' + classes.card__recipent}>
+                                            <div className={classes.avatar_bar}>
                                                 <Avatar className={classes.card__avatar}
                                                         src={'http://localhost:9999/' + message.sender.avatar}/>
-                                                {message.sender.username}
-                                            </Typography>
-                                            {message.content}
-                                        </Card>
+                                                <Typography variant="subtitle1" gutterBottom>
+                                                    {message.sender.username}
+                                                </Typography>
+                                            </div>
+                                            <div className={classes.bar_config}>
+                                                {message.content}
+                                            </div>
+                                        </Button>
                                         }
                                     </React.Fragment>
                                 )
                             })}
                         </React.Fragment>}
-                        <form onSubmit={this.sendMessage}>
+                        <form onSubmit={this.sendMessage} className={classes.text_form}>
                             <TextField
                                 required
                                 id="standard-required"
@@ -178,12 +224,13 @@ class MessangerComponent extends Component {
                                 margin="normal"
                                 value={this.state.content}
                                 onChange={this.handleChangeInput}
+                                fullWidth
                             />
                             <Button
                                 type="submit"
-                                className={classes.messanger__button}
                                 variant="raised"
                                 color="primary"
+                                fullWidth
                             >
                                 Wyślij wiadomość
                             </Button>

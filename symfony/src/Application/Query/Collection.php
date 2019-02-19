@@ -27,7 +27,7 @@ class Collection
     public $total;
 
     /**
-     * @var Item[]
+     * @var mixed
      */
     public $data;
 

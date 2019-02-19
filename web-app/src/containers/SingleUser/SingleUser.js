@@ -88,7 +88,7 @@ class SingleUser extends Component {
             <Paper className={classes.paper}>
                 {this.state.loading === false &&
                 <React.Fragment>
-                    <Avatar className={classes.avatar} src={'http://localhost:9999/' + this.state.user.avatar}/>
+                    <Avatar className={classes.avatar} src={this.state.user.avatar}/>
                     <Typography variant="h1" gutterBottom>
                         {this.state.user.username}
                     </Typography>

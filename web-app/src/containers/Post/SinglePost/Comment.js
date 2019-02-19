@@ -143,7 +143,7 @@ class Comment extends Component {
                                     return (
                                         <Paper container className={classes.paper}>
                                             <Grid item xs={4} className={classes.user}>
-                                                <Avatar src={"http://localhost:9999/" + comment.user.avatar}
+                                                <Avatar src={comment.user.avatar}
                                                         className={classes.avatar}/>
                                                 <Typography variant="title">
                                                     {comment.user.username}

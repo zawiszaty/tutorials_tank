@@ -4,26 +4,25 @@
 
 ### How to run Linux or Mac:
 * You must have install docker, docker-compose locally 
+* Copy .env.dist to .env file 
 ```bash
 $ make dev
 ```
-* Copy .env.dist to .env file 
 * Go to http://localhost in your web browser and start hacking
-* Go to http://localhost:9999/api/doc in your web browser to view a api docs
+* Go to http://localhost/api/doc in your web browser to view a api docs
 
 ### How to run Windows:
 * You must have install docker, docker-compose and composer locally if you are not a linux or mac user
+* Copy .env.dist to .env file 
 ```bash
 $ composer install
 $ docker-compose run -d 
 $ docker-compose exec php php bin/console d:d:c
 $ docker-compose exec php php bin/console d:s:c
-$ docker-compose exec php php bin/console d:m:l
-$ docker-compose exec php php bin/console f:e:p
+$ docker-compose exec php php bin/console d:m:l -n
 ```
-* Copy .env.dist to .env file 
 * Go to http://localhost in your web browser and start hacking
-* Go to http://localhost:9999/api/doc in your web browser to view a api docs
+* Go to http://localhost/api/doc in your web browser to view a api docs
 
 ### How to run test:
 ```bash

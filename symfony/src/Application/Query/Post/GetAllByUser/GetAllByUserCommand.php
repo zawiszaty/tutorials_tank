@@ -18,6 +18,7 @@ class GetAllByUserCommand
      * @var string
      */
     private $query;
+
     /**
      * @var string
      */

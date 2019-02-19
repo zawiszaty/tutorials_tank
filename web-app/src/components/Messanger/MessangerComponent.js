@@ -187,7 +187,7 @@ class MessangerComponent extends Component {
                                                 className={classes.card + " " + classes.card__sender}>
                                             <div className={classes.avatar_bar}>
                                                 <Avatar className={classes.card__avatar}
-                                                        src={'http://localhost:9999/' + message.sender.avatar}/>
+                                                        src={message.sender.avatar}/>
                                                 <Typography variant="subtitle1" gutterBottom>
                                                     {message.sender.username}
                                                 </Typography>
@@ -202,7 +202,7 @@ class MessangerComponent extends Component {
                                                 className={classes.card + ' ' + classes.card__recipent}>
                                             <div className={classes.avatar_bar}>
                                                 <Avatar className={classes.card__avatar}
-                                                        src={'http://localhost:9999/' + message.sender.avatar}/>
+                                                        src={message.sender.avatar}/>
                                                 <Typography variant="subtitle1" gutterBottom>
                                                     {message.sender.username}
                                                 </Typography>

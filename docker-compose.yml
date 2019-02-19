@@ -14,16 +14,11 @@ services:
       - "5672:5672"
     labels:
       NAME: "rabbitmq"
-#    links:
-#      - workers_1
-#      - workers_2
-#    depends_on:
-#      - workers_1
-#      - workers_2
+
   nginx:
     image: nginx:1.11-alpine
     ports:
-      - "9999:80"
+      - "80:80"
     volumes:
       - ./symfony:/var/www/project
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -32,9 +27,8 @@ services:
       - php
       - frontend
 
-
   php:
-    image: zawiszaty/tutorials_tank_php:latest
+    image: zawiszaty/tutorials_tank_php:1.0.0
     working_dir: /var/www/project
     volumes:
       - ./symfony:/var/www/project
@@ -42,11 +36,9 @@ services:
       - db
 
   frontend:
-    image: zawiszaty/tutorials_tank_node:1.0.0
-    expose:
-      - 80
+    image: zawiszaty/tutorials_tank_node:3.0.0
     ports:
-      - 80:3000
+      - 3000:3000
     volumes:
       - ./web-app:/usr/src/app
     command: ['npm','start']

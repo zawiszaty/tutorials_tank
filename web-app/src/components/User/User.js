@@ -381,7 +381,7 @@ class User extends Component {
                                                     </TableCell>
                                                     <TableCell component="th" scope="row" padding="default">
                                                         <Avatar alt="Remy Sharp"
-                                                                src={"http://localhost:9999" + n.avatar}/>
+                                                                src={n.avatar}/>
                                                     </TableCell>
                                                     {this.props.user.length !== 0 &&
                                                     <React.Fragment>

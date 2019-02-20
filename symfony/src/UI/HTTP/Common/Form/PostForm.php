@@ -72,6 +72,7 @@ class PostForm extends AbstractType
                 new UniqueValueInEntity([
                     'field'       => 'title',
                     'entityClass' => PostView::class,
+                    'message'     => 'Ten tytuł jest już zajęty',
                 ]),
             ],
         ]);

@@ -2,7 +2,6 @@
 
 namespace App\UI\HTTP\Rest\Controller;
 
-use App\Domain\User\Exception\UserIsBannedException;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\UI\HTTP\Common\Controller\RestController;
 use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
@@ -37,7 +36,9 @@ class SecurityController extends RestController
         $user = $this->getUser();
 
         if ($user->isBanned()) {
-            throw new UserIsBannedException();
+            return new JsonResponse([
+                '#' => ['Konto zbanowane'],
+            ], 400);
         }
 
         return new JsonResponse([

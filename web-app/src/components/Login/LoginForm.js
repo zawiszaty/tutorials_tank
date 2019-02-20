@@ -13,6 +13,7 @@ import {client_id, client_secret} from "./../../axios/env";
 import {login} from "../../actions/user";
 import {connect} from "react-redux";
 import {getNotification} from "../../actions/notification";
+import {ErrorMessage} from "../Notification/ErrorMessage";
 
 const styles = theme => ({
     form: {
@@ -107,19 +108,20 @@ class LoginForm extends React.Component {
                 });
                 console.log('tu jestem');
             }).catch((e) => {
-                if (e.response.data.error_description === 'User account is disabled.') {
-                    toast.error("Potwierdz konto", {
-                        position: toast.POSITION.BOTTOM_RIGHT
-                    });
-                } else if (e.response.data.errors.title === 'App.Domain.User.Exception.UserIsBannedException') {
-                    toast.error("Konto zbanowane", {
-                        position: toast.POSITION.BOTTOM_RIGHT
-                    });
-                } else {
-                    toast.error("Coś poszło nie tak", {
-                        position: toast.POSITION.BOTTOM_RIGHT
-                    });
-                }
+                ErrorMessage(e);
+                // if (e.response.data.error_description === 'User account is disabled.') {
+                //     toast.error("Potwierdz konto", {
+                //         position: toast.POSITION.BOTTOM_RIGHT
+                //     });
+                // } else if (e.response.data.errors.title === 'App.Domain.User.Exception.UserIsBannedException') {
+                //     toast.error("Konto zbanowane", {
+                //         position: toast.POSITION.BOTTOM_RIGHT
+                //     });
+                // } else {
+                //     toast.error("Coś poszło nie tak", {
+                //         position: toast.POSITION.BOTTOM_RIGHT
+                //     });
+                // }
                 this.setState(
                     {
                         success: false,
@@ -167,7 +169,7 @@ class LoginForm extends React.Component {
                     type="text"
                     validators={['required']}
                     errorMessages={['To pole jest wymagane']}
-                    margin="normal"  fullWidth
+                    margin="normal" fullWidth
                 />
                 <TextValidator
                     label="Hasło"
@@ -177,7 +179,7 @@ class LoginForm extends React.Component {
                     validators={['required']}
                     errorMessages={['Hasło jest wymagane']}
                     value={this.state.password}
-                    margin="normal"  fullWidth
+                    margin="normal" fullWidth
                 />
                 <div className={classes.wrapper}>
                     <Button

@@ -25,7 +25,7 @@ class CategoryType extends AbstractType
                     new NotNull(),
                     new Length([
                         'min' => '1',
-                        'max' => '20',
+                        'max' => '40',
                     ]),
                 ],
                 'documentation' => [
@@ -43,6 +43,7 @@ class CategoryType extends AbstractType
                 new UniqueValueInEntity([
                     'field'       => 'name',
                     'entityClass' => CategoryView::class,
+                    'message'     => 'Nazwa jest juz zajęta',
                 ]),
             ],
         ]);

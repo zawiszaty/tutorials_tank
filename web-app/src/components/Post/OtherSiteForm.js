@@ -12,6 +12,7 @@ import {connect} from "react-redux";
 import CategoryList from "./CategoryList";
 import PostThumbnailForm from "./PostThumbnailForm";
 import green from '@material-ui/core/colors/green';
+import {ErrorMessage} from "../Notification/ErrorMessage";
 
 const styles = theme => ({
     form: {
@@ -111,10 +112,9 @@ class LoginForm extends React.Component {
                         success: true
                     });
                 }).catch((e) => {
-                    toast.error("Coś poszło nie tak", {
-                        position: toast.POSITION.BOTTOM_RIGHT
-                    });
+                    ErrorMessage(e);
                     this.setState({
+                        success: false,
                         loading: false,
                     });
                 });

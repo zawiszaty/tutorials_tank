@@ -30,6 +30,7 @@ class ChangeEmailForm extends AbstractType
                 new UniqueValueInEntity([
                     'field'       => 'email',
                     'entityClass' => UserView::class,
+                    'message'     => 'Istnieje juz konto przypisane do tego adresu email',
                 ]),
             ],
         ]);

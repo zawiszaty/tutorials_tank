@@ -17,14 +17,22 @@ use App\Application\Query\User\GetAll\GetAllCommand;
 use App\Application\Query\User\GetSingleByUserName\GetSingleByUsernameCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
+use App\Infrastructure\User\Query\Projections\UserView;
+use App\Infrastructure\User\Query\Repository\UserRepository;
 use App\UI\HTTP\Common\Controller\RestController;
 use App\UI\HTTP\Common\Form\ChangeAvatarForm;
 use App\UI\HTTP\Common\Form\ChangeEmailForm;
 use App\UI\HTTP\Common\Form\ChangePasswordForm;
 use App\UI\HTTP\Common\Form\ChangeUserNameForm;
 use App\UI\HTTP\Common\Form\RegistrationFormType;
+use Assert\Assert;
+use Assert\Assertion;
+use Broadway\EventHandling\EventBus;
+use Broadway\EventStore\Dbal\DBALEventStore;
+use League\Tactician\CommandBus;
 use Nelmio\ApiDocBundle\Annotation\Security as NelmioSecurity;
 use Swagger\Annotations as SWG;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,6 +42,22 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class UserController extends RestController
 {
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
+
+    public function __construct(CommandBus $queryBus, CommandBus $commandBus, EventBus $eventBus, DBALEventStore $eventStore, EventDispatcherInterface $eventDispatcher, UserRepository $userRepository)
+    {
+        parent::__construct($queryBus, $commandBus, $eventBus, $eventStore, $eventDispatcher);
+        $this->queryBus = $queryBus;
+        $this->commandBus = $commandBus;
+        $this->eventBus = $eventBus;
+        $this->eventStore = $eventStore;
+        $this->eventDispatcher = $eventDispatcher;
+        $this->userRepository = $userRepository;
+    }
+
     /**
      * @SWG\Response(
      *     response=200,
@@ -190,14 +214,69 @@ class UserController extends RestController
         $form->submit($request->request->all());
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UserView $user */
+            $user = $this->getUser();
+            $oldEmail = $user->getEmailCanonical();;
             $this->commandBus->handle($command);
-            $sendEmailCommand = new SendEmailCommand($command->getEmail(), $this->getUser()->getConfirmationToken());
+            $sendEmailCommand = new SendEmailCommand($oldEmail, $this->getUser()->getId(), 'CHANGE_EMAIL');
             $this->commandBus->handle($sendEmailCommand);
             $response = new JsonResponse('success', 200);
 
             return $response;
         }
         $response = new JsonResponse('error', JsonResponse::HTTP_BAD_REQUEST);
+
+        return $response;
+    }
+
+    /**
+     * @throws \Assert\AssertionFailedException
+     *
+     *
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     * @SWG\Tag(name="User")
+     *
+     * @SWG\Parameter(
+     *     name="name",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="email", type="email"),
+     *     )
+     * )
+     *
+     * @NelmioSecurity(name="BearerUser")
+     */
+    public function changeEmailStatusAction(Request $request): Response
+    {
+        $type = $request->get('type');
+        $token = $request->get('token');
+        Assertion::notNull($type);
+        Assertion::notNull($token);
+        /** @var UserView $user */
+        $user = $this->userRepository->findOneBy(['confirmationToken' => $token]);
+        if ($type !== 'confirm') {
+            $oldEmail = $request->get('oldEmail');
+            Assertion::notNull($user);
+            Assertion::notNull($oldEmail);
+            $command = new ChangeEmailCommand();
+            $command->setEmail($oldEmail);
+            $command->setId(AggregateRootId::fromString($user->getId()));
+            $this->commandBus->handle($command);
+        }
+        $command = new ConfirmUserCommand($token);
+        $this->commandBus->handle($command);
+        $user->setConfirmationToken(null);
+        $this->getDoctrine()->getManager()->flush();
+        $response = new JsonResponse('success', 200);
 
         return $response;
     }

@@ -3,20 +3,14 @@
   <component name="Statistic">
     <option name="excludedDirectories">
       <list>
-        <option value="$PROJECT_DIR$/symfony/test" />
         <option value="$PROJECT_DIR$/symfony/translations" />
-        <option value="$PROJECT_DIR$/symfony/spec" />
         <option value="$PROJECT_DIR$/symfony/vendor" />
         <option value="$PROJECT_DIR$/symfony/public" />
-        <option value="$PROJECT_DIR$/symfony/templates" />
         <option value="$PROJECT_DIR$/symfony/var" />
         <option value="$PROJECT_DIR$/symfony/assets" />
         <option value="$PROJECT_DIR$/symfony/thumbnails" />
         <option value="$PROJECT_DIR$/symfony/node_modules" />
-        <option value="$PROJECT_DIR$/symfony/features" />
-        <option value="$PROJECT_DIR$/symfony/config" />
         <option value="$PROJECT_DIR$/symfony/bin" />
-        <option value="$PROJECT_DIR$/symfony/tests" />
         <option value="$PROJECT_DIR$/web-app/node_modules" />
         <option value="$PROJECT_DIR$/web-app/public" />
       </list>

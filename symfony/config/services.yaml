@@ -83,6 +83,10 @@ services:
             - 'events'
             - 'false'
             - '@broadway.uuid.converter'
+    App\Infrastructure\Notification\Strategy\NotificationAbstractFactory:
+        public: true
+        autowire: true
+
 
 
     oauth_event_listener:

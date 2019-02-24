@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from '@material-ui/icons/Menu';
+import MessageIcon from '@material-ui/icons/Message';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import DrawerHeader from "./Drawer/DrawerHeader";
 import classNames from 'classnames';
@@ -17,6 +18,7 @@ import {connect} from "react-redux";
 import DrawerNotification from "./Drawer/DrawerNotification";
 import axios from "../../axios/axios";
 import {getNotification, REMOVE_NOTIFICATION} from "../../actions/notification";
+import MessageDrawer from "./Drawer/MessageDrawer";
 
 const drawerWidth = 240;
 
@@ -55,9 +57,12 @@ class Header extends Component {
             anchorEl: null,
             open: false,
             openRight: false,
+            openRightMessage: false,
             notification: [],
             notificationTotal: 0,
             limit: 10,
+            sender: [],
+            senderTotal: 0,
         }
     }
 
@@ -80,6 +85,10 @@ class Header extends Component {
 
     handleDrawerRightClose = () => {
         this.setState({openRight: false});
+    };
+
+    handleDrawerRightMessageClose = () => {
+        this.setState({openRightMessage: false});
     };
 
     handleUpLimit = () => {
@@ -106,11 +115,13 @@ class Header extends Component {
                             data.push(item.id)
                         }
                     });
+
                     if (data.length !== 0) {
                         axios.patch('/api/v1/notifications', {'notifications': data}, {
                             headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                         }).then((e) => {
                             let total = parseInt(this.props.notification);
+
                             if (total < 10) {
                                 this.props.getNotification(0);
                             } else {
@@ -118,6 +129,20 @@ class Header extends Component {
                             }
                         });
                     }
+                })
+        }
+    };
+
+    getAllSender = () => {
+        if (this.props.user.length !== 0) {
+            axios.get(`/api/v1/sendner?limit=${this.state.limit}`, {
+                headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+            })
+                .then((e) => {
+                    this.setState({
+                        sender: e.data.data,
+                        senderTotal: e.data.total
+                    });
                 })
         }
     };
@@ -144,28 +169,49 @@ class Header extends Component {
                             Tutorials Tank
                         </Typography>
                         {this.props.user.length !== 0 &&
-                        <IconButton color="inherit" onClick={() => {
-                            this.getAllNotification();
-                            this.setState({
-                                openRight: true
-                            })
-                        }
-                        }>
-                            <Badge badgeContent={this.props.notification} color="secondary">
-                                <NotificationsIcon/>
-                            </Badge>
-                        </IconButton>
+                        <React.Fragment>
+                            <IconButton color="inherit" onClick={() => {
+                                this.getAllNotification();
+                                this.setState({
+                                    openRight: true
+                                })
+                            }
+                            }>
+                                <Badge badgeContent={this.props.notification} color="secondary">
+                                    <NotificationsIcon/>
+                                </Badge>
+                            </IconButton>
+                            <IconButton color="inherit" onClick={() => {
+                                this.getAllSender();
+                                this.setState({
+                                    openRightMessage: true
+                                })
+                            }
+                            }>
+                                <MessageIcon>
+                                    <NotificationsIcon/>
+                                </MessageIcon>
+                            </IconButton>
+                        </React.Fragment>
                         }
                     </Toolbar>
                 </AppBar>
                 <DrawerHeader open={this.state.open} handleDrawerClose={this.handleDrawerClose}/>
                 {this.props.user.length !== 0 &&
-                <DrawerNotification open={this.state.openRight} handleDrawerClose={this.handleDrawerRightClose}
-                                    user={this.props.user[0]}
-                                    notification={this.state.notification}
-                                    notificationTotal={this.state.notificationTotal}
-                                    handleUpLimit={this.handleUpLimit}
-                />
+                <React.Fragment>
+                    <DrawerNotification open={this.state.openRight} handleDrawerClose={this.handleDrawerRightClose}
+                                        user={this.props.user[0]}
+                                        notification={this.state.notification}
+                                        notificationTotal={this.state.notificationTotal}
+                                        handleUpLimit={this.handleUpLimit}/>
+
+                    <MessageDrawer open={this.state.openRightMessage} handleDrawerClose={this.handleDrawerRightMessageClose}
+                                   user={this.props.user[0]}
+                                   notification={this.state.sender}
+                                   notificationTotal={this.state.senderTotal}
+                                   handleUpLimit={this.handleUpLimit}
+                    />
+                </React.Fragment>
                 }
             </div>
         );

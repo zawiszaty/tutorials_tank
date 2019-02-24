@@ -70,7 +70,7 @@ class CreateUserHandler implements CommandHandlerInterface
             Password::fromString(PasswordEncoder::encode($command->getPlainPassword()))
         );
         $this->repository->store($user);
-        $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getConfirmationToken()->toString());
+        $sendEmailCommand = new SendEmailCommand($command->getEmail(), $user->getId()->toString(), 'REGISTRATION');
         $this->commandBus->handle($sendEmailCommand);
     }
 }

@@ -12,11 +12,25 @@ const styles = theme => ({});
 class Notification extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            working: false,
+        };
     }
 
     notify = () => {
-        this.onNotify();
+        if(this.state.working === false) {
+            this.setState({
+                working: true,
+            }, () => {
+                this.onNotify();
+            })
+        }
+    };
+
+    componentWillReceiveProps = (nextProps, nextContext) => {
+        if (this.props.user.length !== 0) {
+            this.notify()
+        }
     };
 
     onNotify = () => {
@@ -27,14 +41,12 @@ class Notification extends React.Component {
             function () {
                 console.log('dziala');
                 conn.subscribe(then.props.user[0].id, function (topic, data) {
-                    console.log('dziala');
                     let total = parseInt(then.props.notification);
                     then.props.getNotification(total + 1);
                     // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
                     toast.success("Masz nowe powiadomienie", {
                         position: toast.POSITION.BOTTOM_RIGHT
                     });
-                    console.log('New article published to category "' + topic + '" : ' + data.title);
                 });
             },
             function () {
@@ -49,9 +61,6 @@ class Notification extends React.Component {
         return (
             <React.Fragment>
                 <CssBaseline/>
-                {this.props.user.length !== 0 && <React.Fragment>
-                    {this.notify()}
-                </React.Fragment>}
             </React.Fragment>
         );
     }

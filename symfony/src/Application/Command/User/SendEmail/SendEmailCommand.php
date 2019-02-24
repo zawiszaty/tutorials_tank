@@ -17,7 +17,12 @@ class SendEmailCommand
     /**
      * @var string
      */
-    private $token;
+    private $user;
+
+    /**
+     * @var string
+     */
+    private $type;
 
     /**
      * SendEmailCommand constructor.
@@ -25,11 +30,12 @@ class SendEmailCommand
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(string $email, string $token)
+    public function __construct(string $email, string $user, string $type)
     {
         Assertion::email($email);
         $this->email = $email;
-        $this->token = $token;
+        $this->user = $user;
+        $this->type = $type;
     }
 
     public function getEmail(): string
@@ -37,8 +43,16 @@ class SendEmailCommand
         return $this->email;
     }
 
-    public function getToken(): string
+    public function getUser(): string
     {
-        return $this->token;
+        return $this->user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
     }
 }

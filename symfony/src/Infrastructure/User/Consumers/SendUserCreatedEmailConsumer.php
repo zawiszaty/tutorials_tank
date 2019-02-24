@@ -30,7 +30,7 @@ class SendUserCreatedEmailConsumer implements ConsumerInterface
         $domainMessage = unserialize($msg->body);
         /** @var UserWasCreated $event */
         $event = $domainMessage->getPayload();
-        $sendEmailCommand = new SendEmailCommand($event->getEmail(), $event->getConfirmationToken()->toString());
+        $sendEmailCommand = new SendEmailCommand($event->getEmail(), $event->getId()->toString(),'REGISTRATION');
         $this->commandBus->handle($sendEmailCommand);
     }
 

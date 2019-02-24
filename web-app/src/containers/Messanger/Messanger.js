@@ -70,6 +70,20 @@ class Messanger extends Component {
                     loading,
                     totalMessages: response.data.total
                 });
+                let viewMessages = [];
+                messages.map((message) => {
+                    if (message.displayed === false && message.sender.id === this.props.match.params.id) {
+                        viewMessages.push(message.id);
+                    }
+                });
+                console.log(viewMessages);
+                if (viewMessages.length !== 0) {
+                    axios.post(`/api/v1/message/view`, {'messages': viewMessages}, {
+                        headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                    }).then((e) => {
+
+                    })
+                }
             })
             .catch((e) => {
                 if (e.response.status === 404) {
@@ -95,6 +109,14 @@ class Messanger extends Component {
             this.getAllMessages();
         })
     };
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.setState({
+            loading: true,
+        }, () => {
+            this.getAllMessages();
+        });
+    }
 
     componentDidMount = () => {
         this.getAllMessages();

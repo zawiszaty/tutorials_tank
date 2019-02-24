@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class CategoryController.
  */
-class CategoryController extends RestController
+final class CategoryController extends RestController
 {
     /**
      * @SWG\Response(

@@ -23,12 +23,10 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import {connect} from "react-redux";
 import {toast} from "react-toastify";
 import Grid from "@material-ui/core/Grid";
-import AddCategoryForm from "./AddCategoryForm";
-import EditCategoryModal from "./EditCategoryModal";
 import Button from "@material-ui/core/Button";
-import SearchBox from "../SearchBox/SearchBox";
-import debounce from 'lodash.debounce';
+import Redirect from "react-router-dom/es/Redirect";
 import {withRouter} from "react-router-dom";
+import SearchBox from "../SearchBox/SearchBox";
 
 const mapStateToProps = (state) => {
     return {
@@ -69,7 +67,8 @@ function getSorting(order, orderBy) {
 
 const rows = [
     {id: 'id', numeric: false, disablePadding: true, label: 'Id Kategori'},
-    {id: 'name', numeric: false, disablePadding: true, label: 'Nazwa Kategori'},
+    {id: 'tittle', numeric: false, disablePadding: true, label: 'Tytuł Postu'},
+    {id: 'descryption', numeric: false, disablePadding: true, label: 'Krótki opis'},
 ];
 
 class EnhancedTableHead extends React.Component {
@@ -83,19 +82,6 @@ class EnhancedTableHead extends React.Component {
         return (
             <TableHead>
                 <TableRow>
-                    {user.length !== 0 &&
-                    <React.Fragment>
-                        {user[0].roles.includes('ROLE_ADMIN') &&
-                        <TableCell padding="checkbox">
-                            <Checkbox
-                                indeterminate={numSelected > 0 && numSelected < rowCount}
-                                checked={numSelected === rowCount}
-                                onChange={onSelectAllClick}
-                            />
-                        </TableCell>
-                        }
-                    </React.Fragment>
-                    }
                     {rows.map(
                         row => (
                             <TableCell
@@ -121,8 +107,6 @@ class EnhancedTableHead extends React.Component {
                         ),
                         this,
                     )}
-                    <TableCell padding="default">
-                    </TableCell>
                 </TableRow>
             </TableHead>
         );
@@ -166,7 +150,7 @@ const toolbarStyles = theme => ({
 });
 
 let EnhancedTableToolbar = props => {
-    const {numSelected, classes, deleteCategory, query, handleChangeQuery, getAll} = props;
+    const {numSelected, classes, query, handleChangeQuery, getAll} = props;
 
     return (
         <React.Fragment>
@@ -176,31 +160,17 @@ let EnhancedTableToolbar = props => {
                 })}
             >
                 <div className={classes.title}>
-                    {numSelected > 0 ? (
-                        <Typography color="inherit" variant="subtitle1">
-                            {numSelected} selected
-                        </Typography>
-                    ) : (
-                        <Typography variant="h6" id="tableTitle">
-                            Kategorie
-                        </Typography>
-                    )}
+                    <Typography variant="h6" id="tableTitle">
+                        Wszystkie posty po kategori
+                    </Typography>
                 </div>
                 <div className={classes.spacer}/>
                 <div className={classes.actions}>
-                    {numSelected > 0 ? (
-                        <Tooltip title="Delete" onClick={deleteCategory}>
-                            <IconButton aria-label="Delete">
-                                <DeleteIcon/>
-                            </IconButton>
-                        </Tooltip>
-                    ) : (
-                        <Tooltip title="Filter list">
-                            <IconButton aria-label="Filter list">
-                                <FilterListIcon/>
-                            </IconButton>
-                        </Tooltip>
-                    )}
+                    <Tooltip title="Filter list">
+                        <IconButton aria-label="Filter list">
+                            <FilterListIcon/>
+                        </IconButton>
+                    </Tooltip>
                 </div>
             </Toolbar>
             <SearchBox query={query} handleChangeQuery={handleChangeQuery} getAll={getAll}/>
@@ -220,12 +190,15 @@ const styles = theme => ({
         width: '100%',
         marginTop: theme.spacing.unit * 3,
         margin: 'auto',
+        overflow: "auto",
     },
     table: {
         minWidth: 1020,
+        overflow: "auto",
     },
     tableWrapper: {
         overflowX: 'auto',
+        overflow: "auto",
     },
     paper: {
         margin: theme.spacing.unit * 8,
@@ -233,6 +206,7 @@ const styles = theme => ({
         flexDirection: 'column',
         alignItems: 'center',
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+        overflow: "auto",
     },
     loginPaper: {
         marginTop: theme.spacing.unit * 8,
@@ -244,19 +218,19 @@ const styles = theme => ({
 });
 
 
-class Category extends Component {
+class PostByCategory extends Component {
     constructor(props) {
         super(props);
         this.state = {
             order: 'asc',
             orderBy: 'calories',
-            selected: [],
+            selected: null,
             data: {},
             page: 0,
             rowsPerPage: 5,
             loading: true,
             count: 0,
-            query: ''
+            query: '',
         };
     }
 
@@ -264,41 +238,12 @@ class Category extends Component {
         this.getAllCategory();
     };
 
-    handleChangeQuery = (e) => {
-        const query = e.target.value;
-        this.setState({query});
-    };
-
-    deleteCategory = () => {
-        let data = this.state.data;
-        this.state.selected.forEach((item, key) => {
-            axios.delete(`/api/v1/category/${item}`, {
-                headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
-            })
-                .then((response) => {
-                    toast.success(`Kategoria o id: ${item} pomyślnie usunięta`, {
-                        position: toast.POSITION.BOTTOM_RIGHT
-                    });
-                }).catch((error) => {
-                toast.error(`Coś poszło nie tak`, {
-                    position: toast.POSITION.BOTTOM_RIGHT
-                });
-            });
-            data.splice(key, 1);
-        });
-
-
-        this.setState({
-            selected: [],
-            data
-        });
-    };
 
     getAllCategory = () => {
         this.setState({
             loading: true,
         });
-        axios.get(`/api/v1/category?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}&query=${this.state.query}`)
+        axios.get(`/api/v1/posts/category/${this.props.match.params.id}?page=${this.state.page + 1}&limit=${this.state.rowsPerPage}&query=${this.state.query}`)
             .then((response) => {
                 this.setState({
                     data: response.data.data,
@@ -325,33 +270,17 @@ class Category extends Component {
         this.setState({order, orderBy});
     };
 
+    handleChangeQuery = (e) => {
+        const query = e.target.value;
+        this.setState({query});
+    };
+
     handleSelectAllClick = event => {
         if (event.target.checked) {
             this.setState(state => ({selected: state.data.map(n => n.id)}));
             return;
         }
         this.setState({selected: []});
-    };
-
-    handleClick = (event, id) => {
-        const {selected} = this.state;
-        const selectedIndex = selected.indexOf(id);
-        let newSelected = [];
-
-        if (selectedIndex === -1) {
-            newSelected = newSelected.concat(selected, id);
-        } else if (selectedIndex === 0) {
-            newSelected = newSelected.concat(selected.slice(1));
-        } else if (selectedIndex === selected.length - 1) {
-            newSelected = newSelected.concat(selected.slice(0, -1));
-        } else if (selectedIndex > 0) {
-            newSelected = newSelected.concat(
-                selected.slice(0, selectedIndex),
-                selected.slice(selectedIndex + 1),
-            );
-        }
-
-        this.setState({selected: newSelected});
     };
 
     handleChangePage = (event, page) => {
@@ -367,11 +296,11 @@ class Category extends Component {
         });
     };
 
-    isSelected = id => this.state.selected.indexOf(id) !== -1;
+    isSelected = id => this.state.selected !== null;
 
     render() {
         const {classes} = this.props;
-        const {data, order, orderBy, selected, rowsPerPage, page, count} = this.state;
+        const {data, order, orderBy, rowsPerPage, page, count} = this.state;
         const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
         if (this.state.loading === true) {
             return (
@@ -383,65 +312,41 @@ class Category extends Component {
 
         return (
             <Grid container className={classes.root} spacing={24}>
-                <Grid item xs={12} md={8}>
+                <Grid item xs={12} md={12}>
                     <Paper>
-                        <EnhancedTableToolbar numSelected={selected.length} deleteCategory={this.deleteCategory}
-                                              query={this.state.query} handleChangeQuery={this.handleChangeQuery}
-                                              getAll={this.getAllCategory}
+                        <EnhancedTableToolbar
+                            query={this.state.query} handleChangeQuery={this.handleChangeQuery}
+                            getAll={this.getAllCategory}
                         />
                         <div className={classes.tableWrapper}>
                             <Table className={classes.table} aria-labelledby="tableTitle">
                                 <EnhancedTableHead
-                                    numSelected={selected.length}
                                     order={order}
                                     orderBy={orderBy}
-                                    onSelectAllClick={this.handleSelectAllClick}
                                     onRequestSort={this.handleRequestSort}
                                     rowCount={data.length}
                                 />
                                 <TableBody>
                                     {this.state.data
                                         .map(n => {
-                                            const isSelected = this.isSelected(n.id);
                                             return (
                                                 <TableRow
                                                     hover
                                                     role="checkbox"
-                                                    aria-checked={isSelected}
                                                     tabIndex={-1}
                                                     key={n.id}
-                                                    selected={isSelected}
                                                     onClick={() => {
-                                                        this.props.history.push(`/kategorie/${n.id}/posty`);
+                                                        this.props.history.push("/post/" + n.slug)
                                                     }}
                                                 >
-                                                    {this.props.user.length !== 0 &&
-                                                    <React.Fragment>
-                                                        {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                                                        <TableCell padding="checkbox"
-                                                                   onClick={event => this.handleClick(event, n.id)}>
-                                                            <Checkbox checked={isSelected}/>
-                                                        </TableCell>
-                                                        }
-                                                    </React.Fragment>
-                                                    }
                                                     <TableCell component="th" scope="row" padding="default">
                                                         {n.id}
                                                     </TableCell>
                                                     <TableCell component="th" scope="row" padding="default">
-                                                        {n.name}
+                                                        {n.title}
                                                     </TableCell>
                                                     <TableCell component="th" scope="row" padding="default">
-                                                        {this.props.user.length !== 0 &&
-                                                        <React.Fragment>
-                                                            {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                                                            <React.Fragment>
-                                                                <EditCategoryModal category={n}
-                                                                                   getCategory={this.getAllCategory}/>
-                                                            </React.Fragment>
-                                                            }
-                                                        </React.Fragment>
-                                                        }
+                                                        {n.shortDescription}
                                                     </TableCell>
                                                 </TableRow>
                                             );
@@ -471,20 +376,11 @@ class Category extends Component {
                         />
                     </Paper>
                 </Grid>
-                {this.props.user.length !== 0 &&
-                <Grid item xs={12} md={4}>
-                    {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                    <Paper className={classes.loginPaper}>
-                        <AddCategoryForm getCategory={this.getAllCategory}/>
-                    </Paper>
-                    }
-                </Grid>
-                }
             </Grid>
         );
     }
 }
 
-Category.propTypes = {};
+PostByCategory.propTypes = {};
 
-export default withRouter(connect(mapStateToProps)(withStyles(styles)(Category)));
+export default withRouter(connect(mapStateToProps)(withStyles(styles)(PostByCategory)));

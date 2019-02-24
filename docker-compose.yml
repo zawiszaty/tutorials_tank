@@ -28,12 +28,13 @@ services:
       - frontend
 
   php:
-    image: zawiszaty/tutorials_tank_php:1.0.0
+    image: zawiszaty/tutorials_tank_php:2.0.0
     working_dir: /var/www/project
     volumes:
       - ./symfony:/var/www/project
     links:
       - db
+      - redis
 
   frontend:
     image: zawiszaty/tutorials_tank_node:3.0.0
@@ -44,7 +45,7 @@ services:
     command: ['npm','start']
 
   workers_1:
-    image: zawiszaty/tutorials_tank_php:latest
+    image: zawiszaty/tutorials_tank_php:2.0.0
     restart: always
     working_dir: /var/www/project
     volumes:
@@ -53,7 +54,7 @@ services:
 
 
   workers_2:
-    image: zawiszaty/tutorials_tank_php:latest
+    image: zawiszaty/tutorials_tank_php:2.0.0
     working_dir: /var/www/project
     volumes:
       - ./symfony:/var/www/project
@@ -62,7 +63,7 @@ services:
       - "8123:8123"
 
   workers_3:
-    image: zawiszaty/tutorials_tank_php:latest
+    image: zawiszaty/tutorials_tank_php:2.0.0
     working_dir: /var/www/project
     volumes:
       - ./symfony:/var/www/project
@@ -122,7 +123,18 @@ services:
       - 1025:1025
       - 1080:1080
 
+  redis:
+    image: 'bitnami/redis:5.0.3'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/bitnami/redis
+
+
 volumes:
   php:
   db_data:
   esdata1:
+  redis_data:

@@ -87,6 +87,14 @@ class MessageView
         $this->sender = $sender;
     }
 
+    /**
+     * @param bool $displayed
+     */
+    public function setDisplayed(): void
+    {
+        $this->displayed = true;
+    }
+
     public function serialize(): array
     {
         return [

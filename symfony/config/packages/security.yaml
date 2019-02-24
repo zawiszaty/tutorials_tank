@@ -44,8 +44,10 @@ security:
     - { path: ^/api/v1/seciurity, roles: [ IS_AUTHENTICATED_FULLY ], methods: [POST] }
     - { path: ^/api/v1/user/banned, roles: ROLE_ADMIN }
     - { path: ^/api/v1/user/role/admin, roles: ROLE_ADMIN }
+    - { path: /api/v1/user/change/email/status, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/api/v1/user/change, roles: IS_AUTHENTICATED_FULLY }
     - { path: ^/api/v1/post, roles: IS_AUTHENTICATED_FULLY, methods: [POST,PATCH,DELETE] }
+    - { path: ^/api/v1/sendner, roles: IS_AUTHENTICATED_FULLY, methods: [GET] }
     - { path: ^/api/v1/comment, roles: IS_AUTHENTICATED_FULLY, methods: [POST,PATCH,DELETE] }
     - { path: ^/api/v1/message, roles: IS_AUTHENTICATED_FULLY }
     - { path: ^/api/v1/notifications, roles: IS_AUTHENTICATED_FULLY }

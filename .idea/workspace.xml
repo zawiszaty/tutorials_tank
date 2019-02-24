@@ -2,34 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73639fa0-b520-4e7b-983b-bcb71df8eacb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/EventSubscriber/OAuthEventListener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/components/Notification/ErrorMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Message/View/MessageViewCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Message/View/MessageViewHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/DataBuilder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/GetAllMessageSenderCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/GetAllMessageSenderHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/SenderFlyweight.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByCategory/GetAllByCategoryCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByCategory/GetAllByCategoryHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/Unit/MessageCreateNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/symfony/templates/emails/changeEmail.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/components/Header/Drawer/MessageDrawer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/components/Post/PostByCategory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/containers/UserPanel/ChangeEmailStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/statistic.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/statistic.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/routes.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Security/EventListener/LoginListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Security/EventListener/LoginListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntityValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntityValidator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/CategoryType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeEmailForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeEmailForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeUserNameForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeUserNameForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/PostForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/PostForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Application/Command/User/Create/CreateUserHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/Create/CreateUserHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAll/DataBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAll/DataBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAll/GetAllHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAll/GetAllHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Message/MessageView.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Message/MessageView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/NotificationAbstractFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/NotificationAbstractFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/MysqlRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/MysqlRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Consumers/SendUserCreatedEmailConsumer.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Consumers/SendUserCreatedEmailConsumer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Query/Repository/MysqlUserReadModelRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/User/Query/Repository/MysqlUserReadModelRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Category/AddCategoryForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Category/AddCategoryForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/MessageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeEmail/ChangeEmailHandlerTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-app/src/components/Category/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Category/Category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Category/EditCategoryModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Category/EditCategoryModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Login/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Login/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Post/OtherSiteForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Post/OtherSiteForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Post/OwnPostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Post/OwnPostForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Registration/RegistrationForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Registration/RegistrationForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserAvatarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserAvatarForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserEmailForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserEmailForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserNameForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserNameForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserPasswordForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserPasswordForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/User/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/User/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/OwnPostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/OwnPostForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/components/Header/Drawer/Notification/NotificationSwitch.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Header/Drawer/Notification/NotificationSwitch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/components/Messanger/MessangerComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Messanger/MessangerComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/components/Notification/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Notification/Notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/components/Post/UserPostList.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Post/UserPostList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/containers/Messanger/Messanger.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/containers/Messanger/Messanger.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,42 +75,96 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/components/User/User.js">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/GetAllMessageSenderHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="383" column="69" selection-start-line="383" selection-start-column="69" selection-end-line="383" selection-end-column="69" />
+            <state relative-caret-position="81">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#69#127#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserAvatarForm.js">
+        <entry file="file://$PROJECT_DIR$/symfony/features/bootstrap/UserContext.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="180" column="52" selection-start-line="180" selection-start-column="52" selection-end-line="180" selection-end-column="52" />
+            <state relative-caret-position="-999">
+              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/OwnPostForm.js">
+        <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/ConfirmUser/ConfirmUserHandlerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+            <state relative-caret-position="230">
+              <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerHeader.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/ConfirmUser/ConfirmUserCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="137" column="62" selection-start-line="137" selection-start-column="62" selection-end-line="137" selection-end-column="62" />
+            <state relative-caret-position="365">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/ConfirmUser/ConfirmUserHandler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="29" column="53" lean-forward="true" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/User/Consumers/SendUserCreatedEmailConsumer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="32" column="86" selection-start-line="32" selection-start-column="86" selection-end-line="32" selection-end-column="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailHandler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="519">
+              <caret line="71" column="32" lean-forward="true" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/User/Query/Repository/MysqlUserReadModelRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2316">
+              <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/MysqlRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -107,28 +180,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Kateg</find>
-      <find>script</find>
-      <find>with</find>
-      <find>sta</find>
-      <find>ELASTIC_HOST</find>
-      <find>sn</find>
-      <find>cate</find>
-      <find>DATABASE_URL</find>
-      <find>elast</find>
-      <find>lazy</find>
-      <find>client</find>
-      <find>krótki</find>
-      <find>Krótki</find>
-      <find>ed</find>
-      <find>gra</find>
-      <find>axios</find>
-      <find>ba</find>
-      <find>ban</find>
-      <find>getAllC</find>
-      <find>checkbo</find>
-      <find>typo</find>
-      <find>hist</find>
       <find>notifi</find>
       <find>elas</find>
       <find>S</find>
@@ -137,6 +188,28 @@
       <find>http://localhost:9999/</find>
       <find>local</find>
       <find>http://localhost:9999</find>
+      <find>react</find>
+      <find>potw</find>
+      <find>changeEmai</find>
+      <find>regis</find>
+      <find>changeE</find>
+      <find>enab</find>
+      <find>changeem</find>
+      <find>conf</find>
+      <find>MysqlUserReadModelRepository</find>
+      <find>getAll</find>
+      <find>GetAll</find>
+      <find>post</find>
+      <find>GEtAllBy</find>
+      <find>get</find>
+      <find>hist</find>
+      <find>Posty</find>
+      <find>message</find>
+      <find>MessangerComponent</find>
+      <find>messa</find>
+      <find>pro</find>
+      <find>fpp</find>
+      <find>4751700b-88e5-497a-b406-d31b656a36e9-b7625606-0e5c-4973-8dd1-0840452b3247</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -157,57 +230,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByUser/GetOneBySlugHandler.php" />
-        <option value="$PROJECT_DIR$/symfony/config/routes.yaml" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/PostController.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByUser/GetAllByUserCommand.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByUser/GetAllByUserHandler.php" />
-        <option value="$PROJECT_DIR$/web-app/src/App.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Post/UserPostList.js" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/CLI/Command/DateToEs.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Message/MessageView.php" />
-        <option value="$PROJECT_DIR$/symfony/templates/base.html.twig" />
-        <option value="$PROJECT_DIR$/symfony/templates/dashboard/index.html.twig" />
-        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php" />
-        <option value="$PROJECT_DIR$/web-app/src/reducers/user.js" />
-        <option value="$PROJECT_DIR$/web-app/src/actions/user.js" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Messanger/Messanger.js" />
-        <option value="$PROJECT_DIR$/symfony/.env" />
-        <option value="$PROJECT_DIR$/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/web-app/src/axios/axios.js" />
-        <option value="$PROJECT_DIR$/docker/nginx/default.conf" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/Comment.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Messanger/MessangerComponent.js" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/SingleUser/SingleUser.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Home/PostComponent.js" />
-        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntity.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntityValidator.php" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/RegistrationFormType.php" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/PostForm.php" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeEmailForm.php" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/CategoryController.php" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Post/OtherSiteForm.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Post/OwnPostForm.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Registration/RegistrationForm.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Category/EditCategoryModal.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Category/AddCategoryForm.js" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/CategoryType.php" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeUserNameForm.php" />
-        <option value="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserNameForm.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserEmailForm.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserPasswordForm.js" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/EventSubscriber/OAuthEventListener.php" />
-        <option value="$PROJECT_DIR$/symfony/var/log/dev.log" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Login/LoginForm.js" />
-        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Security/EventListener/LoginListener.php" />
-        <option value="$PROJECT_DIR$/symfony/config/services.yaml" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Notification/ErrorMessage.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Category/Category.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/User/User.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserAvatarForm.js" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/OwnPostForm.js" />
         <option value="$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerHeader.js" />
+        <option value="$PROJECT_DIR$/symfony/templates/emails/changeEmail.html.twig" />
+        <option value="$PROJECT_DIR$/web-app/src/containers/UserPanel/ChangeEmailStatus.js" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailCommand.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/User/Query/Repository/MysqlUserReadModelRepository.php" />
+        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/UserController.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByCategory/GetAllByUserCommand.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByCategory/GetAllByUserHandler.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByCategory/GetAllByCategoryCommand.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByCategory/GetAllByCategoryHandler.php" />
+        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/PostController.php" />
+        <option value="$PROJECT_DIR$/web-app/src/App.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Category/Category.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Post/PostByCategory.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Post/PostList.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Post/UserPostList.js" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/GetAllMessageSenerCommand.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/GetAllMessageSenderCommand.php" />
+        <option value="$PROJECT_DIR$/symfony/config/packages/security.yaml" />
+        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/CategoryController.php" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Header/Header.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Header/Drawer/MessageDrawer.js" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAll/DataBuilder.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/NotificationAbstractFactory.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/Unit/MessageCreateNotification.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAll/GetAllHandler.php" />
+        <option value="$PROJECT_DIR$/symfony/config/services.yaml" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Header/Drawer/Notification/NotificationSwitch.js" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Header/Drawer/Notification/Type/Message.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Login/LoginForm.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Notification/Notification.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Messanger/MessangerComponent.js" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/symfony/config/routes.yaml" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Command/Message/View/MessageViewCommand.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Message/MessageView.php" />
+        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/MessageController.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Command/Message/View/MessageViewHandler.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Message/Query/MessageRepositoryElastic.php" />
+        <option value="$PROJECT_DIR$/web-app/src/containers/Messanger/Messanger.js" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/DataBuilder.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/SenderFlyweight.php" />
+        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeEmail/ChangeEmailHandlerTest.php" />
+        <option value="$PROJECT_DIR$/symfony/.env" />
+        <option value="$PROJECT_DIR$/symfony/features/bootstrap/UserContext.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/User/Consumers/SendUserCreatedEmailConsumer.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Command/User/Create/CreateUserHandler.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/MysqlRepository.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailHandler.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/GetAllMessageSenderHandler.php" />
       </list>
     </option>
   </component>
@@ -559,7 +632,7 @@
     <option name="x" value="4" />
     <option name="y" value="8" />
     <option name="width" value="1912" />
-    <option name="height" value="910" />
+    <option name="height" value="1068" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -567,17 +640,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -615,6 +677,162 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Command" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Command" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Command" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+              <item name="ConfirmUser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Command" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+              <item name="SendEmail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Command" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+              <item name="UnBannedUser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+              <item name="Consumers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Command" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Command" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="var" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="var" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -631,11 +849,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web-app/src/components/Post" />
-      <recent name="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByUser" />
+      <recent name="$PROJECT_DIR$/web-app/src/components/Header/Drawer/Notification/Type" />
+      <recent name="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/Unit" />
       <recent name="$PROJECT_DIR$/web-app/src/components/Header/Drawer" />
-      <recent name="$PROJECT_DIR$/symfony/src/Application/Command/User/UnBannedUser" />
-      <recent name="$PROJECT_DIR$/symfony/tests/Application/Command/User" />
+      <recent name="$PROJECT_DIR$/symfony/src/Application/Query/Post/GetAllByCategory" />
+      <recent name="$PROJECT_DIR$/web-app/src/components/Post" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/symfony/src/Application/Query/Notification" />
@@ -771,7 +989,7 @@
     </list>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$PROJECT_DIR$/../.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -880,7 +1098,20 @@
       <workItem from="1550585268473" duration="192000" />
       <workItem from="1550585475814" duration="4442000" />
       <workItem from="1550599617944" duration="1031000" />
-      <workItem from="1550645844720" duration="2897000" />
+      <workItem from="1550645844720" duration="3291000" />
+      <workItem from="1550656217860" duration="3771000" />
+      <workItem from="1550731972262" duration="1234000" />
+      <workItem from="1550759132333" duration="1655000" />
+      <workItem from="1550818876332" duration="2939000" />
+      <workItem from="1550853183764" duration="266000" />
+      <workItem from="1550908783366" duration="3450000" />
+      <workItem from="1550918824070" duration="2038000" />
+      <workItem from="1550930380058" duration="4147000" />
+      <workItem from="1550995058283" duration="2915000" />
+      <workItem from="1551008994716" duration="1445000" />
+      <workItem from="1551010453890" duration="2117000" />
+      <workItem from="1551024124209" duration="2442000" />
+      <workItem from="1551036709475" duration="1651000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -924,12 +1155,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266781000" />
+    <option name="totallyTimeSpent" value="297245000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="8" width="1912" height="910" extended-state="0" />
+    <frame x="4" y="8" width="1912" height="1068" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49671054" visible="true" weight="0.17703862" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49671054" visible="true" weight="0.1879015" />
       <window_info id="Structure" order="1" sideWeight="0.50328946" side_tool="true" weight="0.34056398" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Query Editor" order="3" />
@@ -942,14 +1174,14 @@
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" weight="0.32880846" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3270525" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4972885" weight="0.84352076" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4972885" visible="true" weight="0.3106383" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5027115" side_tool="true" weight="0.39270386" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3295964" />
       <window_info anchor="bottom" id="REST Client" order="14" sideWeight="0.4994664" weight="0.40695068" />
       <window_info anchor="bottom" id="Messages" order="15" sideWeight="0.49945176" weight="0.3295964" />
-      <window_info anchor="bottom" id="Statistic" order="16" weight="0.96710527" />
+      <window_info anchor="bottom" x="26" y="76" width="1866" height="887" id="Statistic" order="16" type="FLOATING" weight="0.9680851" />
       <window_info anchor="bottom" id="DB Execution Console" order="17" />
       <window_info anchor="bottom" id="Log Manager" order="18" />
       <window_info anchor="bottom" id="SFDX" order="19" />
@@ -958,8 +1190,9 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.32967034" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32922912" />
       <window_info anchor="right" id="make" order="4" side_tool="true" weight="0.32977587" />
+      <window_info anchor="right" id="Redis Servers" order="5" weight="0.32976446" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49671054" visible="true" weight="0.19152361" />
@@ -1024,376 +1257,380 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.github/main.workflow" />
-    <entry file="file://$PROJECT_DIR$/symfony/.env.dist">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/axios/env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/nginx/default.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="46" column="75" selection-start-line="46" selection-start-column="75" selection-end-line="46" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/Comment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2990">
-          <caret line="145" column="61" selection-start-line="145" selection-start-column="61" selection-end-line="145" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Messanger/MessangerComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4347">
-          <caret line="204" column="61" selection-start-line="204" selection-start-column="61" selection-end-line="204" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/SingleUser/SingleUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1863">
-          <caret line="92" column="47" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/axios/axios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Home/PostComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
-          <folding>
-            <element signature="e#47#109#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Share/Validator/Constraint/UniqueValueInEntityValidator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="47" column="25" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeEmailForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="32" column="85" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="107" column="92" selection-start-line="107" selection-start-column="92" selection-end-line="107" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Post/OwnPostForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Post/OtherSiteForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="104" column="61" lean-forward="true" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/node_modules/react-material-ui-form-validator/lib/SelectValidator.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/node_modules/react-material-ui-form-validator/lib/TextValidator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="60" column="52" lean-forward="true" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/node_modules/react-material-ui-form-validator/lib/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/RegistrationFormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Registration/RegistrationForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="78" selection-start-line="78" selection-end-line="83" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/CategoryType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Category/EditCategoryModal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="97" column="32" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangeUserNameForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Category/AddCategoryForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="61" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserNameForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="106" selection-start-line="106" selection-end-line="113" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserEmailForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="106" selection-start-line="106" selection-end-line="113" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/config/mapping/orm/projections/User.Query.Projections.UserView.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret column="51" lean-forward="true" selection-start-column="51" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/ChangePasswordForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-207" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/CommentTypeForm.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/EditPostForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Common/Form/PostForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1472">
-          <caret line="74" column="20" lean-forward="true" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserPasswordForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-700">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/User/Repository/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/EventSubscriber/OAuthEventListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-          <folding>
-            <element signature="e#54#108#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/var/log/dev.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="225" lean-forward="true" selection-start-line="225" selection-end-line="225" />
+        <state relative-caret-position="400">
+          <caret line="15079" column="73" lean-forward="true" selection-start-line="15079" selection-start-column="73" selection-end-line="15079" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Share/Security/EventListener/LoginListener.php">
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Comment/CommentReadProjectionFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="15" column="88" selection-end-line="25" />
-          <folding>
-            <element signature="e#67#122#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="324">
+          <caret line="102" column="7" lean-forward="true" selection-start-line="102" selection-start-column="7" selection-end-line="102" selection-end-column="7" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/config/packages/fos_auth_server.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/config/packages/fos_user.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/config/packages/framework.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/symfony/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="72" column="114" selection-start-line="72" selection-start-column="88" selection-end-line="72" selection-end-column="114" />
+        <state relative-caret-position="202">
+          <caret line="87" column="22" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Notification/ErrorMessage.js">
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/NotificationAbstractFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        <state relative-caret-position="243">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/Unit/CommentCreateNotification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/Unit/MessageCreateNotification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/Notification/Type/Message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="18" column="52" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/Notification/NotificationSwitch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="126" column="31" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="31" />
+          <folding>
+            <element signature="e#96#158#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Notification/Notification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="33" column="6" lean-forward="true" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/components/Login/LoginForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="118" column="26" lean-forward="true" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="26" />
+        <state relative-caret-position="189">
+          <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Category/Category.js">
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="redis://IedisURI?type=Explorer&amp;label=127.0.0.1&amp;host=127.0.0.1&amp;port=6379&amp;password=&amp;timestamp=1551010726146&amp;nodeHost=127.0.0.1&amp;nodePort=6379">
+      <provider selected="true" editor-type-id="r" />
+    </entry>
+    <entry file="redis://IedisURI?type=ClientList&amp;label=127.0.0.1&amp;host=127.0.0.1&amp;port=6379&amp;password=&amp;timestamp=1551010726146&amp;nodeHost=127.0.0.1&amp;nodePort=6379">
+      <provider selected="true" editor-type-id="r" />
+    </entry>
+    <entry file="redis://IedisURI?type=Terminal&amp;label=127.0.0.1&amp;host=127.0.0.1&amp;port=6379&amp;password=&amp;timestamp=1551010726146&amp;nodeHost=127.0.0.1&amp;nodePort=6379">
+      <provider selected="true" editor-type-id="r" />
+    </entry>
+    <entry file="redis://IedisURI?type=SlowLog&amp;label=127.0.0.1&amp;host=127.0.0.1&amp;port=6379&amp;password=&amp;timestamp=1551010726146&amp;nodeHost=127.0.0.1&amp;nodePort=6379">
+      <provider selected="true" editor-type-id="r" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="108" column="52" lean-forward="true" selection-start-line="108" selection-start-column="52" selection-end-line="108" selection-end-column="52" />
+        <state relative-caret-position="445">
+          <caret line="139" column="13" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/DashboardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/config/mapping/orm/projections/Message.MessageView.orm.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/config/mapping/orm/projections/Notification.NotificationView.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-824" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/config/mapping/orm/projections/Category.Query.Projections.CategoryView.orm.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/User/Query/Projections/UserView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Message/MessageView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Message/View/MessageViewCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Message/View/MessageViewHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+          <folding>
+            <element signature="e#56#108#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/MessageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="145" column="52" selection-start-line="145" selection-start-column="44" selection-end-line="145" selection-end-column="52" />
+          <folding>
+            <element signature="e#47#107#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="171" column="8" selection-start-line="171" selection-start-column="8" selection-end-line="171" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/DataBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1539">
+          <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+          <folding>
+            <element signature="e#70#132#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Message/Query/MessageRepositoryElastic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/MessageDrawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1782">
+          <caret line="95" column="17" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Messanger/MessangerComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1593">
+          <caret line="74" column="18" selection-start-line="74" selection-start-column="18" selection-end-line="74" selection-end-column="18" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/User/User.js">
+    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Messanger/Messanger.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="383" column="69" selection-start-line="383" selection-start-column="69" selection-end-line="383" selection-end-column="69" />
+        <state relative-caret-position="1674">
+          <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserAvatarForm.js">
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="180" column="52" selection-start-line="180" selection-start-column="52" selection-end-line="180" selection-end-column="52" />
+        <state relative-caret-position="3294">
+          <caret line="142" column="30" selection-start-line="142" selection-start-column="24" selection-end-line="142" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/OwnPostForm.js">
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAll/GetAllHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+        <state relative-caret-position="1998">
+          <caret line="76" column="10" selection-start-line="37" selection-start-column="8" selection-end-line="76" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerHeader.js">
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/SenderFlyweight.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="137" column="62" selection-start-line="137" selection-start-column="62" selection-end-line="137" selection-end-column="62" />
+        <state relative-caret-position="121">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/var/log/test.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="17841" column="177" selection-start-line="17841" selection-start-column="104" selection-end-line="17841" selection-end-column="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/Create/CreateUserHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="965">
+          <caret line="72" column="8" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/MysqlRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeEmail/ChangeEmailHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding>
+            <element signature="e#92#156#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/features/bootstrap/UserContext.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-999">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/ConfirmUser/ConfirmUserHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/ConfirmUser/ConfirmUserCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/User/Query/Repository/MysqlUserReadModelRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2316">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/User/Consumers/SendUserCreatedEmailConsumer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="32" column="86" selection-start-line="32" selection-start-column="86" selection-end-line="32" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/ConfirmUser/ConfirmUserHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="29" column="53" lean-forward="true" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="71" column="32" lean-forward="true" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/GetAllMessageSenderHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#69#127#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

@@ -161,7 +161,7 @@ let EnhancedTableToolbar = props => {
             >
                 <div className={classes.title}>
                     <Typography variant="h6" id="tableTitle">
-                        Posty
+                        Posty po użytkowniku
                     </Typography>
                 </div>
                 <div className={classes.spacer}/>

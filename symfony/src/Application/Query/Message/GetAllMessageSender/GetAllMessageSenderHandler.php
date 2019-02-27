@@ -7,9 +7,7 @@ use App\Application\Query\QueryHandlerInterface;
 use App\Infrastructure\Message\Query\MessageRepositoryElastic;
 
 /**
- * Class GetAllMessageSenderHandler
- *
- * @package App\Application\Query\Message\GetAllMessageSender
+ * Class GetAllMessageSenderHandler.
  */
 class GetAllMessageSenderHandler implements QueryHandlerInterface
 {
@@ -37,7 +35,7 @@ class GetAllMessageSenderHandler implements QueryHandlerInterface
      */
     public function __invoke(GetAllMessageSenderCommand $command): Collection
     {
-            $query = [
+        $query = [
                 'query' => [
                     'bool' => [
                         'should' => [

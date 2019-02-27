@@ -52,9 +52,11 @@ class NotificationAbstractFactory
             switch ($type) {
                 case 'comment':
                     $this->commentCreateNotification->notify($data);
+
                     break;
                 case 'message':
                     $this->commentCreateNotification->notify($data);
+
                     break;
             }
         }

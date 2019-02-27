@@ -18,8 +18,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class MysqlUserReadModelRepository extends MysqlRepository
 {
-
-
     public function add(UserView $userView): void
     {
         $this->register($userView);

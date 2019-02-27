@@ -3,10 +3,8 @@
 namespace App\Application\Command\User\SendEmail;
 
 use App\Application\Command\CommandHandlerInterface;
-use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
-use App\Infrastructure\User\Query\Repository\UserRepository;
 use Ramsey\Uuid\Uuid;
 use Swift_TransportException;
 use Twig_Environment;
@@ -27,6 +25,7 @@ class SendEmailHandler implements CommandHandlerInterface
     private $template;
 
     private $message;
+
     /**
      * @var MysqlUserReadModelRepository
      */
@@ -68,6 +67,7 @@ class SendEmailHandler implements CommandHandlerInterface
                         ),
                         'text/html'
                     );
+
                 break;
             case 'CHANGE_EMAIL':
                 $token = Uuid::uuid4() . '-' . Uuid::uuid4();
@@ -83,6 +83,7 @@ class SendEmailHandler implements CommandHandlerInterface
                         ),
                         'text/html'
                     );
+
                 break;
             default:
                 throw new Swift_TransportException('Mail template dont find');

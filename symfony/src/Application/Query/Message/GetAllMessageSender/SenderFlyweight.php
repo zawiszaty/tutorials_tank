@@ -3,9 +3,7 @@
 namespace App\Application\Query\Message\GetAllMessageSender;
 
 /**
- * Class SenderFlyweight
- *
- * @package App\Application\Query\Message\GetAllMessageSender
+ * Class SenderFlyweight.
  */
 class SenderFlyweight
 {
@@ -19,7 +17,7 @@ class SenderFlyweight
      */
     public static function addSender(array $sender): void
     {
-        if (count(self::$sender) === 0) {
+        if (0 === count(self::$sender)) {
             self::$sender[] = $sender;
         } else {
             foreach (self::$sender as $item) {

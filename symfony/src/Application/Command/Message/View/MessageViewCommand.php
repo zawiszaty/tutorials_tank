@@ -3,9 +3,7 @@
 namespace App\Application\Command\Message\View;
 
 /**
- * Class MessageViewCommand
- *
- * @package App\Application\Command\Message\View
+ * Class MessageViewCommand.
  */
 class MessageViewCommand
 {

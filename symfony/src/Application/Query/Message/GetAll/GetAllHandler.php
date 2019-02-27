@@ -52,8 +52,8 @@ class GetAllHandler implements QueryHandlerInterface
                                          'sender' => $command->getUser(),
                                      ],
                                  ],
-                             ]
-                         ]
+                             ],
+                         ],
                      ],
                         [
                             'bool' => [
@@ -68,11 +68,11 @@ class GetAllHandler implements QueryHandlerInterface
                                             'sender' => $command->getRecipient(),
                                         ],
                                     ],
-                                ]
-                            ]
+                                ],
+                            ],
                         ],
                     ],
-                ]
+                ],
             ],
         ];
 

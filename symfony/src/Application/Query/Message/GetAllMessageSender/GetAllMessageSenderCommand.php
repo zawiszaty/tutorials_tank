@@ -3,9 +3,7 @@
 namespace App\Application\Query\Message\GetAllMessageSender;
 
 /**
- * Class GetAllMessageSenderCommand
- *
- * @package App\Application\Query\Message\GetAllMessageSender
+ * Class GetAllMessageSenderCommand.
  */
 class GetAllMessageSenderCommand
 {

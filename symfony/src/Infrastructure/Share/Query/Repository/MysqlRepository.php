@@ -14,7 +14,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 abstract class MysqlRepository
 {
-
     /**
      * @param        $model
      * @param string $id

@@ -19,8 +19,16 @@ class SenderFlyweight
      */
     public static function addSender(array $sender): void
     {
-        if (!array_key_exists($sender, self::$sender)) {
+        if (count(self::$sender) === 0) {
             self::$sender[] = $sender;
+        } else {
+            foreach (self::$sender as $item) {
+                if ($item['id'] === $sender['id']) {
+                    break 1;
+                } else {
+                    self::$sender[] = $sender;
+                }
+            }
         }
     }
 

@@ -14,6 +14,7 @@ import {login} from "../../actions/user";
 import {connect} from "react-redux";
 import {getNotification} from "../../actions/notification";
 import {ErrorMessage} from "../Notification/ErrorMessage";
+import {Link} from "react-router-dom";
 
 const styles = theme => ({
     form: {
@@ -25,6 +26,7 @@ const styles = theme => ({
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
+        flexDirection: 'column',
     },
     buttonSuccess: {
         backgroundColor: green[500],
@@ -96,7 +98,6 @@ class LoginForm extends React.Component {
                 axios.get(`/api/v1/notifications/total`, {
                     headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                 }).then((e) => {
-                    console.log('tu jestem');
                     this.props.getNotification(e.data);
                 }).catch((e) => {
                     this.props.getNotification(0);
@@ -106,22 +107,8 @@ class LoginForm extends React.Component {
                     success: true,
                     loading: false,
                 });
-                console.log('tu jestem');
             }).catch((e) => {
                 ErrorMessage(e);
-                // if (e.response.data.error_description === 'User account is disabled.') {
-                //     toast.error("Potwierdz konto", {
-                //         position: toast.POSITION.BOTTOM_RIGHT
-                //     });
-                // } else if (e.response.data.errors.title === 'App.Domain.User.Exception.UserIsBannedException') {
-                //     toast.error("Konto zbanowane", {
-                //         position: toast.POSITION.BOTTOM_RIGHT
-                //     });
-                // } else {
-                //     toast.error("Coś poszło nie tak", {
-                //         position: toast.POSITION.BOTTOM_RIGHT
-                //     });
-                // }
                 this.setState(
                     {
                         success: false,
@@ -193,6 +180,15 @@ class LoginForm extends React.Component {
                         Zaloguj sie
                     </Button>
                     {this.state.loading && <CircularProgress size={24} className={classes.buttonProgress}/>}
+                    <Button
+                        color="link"
+                        fullWidth
+                        className={buttonClassname}
+                        component={Link}
+                        to="/zapomnialem/hasla"
+                    >
+                        zapomniałem hasła
+                    </Button>
                 </div>
             </ValidatorForm>
         );

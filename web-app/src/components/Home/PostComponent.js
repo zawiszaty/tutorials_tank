@@ -65,7 +65,7 @@ class AddPost extends Component {
                 <CssBaseline/>
                 <Grid container spacing={16}>
                     <Grid item xs={4}>
-                        <img src={this.props.thumbnail} alt="post thumbnail" width="100%"/>
+                        <img src={this.props.thumbnail} alt="post thumbnail" width="200px" height="200px"/>
                     </Grid>
                     <Grid item xs={8}>
                         <Typography variant="title" gutterBottom>

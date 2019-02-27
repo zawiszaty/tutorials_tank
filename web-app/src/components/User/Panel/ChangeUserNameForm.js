@@ -10,6 +10,7 @@ import green from "@material-ui/core/colors/green";
 import axios from "../../../axios/axios";
 import {toast} from "react-toastify";
 import {Paper} from "@material-ui/core";
+import {ErrorMessage} from "../../Notification/ErrorMessage";
 
 function getModalStyle() {
     const top = 50;
@@ -89,8 +90,10 @@ class ChangeUserNameForm extends Component {
                 loading: false,
             });
         }).catch((e) => {
-            toast.error("Coś poszło nie tak", {
-                position: toast.POSITION.BOTTOM_RIGHT
+            ErrorMessage(e);
+            this.setState({
+                success: false,
+                loading: false,
             });
         })
     };
@@ -100,6 +103,15 @@ class ChangeUserNameForm extends Component {
             name: e.target.value
         })
     };
+
+    componentDidMount() {
+        ValidatorForm.addValidationRule('maxLenght', (value) => {
+            if (value.length > 20) {
+                return false;
+            }
+            return true;
+        });
+    }
 
     render() {
         const {classes, category} = this.props;
@@ -121,8 +133,8 @@ class ChangeUserNameForm extends Component {
                             name="email"
                             value={name}
                             type="text"
-                            validators={['required']}
-                            errorMessages={['To pole jest wymagane']}
+                            validators={['required', 'maxLenght']}
+                            errorMessages={['To pole jest wymagane', 'Pole jest za długie']}
                             margin="normal" required fullWidth
                         />
                         <div className={classes.wrapper}>

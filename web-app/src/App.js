@@ -26,6 +26,9 @@ import Notification from "./components/Notification/Notification";
 import SingleUser from "./containers/SingleUser/SingleUser";
 import UserPostList from "./components/Post/UserPostList";
 import Fade from "@material-ui/core/es/Fade/Fade";
+import ChangeEmailStatus from "./containers/UserPanel/ChangeEmailStatus";
+import PostByCategory from "./components/Post/PostByCategory";
+import PasswordRecovery from "./components/PasswordRecovery/PasswordRecovery";
 
 const Index = () => <h2>Home</h2>;
 
@@ -66,7 +69,10 @@ class App extends Component {
                                 <Route path="/uzytkownicy" exact component={UserListContainer}/>
                                 <Route path="/post/:slug" exact component={SinglePost}/>
                                 <Route path="/uzytkownik/:username" exact component={SingleUser}/>
+                                <Route path="/potwierdz/zmiane/emaila/:token" exact component={ChangeEmailStatus}/>
+                                <Route path="/kategorie/:id/posty" exact component={PostByCategory}/>
                                 <Route path="/posty" exact component={PostListContainer}/>
+                                <Route path="/zapomnialem/hasla" exact component={PasswordRecovery}/>
                                 <Notification/>
                             </React.Fragment>
                             }

@@ -13,6 +13,7 @@ import {client_id, client_secret} from "./../../axios/env";
 import {login} from "../../actions/user";
 import {connect} from "react-redux";
 import Typography from "@material-ui/core/Typography";
+import {ErrorMessage} from "../Notification/ErrorMessage";
 
 const styles = theme => ({
     form: {
@@ -52,6 +53,15 @@ class AddCategoryForm extends React.Component {
         };
     }
 
+    componentDidMount() {
+        ValidatorForm.addValidationRule('maxLenght', (value) => {
+            if (value.length > 40) {
+                return false;
+            }
+            return true;
+        });
+    }
+
     handleChangeName = (e) => {
         this.setState({
             name: e.target.value
@@ -78,8 +88,10 @@ class AddCategoryForm extends React.Component {
             });
             this.props.getCategory();
         }).catch((e) => {
-            toast.error("Coś poszło nie tak", {
-                position: toast.POSITION.BOTTOM_RIGHT
+            ErrorMessage(e);
+            this.setState({
+                success: false,
+                loading: false,
             });
         })
     };
@@ -106,8 +118,8 @@ class AddCategoryForm extends React.Component {
                     name="email"
                     value={name}
                     type="text"
-                    validators={['required']}
-                    errorMessages={['To pole jest wymagane']}
+                    validators={['required', 'maxLenght']}
+                    errorMessages={['To pole jest wymagane', 'Pole jest za długie']}
                     margin="normal" required fullWidth
                 />
                 <div className={classes.wrapper}>

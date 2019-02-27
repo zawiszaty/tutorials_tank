@@ -59,7 +59,7 @@ const styles = theme => ({
         width: '80%'
     },
     card: {
-        width: '40%',
+        width: '80%',
         display: "flex",
         marginTop: "3em",
         margin: 'auto',
@@ -71,8 +71,8 @@ const styles = theme => ({
         marginLeft: '0',
     },
     card__avatar: {
-        height: '4em',
-        width: '4em',
+        width: "2em",
+        height: "2em",
         margin: "auto",
     },
     avatar_bar: {
@@ -83,7 +83,8 @@ const styles = theme => ({
         textAlign: "center",
     },
     bar_config: {
-        width: '60%',
+        width: '100%',
+        textAlign: "center",
     },
     text_form: {
         width: '80%',
@@ -100,13 +101,17 @@ class MessangerComponent extends Component {
             messages: props.messages
         };
         this.state.notif.onmessage = (event) => {
-            let messages = this.state.messages;
-            let message = JSON.parse(event.data);
-            messages.splice(0, 0, message);
-            this.setState({
-                messages
-            });
-            props.upLimit(1);
+            try {
+                let messages = this.state.messages;
+                let message = JSON.parse(event.data);
+                messages.splice(0, 0, message);
+                this.setState({
+                    messages
+                });
+                props.upLimit(1);
+            } catch (e) {
+                return false;
+            }
         };
         this.state.notif.onopen = () => {
             console.log('conected');

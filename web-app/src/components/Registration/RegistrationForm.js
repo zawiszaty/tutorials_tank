@@ -9,6 +9,7 @@ import green from '@material-ui/core/colors/green';
 import Redirect from "react-router-dom/es/Redirect";
 import {ToastContainer, toast} from 'react-toastify';
 import axios from './../../axios/axios';
+import {ErrorMessage} from "../Notification/ErrorMessage";
 
 const styles = theme => ({
     form: {
@@ -60,6 +61,27 @@ class RegistrationForm extends React.Component {
             }
             return true;
         });
+
+        ValidatorForm.addValidationRule('minLenght', (value) => {
+            if (value.length < 0) {
+                return false;
+            }
+            return true;
+        });
+
+        ValidatorForm.addValidationRule('minLenghtPassword', (value) => {
+            if (value.length < 6) {
+                return false;
+            }
+            return true;
+        });
+
+        ValidatorForm.addValidationRule('maxLenght', (value) => {
+            if (value.length > 20) {
+                return false;
+            }
+            return true;
+        });
     }
 
     handleChange = (event) => {
@@ -103,6 +125,8 @@ class RegistrationForm extends React.Component {
                     loading: false,
                 });
         }).catch((e) => {
+           console.log(e.response.status);
+            ErrorMessage(e);
             this.setState(
                 {
                     success: false,
@@ -133,8 +157,8 @@ class RegistrationForm extends React.Component {
                     onChange={this.handleChange}
                     name="email"
                     value={email}
-                    validators={['required', 'isEmail']}
-                    errorMessages={['To pole jest wymagane', 'To nie jest poprawny aders email']}
+                    validators={['required', 'isEmail','minLenght', 'maxLenght']}
+                    errorMessages={['To pole jest wymagane', 'To nie jest poprawny aders email', 'Pole jest za krótkie', 'Pole to jest za długie']}
                     margin="normal" required fullWidth
                 />
                 <TextValidator
@@ -143,8 +167,8 @@ class RegistrationForm extends React.Component {
                     name="email"
                     value={username}
                     type="text"
-                    validators={['required']}
-                    errorMessages={['To pole jest wymagane']}
+                    validators={['required','minLenght', 'maxLenght']}
+                    errorMessages={['To pole jest wymagane', 'Pole jest za krótkie', 'Pole to jest za długie']}
                     margin="normal" required fullWidth
                 />
                 <TextValidator
@@ -152,8 +176,8 @@ class RegistrationForm extends React.Component {
                     onChange={this.handleChangePassword}
                     name="password"
                     type="password"
-                    validators={['required']}
-                    errorMessages={['this field is required']}
+                    validators={['required','minLenghtPassword', 'maxLenght']}
+                    errorMessages={['this field is required', 'Pole jest za krótkie', 'Pole to jest za długie', 'Haslo musi zawierać jedna cyfre']}
                     value={this.state.user.password}
                     margin="normal" required fullWidth
                 />

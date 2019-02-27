@@ -24,7 +24,7 @@
         "paragonie/random_compat": "2.0",
         "php-amqplib/rabbitmq-bundle": "^1.14",
         "phpspec/phpspec": "^5.0",
-        "prolic/fpp": "dev-master",
+        "predis/predis": "^1.1",
         "ramsey/uuid": "^3.7",
         "ramsey/uuid-doctrine": "^1.5",
         "react/zmq": "0.2.*|0.3.*",

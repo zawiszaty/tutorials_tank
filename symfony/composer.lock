@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ba7cddde1931a55d90dca04d287c282",
+    "content-hash": "3ef12f262006a362b5d0e0f707394c7f",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -4120,50 +4120,54 @@
             "time": "2018-08-05T17:53:17+00:00"
         },
         {
-            "name": "prolic/fpp",
-            "version": "dev-master",
+            "name": "predis/predis",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/prolic/fpp.git",
-                "reference": "ca440d62f5bc42f45466c81afbb98fd206730f51"
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prolic/fpp/zipball/ca440d62f5bc42f45466c81afbb98fd206730f51",
-                "reference": "ca440d62f5bc42f45466c81afbb98fd206730f51",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": ">=5.3.9"
             },
             "require-dev": {
-                "mikey179/vfsstream": "^1.6.5",
-                "phpstan/phpstan": "^0.10.1",
-                "phpunit/phpunit": "^7.0",
-                "prooph/php-cs-fixer-config": "^0.3",
-                "satooshi/php-coveralls": "^2.0"
+                "phpunit/phpunit": "~4.8"
             },
-            "bin": [
-                "bin/fpp"
-            ],
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Fpp\\": "src/"
+                    "Predis\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Sascha-Oliver Prolic",
-                    "email": "saschaprolic@googlemail.com"
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
                 }
             ],
-            "description": "Functional PHP Preprocessor",
-            "time": "2018-11-13T05:11:21+00:00"
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2016-06-16T16:22:20+00:00"
         },
         {
             "name": "psr/cache",
@@ -11583,7 +11587,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "friendsofsymfony/oauth-server-bundle": 20,
-        "prolic/fpp": 20,
         "symfony/lts": 20,
         "behat/behat": 20,
         "behat/mink": 20

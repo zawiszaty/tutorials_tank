@@ -380,8 +380,8 @@
             "ref": "89239f0cf2759efccc76b9944083bfcc4d180f9d"
         }
     },
-    "prolic/fpp": {
-        "version": "dev-master"
+    "predis/predis": {
+        "version": "v1.1.1"
     },
     "psr/cache": {
         "version": "1.0.1"

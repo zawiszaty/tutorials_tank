@@ -78,6 +78,11 @@ change_user_email:
   methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\UserController:changeEmailAction
 
+change_user_email_status:
+  path: /api/v1/user/change/email/status
+  methods: PATCH
+  controller: App\UI\HTTP\Rest\Controller\UserController:changeEmailStatusAction
+
 change_user_password:
   path: /api/v1/user/change/password
   methods: PATCH
@@ -133,6 +138,11 @@ get_all_post_by_user:
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\PostController:getAllByUserAction
 
+get_all_post_by_category:
+  path: /api/v1/posts/category/{category}
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\PostController:getAllByCategoryAction
+
 create_comment:
   path: /api/v1/comment
   methods: POST
@@ -152,6 +162,16 @@ get_all_user_message:
   path: /api/v1/message
   methods: GET
   controller: App\UI\HTTP\Rest\Controller\MessageController:getAllUserMessage
+
+get_all_user_sender:
+  path: /api/v1/sendner
+  methods: GET
+  controller: App\UI\HTTP\Rest\Controller\MessageController:getAllUserSender
+
+view_message:
+  path: /api/v1/message/view
+  methods: POST
+  controller: App\UI\HTTP\Rest\Controller\MessageController::viewMessageAction
 
 delete_post_action:
   path: /api/v1/post/{id}

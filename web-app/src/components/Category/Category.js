@@ -28,6 +28,7 @@ import EditCategoryModal from "./EditCategoryModal";
 import Button from "@material-ui/core/Button";
 import SearchBox from "../SearchBox/SearchBox";
 import debounce from 'lodash.debounce';
+import {withRouter} from "react-router-dom";
 
 const mapStateToProps = (state) => {
     return {
@@ -83,17 +84,17 @@ class EnhancedTableHead extends React.Component {
             <TableHead>
                 <TableRow>
                     {user.length !== 0 &&
-                    <TableCell padding="checkbox">
-                        <React.Fragment>
-                            {user[0].roles.includes('ROLE_ADMIN') &&
+                    <React.Fragment>
+                        {user[0].roles.includes('ROLE_ADMIN') &&
+                        <TableCell padding="checkbox">
                             <Checkbox
                                 indeterminate={numSelected > 0 && numSelected < rowCount}
                                 checked={numSelected === rowCount}
                                 onChange={onSelectAllClick}
                             />
-                            }
-                        </React.Fragment>
-                    </TableCell>
+                        </TableCell>
+                        }
+                    </React.Fragment>
                     }
                     {rows.map(
                         row => (
@@ -120,14 +121,8 @@ class EnhancedTableHead extends React.Component {
                         ),
                         this,
                     )}
-                    {this.props.user.length !== 0 &&
-                    <React.Fragment>
-                        {this.props.user[0].roles.includes('ROLE_ADMIN') &&
-                        <TableCell padding="default">
-                        </TableCell>
-                        }
-                    </React.Fragment>
-                    }
+                    <TableCell padding="default">
+                    </TableCell>
                 </TableRow>
             </TableHead>
         );
@@ -416,6 +411,9 @@ class Category extends Component {
                                                     tabIndex={-1}
                                                     key={n.id}
                                                     selected={isSelected}
+                                                    onClick={() => {
+                                                        this.props.history.push(`/kategorie/${n.id}/posty`);
+                                                    }}
                                                 >
                                                     {this.props.user.length !== 0 &&
                                                     <React.Fragment>
@@ -489,4 +487,4 @@ class Category extends Component {
 
 Category.propTypes = {};
 
-export default connect(mapStateToProps)(withStyles(styles)(Category));
+export default withRouter(connect(mapStateToProps)(withStyles(styles)(Category)));

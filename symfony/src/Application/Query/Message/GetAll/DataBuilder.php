@@ -34,11 +34,11 @@ class DataBuilder
                 'id'       => $sender['id'],
             ];
             /** @var UserView $sender */
-            $recipient = $this->repositoryElastic->get($item['recipient']);
+            $recipient = $this->repositoryElastic->get($item['recipient'])['_source'];
             $data[$key]['recipient'] = [
-                'username' => $sender['username'],
-                'avatar'   => $sender['avatar'],
-                'id'       => $sender['id'],
+                'username' => $recipient['username'],
+                'avatar'   => $recipient['avatar'],
+                'id'       => $recipient['id'],
             ];
         }
 

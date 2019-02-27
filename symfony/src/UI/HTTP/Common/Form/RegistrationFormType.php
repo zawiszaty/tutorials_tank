@@ -47,16 +47,9 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('plainPassword', RepeatedType::class, [
-                'type'    => PasswordType::class,
-                'options' => [
-                    'translation_domain' => 'FOSUserBundle',
-                    'attr'               => [
-                        'autocomplete' => 'new-password',
-                    ],
-                ],
+                'type'            => PasswordType::class,
                 'first_options'   => ['label' => 'form.password'],
                 'second_options'  => ['label' => 'form.password_confirmation'],
-                'invalid_message' => 'fos_user.password.mismatch',
                 'constraints'     => [
                     new NotNull(),
                     new Length([
@@ -89,10 +82,12 @@ class RegistrationFormType extends AbstractType
                 new UniqueValueInEntity([
                     'field'       => 'username',
                     'entityClass' => UserView::class,
+                    'message'     => 'Nazwa jest juz zajęta',
                 ]),
                 new UniqueValueInEntity([
                     'field'       => 'email',
                     'entityClass' => UserView::class,
+                    'message'     => 'Istnieje juz konto przypisane do tego adresu email',
                 ]),
             ],
         ]);

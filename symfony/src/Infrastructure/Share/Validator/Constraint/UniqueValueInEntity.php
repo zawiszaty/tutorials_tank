@@ -14,7 +14,7 @@ class UniqueValueInEntity extends Constraint
     /**
      * @var string
      */
-    public $message = 'This value is already used.';
+    public $message;
 
     public $entityClass;
 

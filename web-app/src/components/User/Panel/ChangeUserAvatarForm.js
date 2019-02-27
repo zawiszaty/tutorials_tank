@@ -68,7 +68,7 @@ class ChangeUserAvatarForm extends Component {
         this.state = {
             open: false,
             loading: false,
-            image: `http://localhost:9999${this.props.user.avatar}`,
+            image: `${this.props.user.avatar}`,
             uploadedImage: '',
             crop: {
                 aspect: 1,
@@ -178,7 +178,7 @@ class ChangeUserAvatarForm extends Component {
                                     .then((response) => {
                                         this.state.image = response.data.avatar;
                                         this.setState({
-                                            image: `http://localhost:9999${response.data.avatar}`
+                                            image: `${response.data.avatar}`
                                         });
                                         toast.success("Awatar zmieniony", {
                                             position: toast.POSITION.BOTTOM_RIGHT

@@ -6,9 +6,13 @@ import Button from "@material-ui/core/Button/Button";
 
 const styles = theme => ({
     avatar: {
-        width: '100%',
+        width: '200px',
         height: '200px',
     },
+    avatar__container: {
+        display: 'flex',
+        justifyContent: 'center',
+    }
 });
 
 class PostThumbnailForm extends React.Component {
@@ -31,7 +35,7 @@ class PostThumbnailForm extends React.Component {
             <React.Fragment>
                 <CssBaseline/>
                 <Paper>
-                    <div>
+                    <div className={this.props.classes.avatar__container}>
                         <img src={this.state.image} className={this.props.classes.avatar}/>
                     </div>
                     <input

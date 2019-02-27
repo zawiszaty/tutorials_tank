@@ -53,7 +53,7 @@ class OwnPostForm extends React.Component {
             success: false,
             user: {},
             selected: props.category,
-            file: `http://localhost:9999${props.thumbnail}`,
+            file: `${props.thumbnail}`,
         };
     }
 

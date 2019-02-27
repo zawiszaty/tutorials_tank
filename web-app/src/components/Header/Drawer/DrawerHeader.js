@@ -135,7 +135,7 @@ class DrawerHeader extends React.Component {
                     <React.Fragment>
                         <MenuList>
                             <MenuItem component={Link} to="/panel/uzytkownika" className={classes.menu__avatar}>
-                                <Avatar alt="Remy Sharp" src={"http://localhost:9999" + this.props.user[0].avatar}
+                                <Avatar alt="Remy Sharp" src={this.props.user[0].avatar}
                                         className={classes.avatar}/>
                                 <Typography variant="title" gutterBottom>
                                     {this.props.user[0].name}

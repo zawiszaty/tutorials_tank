@@ -9,6 +9,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import green from "@material-ui/core/colors/green";
 import axios from "../../axios/axios";
 import {toast} from "react-toastify";
+import {ErrorMessage} from "../Notification/ErrorMessage";
 
 function getModalStyle() {
     const top = 50;
@@ -85,11 +86,21 @@ class EditCategoryModal extends Component {
             });
             this.props.getCategory();
         }).catch((e) => {
-            toast.error("Coś poszło nie tak", {
-                position: toast.POSITION.BOTTOM_RIGHT
+            ErrorMessage(e);
+            this.setState({
+                success: false,
+                loading: false,
             });
         })
     };
+    componentDidMount() {
+        ValidatorForm.addValidationRule('maxLenght', (value) => {
+            if (value.length > 40) {
+                return false;
+            }
+            return true;
+        });
+    }
 
     handleChangeName = (e) => {
         this.setState({
@@ -136,8 +147,8 @@ class EditCategoryModal extends Component {
                                     name="email"
                                     value={name}
                                     type="text"
-                                    validators={['required']}
-                                    errorMessages={['To pole jest wymagane']}
+                                    validators={['required', 'maxLenght']}
+                                    errorMessages={['To pole jest wymagane', 'Pole jest za długie']}
                                     margin="normal" required fullWidth
                                 />
                                 <div className={classes.wrapper}>

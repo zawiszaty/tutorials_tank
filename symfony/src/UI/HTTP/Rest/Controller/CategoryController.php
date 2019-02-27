@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class CategoryController.
  */
-class CategoryController extends RestController
+final class CategoryController extends RestController
 {
     /**
      * @SWG\Response(
@@ -58,7 +58,7 @@ class CategoryController extends RestController
             return new JsonResponse('success', Response::HTTP_OK);
         }
 
-        return new Response($form->getErrors(), Response::HTTP_BAD_REQUEST);
+        return new JsonResponse($this->getErrorMessages($form), Response::HTTP_BAD_REQUEST);
     }
 
     /**
@@ -105,7 +105,7 @@ class CategoryController extends RestController
             return new JsonResponse('success', Response::HTTP_OK);
         }
 
-        return new Response($form->getErrors(), Response::HTTP_BAD_REQUEST);
+        return new JsonResponse($this->getErrorMessages($form), Response::HTTP_BAD_REQUEST);
     }
 
     /**

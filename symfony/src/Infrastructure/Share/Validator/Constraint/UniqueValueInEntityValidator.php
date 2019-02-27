@@ -42,7 +42,9 @@ class UniqueValueInEntityValidator extends ConstraintValidator
         ]);
 
         if (\count($searchResults) > 0) {
-            $constraint->message = 'Value ' . $constraint->field . ' is already used.';
+            if (!$constraint->message) {
+                $constraint->message = 'Value ' . $constraint->field . ' is already used.';
+            }
             $this->context->buildViolation($constraint->message)
                 ->addViolation();
         }

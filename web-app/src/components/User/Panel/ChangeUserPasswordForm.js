@@ -80,6 +80,20 @@ class ChangeUserPasswordForm extends Component {
             }
             return true;
         });
+
+        ValidatorForm.addValidationRule('minLenght', (value) => {
+            if (value.length < 6) {
+                return false;
+            }
+            return true;
+        });
+
+        ValidatorForm.addValidationRule('maxLenght', (value) => {
+            if (value.length > 20) {
+                return false;
+            }
+            return true;
+        });
     }
 
     handleOpen = () => {
@@ -168,8 +182,8 @@ class ChangeUserPasswordForm extends Component {
                             name="firstPassword"
                             value={firstPassword}
                             type="password"
-                            validators={['required', 'isPasswordNotSame']}
-                            errorMessages={['To pole jest wymagane', 'Wpisz inne hasło']}
+                            validators={['required', 'isPasswordNotSame', 'minLenght', 'maxLenght']}
+                            errorMessages={['To pole jest wymagane', 'Wpisz inne hasło', 'Pole jest za krótkie', 'Pole jest za długie']}
                             margin="normal" required fullWidth
                         />
                         <TextValidator
@@ -178,8 +192,8 @@ class ChangeUserPasswordForm extends Component {
                             name="secondPassword"
                             value={secondPassword}
                             type="password"
-                            validators={['required', 'isPasswordMatch']}
-                            errorMessages={['To pole jest wymagane', 'Hasła musza być takie same']}
+                            validators={['required', 'isPasswordMatch', 'minLenght', 'maxLenght']}
+                            errorMessages={['To pole jest wymagane', 'Hasła musza być takie same', 'Pole jest za krótkie', 'Pole jest za długie']}
                             margin="normal" required fullWidth
                         />
                         <div className={classes.wrapper}>

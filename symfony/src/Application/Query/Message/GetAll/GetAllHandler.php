@@ -35,28 +35,47 @@ class GetAllHandler implements QueryHandlerInterface
      */
     public function __invoke(GetAllCommand $command)
     {
-        if ($command->getQuery()) {
-            $query = [
-                'query' => [
-                    'bool' => [
-                        'should' => [
-                            [
-                                'match' => [
-                                    'recipient' => $command->getRecipient(),
-                                ],
-                            ],
-                            [
-                                'match' => [
-                                    'recipient' => $command->getUser(),
-                                ],
-                            ],
+        $query = [
+            'query' => [
+                'bool' => [
+                    'should' => [
+                     [
+                         'bool' => [
+                             'must' => [
+                                 [
+                                     'match' => [
+                                         'recipient' => $command->getRecipient(),
+                                     ],
+                                 ],
+                                 [
+                                     'match' => [
+                                         'sender' => $command->getUser(),
+                                     ],
+                                 ],
+                             ]
+                         ]
+                     ],
+                        [
+                            'bool' => [
+                                'must' => [
+                                    [
+                                        'match' => [
+                                            'recipient' => $command->getUser(),
+                                        ],
+                                    ],
+                                    [
+                                        'match' => [
+                                            'sender' => $command->getRecipient(),
+                                        ],
+                                    ],
+                                ]
+                            ]
                         ],
                     ],
-                ],
-            ];
-        } else {
-            $query = [];
-        }
+                ]
+            ],
+        ];
+
         $data = $this->repositoryElastic->messageByCreatedAt($command->getPage(), $command->getLimit(), $query);
         $total = $data->total;
         $data = $this->dataBuilder->build($data->data);

@@ -5,7 +5,6 @@ namespace App\Application\Command\Message\View;
 use App\Application\Command\CommandHandlerInterface;
 use App\Infrastructure\Message\MessageView;
 use App\Infrastructure\Message\Query\MessageRepositoryElastic;
-use App\Infrastructure\User\Query\Projections\UserView;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -15,6 +14,7 @@ class MessageViewHandler implements CommandHandlerInterface
      * @var EntityManager
      */
     private $entityManager;
+
     /**
      * @var MessageRepositoryElastic
      */

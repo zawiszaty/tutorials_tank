@@ -25,7 +25,6 @@ use App\UI\HTTP\Common\Form\ChangeEmailForm;
 use App\UI\HTTP\Common\Form\ChangePasswordForm;
 use App\UI\HTTP\Common\Form\ChangeUserNameForm;
 use App\UI\HTTP\Common\Form\RegistrationFormType;
-use Assert\Assert;
 use Assert\Assertion;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\Dbal\DBALEventStore;
@@ -216,7 +215,7 @@ class UserController extends RestController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UserView $user */
             $user = $this->getUser();
-            $oldEmail = $user->getEmailCanonical();;
+            $oldEmail = $user->getEmailCanonical();
             $this->commandBus->handle($command);
             $sendEmailCommand = new SendEmailCommand($oldEmail, $this->getUser()->getId(), 'CHANGE_EMAIL');
             $this->commandBus->handle($sendEmailCommand);
@@ -263,7 +262,7 @@ class UserController extends RestController
         Assertion::notNull($token);
         /** @var UserView $user */
         $user = $this->userRepository->findOneBy(['confirmationToken' => $token]);
-        if ($type !== 'confirm') {
+        if ('confirm' !== $type) {
             $oldEmail = $request->get('oldEmail');
             Assertion::notNull($user);
             Assertion::notNull($oldEmail);

@@ -1,16 +1,12 @@
 <?php
 
-
 namespace App\Application\Query\Message\GetAllMessageSender;
 
 use App\Infrastructure\Message\Query\MessageRepositoryElastic;
-use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Repository\UserRepositoryElastic;
 
 /**
- * Class DataBuilder
- *
- * @package App\Application\Query\Message\GetAllMessageSender
+ * Class DataBuilder.
  */
 class DataBuilder
 {
@@ -18,6 +14,7 @@ class DataBuilder
      * @var UserRepositoryElastic
      */
     private $repositoryElastic;
+
     /**
      * @var MessageRepositoryElastic
      */
@@ -54,7 +51,7 @@ class DataBuilder
                         ],
                     ],
                 ];
-                $messages = $this->messageRepositoryElastic->messageByCreatedAt(1,1,$query);
+                $messages = $this->messageRepositoryElastic->messageByCreatedAt(1, 1, $query);
                 $user = $this->repositoryElastic->get($item['sender'])['_source'];
                 $user['displayed'] = $messages->data[0]['displayed'];
                 SenderFlyweight::addSender($user);
@@ -78,7 +75,7 @@ class DataBuilder
                         ],
                     ],
                 ];
-                $messages = $this->messageRepositoryElastic->messageByCreatedAt(1,1,$query);
+                $messages = $this->messageRepositoryElastic->messageByCreatedAt(1, 1, $query);
                 $user = $this->repositoryElastic->get($item['recipient'])['_source'];
                 $user['displayed'] = $messages->data[0]['displayed'];
                 SenderFlyweight::addSender($user);

@@ -122,7 +122,7 @@ class DrawerHeader extends React.Component {
                         <MenuItem component={Link} to="/">Główna</MenuItem>
                     </MenuList>
                     <MenuList>
-                        <MenuItem component={Link} to="/kategorie">Lista Kategori</MenuItem>
+                        <MenuItem component={Link} to="/kategorie">Lista Kategorii</MenuItem>
                     </MenuList>
                     <MenuList>
                         <MenuItem component={Link} to="/uzytkownicy">Lista Uzytkowników</MenuItem>

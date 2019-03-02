@@ -51,7 +51,7 @@ class GetAllMessageSenderHandler implements QueryHandlerInterface
                 ],
             ];
 
-        $data = $this->repositoryElastic->messageByCreatedAt($command->getPage(), $command->getLimit(), $query);
+        $data = $this->repositoryElastic->messageByCreatedAt($command->getPage(), 10000, $query);
         $total = $data->total;
         $data = $this->dataBuilder->build($data->data, $command->getUser());
 

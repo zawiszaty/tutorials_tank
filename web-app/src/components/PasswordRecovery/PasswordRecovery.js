@@ -83,7 +83,11 @@ class PasswordRecovery extends React.Component {
     };
 
     handleSubmit = () => {
-
+        axios.patch(`/api/v1/user/password/recover/${this.state.email}`).then((response) => {
+            toast.success("Email wysłany", {
+                position: toast.POSITION.BOTTOM_RIGHT
+            });
+        });
     };
 
     render() {

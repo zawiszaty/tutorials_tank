@@ -1,7 +1,11 @@
 import {toast} from "react-toastify";
 
 export const ErrorMessage = (e) => {
-    if (e.response.status === 400) {
+    if (e.response.status === 413) {
+        toast.error('Plik jest za duży. Moze ważyć maksymalnie 2mb', {
+            position: toast.POSITION.BOTTOM_RIGHT
+        });
+    } else if (e.response.status === 400) {
         e.response.data['#'].map((item) => {
             if (item === 'Konto zbanowane') {
                 toast.error(item, {

@@ -17,6 +17,7 @@ use App\Application\Query\User\GetAll\GetAllCommand;
 use App\Application\Query\User\GetSingleByUserName\GetSingleByUsernameCommand;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\User\Exception\AvatarWasChanged;
+use App\Domain\User\Exception\PasswordIsBadException;
 use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Query\Repository\UserRepository;
 use App\UI\HTTP\Common\Controller\RestController;
@@ -223,7 +224,44 @@ class UserController extends RestController
 
             return $response;
         }
-        $response = new JsonResponse('error', JsonResponse::HTTP_BAD_REQUEST);
+        $response = new JsonResponse($this->getErrorMessages($form), JsonResponse::HTTP_BAD_REQUEST);
+
+        return $response;
+    }
+
+    /**
+     * @throws \Assert\AssertionFailedException
+     *
+     *
+     *
+     * @SWG\Response(
+     *     response=200,
+     *     description="success create"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="add token"
+     * )
+     * @SWG\Tag(name="User")
+     *
+     * @SWG\Parameter(
+     *     name="name",
+     *     type="object",
+     *     in="body",
+     *     schema=@SWG\Schema(type="object",
+     *         @SWG\Property(property="email", type="email"),
+     *     )
+     * )
+     *
+     * @NelmioSecurity(name="BearerUser")
+     */
+    public function passwordRecoverAction(Request $request, string $email): Response
+    {
+        /** @var UserView $user */
+        $user = $this->userRepository->findOneBy(['email' => $email]);
+        $sendEmailCommand = new SendEmailCommand($user->getEmail(), $user->getId(), 'PASSWORD_RECOVER');
+        $this->commandBus->handle($sendEmailCommand);
+        $response = new JsonResponse('success', 200);
 
         return $response;
     }
@@ -311,7 +349,16 @@ class UserController extends RestController
         $form->submit($request->request->all());
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->commandBus->handle($command);
+            try {
+                $this->commandBus->handle($command);
+            } catch (PasswordIsBadException $exception) {
+                $response = new JsonResponse(['#' => [
+                    'Hasło jest nie prawidłowe',
+                ]], JsonResponse::HTTP_BAD_REQUEST);
+
+                return $response;
+            }
+
             $response = new JsonResponse('success', JsonResponse::HTTP_OK);
 
             return $response;

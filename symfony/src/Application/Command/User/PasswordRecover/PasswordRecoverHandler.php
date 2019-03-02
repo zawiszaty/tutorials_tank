@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Application\Command\User\ChangePassword;
+namespace App\Application\Command\User\PasswordRecover;
 
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Infrastructure\Share\Application\Password\PasswordEncoder;
-use App\Infrastructure\Share\Application\Password\PasswordVerify;
 
 /**
  * Class ChangePasswordHandler.
  */
-class ChangePasswordHandler implements CommandHandlerInterface
+class PasswordRecoverHandler implements CommandHandlerInterface
 {
     /**
      * @var \App\Infrastructure\User\Repository\UserRepository
@@ -28,9 +26,8 @@ class ChangePasswordHandler implements CommandHandlerInterface
     /**
      * @throws \Assert\AssertionFailedException
      */
-    public function __invoke(ChangePasswordCommand $command): void
+    public function __invoke(PasswordRecoverCommand $command): void
     {
-        PasswordVerify::verify($command->oldPassword, $command->currentPassword);
         $user = $this->aggregatRepository->get(AggregateRootId::fromString($command->id));
         $user->changePassword(PasswordEncoder::encode($command->plainPassword));
         $this->aggregatRepository->store($user);

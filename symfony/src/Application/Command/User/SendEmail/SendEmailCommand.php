@@ -48,9 +48,6 @@ class SendEmailCommand
         return $this->user;
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;

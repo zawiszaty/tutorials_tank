@@ -24,12 +24,6 @@ class GetAllMessageSenderCommand
 
     /**
      * GetAllMessageSenderCommand constructor.
-     *
-     * @param int    $page
-     * @param int    $limit
-     * @param string $query
-     * @param string $recipient
-     * @param string $user
      */
     public function __construct(int $page, int $limit, string $user)
     {
@@ -38,25 +32,16 @@ class GetAllMessageSenderCommand
         $this->user = $user;
     }
 
-    /**
-     * @return int
-     */
     public function getPage(): int
     {
         return $this->page;
     }
 
-    /**
-     * @return int
-     */
     public function getLimit(): int
     {
         return $this->limit;
     }
 
-    /**
-     * @return string
-     */
     public function getUser(): string
     {
         return $this->user;

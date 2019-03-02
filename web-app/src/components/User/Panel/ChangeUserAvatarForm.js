@@ -13,6 +13,7 @@ import {Paper} from "@material-ui/core";
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import Avatar from "@material-ui/core/Avatar";
+import {ErrorMessage} from "../../Notification/ErrorMessage";
 
 function getModalStyle() {
     const top = 50;
@@ -185,9 +186,7 @@ class ChangeUserAvatarForm extends Component {
                                         });
                                     })
                                     .catch((e) => {
-                                        toast.error("Coś poszło nie tak :(", {
-                                            position: toast.POSITION.BOTTOM_RIGHT
-                                        });
+                                        ErrorMessage(e);
                                     })
                             });
                         });

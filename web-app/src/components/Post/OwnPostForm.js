@@ -181,8 +181,20 @@ class OwnPostForm extends React.Component {
                 <Editor
                     apiKey="69sluxkknib3n831hobh8k54b5yjjvzaexa4hutx9liz6l2b"
                     init={{
-                        plugins: 'link image code',
-                        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+                        plugins: 'link image codesample',
+                        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | codesample',
+                        codesample_languages: [
+                            {text: 'HTML/XML', value: 'markup'},
+                            {text: 'JavaScript', value: 'javascript'},
+                            {text: 'CSS', value: 'css'},
+                            {text: 'PHP', value: 'php'},
+                            {text: 'Ruby', value: 'ruby'},
+                            {text: 'Python', value: 'python'},
+                            {text: 'Java', value: 'java'},
+                            {text: 'C', value: 'c'},
+                            {text: 'C#', value: 'csharp'},
+                            {text: 'C++', value: 'cpp'}
+                        ],
                     }}
                     onChange={this.handleChangeContent}
                 />

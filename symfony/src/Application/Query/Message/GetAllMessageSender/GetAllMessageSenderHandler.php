@@ -30,9 +30,6 @@ class GetAllMessageSenderHandler implements QueryHandlerInterface
         $this->dataBuilder = $dataBuilder;
     }
 
-    /**
-     * @return Collection
-     */
     public function __invoke(GetAllMessageSenderCommand $command): Collection
     {
         $query = [

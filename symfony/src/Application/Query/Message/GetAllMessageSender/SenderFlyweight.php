@@ -12,21 +12,10 @@ class SenderFlyweight
      */
     private static $sender = [];
 
-    /**
-     * @param string $sender
-     */
-    public static function addSender(array $sender): void
+    public static function addSender(string $sender): void
     {
-        if (0 === count(self::$sender)) {
+        if (!\in_array($sender, self::$sender)) {
             self::$sender[] = $sender;
-        } else {
-            foreach (self::$sender as $item) {
-                if ($item['id'] === $sender['id']) {
-                    break 1;
-                } else {
-                    self::$sender[] = $sender;
-                }
-            }
         }
     }
 

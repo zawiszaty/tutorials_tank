@@ -152,8 +152,20 @@ class Comment extends Component {
                             apiKey="69sluxkknib3n831hobh8k54b5yjjvzaexa4hutx9liz6l2b"
                             value={this.state.content}
                             init={{
-                                plugins: 'link code',
-                                toolbar: 'undo redo | bold italic | code'
+                                plugins: 'link code codesample',
+                                codesample_languages: [
+                                    {text: 'HTML/XML', value: 'markup'},
+                                    {text: 'JavaScript', value: 'javascript'},
+                                    {text: 'CSS', value: 'css'},
+                                    {text: 'PHP', value: 'php'},
+                                    {text: 'Ruby', value: 'ruby'},
+                                    {text: 'Python', value: 'python'},
+                                    {text: 'Java', value: 'java'},
+                                    {text: 'C', value: 'c'},
+                                    {text: 'C#', value: 'csharp'},
+                                    {text: 'C++', value: 'cpp'}
+                                ],
+                                toolbar: 'undo redo | bold italic | codesample'
                             }}
                             onChange={this.handleChangeContent}
                         />

@@ -27,8 +27,6 @@ class MessageViewHandler implements CommandHandlerInterface
     }
 
     /**
-     * @param MessageViewCommand $command
-     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */

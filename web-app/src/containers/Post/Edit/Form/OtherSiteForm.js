@@ -193,7 +193,7 @@ class LoginForm extends React.Component {
                         fullWidth
                         className={buttonClassname}
                     >
-                        Dodaj Post
+                        Edytuj
                     </Button>
                     {this.state.loading && <CircularProgress size={24} className={classes.buttonProgress}/>}
                 </div>

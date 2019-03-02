@@ -193,6 +193,11 @@ un_granted_user_admin_role:
   methods: PATCH
   controller: App\UI\HTTP\Rest\Controller\UserController:unGrantedAdminUserRole
 
+password_recover:
+  path: /api/v1/user/password/recover/{email}
+  methods: PATCH
+  controller: App\UI\HTTP\Rest\Controller\UserController:passwordRecoverAction
+
 app.swagger_ui:
   path: /api/doc
   methods: GET

@@ -125,7 +125,7 @@ class ChangeUserEmailForm extends Component {
                         className={classes.form}
                     >
                         <Typography variant="h6" id="tableTitle">
-                            Zmień swoją email
+                            Zmień swój email
                         </Typography>
                         <TextValidator
                             label="Email"

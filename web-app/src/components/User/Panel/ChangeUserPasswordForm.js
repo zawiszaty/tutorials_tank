@@ -11,6 +11,7 @@ import axios from "../../../axios/axios";
 import {toast} from "react-toastify";
 import {Paper} from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
+import {ErrorMessage} from "../../Notification/ErrorMessage";
 
 function getModalStyle() {
     const top = 50;
@@ -126,10 +127,16 @@ class ChangeUserPasswordForm extends Component {
             this.setState({
                 success: true,
                 loading: false,
+                oldPassword: '',
+                firstPassword: '',
+                secondPassword: '',
             });
-        }).catch((e) => {
-            toast.error("Coś poszło nie tak", {
-                position: toast.POSITION.BOTTOM_RIGHT
+        }).catch((error) => {
+            console.log(error.response);
+            ErrorMessage(error);
+            this.setState({
+                success: false,
+                loading: false,
             });
         })
     };
@@ -164,7 +171,7 @@ class ChangeUserPasswordForm extends Component {
                         className={classes.form}
                     >
                         <Typography variant="h6" id="tableTitle">
-                            Zmień swoją email
+                            Zmień swoje hasło
                         </Typography>
                         <TextValidator
                             label="Obecne Hasło"

@@ -64,10 +64,10 @@ class AddPost extends Component {
             <Paper className={classes.paper}>
                 <CssBaseline/>
                 <Grid container spacing={16}>
-                    <Grid item xs={4}>
-                        <img src={this.props.thumbnail} alt="post thumbnail" width="200px" height="200px"/>
+                    <Grid item xs={12} md={4}>
+                        <img src={this.props.thumbnail} alt="post thumbnail" width="100%"/>
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs={12} md={8}>
                         <Typography variant="title" gutterBottom>
                             {this.props.title}
                         </Typography>

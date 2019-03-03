@@ -77,6 +77,9 @@ layer: ## Check issues with layers
 php: ## connect to php container
 		docker-compose -f docker-compose.dev.yml exec php /bin/bash
 
+.PHONY: php-prod
+php: ## connect to php container
+		docker-compose -f docker-compose.prod.yml exec php /bin/bash
 .PHONY: style
 style: ## executes php analizers
 		docker-compose -f docker-compose.dev.yml exec php ./vendor/bin/phpstan analyse -l 1 -c phpstan.neon src

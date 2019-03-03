@@ -145,10 +145,10 @@
                                 <td align="center" vertical-align="middle" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                         <tr>
-                                            <td align="center" bgcolor="#3f51b5" role="presentation" style="border:none;border-radius:3px;cursor:auto;padding:10px 25px;background:#3f51b5;" valign="middle"> <a href="{{ app.request.getSchemeAndHttpHost() }}/potwierdz/zmiane/emaila/{{ token }}?type=confirm" style="background:#3f51b5;color:white;font-family:Helvetica;font-size:13px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;"
+                                            <td align="center" bgcolor="#3f51b5" role="presentation" style="border:none;border-radius:3px;cursor:auto;padding:10px 25px;background:#3f51b5;" valign="middle"> {% if app.environment != 'test' %} <a href="{{ app.request.getSchemeAndHttpHost() }}/potwierdz/zmiane/emaila/{{ token }}?type=confirm" style="background:#3f51b5;color:white;font-family:Helvetica;font-size:13px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;"
                                                                                                                                                                                                                  target="_blank">
                                                     Potwierdz konto
-                                                </a> </td>
+                                                </a>{% endif %} </td>
                                         </tr>
                                     </table>
                                 </td>
@@ -157,10 +157,10 @@
                                 <td align="center" vertical-align="middle" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                         <tr>
-                                            <td align="center" bgcolor="#3f51b5" role="presentation" style="border:none;border-radius:3px;cursor:auto;padding:10px 25px;background:#3f51b5;" valign="middle"> <a href="{{ app.request.getSchemeAndHttpHost() }}/potwierdz/zmiane/emaila/{{ token }}?type=discard&&oldEmail={{ oldMail }}" style="background:#3f51b5;color:white;font-family:Helvetica;font-size:13px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;"
+                                            <td align="center" bgcolor="#3f51b5" role="presentation" style="border:none;border-radius:3px;cursor:auto;padding:10px 25px;background:#3f51b5;" valign="middle"> {% if app.environment != 'test' %} <a href="{{ app.request.getSchemeAndHttpHost() }}/potwierdz/zmiane/emaila/{{ token }}?type=discard&&oldEmail={{ oldMail }}" style="background:#3f51b5;color:white;font-family:Helvetica;font-size:13px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;"
                                                                                                                                                                                                                  target="_blank">
-                                                    Potwierdz wycofaj zmiane
-                                                </a> </td>
+                                                     Wycofaj zmiane
+                                                </a>{% endif %} </td>
                                         </tr>
                                     </table>
                                 </td>

@@ -14,9 +14,9 @@
           Teraz musisz je potwierdzić.
           Kliknij w link poniżej aby potwierdzić konto
         </mj-text>
-        <mj-button href="{{ app.request.getSchemeAndHttpHost() }}/potwierdz/konto/{{ token }}" font-family="Helvetica" background-color="#3f51b5" color="white">
+         {% if app.environment == 'dev' %}<mj-button href="{{ app.request.getSchemeAndHttpHost() }}/potwierdz/konto/{{ token }}" font-family="Helvetica" background-color="#3f51b5" color="white">
           Potwierdz konto
-        </mj-button>
+        </mj-button>{% endif %}
       </mj-column>
     </mj-section>
   </mj-body>

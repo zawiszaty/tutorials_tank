@@ -114,6 +114,7 @@ class SendEmailHandler implements CommandHandlerInterface
                 break;
             default:
                 throw new Swift_TransportException('Mail template dont find');
+
                 break;
         }
         $this->mailer->send($this->message);

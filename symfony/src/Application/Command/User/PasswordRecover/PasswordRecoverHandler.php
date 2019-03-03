@@ -4,6 +4,7 @@ namespace App\Application\Command\User\PasswordRecover;
 
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
+use App\Infrastructure\Share\Application\Password\PasswordEncoder;
 
 /**
  * Class ChangePasswordHandler.

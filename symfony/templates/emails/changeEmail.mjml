@@ -1,0 +1,24 @@
+<mjml>
+  <mj-body>
+    <mj-section>
+      <mj-column>
+
+        <mj-text font-size="20px" color="#3f51b5" font-family="helvetica" align="center">
+         Tutorials Tank
+        </mj-text>
+
+        <mj-divider border-color="#3f51b5"></mj-divider>
+
+        <mj-text font-size="20px" color="#3f51b5" font-family="helvetica" align="center">
+       Ktoś chce zmienić twój adres email. Jeżeli to ty potwierdz zmiane, jezeli to nie ty poinformuj nas o tym.
+        </mj-text>
+        <mj-button href="{{ app.request.getSchemeAndHttpHost() }}/potwierdz/zmiane/emaila/{{ token }}?type=confirm" font-family="Helvetica" background-color="#3f51b5" color="white">
+          Potwierdz konto
+        </mj-button>
+                <mj-button href="{{ app.request.getSchemeAndHttpHost() }}/potwierdz/zmiane/emaila/{{ token }}?type=discard&&oldEmail={{ oldMail }}" font-family="Helvetica" background-color="#3f51b5" color="white">
+          Potwierdz wycofaj zmiane
+        </mj-button>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

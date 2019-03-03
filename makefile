@@ -59,7 +59,7 @@ composer-install:
 .PHONY: composer-install-prod
 composer-install-prod:
 		docker-compose -f docker-compose.prod.yml exec php apt-get -y install git
-		docker-compose -f docker-compose.prod.yml exec php php composer.phar install --no-dev
+		docker-compose -f docker-compose.prod.yml exec php php composer.phar install
 
 .PHONY: elastica
 elastica:

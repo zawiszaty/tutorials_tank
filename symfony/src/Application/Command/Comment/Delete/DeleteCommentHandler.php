@@ -18,6 +18,7 @@ class DeleteCommentHandler implements CommandHandlerInterface
      * @var CommentRepository
      */
     private $commentRepository;
+
     /**
      * @var MysqlUserReadModelRepository
      */

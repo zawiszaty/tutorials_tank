@@ -264,7 +264,6 @@ class CategoryList extends Component {
                     loading: false,
                     count: response.data.total
                 });
-                console.log(response.data.data);
             })
     };
 
@@ -288,7 +287,6 @@ class CategoryList extends Component {
     };
 
     handleChangePage = (event, page) => {
-        console.log(page);
         this.setState({page}, () => {
             this.getAllCategory();
         });

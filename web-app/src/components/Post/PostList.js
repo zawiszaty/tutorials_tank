@@ -122,9 +122,7 @@ class EnhancedTableHead extends React.Component {
 }
 
 EnhancedTableHead.propTypes = {
-    numSelected: PropTypes.number.isRequired,
     onRequestSort: PropTypes.func.isRequired,
-    onSelectAllClick: PropTypes.func.isRequired,
     order: PropTypes.string.isRequired,
     orderBy: PropTypes.string.isRequired,
     rowCount: PropTypes.number.isRequired,
@@ -188,7 +186,6 @@ let EnhancedTableToolbar = props => {
 
 EnhancedTableToolbar.propTypes = {
     classes: PropTypes.object.isRequired,
-    numSelected: PropTypes.number.isRequired,
 };
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
@@ -258,7 +255,6 @@ class PostList extends Component {
                     loading: false,
                     count: response.data.total
                 });
-                console.log(response.data.data);
             }).catch((e) => {
             this.setState({
                 data: [],
@@ -292,7 +288,6 @@ class PostList extends Component {
     };
 
     handleChangePage = (event, page) => {
-        console.log(page);
         this.setState({page}, () => {
             this.getAllCategory();
         });
@@ -344,7 +339,6 @@ class PostList extends Component {
                                                     tabIndex={-1}
                                                     key={n.id}
                                                     onClick={() => {
-                                                        console.log('dzial;a');
                                                         this.props.history.push("/post/" + n.slug)
                                                     }}
                                                 >

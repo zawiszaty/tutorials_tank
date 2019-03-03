@@ -4,10 +4,10 @@ namespace App\Application\Command\Post\Delete;
 
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
-use App\Infrastructure\Comment\Query\MysqlCommentReadModelRepository;
 use App\Infrastructure\Post\Repository\PostRepository;
-use League\Tactician\CommandBus;
+use App\Infrastructure\User\Query\Projections\UserView;
+use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * Class DeletePostHandler.
@@ -20,29 +20,17 @@ class DeletePostHandler implements CommandHandlerInterface
     private $postRepository;
 
     /**
-     * @var CommentRepositoryElastic
+     * @var MysqlUserReadModelRepository
      */
-    private $commentRepositoryElastic;
-
-    /**
-     * @var CommandBus
-     */
-    private $commandBus;
-
-    /**
-     * @var MysqlCommentReadModelRepository
-     */
-    private $commentReadModelRepository;
+    private $mysqlUserReadModelRepository;
 
     /**
      * DeletePostHandler constructor.
      */
-    public function __construct(PostRepository $postRepository, CommentRepositoryElastic $commentRepositoryElastic, CommandBus $commandBus, MysqlCommentReadModelRepository $commentReadModelRepository)
+    public function __construct(PostRepository $postRepository, MysqlUserReadModelRepository $mysqlUserReadModelRepository)
     {
         $this->postRepository = $postRepository;
-        $this->commentRepositoryElastic = $commentRepositoryElastic;
-        $this->commandBus = $commandBus;
-        $this->commentReadModelRepository = $commentReadModelRepository;
+        $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
     }
 
     /**
@@ -50,33 +38,13 @@ class DeletePostHandler implements CommandHandlerInterface
      */
     public function __invoke(DeletePostCommand $deletePostCommand)
     {
-//        $comments = $this->commentRepositoryElastic->search([
-//            "query" => [
-//                "bool" => [
-//                    "must" => [
-//                        [
-//                            "match" => [
-//                                "post" => $deletePostCommand->getId(),
-//                            ]
-//                        ]
-//                    ],
-//                    "must_not" => [
-//                        "exists" => [
-//                            "field" => "parrentComment"
-//                        ]
-//                    ]
-//                ]
-//            ]]);
-//
-//        foreach ($comments['hits']['hits'] as $comment) {
-//            $comment = $comment['_source'];
-//            $command = new DeleteCommentCommand($comment['id'], $comment['user']);
-//            $this->commandBus->handle($command);
-//        }
-
         $aggregateRoot = $this->postRepository->get(AggregateRootId::fromString($deletePostCommand->getId()));
+        /** @var UserView $user */
+        $user = $this->mysqlUserReadModelRepository->get(UserView::class, $deletePostCommand->getUser());
+        if ($aggregateRoot->getUser() !== $deletePostCommand->getUser() && !\in_array('ROLE_ADMIN', $user->getRoles())) {
+            throw new AccessDeniedException();
+        }
         $aggregateRoot->delete($deletePostCommand->getUser());
-
         $this->postRepository->store($aggregateRoot);
     }
 }

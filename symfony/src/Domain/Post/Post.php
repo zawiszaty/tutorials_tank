@@ -10,7 +10,6 @@ use App\Domain\Post\ValueObject\Content;
 use App\Domain\Post\ValueObject\Thumbnail;
 use App\Domain\Post\ValueObject\Title;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
-use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
  * Class Post.
@@ -118,10 +117,6 @@ class Post extends EventSourcedAggregateRoot
 
     public function delete(string $user)
     {
-        if ($user != $this->getUser()) {
-            throw  new AccessDeniedException();
-        }
-
         $this->apply(new PostEventDelete($this->id, $user));
     }
 

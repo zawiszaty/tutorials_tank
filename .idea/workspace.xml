@@ -2,21 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73639fa0-b520-4e7b-983b-bcb71df8eacb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker-compose.prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/symfony/templates/emails/changeEmail.mjml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/symfony/templates/emails/recoverPassword.mjml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/symfony/templates/emails/registration.mjml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/superstatic.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/public/prism.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/public/prism.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/ModalSinglePost.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/default.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Application/Command/User/PasswordRecover/PasswordRecoverHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/User/PasswordRecover/PasswordRecoverHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/templates/emails/changeEmail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/templates/emails/changeEmail.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/templates/emails/recoverPassword.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/templates/emails/recoverPassword.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/templates/emails/registration.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/templates/emails/registration.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Application/Command/Comment/Delete/DeleteCommentHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Comment/Delete/DeleteCommentHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Application/Command/Post/Delete/DeletePostHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Application/Command/Post/Delete/DeletePostHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Domain/Comment/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Comment/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Domain/Post/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Domain/Post/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/components/Category/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Category/Category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/components/Notification/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Notification/Notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/components/Post/CategoryList.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Post/CategoryList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/components/Post/PostList.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Post/PostList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/components/User/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/User/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/Comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/DeleteCommentModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/DeleteCommentModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/SinglePost.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/SinglePost.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,28 +47,105 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/makefile">
+        <entry file="file://$PROJECT_DIR$/web-app/src/components/Post/CategoryList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web-app/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="33" column="131" selection-start-line="33" selection-start-column="131" selection-end-line="33" selection-end-column="131" />
+            <state relative-caret-position="295">
+              <caret line="292" column="6" lean-forward="true" selection-start-line="292" selection-start-column="6" selection-end-line="292" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker-compose.prod.yml">
+        <entry file="file://$PROJECT_DIR$/web-app/src/components/Post/PostList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+            <state relative-caret-position="171">
+              <caret line="187" column="41" lean-forward="true" selection-start-line="187" selection-start-column="41" selection-end-line="187" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Notification.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/components/Notification/Notification.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/MessageDrawer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="156" column="40" lean-forward="true" selection-start-line="156" selection-start-column="40" selection-end-line="156" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerHeader.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerNotification.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-27">
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="180" column="52" selection-start-line="180" selection-start-column="52" selection-end-line="180" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/components/Category/Category.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="308" column="27" lean-forward="true" selection-start-line="308" selection-start-column="27" selection-end-line="308" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-app/src/components/User/User.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="272" column="27" lean-forward="true" selection-start-line="272" selection-start-column="27" selection-end-line="272" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,12 +161,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>http://localhost:9999</find>
-      <find>react</find>
-      <find>potw</find>
-      <find>changeEmai</find>
-      <find>regis</find>
-      <find>changeE</find>
       <find>enab</find>
       <find>changeem</find>
       <find>conf</find>
@@ -112,6 +185,12 @@
       <find>editr</find>
       <find>email</find>
       <find>potwierdz/konto</find>
+      <find>delete</find>
+      <find>ed</find>
+      <find>numSelected</find>
+      <find>badgeContent</find>
+      <find>Badge</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -132,21 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/symfony/src/Application/Command/Message/View/MessageViewCommand.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Message/MessageView.php" />
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/MessageController.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Application/Command/Message/View/MessageViewHandler.php" />
-        <option value="$PROJECT_DIR$/web-app/src/containers/Messanger/Messanger.js" />
-        <option value="$PROJECT_DIR$/symfony/tests/Application/Command/User/ChangeEmail/ChangeEmailHandlerTest.php" />
-        <option value="$PROJECT_DIR$/symfony/features/bootstrap/UserContext.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/User/Consumers/SendUserCreatedEmailConsumer.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Application/Command/User/Create/CreateUserHandler.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/MysqlRepository.php" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Post/PostThumbnailForm.js" />
-        <option value="$PROJECT_DIR$/web-app/src/App.js" />
-        <option value="$PROJECT_DIR$/symfony/src/Application/Command/User/PasswordRecover/ChangePasswordCommand.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Application/Command/User/PasswordRecover/PasswordRecoverCommand.php" />
-        <option value="$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailHandler.php" />
         <option value="$PROJECT_DIR$/symfony/config/routes.yaml" />
         <option value="$PROJECT_DIR$/web-app/src/components/PasswordRecovery/PasswordRecovery.js" />
         <option value="$PROJECT_DIR$/symfony/src/Application/Command/User/ChangePassword/ChangePasswordHandler.php" />
@@ -180,9 +244,24 @@
         <option value="$PROJECT_DIR$/symfony/src/Application/Command/User/PasswordRecover/PasswordRecoverHandler.php" />
         <option value="$PROJECT_DIR$/symfony/templates/emails/registration.mjml" />
         <option value="$PROJECT_DIR$/symfony/templates/emails/registration.html.twig" />
-        <option value="$PROJECT_DIR$/symfony/.env" />
         <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/web-app/package.json" />
+        <option value="$PROJECT_DIR$/symfony/.env" />
+        <option value="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/ModalSinglePost.js" />
+        <option value="$PROJECT_DIR$/symfony/src/Domain/Post/Post.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Command/Post/Delete/DeletePostHandler.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Application/Command/Comment/Delete/DeleteCommentHandler.php" />
+        <option value="$PROJECT_DIR$/symfony/src/Domain/Comment/Comment.php" />
+        <option value="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/DeleteCommentModal.js" />
+        <option value="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/Comment.js" />
+        <option value="$PROJECT_DIR$/web-app/public/index.html" />
+        <option value="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/SinglePost.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Post/CategoryList.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Post/PostList.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Notification/Notification.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Header/Header.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/Category/Category.js" />
+        <option value="$PROJECT_DIR$/web-app/src/components/User/User.js" />
       </list>
     </option>
   </component>
@@ -586,6 +665,41 @@
               <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Header" type="462c0819:PsiDirectoryNode" />
+              <item name="Drawer" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -605,19 +719,19 @@
     <option name="SHOW_DIALOG" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/symfony/src/Application/Command/User" />
-      <recent name="$PROJECT_DIR$/web-app/src/components/Header/Drawer/Notification/Type" />
-      <recent name="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/Unit" />
-      <recent name="$PROJECT_DIR$/web-app/src/components/Header/Drawer" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/symfony/src/Application/Query/Notification" />
       <recent name="$PROJECT_DIR$/web-app/public" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/symfony" />
       <recent name="$PROJECT_DIR$/web-app/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web-app/public" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/symfony/src/Application/Command/User" />
+      <recent name="$PROJECT_DIR$/web-app/src/components/Header/Drawer/Notification/Type" />
+      <recent name="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Strategy/Unit" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -875,7 +989,8 @@
       <workItem from="1551536460729" duration="3194000" />
       <workItem from="1551553533956" duration="4307000" />
       <workItem from="1551599359755" duration="3794000" />
-      <workItem from="1551614001559" duration="1659000" />
+      <workItem from="1551614001559" duration="2867000" />
+      <workItem from="1551625221843" duration="4019000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -919,13 +1034,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316586000" />
+    <option name="totallyTimeSpent" value="321813000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="8" width="1912" height="1068" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49671054" visible="true" weight="0.2114561" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49671054" visible="true" weight="0.15845825" />
       <window_info id="Structure" order="1" sideWeight="0.50328946" side_tool="true" weight="0.34056398" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Query Editor" order="3" />
@@ -940,7 +1054,7 @@
       <window_info anchor="bottom" id="Docker" order="8" weight="0.32880846" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3270525" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4972885" visible="true" weight="0.3148936" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4972885" visible="true" weight="0.25957447" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5027115" side_tool="true" weight="0.39270386" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3295964" />
       <window_info anchor="bottom" id="REST Client" order="14" sideWeight="0.4994664" weight="0.40695068" />
@@ -1022,244 +1136,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web-app/node_modules/@tinymce/tinymce-react/lib/es2015/components/Editor.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/SinglePost.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3645">
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Post/OwnPostForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="196" column="26" lean-forward="true" selection-start-line="183" selection-start-column="23" selection-end-line="196" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/Edit/EditPost.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2167">
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/OwnPostForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="237" column="30" selection-start-line="237" selection-start-column="24" selection-end-line="237" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/OtherSiteForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="195" column="30" selection-start-line="195" selection-start-column="30" selection-end-line="195" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/AddComment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="167" column="79" lean-forward="true" selection-start-line="154" selection-start-column="31" selection-end-line="167" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/.env.dist">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Home/Home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="103" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Login/LoginForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="142" column="37" lean-forward="true" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/UserPanel/ChangeEmailStatus.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserEmailForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Notification/ErrorMessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/User/Panel/ChangeUserAvatarForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="188" column="56" lean-forward="true" selection-start-line="188" selection-start-column="56" selection-end-line="188" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="226" column="66" selection-start-line="226" selection-start-column="66" selection-end-line="226" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/.php_cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3706">
-          <caret line="55" column="24" lean-forward="true" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Home/PostComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="67" column="89" selection-start-line="67" selection-start-column="89" selection-end-line="67" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/Create/CreateUserCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/Create/CreateUserHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/User/SendEmail/SendEmailHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="103" column="49" lean-forward="true" selection-start-line="103" selection-start-column="49" selection-end-line="103" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/Banned/BannedUserHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/ConfirmUser/ConfirmUserHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="41" column="31" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="41" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/tests/Application/Command/User/GranteUserAdminRole/GranteUserAdminRoleHandlerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-651" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/var/log/dev.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="34567" column="56" lean-forward="true" selection-start-line="34567" selection-start-column="56" selection-end-line="34567" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/CLI/Command/EventStoreReplayCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-389" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/CLI/Command/DateToEs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="45" column="74" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/UI/CLI/Command/CreateAdminCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="54" column="75" selection-start-line="54" selection-start-column="75" selection-end-line="54" selection-end-column="75" />
-          <folding>
-            <element signature="e#38#102#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/GetAllMessageSenderHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="738">
@@ -1438,10 +1314,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/.env">
+    <entry file="file://$PROJECT_DIR$/web-app/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        <state relative-caret-position="358">
+          <caret line="33" column="131" selection-start-line="33" selection-start-column="131" selection-end-line="33" selection-end-column="131" />
         </state>
       </provider>
     </entry>
@@ -1454,15 +1330,254 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="75" />
+        <state relative-caret-position="560">
+          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/package.json">
+    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/Edit/EditPost.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="33" column="131" selection-start-line="33" selection-start-column="131" selection-end-line="33" selection-end-column="131" />
+        <state relative-caret-position="372">
+          <caret line="90" column="38" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/Edit/Form/OwnPostForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3720">
+          <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="136" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="226" column="66" selection-start-line="226" selection-start-column="66" selection-end-line="226" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="338" column="26" selection-start-line="338" selection-start-column="20" selection-end-line="338" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Domain/Post/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="163" column="20" selection-start-line="163" selection-start-column="20" selection-end-line="163" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Category/EditCategoryModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3116">
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Share/Query/Repository/MysqlRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Post/Delete/DeletePostHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="48" column="9" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="48" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Application/Command/Comment/Delete/DeleteCommentHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-760">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/CommentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="172" column="8" lean-forward="true" selection-start-line="172" selection-start-column="8" selection-end-line="172" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Domain/Comment/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="120" column="5" selection-start-line="120" selection-start-column="5" selection-end-line="120" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/AddComment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="154" column="62" selection-start-line="154" selection-start-column="52" selection-end-line="154" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/public/prism.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/public/prism.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3936" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="26" column="49" lean-forward="true" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/ModalSinglePost.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/DeleteCommentModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="73" column="42" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/Comment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/SinglePost.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="119" column="45" lean-forward="true" selection-start-line="119" selection-start-column="45" selection-end-line="119" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Post/CategoryList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="292" column="6" lean-forward="true" selection-start-line="292" selection-start-column="6" selection-end-line="292" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Post/PostList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="187" column="41" lean-forward="true" selection-start-line="187" selection-start-column="41" selection-end-line="187" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Notification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Notification/Notification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/MessageDrawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="156" column="40" lean-forward="true" selection-start-line="156" selection-start-column="40" selection-end-line="156" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerNotification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Header/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="180" column="52" selection-start-line="180" selection-start-column="52" selection-end-line="180" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/Category/Category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="308" column="27" lean-forward="true" selection-start-line="308" selection-start-column="27" selection-end-line="308" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/components/User/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="272" column="27" lean-forward="true" selection-start-line="272" selection-start-column="27" selection-end-line="272" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

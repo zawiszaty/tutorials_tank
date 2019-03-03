@@ -56,6 +56,11 @@ composer-install:
 		docker-compose -f docker-compose.dev.yml exec php apt-get -y install git
 		docker-compose -f docker-compose.dev.yml exec php php composer.phar install
 
+.PHONY: composer-install-prod
+composer-install-prod:
+		docker-compose -f docker-compose.prod.yml exec php apt-get -y install git
+		docker-compose -f docker-compose.prod.yml exec php php composer.phar install --no-dev
+
 .PHONY: elastica
 elastica:
 		docker-compose -f docker-compose.dev.yml exec php php bin/console app:es
@@ -78,7 +83,7 @@ php: ## connect to php container
 		docker-compose -f docker-compose.dev.yml exec php /bin/bash
 
 .PHONY: php-prod
-php: ## connect to php container
+php-prod: ## connect to php container
 		docker-compose -f docker-compose.prod.yml exec php /bin/bash
 .PHONY: style
 style: ## executes php analizers
@@ -93,9 +98,15 @@ commit: cs
 front-prod:
 		- docker-compose -f docker-compose.prod.yml exec frontend /bin/bash
 
-.PHONY: prod
-prod: ## make porduction
+.PHONY: prod-up
+prod-up: ## make porduction
 		- docker-compose -f docker-compose.prod.yml up -d
+
+.PHONY: prod-db
+prod-db: ## make porduction db
 		- docker-compose -f docker-compose.prod.yml exec php php bin/console d:d:c --env=prod
 		- docker-compose -f docker-compose.prod.yml exec php php bin/console d:s:c --env=prod
 		- docker-compose -f docker-compose.prod.yml exec php php bin/console d:m:m -n --env=prod
+
+.PHONY: prod
+prod: prod-up composer-install prod-db

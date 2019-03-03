@@ -4,10 +4,10 @@ namespace App\Application\Command\Comment\Delete;
 
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\Common\ValueObject\AggregateRootId;
-use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
-use App\Infrastructure\Comment\Query\MysqlCommentReadModelRepository;
 use App\Infrastructure\Comment\Repository\CommentRepository;
-use League\Tactician\CommandBus;
+use App\Infrastructure\User\Query\Projections\UserView;
+use App\Infrastructure\User\Query\Repository\MysqlUserReadModelRepository;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
  * Class DeleteCommentHandler.
@@ -15,38 +15,23 @@ use League\Tactician\CommandBus;
 class DeleteCommentHandler implements CommandHandlerInterface
 {
     /**
-     * @var CommandBus
-     */
-    private $commandBus;
-
-    /**
      * @var CommentRepository
      */
     private $commentRepository;
-
     /**
-     * @var CommentRepositoryElastic
+     * @var MysqlUserReadModelRepository
      */
-    private $commentRepositoryElastic;
-
-    /**
-     * @var MysqlCommentReadModelRepository
-     */
-    private $commentReadModelRepository;
+    private $mysqlUserReadModelRepository;
 
     /**
      * DeleteCommentHandler constructor.
      */
     public function __construct(
         CommentRepository $commentRepository,
-        CommandBus $commandBus,
-        CommentRepositoryElastic $commentRepositoryElastic,
-        MysqlCommentReadModelRepository $commentReadModelRepository
+        MysqlUserReadModelRepository $mysqlUserReadModelRepository
     ) {
-        $this->commandBus = $commandBus;
         $this->commentRepository = $commentRepository;
-        $this->commentRepositoryElastic = $commentRepositoryElastic;
-        $this->commentReadModelRepository = $commentReadModelRepository;
+        $this->mysqlUserReadModelRepository = $mysqlUserReadModelRepository;
     }
 
     /**
@@ -55,6 +40,11 @@ class DeleteCommentHandler implements CommandHandlerInterface
     public function __invoke(DeleteCommentCommand $deleteCommentCommand)
     {
         $aggregateRoot = $this->commentRepository->get(AggregateRootId::fromString($deleteCommentCommand->getId()));
+        /** @var UserView $user */
+        $user = $this->mysqlUserReadModelRepository->get(UserView::class, $deleteCommentCommand->getUser());
+        if ($aggregateRoot->getUser() !== $deleteCommentCommand->getUser() && !\in_array('ROLE_ADMIN', $user->getRoles())) {
+            throw new AccessDeniedException();
+        }
         $aggregateRoot->delete($deleteCommentCommand->getUser());
         $this->commentRepository->store($aggregateRoot);
     }

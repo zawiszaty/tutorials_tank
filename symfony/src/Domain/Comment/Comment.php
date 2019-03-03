@@ -7,7 +7,6 @@ use App\Domain\Comment\Event\CommentWasDeletedEvent;
 use App\Domain\Common\ValueObject\AggregateRootId;
 use App\Domain\Post\ValueObject\Content;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
-use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
  * Class Comment.
@@ -119,9 +118,6 @@ class Comment extends EventSourcedAggregateRoot
 
     public function delete(string $user): void
     {
-        if ($this->user !== $user) {
-            throw new AccessDeniedException();
-        }
         $this->apply(new CommentWasDeletedEvent($this->id, $user));
     }
 

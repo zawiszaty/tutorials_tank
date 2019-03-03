@@ -70,6 +70,7 @@ class SimpleModal extends React.Component {
             <div>
                 <Button onClick={this.handleOpen} variant="contained"
                         color="secondary"
+                        fullWidth
                         type="submit">usuń</Button>
                 <Modal
                     aria-labelledby="simple-modal-title"

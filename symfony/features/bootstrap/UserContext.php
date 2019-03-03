@@ -135,6 +135,7 @@ class UserContext implements \Behat\Behat\Context\Context
         ]);
 
         self::$response = $response->getStatusCode();
+        die();
     }
 
     /**

@@ -305,7 +305,6 @@ class Category extends Component {
                     loading: false,
                     count: response.data.total
                 });
-                console.log(response.data.data);
             }).catch((e) => {
             this.setState({
                 data: [],

@@ -1,0 +1,112 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  rabbit:
+    image: "rabbitmq:3.7.8"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "admin"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "5672:5672"
+    labels:
+      NAME: "rabbitmq"
+
+  nginx:
+    image: nginx:1.11-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./symfony:/var/www/project
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - db
+      - php
+      - frontend
+
+  php:
+    image: zawiszaty/tutorials_tank_php:2.0.0
+    working_dir: /var/www/project
+    volumes:
+      - ./symfony:/var/www/project
+    links:
+      - db
+      - redis
+
+  frontend:
+    image: zawiszaty/tutorials_tank_node:3.0.0
+    ports:
+      - 3000:3000
+    volumes:
+      - ./web-app:/usr/src/app
+    command: ['npm','run','build']
+
+  workers_1:
+    image: zawiszaty/tutorials_tank_php:2.0.0
+    restart: always
+    working_dir: /var/www/project
+    volumes:
+      - ./symfony:/var/www/project
+    command: ['php','bin/console', 'rabbitmq:multiple-consumer', 'events']
+
+
+  workers_2:
+    image: zawiszaty/tutorials_tank_php:2.0.0
+    working_dir: /var/www/project
+    volumes:
+      - ./symfony:/var/www/project
+    command: ['php','bin/console', 'app:create-message-server']
+    ports:
+      - "8123:8123"
+
+  workers_3:
+    image: zawiszaty/tutorials_tank_php:2.0.0
+    working_dir: /var/www/project
+    volumes:
+      - ./symfony:/var/www/project
+    command: ['php','bin/console', 'app:create-notification-server']
+    ports:
+      - "8888:8888"
+      - "5555:5555"
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - 3307:3307
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.2
+    ports:
+      - 9200:9200
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms250m -Xmx250m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+
+  redis:
+    image: 'bitnami/redis:5.0.3'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/bitnami/redis
+
+volumes:
+  php:
+  db_data:
+  esdata1:
+  redis_data:

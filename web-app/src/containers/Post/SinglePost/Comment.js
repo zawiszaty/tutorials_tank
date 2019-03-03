@@ -38,7 +38,7 @@ const styles = theme => ({
     paper: {
         marginTop: theme.spacing.unit * 8,
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     },
@@ -142,21 +142,31 @@ class Comment extends Component {
                                 {this.state.comments.map((comment) => {
                                     return (
                                         <Paper container className={classes.paper}>
-                                            <Grid item xs={4} className={classes.user}>
+                                            <Grid item xs={12} md={4} className={classes.user}>
                                                 <Avatar src={comment.user.avatar}
                                                         className={classes.avatar}/>
                                                 <Typography variant="title">
                                                     {comment.user.username}
                                                 </Typography>
                                             </Grid>
-                                            <Grid item xs={8}>
+                                            <Grid item xs={12} md={8}>
                                                 {renderHTML(comment.content)}
                                             </Grid>
                                             {this.props.user.length !== 0 &&
                                             <React.Fragment>
-                                                {this.props.user[0].name === comment.user.username &&
-                                                <DeleteCommentModal id={comment.id}
-                                                                    getAllComments={this.getAllComments}/>
+                                                {this.props.user[0].name === comment.user.username ?
+                                                    <Grid item xs={12}>
+                                                        <DeleteCommentModal id={comment.id}
+                                                                            getAllComments={this.getAllComments}/>
+                                                    </Grid> :
+                                                    <React.Fragment>
+                                                        {this.props.user[0].roles.includes('ROLE_ADMIN') &&
+                                                        <Grid item xs={12}>
+                                                            <DeleteCommentModal id={comment.id}
+                                                                                getAllComments={this.getAllComments}/>
+                                                        </Grid>
+                                                        }
+                                                    </React.Fragment>
                                                 }
                                             </React.Fragment>}
                                         </Paper>

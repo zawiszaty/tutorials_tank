@@ -7,10 +7,12 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import axios from './../../../axios/axios';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import renderHTML from 'react-render-html';
-import {Link as RouterLink} from "react-router-dom";
+import {Link as RouterLink, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
+import {toast} from "react-toastify";
+import ModalSinglePost from "./ModalSinglePost";
 
 function TabContainer({children, dir}) {
     return (
@@ -61,6 +63,7 @@ class SinglePost extends Component {
     state = {
         post: [],
         loading: true,
+        openModal: false,
     };
 
     componentDidMount = () => {
@@ -86,6 +89,12 @@ class SinglePost extends Component {
             })
     };
 
+    handleCloseModal = () => {
+        this.setState({
+            openModal: false,
+        })
+    };
+
 
     render() {
         const {classes, theme} = this.props;
@@ -98,16 +107,63 @@ class SinglePost extends Component {
                     <React.Fragment>
                         {this.props.user.length !== 0 &&
                         <React.Fragment>
-                            {this.state.post.user === this.props.user[0].id &&
-                                <Button
-                                    variant="outlined"
-                                    color="primary"
-                                    fullWidth
-                                    component={RouterLink} to={"/edytuj/post/" + this.state.post.slug}
-                                    className={classes.paper}
-                                >
-                                    Edytuj
-                                </Button>
+                            {this.state.post.user === this.props.user[0].id ?
+                                <React.Fragment>
+                                    <Button
+                                        variant="outlined"
+                                        color="primary"
+                                        fullWidth
+                                        className={classes.paper}
+                                        component={RouterLink} to={"/edytuj/post/" + this.state.post.slug}
+                                    >
+                                        Edytuj
+                                    </Button>
+                                    <Button
+                                        variant="outlined"
+                                        color="secondary"
+                                        fullWidth
+                                        className={classes.paper}
+                                        onClick={(e) => {
+                                            this.setState({
+                                                openModal: true,
+                                            })
+                                        }}
+                                    >
+                                        Usuń
+                                    </Button>
+                                    <ModalSinglePost open={this.state.openModal} id={this.state.post.id}
+                                                     handleClose={this.handleCloseModal}/>
+                                </React.Fragment>
+                                :
+                                <React.Fragment>
+                                    {this.props.user[0].roles.includes('ROLE_ADMIN') &&
+                                    <React.Fragment>
+                                        <Button
+                                            variant="outlined"
+                                            color="primary"
+                                            fullWidth
+                                            className={classes.paper}
+                                            component={RouterLink} to={"/edytuj/post/" + this.state.post.slug}
+                                        >
+                                            Edytuj
+                                        </Button>
+                                        <Button
+                                            variant="outlined"
+                                            color="secondary"
+                                            fullWidth
+                                            className={classes.paper}
+                                            onClick={(e) => {
+                                                this.setState({
+                                                    openModal: true,
+                                                })
+                                            }}
+                                        >
+                                            Usuń
+                                        </Button>
+                                        <ModalSinglePost open={this.state.openModal} id={this.state.post.id} handleClose={this.handleCloseModal}/>
+                                    </React.Fragment>
+                                    }
+                                </React.Fragment>
                             }
                         </React.Fragment>
                         }
@@ -120,7 +176,6 @@ class SinglePost extends Component {
                         <Paper className={classes.paper__content}>
                             <Typography variant="body1" gutterBottom>
                                 {renderHTML(this.state.post.content)}
-                                {console.log(this.state.post)}
                             </Typography>
                         </Paper>
                         }
@@ -161,4 +216,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(withStyles(styles, {withTheme: true})(SinglePost));
+export default withRouter(connect(mapStateToProps)(withStyles(styles, {withTheme: true})(SinglePost)));

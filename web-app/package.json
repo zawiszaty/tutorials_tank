@@ -22,7 +22,7 @@
     "react-redux": "^6.0.0",
     "react-render-html": "^0.6.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.3",
+    "react-scripts": "^2.1.5",
     "react-swipeable-views": "^0.13.1",
     "react-toastify": "^4.5.2",
     "recompose": "^0.30.0",
@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "npm install; react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm install; react-scripts build; npm install -g live-server; live-server --port=3000 --entry-file=./build/index.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

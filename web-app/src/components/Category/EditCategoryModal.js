@@ -62,7 +62,8 @@ class EditCategoryModal extends Component {
         }
     }
 
-    handleOpen = () => {
+    handleOpen = (event) => {
+        event.stopPropagation();
         this.setState({
             open: true,
         });
@@ -115,7 +116,7 @@ class EditCategoryModal extends Component {
             <div>
                 <Button
                     variant="contained"
-                    color="primary"
+                    color="secondary"
                     type="submit"
                     onClick={this.handleOpen}
                 >

@@ -26,12 +26,12 @@ function getModalStyle() {
 
 const styles = theme => ({
     paper: {
-        width: theme.spacing.unit * 50,
+        width: 'auto',
+        margin: theme.spacing.unit,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing.unit * 4,
         outline: 'none',
-        marginTop: theme.spacing.unit
     },
     wrapper: {
         margin: theme.spacing.unit,

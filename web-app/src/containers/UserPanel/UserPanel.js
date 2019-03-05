@@ -10,17 +10,17 @@ import ChangeUserAvatarForm from "../../components/User/Panel/ChangeUserAvatarFo
 class UserPanel extends Component {
     render() {
         return (
-            <Grid container spacing={8}>
-                <Grid item xs={12} md={3}>
+            <Grid container alignContent="center" justify="center"  spacing={24}>
+                <Grid item xs={12} md={12} justify="center" alignContent="center">
                     <ChangeUserNameForm user={this.props.user[0]}/>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={12} justify="center" alignContent="center">
                     <ChangeUserEmailForm user={this.props.user[0]}/>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={12} justify="center" alignContent="center">
                     <ChangeUserPasswordForm/>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={12} justify="center" alignContent="center">
                     <ChangeUserAvatarForm user={this.props.user[0]}/>
                 </Grid>
             </Grid>

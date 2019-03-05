@@ -6,7 +6,12 @@
 * You must have install docker, docker-compose locally 
 * Copy .env.dist to .env file 
 ```bash
+$ sysctl -w vm.max_map_count=262144 
+$ chmod 777 symfony/public/thumbnails
+$ chmod 777 symfony/public/avatars
 $ make dev
+$ php bin/console fos:oauth-server:create-client --redirect-uri="" --grant-type="password"
+$ copy client_secret and client_id to web-app/src/axios/env.js example is in web-app/src/axios/env.js.dist 
 ```
 * Go to http://localhost in your web browser and start hacking
 * Go to http://localhost/api/doc in your web browser to view a api docs

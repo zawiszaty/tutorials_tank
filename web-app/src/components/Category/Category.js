@@ -123,6 +123,8 @@ class EnhancedTableHead extends React.Component {
                     )}
                     <TableCell padding="default">
                     </TableCell>
+                    <TableCell padding="default">
+                    </TableCell>
                 </TableRow>
             </TableHead>
         );
@@ -410,9 +412,6 @@ class Category extends Component {
                                                     tabIndex={-1}
                                                     key={n.id}
                                                     selected={isSelected}
-                                                    onClick={() => {
-                                                        this.props.history.push(`/kategorie/${n.id}/posty`);
-                                                    }}
                                                 >
                                                     {this.props.user.length !== 0 &&
                                                     <React.Fragment>
@@ -429,6 +428,18 @@ class Category extends Component {
                                                     </TableCell>
                                                     <TableCell component="th" scope="row" padding="default">
                                                         {n.name}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <Button
+                                                            variant="contained"
+                                                            color="primary"
+                                                            type="submit"
+                                                            onClick={() => {
+                                                                this.props.history.push(`/kategorie/${n.id}/posty`);
+                                                            }}
+                                                        >
+                                                            Zobacz posty
+                                                        </Button>
                                                     </TableCell>
                                                     <TableCell component="th" scope="row" padding="default">
                                                         {this.props.user.length !== 0 &&

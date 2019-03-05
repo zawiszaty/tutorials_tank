@@ -72,7 +72,7 @@ services:
       - "5555:5555"
 
   db:
-    image: mysql:5.7
+    image: mysql:5.7.16
     environment:
       MYSQL_ROOT_PASSWORD: admin
     volumes:

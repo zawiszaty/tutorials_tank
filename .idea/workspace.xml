@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73639fa0-b520-4e7b-983b-bcb71df8eacb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/symfony/config/packages/assets.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/assets.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/nginx/default-prod.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,24 +35,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/.gitignore">
+        <entry file="file://$PROJECT_DIR$/docker/nginx/default-prod.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+            <state relative-caret-position="-1264">
+              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-app/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="34" column="67" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/symfony/package.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/symfony/config/packages/assets.yaml">
+        <entry file="file://$PROJECT_DIR$/web-app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            <state>
+              <caret column="32" selection-start-column="25" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -114,9 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/symfony/src/UI/HTTP/Rest/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Notification/ErrorMessage.js" />
-        <option value="$PROJECT_DIR$/web-app/src/components/Header/Drawer/DrawerHeader.js" />
         <option value="$PROJECT_DIR$/web-app/src/components/Home/PostComponent.js" />
         <option value="$PROJECT_DIR$/symfony/src/UI/CLI/Command/CreateAdminCommand.php" />
         <option value="$PROJECT_DIR$/symfony/src/Application/Query/Message/GetAllMessageSender/SenderFlyweight.php" />
@@ -128,7 +133,6 @@
         <option value="$PROJECT_DIR$/symfony/templates/emails/recoverPassword.mjml" />
         <option value="$PROJECT_DIR$/symfony/templates/emails/recoverPassword.html.twig" />
         <option value="$PROJECT_DIR$/symfony/src/Application/Command/User/PasswordRecover/PasswordRecoverHandler.php" />
-        <option value="$PROJECT_DIR$/web-app/package.json" />
         <option value="$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/ModalSinglePost.js" />
         <option value="$PROJECT_DIR$/symfony/src/Domain/Post/Post.php" />
         <option value="$PROJECT_DIR$/symfony/src/Application/Command/Post/Delete/DeletePostHandler.php" />
@@ -151,7 +155,6 @@
         <option value="$PROJECT_DIR$/symfony/features/bootstrap/UserContext.php" />
         <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/symfony/.env.dist" />
-        <option value="$PROJECT_DIR$/docker-compose.prod.yml" />
         <option value="$PROJECT_DIR$/symfony/.env" />
         <option value="$PROJECT_DIR$/symfony/config/packages/nelmio_cors.yaml" />
         <option value="$PROJECT_DIR$/web-app/src/components/Category/EditCategoryModal.js" />
@@ -165,6 +168,11 @@
         <option value="$PROJECT_DIR$/web-app/src/axios/env.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/symfony/config/packages/assets.yaml" />
+        <option value="$PROJECT_DIR$/docker-compose.prod.yml" />
+        <option value="$PROJECT_DIR$/web-app/build/app.js" />
+        <option value="$PROJECT_DIR$/web-app/public/app.js" />
+        <option value="$PROJECT_DIR$/web-app/app.js" />
+        <option value="$PROJECT_DIR$/web-app/package.json" />
       </list>
     </option>
   </component>
@@ -524,41 +532,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -596,6 +569,22 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="web-app" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -611,19 +600,19 @@
     <option name="SHOW_DIALOG" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web-app/src/axios" />
-      <recent name="$PROJECT_DIR$/web-app/public" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/symfony/src/Application/Command/User" />
-      <recent name="$PROJECT_DIR$/web-app/src/components/Header/Drawer/Notification/Type" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web-app" />
       <recent name="$PROJECT_DIR$/symfony/src/Application/Query/Notification" />
       <recent name="$PROJECT_DIR$/web-app/public" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/symfony" />
-      <recent name="$PROJECT_DIR$/web-app/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker/nginx" />
+      <recent name="$PROJECT_DIR$/web-app/src/axios" />
+      <recent name="$PROJECT_DIR$/web-app/public" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/symfony/src/Application/Command/User" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -884,7 +873,8 @@
       <workItem from="1551614001559" duration="2867000" />
       <workItem from="1551625221843" duration="4019000" />
       <workItem from="1551638492641" duration="5669000" />
-      <workItem from="1551812735178" duration="2346000" />
+      <workItem from="1551812735178" duration="3409000" />
+      <workItem from="1551887947800" duration="2639000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -928,13 +918,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329828000" />
+    <option name="totallyTimeSpent" value="333530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="8" width="1912" height="1068" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49671054" visible="true" weight="0.16167024" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49671054" visible="true" weight="0.13436832" />
       <window_info id="Structure" order="1" sideWeight="0.50328946" side_tool="true" weight="0.34056398" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Query Editor" order="3" />
@@ -949,7 +939,7 @@
       <window_info anchor="bottom" id="Docker" order="8" weight="0.32880846" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3270525" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4972885" visible="true" weight="0.25957447" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4972885" visible="true" weight="0.25957447" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5027115" side_tool="true" weight="0.39270386" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3295964" />
       <window_info anchor="bottom" id="REST Client" order="14" sideWeight="0.4994664" weight="0.40695068" />
@@ -1031,44 +1021,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/DeleteCommentModal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="73" column="42" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/containers/Post/SinglePost/SinglePost.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="119" column="45" lean-forward="true" selection-start-line="119" selection-start-column="45" selection-end-line="119" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Post/CategoryList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8184">
-          <caret line="292" column="6" selection-start-line="292" selection-start-column="6" selection-end-line="292" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/components/Post/PostList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4929">
-          <caret line="187" column="41" selection-start-line="187" selection-start-column="41" selection-end-line="187" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Notification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/components/Notification/Notification.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
@@ -1325,13 +1277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.prod.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2604">
-          <caret line="84" column="32" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/containers/UserPanel/UserListContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3441">
@@ -1416,20 +1361,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/.gitignore">
+    <entry file="file://$PROJECT_DIR$/symfony/config/packages/assets.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        <state relative-caret-position="62">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/symfony/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/config/packages/assets.yaml">
+    <entry file="file://$PROJECT_DIR$/symfony/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="372">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.prod.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/build/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="47" selection-start-column="47" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/build/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/nginx/default-prod.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1264">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" selection-start-column="25" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="34" column="67" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="67" />
         </state>
       </provider>
     </entry>

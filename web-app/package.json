@@ -10,6 +10,7 @@
     "autobahn": "^18.10.2",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
+    "express": "^4.16.4",
     "lodash.debounce": "^4.0.8",
     "react": "^16.7.0",
     "react-avatar-editor": "^11.0.4",
@@ -31,7 +32,7 @@
   },
   "scripts": {
     "start": "npm install; react-scripts start",
-    "build": "npm install; react-scripts build; npm install -g live-server; live-server --port=3000 --entry-file=./build/index.html",
+    "build": "npm install; react-scripts build; npm install express --save; node app.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

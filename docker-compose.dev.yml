@@ -121,15 +121,6 @@ services:
       - 1025:1025
       - 1080:1080
 
-  redis:
-    image: 'bitnami/redis:5.0.3'
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-    ports:
-      - '6379:6379'
-    volumes:
-      - redis_data:/bitnami/redis
-
 
 volumes:
   php:

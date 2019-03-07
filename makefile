@@ -108,5 +108,9 @@ prod-db: ## make porduction db
 		- docker-compose -f docker-compose.prod.yml exec php php bin/console d:s:c --env=prod
 		- docker-compose -f docker-compose.prod.yml exec php php bin/console d:m:m -n --env=prod
 
+.PHONY: prod-boot
+prod-boot: ## make porduction db
+		- docker-compose -f docker-compose.prod.yml exec php php bin/console app:boot
+
 .PHONY: prod
 prod: prod-up composer-install-prod prod-db

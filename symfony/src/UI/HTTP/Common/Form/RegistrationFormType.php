@@ -34,7 +34,7 @@ class RegistrationFormType extends AbstractType
                     new Email(),
                     new NotNull(),
                     new Length([
-                        'max' => '20',
+                        'max' => '255',
                     ]),
                 ],
             ])
@@ -42,7 +42,7 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new NotNull(),
                     new Length([
-                        'max' => '20',
+                        'max' => '255',
                     ]),
                 ],
             ])
@@ -54,7 +54,7 @@ class RegistrationFormType extends AbstractType
                     new NotNull(),
                     new Length([
                         'min' => '6',
-                        'max' => '20',
+                        'max' => '255',
                     ]),
                 ],
             ]);

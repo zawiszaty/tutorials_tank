@@ -25,7 +25,7 @@ class ChangePasswordForm extends AbstractType
                     new NotNull(),
                     new Length([
                         'min' => '6',
-                        'max' => '250',
+                        'max' => '255',
                     ]),
                 ],
             ])
@@ -44,7 +44,7 @@ class ChangePasswordForm extends AbstractType
                     new NotNull(),
                     new Length([
                         'min' => '6',
-                        'max' => '20',
+                        'max' => '255',
                     ]),
                 ],
             ]);

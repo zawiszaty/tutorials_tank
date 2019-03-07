@@ -14,6 +14,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Avatar from "@material-ui/core/Avatar";
 import {toast} from "react-toastify";
+import {baseSocket, baseUrl} from "../../axios/env";
 
 const styles = theme => ({
     progress: {
@@ -97,7 +98,7 @@ class MessangerComponent extends Component {
         super(props);
         this.state = {
             content: '',
-            notif: new WebSocket(`ws://0.0.0.0:8123?token=${localStorage.getItem('token')}`),
+            notif: new WebSocket(`ws://${baseSocket}:8123?token=${localStorage.getItem('token')}`),
             messages: props.messages
         };
         this.state.notif.onmessage = (event) => {

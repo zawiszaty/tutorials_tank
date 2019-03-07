@@ -107,7 +107,7 @@ class ChangeUserEmailForm extends Component {
 
     componentDidMount() {
         ValidatorForm.addValidationRule('maxLenght', (value) => {
-            if (value.length > 20) {
+            if (value.length > 255) {
                 return false;
             }
             return true;

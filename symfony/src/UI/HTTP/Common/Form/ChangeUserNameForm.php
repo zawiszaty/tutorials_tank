@@ -25,7 +25,7 @@ class ChangeUserNameForm extends AbstractType
                     new NotNull(),
                     new Length([
                         'min' => '1',
-                        'max' => '20',
+                        'max' => '255',
                     ]),
                 ],
             ]);

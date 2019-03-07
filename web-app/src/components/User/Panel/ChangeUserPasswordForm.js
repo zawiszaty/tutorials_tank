@@ -90,7 +90,7 @@ class ChangeUserPasswordForm extends Component {
         });
 
         ValidatorForm.addValidationRule('maxLenght', (value) => {
-            if (value.length > 20) {
+            if (value.length > 255) {
                 return false;
             }
             return true;

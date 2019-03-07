@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {login} from "../../actions/user";
 import {toast} from "react-toastify";
 import {getNotification} from "../../actions/notification";
+import {baseSocket} from "../../axios/env";
 
 const styles = theme => ({});
 
@@ -37,7 +38,7 @@ class Notification extends React.Component {
         let then = this;
         const ab = window.ab;
         // var userid = this.state.user;
-        var conn = new ab.Session(`ws://localhost:8888?token=${localStorage.getItem('token')}`,
+        var conn = new ab.Session(`ws://${baseSocket}:8888?token=${localStorage.getItem('token')}`,
             function () {
                 conn.subscribe(then.props.user[0].id, function (topic, data) {
                     let total = parseInt(then.props.notification);

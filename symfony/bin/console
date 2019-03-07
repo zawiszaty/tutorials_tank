@@ -33,7 +33,7 @@ if ($debug) {
         Debug::enable();
     }
 }
-
+umask(0002);
 $kernel = new Kernel($env, $debug);
 $application = new Application($kernel);
 $application->run($input);

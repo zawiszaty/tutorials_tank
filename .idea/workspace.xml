@@ -36,11 +36,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker-compose.prod.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="94" column="45" selection-start-line="94" selection-start-column="45" selection-end-line="94" selection-end-column="45" />
+            <state relative-caret-position="171">
+              <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -81,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docker-compose.dev.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="121" column="17" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
+            <state relative-caret-position="171">
+              <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -119,7 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>GEtAllBy</find>
       <find>get</find>
       <find>hist</find>
       <find>Posty</find>
@@ -149,6 +148,7 @@
       <find>: php</find>
       <find>stop</find>
       <find>elast</find>
+      <find>redis</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -218,8 +218,8 @@
         <option value="$PROJECT_DIR$/symfony/public/index.php" />
         <option value="$PROJECT_DIR$/symfony/config/packages/framework.yaml" />
         <option value="$PROJECT_DIR$/symfony/.env.dist" />
-        <option value="$PROJECT_DIR$/docker-compose.prod.yml" />
         <option value="$PROJECT_DIR$/docker-compose.dev.yml" />
+        <option value="$PROJECT_DIR$/docker-compose.prod.yml" />
       </list>
     </option>
   </component>
@@ -638,6 +638,27 @@
               <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
               <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="prod" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -948,7 +969,7 @@
       <workItem from="1551812735178" duration="3409000" />
       <workItem from="1551887947800" duration="4156000" />
       <workItem from="1551970589696" duration="945000" />
-      <workItem from="1551976184907" duration="1088000" />
+      <workItem from="1551976184907" duration="1209000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -992,7 +1013,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="337080000" />
+    <option name="totallyTimeSpent" value="337201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="8" width="1912" height="1068" extended-state="0" />
@@ -1388,9 +1409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/config/packages/prod/monolog.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/config/packages/twig.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1415,13 +1433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony/config/packages/framework.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/.env.prod">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -1443,17 +1454,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.prod.yml">
+    <entry file="file://$PROJECT_DIR$/symfony/config/packages/prod/monolog.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/config/packages/framework.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="94" column="45" selection-start-line="94" selection-start-column="45" selection-end-line="94" selection-end-column="45" />
+        <state relative-caret-position="527">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docker-compose.dev.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="121" column="17" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
+        <state relative-caret-position="171">
+          <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.prod.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
         </state>
       </provider>
     </entry>

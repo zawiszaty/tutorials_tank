@@ -34,7 +34,6 @@ services:
       - ./symfony:/var/www/project
     links:
       - db
-      - redis
 
   frontend:
     image: zawiszaty/tutorials_tank_node:3.0.0
@@ -126,4 +125,3 @@ volumes:
   php:
   db_data:
   esdata1:
-  redis_data:

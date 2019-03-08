@@ -124,8 +124,10 @@ class Header extends Component {
 
                             if (total < 10) {
                                 this.props.getNotification(0);
+                                document.title = `Tutorials Tank (0)`;
                             } else {
                                 this.props.getNotification(total - 10);
+                                document.title = `Tutorials Tank (${total - 10})`;
                             }
                         });
                     }

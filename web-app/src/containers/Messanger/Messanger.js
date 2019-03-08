@@ -10,6 +10,7 @@ import {login} from "../../actions/user";
 import {connect} from "react-redux";
 import CategoryList from "../../components/Post/CategoryList";
 import MessangerComponent from "../../components/Messanger/MessangerComponent";
+import {withRouter} from "react-router-dom";
 
 const styles = theme => ({
     progress: {
@@ -59,6 +60,9 @@ class Messanger extends Component {
     }
 
     getAllMessages = () => {
+        if (this.props.user[0].id === this.props.match.params.id)  {
+            this.props.history.push('/');
+        }
         axios.get(`/api/v1/message?recipient=${this.props.match.params.id}&&limit=${this.state.limit}`, {
             headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
         })
@@ -157,4 +161,4 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = {login};
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Messanger));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Messanger)));

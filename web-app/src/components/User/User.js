@@ -67,8 +67,8 @@ function getSorting(order, orderBy) {
 }
 
 const rows = [
-    {id: 'id', numeric: false, disablePadding: true, label: 'Id Kategori'},
-    {id: 'name', numeric: false, disablePadding: true, label: 'Nazwa uzytkownika'},
+    {id: 'id', numeric: false, disablePadding: true, label: 'Id Użytkownika'},
+    {id: 'name', numeric: false, disablePadding: true, label: 'Nazwa użytkownika'},
     {id: 'avatar', numeric: false, disablePadding: true, label: 'Avatar'},
 ];
 
@@ -363,35 +363,64 @@ class User extends Component {
                                         .map(n => {
                                             const isSelected = this.isSelected(n.id);
                                             return (
-                                                <TableRow
-                                                    aria-checked={isSelected}
-                                                    tabIndex={-1}
-                                                    key={n.id}
-                                                    className={(n.banned ? classes.ban : '')}
-                                                    onClick={() => {
-                                                        this.props.history.push(`/uzytkownik/${n.username}`)
-                                                    }}
-                                                >
-                                                    <TableCell component="th" scope="row" padding="default">
-                                                        {n.id}
-                                                    </TableCell>
-                                                    <TableCell component="th" scope="row" padding="default">
-                                                        {n.username}
-                                                    </TableCell>
-                                                    <TableCell component="th" scope="row" padding="default">
-                                                        <Avatar alt="Remy Sharp"
-                                                                src={n.avatar}/>
-                                                    </TableCell>
-                                                    {this.props.user.length !== 0 &&
-                                                    <React.Fragment>
-                                                        {this.props.user[0].roles.includes('ROLE_ADMIN') &&
+                                                <React.Fragment>
+                                                    {this.props.user.length !== 0 ?
                                                         <React.Fragment>
-                                                            <BanButton n={n}/>
+                                                            {this.props.user[0].id !== n.id &&
+                                                            <TableRow
+                                                                aria-checked={isSelected}
+                                                                tabIndex={-1}
+                                                                key={n.id}
+                                                                className={(n.banned ? classes.ban : '')}
+                                                                onClick={() => {
+                                                                    this.props.history.push(`/uzytkownik/${n.username}`)
+                                                                }}
+                                                            >
+                                                                <TableCell component="th" scope="row" padding="default">
+                                                                    {n.id}
+                                                                </TableCell>
+                                                                <TableCell component="th" scope="row" padding="default">
+                                                                    {n.username}
+                                                                </TableCell>
+                                                                <TableCell component="th" scope="row" padding="default">
+                                                                    <Avatar alt="Remy Sharp"
+                                                                            src={n.avatar}/>
+                                                                </TableCell>
+                                                                {this.props.user.length !== 0 &&
+                                                                <React.Fragment>
+                                                                    {this.props.user[0].roles.includes('ROLE_ADMIN') &&
+                                                                    <React.Fragment>
+                                                                        <BanButton n={n}/>
+                                                                    </React.Fragment>
+                                                                    }
+                                                                </React.Fragment>
+                                                                }
+                                                            </TableRow>
+                                                            }
                                                         </React.Fragment>
-                                                        }
-                                                    </React.Fragment>
+                                                        :
+                                                        <TableRow
+                                                            aria-checked={isSelected}
+                                                            tabIndex={-1}
+                                                            key={n.id}
+                                                            className={(n.banned ? classes.ban : '')}
+                                                            onClick={() => {
+                                                                this.props.history.push(`/uzytkownik/${n.username}`)
+                                                            }}
+                                                        >
+                                                            <TableCell component="th" scope="row" padding="default">
+                                                                {n.id}
+                                                            </TableCell>
+                                                            <TableCell component="th" scope="row" padding="default">
+                                                                {n.username}
+                                                            </TableCell>
+                                                            <TableCell component="th" scope="row" padding="default">
+                                                                <Avatar alt="Remy Sharp"
+                                                                        src={n.avatar}/>
+                                                            </TableCell>
+                                                        </TableRow>
                                                     }
-                                                </TableRow>
+                                                </React.Fragment>
                                             );
                                         })}
                                     {emptyRows > 0 && (

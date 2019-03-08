@@ -2,19 +2,12 @@
 
 namespace App\UI\CLI\Command;
 
-use App\Infrastructure\Category\Query\Projections\CategoryView;
 use App\Infrastructure\Category\Repository\CategoryRepositoryElastic;
 use App\Infrastructure\Comment\Query\CommentRepositoryElastic;
-use App\Infrastructure\Comment\Query\Projections\CommentView;
-use App\Infrastructure\Message\MessageView;
 use App\Infrastructure\Message\Query\MessageRepositoryElastic;
-use App\Infrastructure\Notification\NotificationView;
 use App\Infrastructure\Notification\Query\NotificationRepositoryElastic;
-use App\Infrastructure\Post\Query\Projections\PostView;
 use App\Infrastructure\Post\Query\Repository\PostRepositoryElastic;
-use App\Infrastructure\User\Query\Projections\UserView;
 use App\Infrastructure\User\Repository\UserRepositoryElastic;
-use Doctrine\ORM\EntityManager;
 use Elasticsearch\ClientBuilder;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;

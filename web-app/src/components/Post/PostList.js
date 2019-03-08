@@ -66,7 +66,7 @@ function getSorting(order, orderBy) {
 }
 
 const rows = [
-    {id: 'id', numeric: false, disablePadding: true, label: 'Id Kategori'},
+    {id: 'id', numeric: false, disablePadding: true, label: 'Id Postu'},
     {id: 'tittle', numeric: false, disablePadding: true, label: 'Tytuł Postu'},
     {id: 'descryption', numeric: false, disablePadding: true, label: 'Krótki opis'},
 ];

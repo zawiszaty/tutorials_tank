@@ -58,6 +58,24 @@ class Notification implements WampServerInterface
      */
     public function onUnSubscribe(ConnectionInterface $conn, $topic)
     {
+        $querystring = $conn->httpRequest->getUri()->getQuery();
+        parse_str($querystring, $queryarray);
+
+        if (!$queryarray['token']) {
+            throw new AccessDeniedException('Brak tokena');
+        }
+        $token = $this->container->get('doctrine')->getRepository('App:AccessToken')->findOneBy([
+            'token' => $queryarray['token'],
+        ]);
+
+        if ($token->getExpiresIn() < 0) {
+            throw new AccessDeniedException('Token wygasł');
+        }
+
+        /** @var UserView $sender */
+        $user = $token->getUser();
+        dump('unset' . $user->getId());
+        unset($this->subscribedTopics[$user->getId()]);
     }
 
     public function onOpen(ConnectionInterface $conn)
@@ -66,6 +84,24 @@ class Notification implements WampServerInterface
 
     public function onClose(ConnectionInterface $conn)
     {
+        $querystring = $conn->httpRequest->getUri()->getQuery();
+        parse_str($querystring, $queryarray);
+
+        if (!$queryarray['token']) {
+            throw new AccessDeniedException('Brak tokena');
+        }
+        $token = $this->container->get('doctrine')->getRepository('App:AccessToken')->findOneBy([
+            'token' => $queryarray['token'],
+        ]);
+
+        if ($token->getExpiresIn() < 0) {
+            throw new AccessDeniedException('Token wygasł');
+        }
+
+        /** @var UserView $sender */
+        $user = $token->getUser();
+        dump('unset' . $user->getId());
+        unset($this->subscribedTopics[$user->getId()]);
     }
 
     /**

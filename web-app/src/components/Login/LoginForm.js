@@ -110,8 +110,10 @@ class LoginForm extends React.Component {
                     headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
                 }).then((e) => {
                     this.props.getNotification(e.data);
+                    document.title = `Tutorials Tank (${e.data})`;
                 }).catch((e) => {
                     this.props.getNotification(0);
+                    document.title = `Tutorials Tank (0)`;
                 });
 
                 this.setState({

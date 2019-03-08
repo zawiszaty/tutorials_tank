@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73639fa0-b520-4e7b-983b-bcb71df8eacb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web-app/src/components/NotFound.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Notification.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Notification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Login/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Login/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Notification/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Notification/Notification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Post/PostList.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Post/PostList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/Security/CheckSecurity.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/Security/CheckSecurity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/components/User/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/components/User/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/containers/Messanger/Messanger.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/containers/Messanger/Messanger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,14 +40,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/components/User/User.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="327">
-              <caret line="370" column="89" lean-forward="true" selection-start-line="370" selection-start-column="89" selection-end-line="370" selection-end-column="89" />
+              <caret line="370" column="89" selection-start-line="370" selection-start-column="89" selection-end-line="370" selection-end-column="89" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="133" column="44" lean-forward="true" selection-start-line="133" selection-start-column="44" selection-end-line="133" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -67,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Notification.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="449">
-              <caret line="102" column="39" lean-forward="true" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+              <caret line="102" column="39" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -145,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/symfony/templates/emails/changeEmail.mjml" />
         <option value="$PROJECT_DIR$/symfony/templates/emails/registration.html.twig" />
         <option value="$PROJECT_DIR$/symfony/templates/emails/registration.mjml" />
         <option value="$PROJECT_DIR$/symfony/templates/emails/changeEmail.html.twig" />
@@ -196,6 +193,7 @@
         <option value="$PROJECT_DIR$/web-app/src/components/Notification/Notification.js" />
         <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Notification.php" />
         <option value="$PROJECT_DIR$/web-app/src/components/User/User.js" />
+        <option value="$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php" />
       </list>
     </option>
   </component>
@@ -623,6 +621,14 @@
               <item name="symfony" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="Message" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorials_tank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorials_tank" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
               <item name="Notification" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -956,7 +962,7 @@
       <workItem from="1551970589696" duration="945000" />
       <workItem from="1551976184907" duration="5005000" />
       <workItem from="1552052608100" duration="4010000" />
-      <workItem from="1552063057105" duration="1538000" />
+      <workItem from="1552063057105" duration="2589000" />
     </task>
     <task id="LOCAL-00001" summary="repair create post type bug">
       <created>1549135726909</created>
@@ -1000,13 +1006,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346545000" />
+    <option name="totallyTimeSpent" value="347596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="8" width="1912" height="1068" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49671054" visible="true" weight="0.13704497" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49671054" visible="true" weight="0.13704497" />
       <window_info id="Structure" order="1" sideWeight="0.50328946" side_tool="true" weight="0.34056398" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Query Editor" order="3" />
@@ -1021,7 +1027,7 @@
       <window_info anchor="bottom" id="Docker" order="8" weight="0.32880846" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32659575" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4972885" visible="true" weight="0.25957447" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4972885" visible="true" weight="0.25957447" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5027115" side_tool="true" weight="0.39270386" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3295964" />
       <window_info anchor="bottom" id="REST Client" order="14" sideWeight="0.4994664" weight="0.40695068" />
@@ -1103,9 +1109,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/symfony/config/packages/twig.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-124">
@@ -1452,17 +1455,24 @@
     <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Notification/Notification.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
-          <caret line="102" column="39" lean-forward="true" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+          <caret line="102" column="39" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/components/User/User.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
-          <caret line="370" column="89" lean-forward="true" selection-start-line="370" selection-start-column="89" selection-end-line="370" selection-end-column="89" />
+          <caret line="370" column="89" selection-start-line="370" selection-start-column="89" selection-end-line="370" selection-end-column="89" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symfony/src/Infrastructure/Message/Message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="133" column="44" lean-forward="true" selection-start-line="133" selection-start-column="44" selection-end-line="133" selection-end-column="44" />
         </state>
       </provider>
     </entry>

@@ -15,7 +15,7 @@ class FooterComponent extends Component {
         return (
             <AppBar position="static" color="primary" className={classes.footer}>
                 <Typography component="h2" variant="headline" color="inherit" gutterBottom align="center">
-                    Strona stworzona przez zespół Tutorials Tank wszelkie prawa zastrzeżone
+                    Strona stworzona przez zespół Tutorials Tank &copy; Copyright 2019
                 </Typography>
             </AppBar>
         );

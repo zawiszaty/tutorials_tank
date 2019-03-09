@@ -10,6 +10,7 @@ import OwnPostForm from "./Form/OwnPostForm";
 import axios from "../../../axios/axios";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import OtherSiteForm from "./Form/OtherSiteForm";
+import {withRouter} from "react-router-dom";
 
 const styles = theme => ({
     main: {
@@ -64,10 +65,13 @@ class EditPost extends Component {
                 post: e.data,
                 loading: false
             });
+        }).catch((e) => {
+            this.setState({
+                post: e.data,
+                loading: false
+            });
+            this.props.history.push('/404');
         })
-            .catch((e) => {
-
-            })
     };
 
     render() {
@@ -112,4 +116,4 @@ EditPost.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(EditPost);
+export default withRouter(withStyles(styles)(EditPost));

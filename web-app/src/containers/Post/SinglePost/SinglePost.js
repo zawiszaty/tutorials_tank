@@ -83,9 +83,8 @@ class SinglePost extends Component {
                 post: e.data,
                 loading: false
             });
-        })
-            .catch((e) => {
-
+        }).catch((e) => {
+                this.props.history.push('/404');
             })
     };
 

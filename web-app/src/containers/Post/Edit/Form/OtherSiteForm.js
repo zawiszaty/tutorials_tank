@@ -10,6 +10,7 @@ import {toast} from 'react-toastify';
 import CategoryList from "./CategoryList";
 import PostThumbnailForm from "./PostThumbnailForm";
 import green from '@material-ui/core/colors/green';
+import {withRouter} from "react-router-dom";
 
 const styles = theme => ({
     form: {
@@ -94,28 +95,54 @@ class LoginForm extends React.Component {
                             loading: true,
                         })
                 }
-                this.state.file.append('title', this.state.title);
-                this.state.file.append('content', this.state.link);
-                this.state.file.append('shortDescription', this.state.shortDescription);
-                this.state.file.append("type", 'oder_site');
-                this.state.file.append("category", this.state.selected);
-                axios.post(`/api/v1/post/${this.props.id}`, this.state.file, {
-                    headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
-                }).then((response) => {
-                    toast.success("Dodano post", {
-                        position: toast.POSITION.BOTTOM_RIGHT
+                if (typeof this.state.file !== "string") {
+                    this.state.file.append('title', this.state.title);
+                    this.state.file.append('content', this.state.link);
+                    this.state.file.append('shortDescription', this.state.shortDescription);
+                    this.state.file.append("type", 'oder_site');
+                    this.state.file.append("category", this.state.selected);
+                    axios.post(`/api/v1/post/edit/${this.props.id}`, this.state.file, {
+                        headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                    }).then((response) => {
+                        toast.success("Dodano post", {
+                            position: toast.POSITION.BOTTOM_RIGHT
+                        });
+                        this.setState({
+                            success: true
+                        });
+                    }).catch((e) => {
+                        toast.error("Coś poszło nie tak", {
+                            position: toast.POSITION.BOTTOM_RIGHT
+                        });
+                        this.setState({
+                            loading: false,
+                        });
                     });
-                    this.setState({
-                        success: true
+                } else {
+                    axios.post(`/api/v1/post/edit/${this.props.id}`, {
+                        title: this.state.title,
+                        content: this.state.link,
+                        type: 'oder_site',
+                        shortDescription: this.state.shortDescription,
+                        category: this.state.selected
+                    }, {
+                        headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                    }).then((response) => {
+                        toast.success("Dodano post", {
+                            position: toast.POSITION.BOTTOM_RIGHT
+                        });
+                        this.setState({
+                            success: true,
+                        });
+                    }).catch((e) => {
+                        toast.error("Coś poszło nie tak", {
+                            position: toast.POSITION.BOTTOM_RIGHT
+                        });
+                        this.setState({
+                            loading: false,
+                        });
                     });
-                }).catch((e) => {
-                    toast.error("Coś poszło nie tak", {
-                        position: toast.POSITION.BOTTOM_RIGHT
-                    });
-                    this.setState({
-                        loading: false,
-                    });
-                });
+                }
             }
         }
 
@@ -183,7 +210,7 @@ class LoginForm extends React.Component {
                     margin="normal" fullWidth
                 />
                 <CategoryList selected={this.state.selected} handleClick={this.handleClick}/>
-                <PostThumbnailForm handleChangeFile={this.handleChangeFile}/>
+                <PostThumbnailForm handleChangeFile={this.handleChangeFile} thumbnail={this.state.file}/>
                 <div className={classes.wrapper}>
                     <Button
                         variant="contained"
@@ -203,4 +230,4 @@ class LoginForm extends React.Component {
 }
 
 
-export default withStyles(styles)(LoginForm);
+export default withRouter(withStyles(styles)(LoginForm));

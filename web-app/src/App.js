@@ -56,7 +56,6 @@ class App extends Component {
                     {this.state.loading === true && <CheckSecurity loaded={this.loaded}/>}
                     {this.state.loading !== true &&
                     <React.Fragment>
-                        <Notification/>
                         <Switch>
                             <Route path="/" exact component={Home}/>
                             <Route path="/posty/uzytkownika/:id" exact component={UserPostList}/>
@@ -77,6 +76,7 @@ class App extends Component {
                             <Route path="/zapomnialem/hasla" exact component={PasswordRecovery}/>
                             <Route component={NotFound}/>
                         </Switch>
+                        <Notification/>
                     </React.Fragment>
                     }
                     <FooterComponent/>

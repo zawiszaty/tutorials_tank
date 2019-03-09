@@ -13,6 +13,7 @@ import CategoryList from "./CategoryList";
 import PostThumbnailForm from "./PostThumbnailForm";
 import axios from './../../../../axios/axios'
 import green from '@material-ui/core/colors/green';
+import {withRouter} from "react-router-dom";
 
 
 const styles = theme => ({
@@ -53,8 +54,9 @@ class OwnPostForm extends React.Component {
             success: false,
             user: {},
             selected: props.category,
-            file: `${props.thumbnail}`,
+            file: props.thumbnail,
         };
+        console.log(props.thumbnail);
     }
 
     handleChangeFile = (file) => {
@@ -122,6 +124,7 @@ class OwnPostForm extends React.Component {
                             loading: false,
                         });
                     });
+                    this.props.history.push('/');
                 } else {
                     axios.post(`/api/v1/post/edit/${this.props.id}`, {
                         title: this.state.title,
@@ -138,6 +141,7 @@ class OwnPostForm extends React.Component {
                         this.setState({
                             success: true,
                         });
+                        this.props.history.push('/');
                     }).catch((e) => {
                         toast.error("Coś poszło nie tak", {
                             position: toast.POSITION.BOTTOM_RIGHT
@@ -146,6 +150,7 @@ class OwnPostForm extends React.Component {
                             loading: false,
                         });
                     });
+                    this.props.history.push('/');
                 }
             }
         }
@@ -251,4 +256,4 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = {login};
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(OwnPostForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(OwnPostForm)));

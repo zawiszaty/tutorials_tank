@@ -16,7 +16,7 @@ services:
       NAME: "rabbitmq"
 
   nginx:
-    image: nginx:1.11-alpine
+    image: nginx:1.15.9
     ports:
       - "80:80"
     volumes:

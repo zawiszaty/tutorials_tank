@@ -15,7 +15,7 @@ services:
       NAME: "rabbitmq"
 
   nginx:
-    image: nginx:1.5.19
+    image: nginx:1.15.9
     ports:
       - "80:80"
       - "443:443"

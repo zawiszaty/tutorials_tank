@@ -31,6 +31,7 @@ import PostByCategory from "./components/Post/PostByCategory";
 import PasswordRecovery from "./components/PasswordRecovery/PasswordRecovery";
 import NotFound from "./components/NotFound";
 import Redirect from "react-router-dom/es/Redirect";
+import Regulamin from "./containers/Regulamin/Regulamin";
 
 const Index = () => <h2>Home</h2>;
 
@@ -74,6 +75,7 @@ class App extends Component {
                             <Route path="/kategorie/:id/posty" exact component={PostByCategory}/>
                             <Route path="/posty" exact component={PostListContainer}/>
                             <Route path="/zapomnialem/hasla" exact component={PasswordRecovery}/>
+                            <Route path="/regulamin" exact component={Regulamin}/>
                             <Route component={NotFound}/>
                         </Switch>
                         <Notification/>

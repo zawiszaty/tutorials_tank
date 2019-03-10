@@ -10,6 +10,8 @@ import Redirect from "react-router-dom/es/Redirect";
 import {ToastContainer, toast} from 'react-toastify';
 import axios from './../../axios/axios';
 import {ErrorMessage} from "../Notification/ErrorMessage";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 const styles = theme => ({
     form: {
@@ -50,8 +52,21 @@ class RegistrationForm extends React.Component {
             username: '',
             loading: false,
             success: false,
+            checked: false,
         };
     }
+
+    handleChangeChecked = () => {
+        if (this.state.checked === false) {
+            this.setState({
+                checked: true
+            });
+        } else {
+            this.setState({
+                checked: false
+            });
+        }
+    };
 
     componentDidMount() {
         // custom rule will have name 'isPasswordMatch'
@@ -108,31 +123,42 @@ class RegistrationForm extends React.Component {
                     loading: true,
                 })
         }
-        axios.post('/api/v1/user/register', {
-            username: this.state.username,
-            email: this.state.email,
-            plainPassword: {
-                first: this.state.user.password,
-                second: this.state.user.repeatPassword,
-            }
-        }).then((response) => {
-            toast.success("Zarejestrowales sie ;). Zaloguj sie na adres email podany przy rejestracji i potwierdz konto", {
+        if (this.state.checked === true) {
+            axios.post('/api/v1/user/register', {
+                username: this.state.username,
+                email: this.state.email,
+                plainPassword: {
+                    first: this.state.user.password,
+                    second: this.state.user.repeatPassword,
+                }
+            }).then((response) => {
+                toast.success("Zarejestrowales sie ;). Zaloguj sie na adres email podany przy rejestracji i potwierdz konto", {
+                    position: toast.POSITION.BOTTOM_RIGHT
+                });
+                this.setState(
+                    {
+                        success: true,
+                        loading: false,
+                    });
+            }).catch((e) => {
+                console.log(e.response.status);
+                ErrorMessage(e);
+                this.setState(
+                    {
+                        success: false,
+                        loading: false,
+                    })
+            })
+        } else {
+            toast.info("Zaakceptuj regulamin", {
                 position: toast.POSITION.BOTTOM_RIGHT
             });
-            this.setState(
-                {
-                    success: true,
-                    loading: false,
-                });
-        }).catch((e) => {
-           console.log(e.response.status);
-            ErrorMessage(e);
             this.setState(
                 {
                     success: false,
                     loading: false,
                 })
-        })
+        }
     };
 
     render() {
@@ -157,7 +183,7 @@ class RegistrationForm extends React.Component {
                     onChange={this.handleChange}
                     name="email"
                     value={email}
-                    validators={['required', 'isEmail','minLenght', 'maxLenght']}
+                    validators={['required', 'isEmail', 'minLenght', 'maxLenght']}
                     errorMessages={['To pole jest wymagane', 'To nie jest poprawny aders email', 'Pole jest za krótkie', 'Pole to jest za długie']}
                     margin="normal" required fullWidth
                 />
@@ -167,7 +193,7 @@ class RegistrationForm extends React.Component {
                     name="email"
                     value={username}
                     type="text"
-                    validators={['required','minLenght', 'maxLenght']}
+                    validators={['required', 'minLenght', 'maxLenght']}
                     errorMessages={['To pole jest wymagane', 'Pole jest za krótkie', 'Pole to jest za długie']}
                     margin="normal" required fullWidth
                 />
@@ -176,7 +202,7 @@ class RegistrationForm extends React.Component {
                     onChange={this.handleChangePassword}
                     name="password"
                     type="password"
-                    validators={['required','minLenghtPassword', 'maxLenght']}
+                    validators={['required', 'minLenghtPassword', 'maxLenght']}
                     errorMessages={['this field is required', 'Pole jest za krótkie', 'Pole to jest za długie', 'Haslo musi zawierać jedna cyfre']}
                     value={this.state.user.password}
                     margin="normal" required fullWidth
@@ -191,6 +217,11 @@ class RegistrationForm extends React.Component {
                     value={this.state.user.repeatPassword}
                     margin="normal" required fullWidth
                 />
+                <Checkbox
+                    checked={this.state.checked}
+                    onChange={this.handleChangeChecked}
+                />
+                <a href="/regulamin" target="_blank">Akceptuje regulamin</a>
                 <div className={classes.wrapper}>
                     <Button
                         variant="contained"

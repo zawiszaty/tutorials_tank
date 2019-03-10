@@ -98,7 +98,7 @@ class MessangerComponent extends Component {
         super(props);
         this.state = {
             content: '',
-            notif: new WebSocket(`ws://${baseSocket}:8123?token=${localStorage.getItem('token')}`),
+            notif: new WebSocket(`${baseSocket}/the_socket/message?token=${localStorage.getItem('token')}`),
             messages: props.messages
         };
         this.state.notif.onmessage = (event) => {

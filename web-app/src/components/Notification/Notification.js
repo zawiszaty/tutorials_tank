@@ -39,7 +39,7 @@ class Notification extends React.Component {
         const ab = window.ab;
         console.log('dziala');
         // var userid = this.state.user;
-        var conn = new ab.Session(`ws://${baseSocket}:8888?token=${localStorage.getItem('token')}`,
+        var conn = new ab.Session(`${baseSocket}/the_socket/notification?token=${localStorage.getItem('token')}`,
             function () {
                 conn.subscribe(then.props.user[0].id, function (topic, data) {
                     let total = parseInt(then.props.notification);

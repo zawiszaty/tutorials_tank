@@ -132,6 +132,8 @@ class Message implements MessageComponentInterface
                 ]);
             } catch (\Exception $exception) {
                 dump($exception->getMessage());
+            } catch (\Error $error) {
+                dump($error->getMessage());
             } finally {
                 dump('error');
             }

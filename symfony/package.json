@@ -26,7 +26,7 @@
         "@ckeditor/ckeditor5-editor-decoupled": "^11.0.1",
         "@ckeditor/ckeditor5-react": "^1.0.0",
         "@material-ui/icons": "^3.0.1",
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "babel-plugin-transform-class-properties": "^6.24.1",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "html-react-parser": "^0.4.7",
